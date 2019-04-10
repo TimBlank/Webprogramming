@@ -3,18 +3,15 @@
 
 Informationen:
 
--Jeder hat einen eigenen Branch um darauf zu arbeiten
+-Der Stand des Projectes wird nur zu den Meilensteinen auf den Master gepusht
 
 -Unter Projects sind offene Boards die benutzt werden können
 
 
 Die Gruppe besteht aus:
 
--1. Max Mustermann						max.mustermann@uol.de
+-1. Yannis Odion yannis.odion@uni-oldenburg.de
 
--2.Erika Mustermann						erika.mustermann@uol.de
+-2. Hauke Tammen hauke.tammen@uni-oldenburg.de
 
--3.Otto Normalverbraucher		Otto.normalverbraucher@uol.de
-
--4. Tim Behrens      				tim.behrens@uol.de
-
+-3. Tim Behrens tim.behrens@uni-oldenburg.de
