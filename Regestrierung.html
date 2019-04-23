@@ -2,32 +2,56 @@
 <html>
 
 <head>
-<meta charset="utf-8">
-<title>Fahrrad Stellpätze</title>
+    <meta charset="utf-8">
+    <title>Fahrrad Stellpätze</title>
+    <link href="IconTransparent.png" rel="icon">
 </head>
 
 <body>
     <header>
-		<h1>Fahrrad Stellplätze</h1>
+        <h1>Fahrrad Stellplätze</h1>
         <h2>Universität Oldenburg</h2>
     </header>
+    <nav>
+        <ul>
+            <li><a href="Hauptseite.html" target="" title="Hauptseite">
+                    Start
+                </a></li>
+            <li><a href="Karte.html" target="" title="Haarentor">
+                    Haarentor
+                </a></li>
+            <li><a href="Karte.html" target="" title="Wechloy">
+                    Wechloy
+                </a></li>
+            <li><a href="Karte.html" target="" title="Weitere Standorte">
+                    Weitere
+                </a></li>
+        </ul>
+    </nav>
+
+    <aside>
+        <fieldset>
+            <label for="search_q">Ihr Suchbegriff</label>
+            <input type="text" id="search_q" name="q" value="" placeholder="Ihr Suchbegriff" autocomplete="off" />
+            <input type="submit" name="searchsubmit" id="searchsubmit" value="suchen" />
+            <a href="ListeDerBeitraege.html" id="startsearch" title="Hier klicken um die Volltextsuche auszuführen"><span>Suche starten</span></a>
+        </fieldset>
+    </aside>
 
     <section>
-        <p>Name:</p>
-        <p>Email:</p>
-        <p>Passwort:</p>
-        <p>Passwort wiederholung:</p>
-        <p>Acountname:</p>
+        <p>Name: <input type="text" id="name" name="n" value="" placeholder="Name" autocomplete="off" /></p>
+        <p>Email: <input type="text" id="email" name="e" value="" placeholder="Email" autocomplete="off" /></p>
+        <p>Passwort: <input type="text" id="password" name="p" value="" placeholder="Passwort" autocomplete="off" /></p>
+        <p>Passwort wiederholen: <input type="passwordRepeat" id="pr" name="q" value="" placeholder="Passwort" autocomplete="off" /></p>
+        <p>Acountname: <input type="text" id="accountname" name="a" value="" placeholder="Accountname" autocomplete="off" /></p>
 
-	</section>
+    </section>
     <footer>
-        <a href="https://www.oldenburg.de/startseite/buergerservice/geoportal.html" target="" title="Impressum">
-                    Impressum<br>
-        </a>
-        <a href="https://www.oldenburg.de/startseite/buergerservice/geoportal.html" target="" title="Datenschutz">
-                    Datenschutz<br>
+        <a href="Impressum.html" target="" title="Impressum und Datenschutz">
+            Impressum und Datenschutz<br>
         </a>
     </footer>
+
 </body>
 
 </html>
