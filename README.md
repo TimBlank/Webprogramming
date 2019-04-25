@@ -15,4 +15,3 @@ Die Gruppe besteht aus:
 -2. Hauke Tammen  					hauke.tammen@uni-oldenburg.de 
 
 -3. Tim Behrens      				tim.behrens@uni-oldenburg.de
-
