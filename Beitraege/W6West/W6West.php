@@ -9,6 +9,8 @@
 
 <body>
     <?php include "../../php/header.php"; ?>
+    <?php include "php/navigation.php"; ?>
+    <?php include "php/search.php"; ?>
 
     <section>
         <h1>W6 West</h1>
