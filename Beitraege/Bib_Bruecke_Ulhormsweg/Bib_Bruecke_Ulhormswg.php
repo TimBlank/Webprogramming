@@ -10,8 +10,8 @@
 
 <body>
     <?php include "../../php/header.php"; ?>
-    <?php include "php/navigation.php"; ?>
-    <?php include "php/search.php"; ?>
+    <?php include "../../php/navigation.php"; ?>
+    <?php include "../../php/search.php"; ?>
 
     <section>
         <h1>A2 Brücke Ulhormsweg</h1>
