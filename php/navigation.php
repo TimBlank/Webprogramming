@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr- auto">
             <li class="nav-item active"><a href="../../Index.php" title="Hauptseite">
