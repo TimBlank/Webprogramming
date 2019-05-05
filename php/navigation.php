@@ -11,7 +11,7 @@
                     Wechloy
                 </a></li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weitere</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Weitere Standorte">Weitere</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="../../Karte.php" title="Johann-Justus-Weg">
                         Johann-Justus-Weg
