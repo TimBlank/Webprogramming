@@ -28,7 +28,7 @@
         <p>Professor: Dr.-Ing. Dietrich Boles</p>
         <p>dietrich.boles@uni-oldenburg.de</p>
 
-        <h1>Eigen erschafungs Erklärung</h1>
+        <h1>Eigenerschaffungs Erklärung</h1>
         <p>Hiermit erklären wir, dass diese Seite von uns ihm unviersitären Rahmen erstellt wurde und von der Universität: Universität Oldenburg genutzt und weiter bearbeitet werden darf.</p>
         <p></p>
 
