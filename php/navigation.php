@@ -1,14 +1,18 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr- auto">
-            <li class="nav-item active"><a href="../../Index.php" title="Hauptseite">
+        <ul class="navbar-nav mr- auto ">
+            <li class="nav-item active"><a class="nav-link" href="../../Index.php" title="Hauptseite">
                     Start
+                    <span class="sr-only">(current)</span>
                 </a></li>
-            <li class="nav-item"><a href="../../Karte.php" title="Haarentor">
+            <li class="nav-item"><a class="nav-link" href="../../Karte.php" title="Haarentor">
                     Haarentor
                 </a></li>
-            <li class="nav-item"><a href="../../Karte.php" title="Wechloy">
+            <li class="nav-item"><a class="nav-link" href="../../Karte.php" title="Wechloy">
                     Wechloy
                 </a></li>
             <li class="nav-item dropdown">
