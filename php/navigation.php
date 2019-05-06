@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login/Registrierung</a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item">
-                        <form>
+                        <form class="form-inline">
                             <input type="text" id="username" name="un" value="" placeholder="Benutzername" autocomplete="off" />
                             <input type="text" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
                             <input type="submit">
