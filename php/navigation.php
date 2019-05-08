@@ -1,9 +1,3 @@
-<style>
-.loginPadding {
-  padding-right: 102px;
-}
-</style>
-
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top bg-primary">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -40,10 +34,10 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav navbar-right ml-auto loginPadding">
+            <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
-                    <div class="dropdown-menu bg-light">
+                    <div class="dropdown-menu bg-light dropdown-menu-right">
                         <a class="dropdown-item">
                             <form class="form-inline dropdown-item">
                                 <div class="form-group">
@@ -60,7 +54,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
-                            <a class="dropdown-item" href="../../Regestrierung.php" title="Hier kann man sich Registrieren">Registrieren </a>
+                            <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
                         </a>
                     </div>
                 </li>
