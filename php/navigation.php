@@ -14,7 +14,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr- auto ">
-                <li class="nav-item active"><a class="nav-link" href="../../Index.php" title="Hauptseite">
+                <li class="nav-item active"><a class="nav-link" href="../../index.php" title="Hauptseite">
                         Start
                     </a></li>
                 <li class="nav-item active"><a class="nav-link" href="../../Karte.php" title="Haarentor">
@@ -60,7 +60,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
-                            <a class="dropdown-item" href="../../Regestrierung.php" title="Hier kann man sich Registrieren">Registrieren </a>
+                            <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
                         </a>
                     </div>
                 </li>
