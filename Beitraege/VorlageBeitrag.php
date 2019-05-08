@@ -95,32 +95,31 @@
                 </li>
                 <li class="list-group-item">
                     <div class="card" style="width: 25rem;">
-                    <form>
-                        <div class="form-group">
-                            <label for="userImage">
-                                Bild hinzufügen
-                            </label>
-                            <input type="file" id="userImage" accept="image/png, image/jpeg">
-                        </div>
-                        <div class="card-body">
-                        <div class="form-group">
-                            <label for="commentText">
-                                Schreibe etwas
-                            </label>
-                            <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
-                            <textarea class="form-control" id="commentText" name="ct" placeholder="Kommentar" cols="30" rows="2"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-default">Kommentieren</button>
-                        </div>
-                    </form>
-                      </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="userImage">
+                                    Bild hinzufügen
+                                </label>
+                                <input type="file" id="userImage" accept="image/png, image/jpeg">
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="commentText">
+                                        Schreibe etwas
+                                    </label>
+                                    <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
+                                    <textarea class="form-control" id="commentText" name="ct" placeholder="Kommentar" cols="30" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-default">Kommentieren</button>
+                            </div>
+                        </form>
+                    </div>
                 </li>
             </ul>
         </section>
     </div>
 
     <?php include "../php/footer.php"; ?>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
