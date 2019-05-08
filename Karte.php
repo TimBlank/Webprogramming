@@ -18,6 +18,7 @@
     <section>
         <h1>Standort:</h1>
         <img src="Bilder/DummyMaps.png" alt="Karte des Geländes">
+
     </section>
 
     <?php include "php/footer.php"; ?>

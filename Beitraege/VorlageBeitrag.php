@@ -44,10 +44,10 @@
                         </div>
                         <div class="row">
                             <div class="col border">
-                                Stellplätze:
+                                Stellplatzgröße:
                             </div>
                             <div class="col border">
-                                Anzahl der vorgesehenen Stellplätze
+                                Größe des Stellplatzes(Klein,Mittel,Groß)
                             </div>
                         </div>
                         <div class="row">
@@ -94,7 +94,7 @@
                     <?php include "../php/comment.php"; ?>
                 </li>
                 <li class="list-group-item">
-                    <div class="card" style="width: 25rem;">
+                    <div class="card">
                         <form>
                             <div class="form-group">
                                 <label for="userImage">
