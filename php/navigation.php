@@ -39,12 +39,22 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login/Registrierung</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item">
-                            <form class="form-inline">
-                                <input type="text" id="username" name="un" value="" placeholder="Benutzername" autocomplete="off" />
-                                <input type="text" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
-                                <input type="submit">
+                            <form class="form-inline dropdown-item">
+                                <div class="form-group">
+                                    <label for="username">
+                                        Benutzername
+                                    </label>
+                                    <input type="text" class="form-control" id="username" name="un" value="" placeholder="Benutzername" autocomplete="off" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">
+                                        Passwort
+                                    </label>
+                                <input type="text" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
+                                    </div>
+                                <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
-                            <a href="../../Regestrierung.php" title="Registrieren">Registrieren </a>
+                            <a class="dropdown-item" href="../../Regestrierung.php" title="Registrieren">Registrieren </a>
                         </a>
                     </div>
                 </li>
