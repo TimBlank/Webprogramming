@@ -12,9 +12,9 @@
 </head>
 
 <body>
+    <?php include "../php/header.php"; ?>
+    <?php include "../php/navigation.php"; ?>
     <div id="mainFrame">
-        <?php include "../php/header.php"; ?>
-        <?php include "../php/navigation.php"; ?>
         <?php include "../php/search.php"; ?>
 
         <section>
@@ -80,6 +80,42 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section>
+            <h1>Kommentare</h1>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <?php include "../php/comment.php"; ?>
+                </li>
+                <li class="list-group-item">
+                    <?php include "../php/comment.php"; ?>
+                </li>
+                <li class="list-group-item">
+                    <?php include "../php/comment.php"; ?>
+                </li>
+                <li class="list-group-item">
+                    <div class="card" style="width: 25rem;">
+                    <form>
+                        <div class="form-group">
+                            <label for="userImage">
+                                Bild hinzufügen
+                            </label>
+                            <input type="file" id="userImage" accept="image/png, image/jpeg">
+                        </div>
+                        <div class="card-body">
+                        <div class="form-group">
+                            <label for="commentText">
+                                Schreibe etwas
+                            </label>
+                            <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
+                            <textarea class="form-control" id="commentText" name="ct" placeholder="Kommentar" cols="30" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-default">Kommentieren</button>
+                        </div>
+                    </form>
+                      </div>
+                </li>
+            </ul>
         </section>
     </div>
 
