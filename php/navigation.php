@@ -37,7 +37,7 @@
         <div class="collapse navbar-collapse navbar-right" id="navbarNav">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login/Registrierung</a>
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
                     <div class="dropdown-menu bg-light">
                         <a class="dropdown-item">
                             <form class="form-inline dropdown-item">
@@ -55,7 +55,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
-                            <a class="dropdown-item" href="../../Regestrierung.php" title="Registrieren">Registrieren </a>
+                            <a class="dropdown-item" href="../../Regestrierung.php" title="Hier kann man sich Registrieren">Registrieren </a>
                         </a>
                     </div>
                 </li>
