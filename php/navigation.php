@@ -33,9 +33,8 @@
 
                 </li>
             </ul>
-        </div>
-        <div class="collapse navbar-collapse navbar-right" id="navbarNav">
-            <ul class="navbar-nav navbar-right">
+
+            <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
                     <div class="dropdown-menu bg-light">
