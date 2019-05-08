@@ -1,3 +1,9 @@
+<style>
+.loginPadding {
+  padding-right: 102px;
+}
+</style>
+
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top bg-primary">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -34,7 +40,7 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav navbar-right ml-auto">
+            <ul class="navbar-nav navbar-right ml-auto loginPadding">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
                     <div class="dropdown-menu bg-light">
