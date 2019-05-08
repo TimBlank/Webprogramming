@@ -3,36 +3,71 @@
 
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/structure.css">
+
     <meta charset="utf-8">
     <title>Fahrrad Stellpätze</title>
     <link href="Bilder/IconTransparent.png" rel="icon">
 </head>
 
 <body>
-    <?php include "php/header.php"; ?>
-    <?php include "php/navigation.php"; ?>
-    <?php include "php/search.php"; ?>
+    <div id="mainFrame">
+        <?php include "php/header.php"; ?>
+        <?php include "php/navigation.php"; ?>
+        <?php include "php/search.php"; ?>
 
-    <section>
-        <h1>Gruppe</h1>
-        <img src="Bilder/Gruppenbild.jpg" alt="Gruppenbild platz">
-        <p>Von Links nach rehts sind die Entwickler dieser Seite:</p>
-        <p>Yannis Odion: Yannis.odion@uol.de</p>
-        <p>Hauke Tammen: Hauke.tammen@uol.de</p>
-        <p>Tim Behrens: Tim.behrens@uol.de</p>
-        <p></p>
+        <section>
+            <div class="d-flex flex-column">
+                <div class="p-2">
+                    <h1>Gruppe</h1>
+                </div>
+                <div class="p-2">
+                    <img id="groupImage" src="Bilder/Gruppenbild.jpg" alt="Gruppenbild platz">
+                </div>
+                <div class="p-2">
+                    Von Links nach rehts sind die Entwickler dieser Seite:
+                </div>
+                <div class="p-2">
+                    Yannis Odion: yannis.odion@uol.de
+                </div>
+                <div class="p-2">
+                    Hauke Tammen: hauke.tammen@uol.de
+                </div>
+                <div class="p-2">
+                    Tim Behrens: tim.behrens@uol.de
+                </div>
+            </div>
 
-        <h1>Wichtige Daten</h1>
-        <p>Uni Oldenbrug</p>
-        <p> Webprogrammierung: inf016 </p>
-        <p>Professor: Dr.-Ing. Dietrich Boles</p>
-        <p>dietrich.boles@uni-oldenburg.de</p>
+            <div class="d-flex flex-column">
+                <div class="p-2">
+                    <h1>Wichtige Daten</h1>
+                </div>
+                <div class="p-2">
+                    Uni Oldenbrug
+                </div>
+                <div class="p-2">
+                    Webprogrammierung: inf016
+                </div>
+                <div class="p-2">
+                    Professor: Dr.-Ing. Dietrich Boles
+                </div>
+                <div class="p-2">
+                    Email: dietrich.boles@uni-oldenburg.de
+                </div>
+            </div>
 
-        <h1>Eigenerschaffungs Erklärung</h1>
-        <p>Hiermit erklären wir, dass diese Seite von uns ihm unviersitären Rahmen erstellt wurde und von der Universität: Universität Oldenburg genutzt und weiter bearbeitet werden darf.</p>
-        <p></p>
+            <div class="d-flex flex-column">
+                <div class="p-2">
+                    <h1>Eigenerschaffungs Erklärung</h1>
+                </div>
+                <div class="p-2">
+                    Hiermit erklären wir, dass diese Seite von uns ihm unviersitären Rahmen erstellt wurde und von der Universität: Universität Oldenburg genutzt und weiter bearbeitet werden darf.
+                </div>
+            </div>
 
-    </section>
+        </section>
+    </div>
 
     <?php include "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
