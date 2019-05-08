@@ -10,17 +10,16 @@
             <ul class="navbar-nav mr- auto ">
                 <li class="nav-item active"><a class="nav-link" href="../../Index.php" title="Hauptseite">
                         Start
-                        <span class="sr-only">(current)</span>
                     </a></li>
-                <li class="nav-item"><a class="nav-link" href="../../Karte.php" title="Haarentor">
+                <li class="nav-item active"><a class="nav-link" href="../../Karte.php" title="Haarentor">
                         Haarentor
                     </a></li>
-                <li class="nav-item"><a class="nav-link" href="../../Karte.php" title="Wechloy">
+                <li class="nav-item active"><a class="nav-link" href="../../Karte.php" title="Wechloy">
                         Wechloy
                     </a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Weitere Standorte">Weitere</a>
-                    <div class="dropdown-menu">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Weitere Standorte">Weitere</a>
+                    <div class="dropdown-menu bg-light">
                         <a class="dropdown-item" href="../../Karte.php" title="Johann-Justus-Weg">
                             Johann-Justus-Weg
                         </a>
@@ -38,8 +37,8 @@
         <div class="collapse navbar-collapse navbar-right" id="navbarNav">
             <ul class="navbar-nav navbar-right">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login/Registrierung</a>
-                    <div class="dropdown-menu">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login/Registrierung</a>
+                    <div class="dropdown-menu bg-light">
                         <a class="dropdown-item">
                             <form class="form-inline dropdown-item">
                                 <div class="form-group">
