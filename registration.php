@@ -18,7 +18,7 @@
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <div id="mainFrame">
-        <?php include "php/search.php"; ?>
+
 
         <div class="mx-auto">
 

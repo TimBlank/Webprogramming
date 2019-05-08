@@ -13,7 +13,6 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <?php include "php/search.php"; ?>
 
     <div id="mainFrame">
         <article>

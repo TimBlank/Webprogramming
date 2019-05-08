@@ -16,7 +16,6 @@
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <div id="mainFrame">
-        <?php include "php/search.php"; ?>
         <section>
             <div class="d-flex flex-column">
                 <div class="p-2">
