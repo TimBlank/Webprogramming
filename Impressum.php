@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/structure.css">
 
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fahrrad Stellpätze</title>
     <link href="Bilder/IconTransparent.png" rel="icon">
 </head>
