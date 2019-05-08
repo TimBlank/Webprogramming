@@ -3,26 +3,88 @@
 <!-- Seite für die Registrierung -->
 
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <title>Fahrrad Stellpätze</title>
     <link href="Bilder/IconTransparent.png" rel="icon">
 </head>
 
 <body>
-    <?php include "php/header.php"; ?>
+    <?php include "php/header.php"; ?>a
     <?php include "php/navigation.php"; ?>
     <?php include "php/search.php"; ?>
 
-    <section>
-        <form>
-            <p>Name: <input type="text" id="name" name="n" value="" placeholder="Name" autocomplete="off" /></p>
-            <p>Email: <input type="text" id="email" name="e" value="" placeholder="Email" autocomplete="off" /></p>
-            <p>Passwort: <input type="text" id="password" name="p" value="" placeholder="Passwort" autocomplete="off" /></p>
-            <p>Passwort wiederholen: <input type="text" id="passwordRepeat" name="pr" value="" placeholder="Passwort" autocomplete="off" /></p>
-            <p>Acountname: <input type="text" id="accountname" name="a" value="" placeholder="Accountname" autocomplete="off" /></p>
-        </form>
-    </section>
+    <div class="mx-auto">
+
+        <section>
+            <!--Name-->
+            <form>
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="form-control">
+                            Name:
+                        </label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                    </div>
+                </div>
+
+                <!--Email-->
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="form-control">
+                            Email:
+                        </label>
+                    </div>
+                    <div class="col">
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                </div>
+
+                <!--Passwort-->
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="form-control">
+                            Passwort:
+                        </label>
+                    </div>
+                    <div class="col">
+                        <input type="password" class="form-control" id="password" placeholder="Passwort">
+                    </div>
+                </div>
+
+                <!--Passwort wiederholen-->
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="form-control">
+                            Passwort wiederholen:
+                        </label>
+                    </div>
+                    <div class="col">
+                        <input type="password" class="form-control" id="passwordRepeat" placeholder="Passwort">
+                    </div>
+                </div>
+
+                <!--Acountname-->
+                <div class="form-row">
+                    <div class="col-sm">
+                        <label class="form-control">
+                            Accountname:
+                        </label>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" id="accountName" placeholder="Accountname">
+                    </div>
+                </div>
+            </form>
+
+        </section>
+
+    </div>
 
     <?php include "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
