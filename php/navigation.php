@@ -39,7 +39,7 @@
                             <input type="text" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
                             <input type="submit">
                         </form>
-                        <a href="../../Regestrierung.php" title="Registrieren">Registrieren </a>
+                        <a href="../../registration.php" title="Registrieren">Registrieren </a>
                     </a>
                 </div>
             </li>
