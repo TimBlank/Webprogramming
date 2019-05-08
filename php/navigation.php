@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark sticky-top bg-primary">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#"><img alt="Pixel Bike" src="../../Bilder/IconTransparent.png"></a>
