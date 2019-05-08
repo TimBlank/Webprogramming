@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/structure.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fahrrad Stellpätze</title>
@@ -13,20 +14,110 @@
 <body>
     <?php include "../php/header.php"; ?>
     <?php include "../php/navigation.php"; ?>
-    <?php include "../php/search.php"; ?>
+    <div id="mainFrame">
+        <?php include "../php/search.php"; ?>
 
-    <section>
-        <h1>Beschreibender Name des Stellplatzes</h1>
-        <p><img src="DummyBild.png" alt="Bild des Stellplatzes"></p>
-        <p><img src="../Bilder/DummyMaps.png" alt="Position des Stellplatzes"></p>
-        <p>Öffentlich: Ja/Nein</p>
-        <p>Stellplätze: Anzahl der vorgesehenen Stellplätze</p>
-        <p>Überdacht: Ja/Nein</p>
-        <p>Art: Art der Fahrradhalterung siehe <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
-                Wikipedia
-            </a></p>
-        <p>Besonderheiten: Zum Beispiel Zugänglichkeit oder anderes</p>
-    </section>
+        <section>
+            <div class="container border">
+                <div class="row border">
+                    <div class="col">
+                        <h1>Beschreibender Name des Stellplatzes</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col border">
+                        <img src="DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
+                    </div>
+                    <div class="col border">
+                        <img src="../Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                    </div>
+                </div>
+                <div class="row border">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col border">
+                                Öffentlich:
+                            </div>
+                            <div class="col border">
+                                Ja/Nein
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col border">
+                                Stellplätze:
+                            </div>
+                            <div class="col border">
+                                Anzahl der vorgesehenen Stellplätze
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col border">
+                                Überdacht:
+                            </div>
+                            <div class="col border">
+                                Ja/Nein
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col border">
+                                Art:
+                            </div>
+                            <div class="col border">
+                                Art der Fahrradhalterung siehe
+                                <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
+                                    Wikipedia
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col border">
+                                Besonderheiten:
+                            </div>
+                            <div class="col border">
+                                Zum Beispiel Zugänglichkeit oder anderes
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h1>Kommentare</h1>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <?php include "../php/comment.php"; ?>
+                </li>
+                <li class="list-group-item">
+                    <?php include "../php/comment.php"; ?>
+                </li>
+                <li class="list-group-item">
+                    <?php include "../php/comment.php"; ?>
+                </li>
+                <li class="list-group-item">
+                    <div class="card" style="width: 25rem;">
+                        <form>
+                            <div class="form-group">
+                                <label for="userImage">
+                                    Bild hinzufügen
+                                </label>
+                                <input type="file" id="userImage" accept="image/png, image/jpeg">
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="commentText">
+                                        Schreibe etwas
+                                    </label>
+                                    <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
+                                    <textarea class="form-control" id="commentText" name="ct" placeholder="Kommentar" cols="30" rows="2"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-default">Kommentieren</button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
 
     <?php include "../php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
