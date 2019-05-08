@@ -1,6 +1,8 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img alt="Pixel Bike" src="../../Bilder/IconTransparent.png"></a>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -50,8 +52,8 @@
                                     <label for="password">
                                         Passwort
                                     </label>
-                                <input type="text" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
-                                    </div>
+                                    <input type="text" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
+                                </div>
                                 <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
                             <a class="dropdown-item" href="../../Regestrierung.php" title="Registrieren">Registrieren </a>
