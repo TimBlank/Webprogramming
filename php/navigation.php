@@ -60,7 +60,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
-                            <a class="dropdown-item" href="../../Regestrierung.php" title="Hier kann man sich Registrieren">Registrieren </a>
+                            <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
                         </a>
                     </div>
                 </li>
