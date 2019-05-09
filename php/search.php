@@ -1,6 +1,6 @@
 <div class="dropdown">
-    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
-    <div class="dropdown-menu bg-light dropdown-menu-right">
+    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Suche</a>
+    <div class="dropdown-menu bg-light">
         <a class="dropdown-item">
             <form class="form-inline dropdown-item">
                 <div class="form-group">
