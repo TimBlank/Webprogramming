@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="de">
-
+<!-- Hauptseite-->
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
     <title>Fahrrad Stellpätze</title>
     <link href="Bilder/IconTransparent.png" rel="icon">
 </head>
 
 <body>
+    <div id="mainFrame">
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <?php include "php/search.php"; ?>
 
     <section>
-        <article>
+        <article >
+
             <h1>Über diese Seite</h1>
             Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen.
         </article>
         <ul>
             <li>
-                <div>
-                    <h1><a href="Beitraege/W6West/W6West.php" title="W6 West">
+                <div style="border: black 1px solid";>
+                    <h1><a href="Beitraege/W6West/W6West.php" title="W6 West" style="border: black 1px solid"; >
                             W6 West
                         </a></h1>
-                    <img src="Beitraege/W6West/ink.png" alt="Bild des Stellplatzes">
-                    <p>Wechloy</p>
-                    <p>Überdacht</p>
-                    <p>Öffentlich</p>
-                    <img src="Beitraege/W6West/BildDerKarte.png" alt="Position des Stellplatzes">
+                    <img class="lins" src="Beitraege/W6West/ink.png" alt="Bild des Stellplatzes" height="300" style="border: black 1px solid"; >
+                    <p style="border: black 1px solid";>Wechloy</p>
+                    <p style="border: black 1px solid";>Überdacht</p>
+                    <p style="border: black 1px solid";>Öffentlich</p>
+                    <img src="Beitraege/W6West/BildDerKarte.png" alt="Position des Stellplatzes" style="border: black 1px solid";  >
                 </div>
             </li>
 
@@ -39,11 +43,11 @@
                     <h1><a href="Beitraege/Bib_Bruecke_Ulhormsweg/Bib_Bruecke_Ulhormswg.php" title="Bib Brücke Ulhormsweg">
                             Bib Brücke Ulhormsweg
                         </a></h1>
-                    <img src="Beitraege/Bib_Bruecke_Ulhormsweg/ink%20(1).png" alt="FP2">
+                    <img src="Beitraege/Bib_Bruecke_Ulhormsweg/ink(1).png" alt="FP2" height='600'>
                     <p>-Haarentor</p>
                     <p>-Überdacht</p>
                     <p>-unter der Brücke</p>
-                    <img src="Beitraege/Bib_Bruecke_Ulhormsweg/Anmerkung%202019-04-23%20155113.png" alt="Sterne">
+                    <img src="Beitraege/Bib_Bruecke_Ulhormsweg/Anmerkung%202019-04-23%20155113.png" alt="Sterne" height='600'>
                 </div>
             </li>
 
@@ -53,11 +57,11 @@
                     <h1><a href="Beitraege/A2_Bruecke_Ulhormsweg/A2_Bruecke_Ulhormsweg.php" title="A2 Brücke Ulhormsweg">
                             A2 Brücke Ulhormsweg
                         </a></h1>
-                    <img src="Beitraege/A2_Bruecke_Ulhormsweg/ink%20(1).png" alt="Bild des Stellplatzes">
+                    <img src="Beitraege/A2_Bruecke_Ulhormsweg/ink%20(1).png" alt="Bild des Stellplatzes" height='600'>
                     <p>Haarentor</p>
                     <p>Überdacht</p>
                     <p>Öffentlich</p>
-                    <img src="Beitraege/A2_Bruecke_Ulhormsweg/Anmerkung%202019-04-23%20154043.png" alt="Position des Stellplatzes">
+                    <img src="Beitraege/A2_Bruecke_Ulhormsweg/Anmerkung%202019-04-23%20154043.png" alt="Position des Stellplatzes" height='600'>
                 </div>
             </li>
 
@@ -68,6 +72,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </div>
 </body>
 
 </html>
