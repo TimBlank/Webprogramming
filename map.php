@@ -19,9 +19,15 @@
     <?php include "php/navigation.php"; ?>
     <?php include "php/search.php"; ?>
 
-    <section id="mainFrame">
-        <h1>Standort:</h1>
-        <img src="Bilder/DummyMaps.png" alt="Karte des Geländes">
+    <section>
+        <div id="mainFrame">
+            <div class="card">
+            <h1><a Standort:</h1>
+
+
+                <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=7.756347656250001%2C53.0193631492509%2C8.463592529296877%2C53.23772373999386&amp;layer=mapnik" style="border: 1px solid black"></iframe><br /><small><a href="https://www.openstreetmap.org/#map=11/53.1287/8.1100">Größere Karte anzeigen</a></small>
+                     </div>
+        </div>
     </section>
 
     <?php include "php/footer.php"; ?>
