@@ -17,7 +17,7 @@
 
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <?php include "php/search.php"; ?>
+
 
     <section class="card-group">
         <div id="mainFrame">
