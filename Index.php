@@ -25,35 +25,30 @@
         </article>
         <ul>
             <li>
-                <div class="card" style="width: 75rem;" style="border: black 1px solid">
-                    <div class="card-body">
-                        <h1><a class="card-title" title="W6 West"  >
+                <h1><a class="card-title" title="W6 West"  >
                              W6 West
-                        </a></h1>
-                        <div calss="row" style="border: black 1px solid">
-                            <div class="card">
-                                <div class="col-sm-4">
-                                    <img class="card-img-top" src="Beitraege/W6West/ink.png" alt="Bild des Stellplatzes"  style="border: black 1px solid" height="300" width="300">
-                                </div>
-                            </div>
-                            <div class ="card">
-                                    <div class ="col-sm-4" style="border: black 1px solid">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Wechloy</li>
-                                        <li class="list-group-item">Überdacht</li>
-                                        <li class="list-group-item">Öffentlich</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class= "col-sm-4">
-                                    <img class="card-img-top" src="Beitraege/W6West/BildDerKarte.png" alt="Position des Stellplatzes" style="border: black 1px solid" height="300" width="300" >
-                                </div>
-                             </div>
-                              <a href="Beitraege/W6West/W6West.php" class="btn btn-primary">Mehr informationen</a>
+                    </a></h1>
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" class="img-fluid"  src="Beitraege/W6West/ink.png" alt="Bild des Stellplatzes">
+                        <div class="card-body">
                         </div>
                     </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Infos</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Wechloy</li>
+                                <li class="list-group-item">Überdacht</li>
+                                <li class="list-group-item">Öffentlich</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" class="img-fluid" src="Beitraege/W6West/BildDerKarte.png" alt="Position des Stellplatzes">
+                    </div>
                 </div>
+                <a href="Beitraege/W6West/W6West.php" class="btn btn-primary">Mehr informationen</a>
             </li>
 
 
