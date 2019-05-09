@@ -15,7 +15,7 @@
     <?php include "php/navigation.php"; ?>
     <?php include "php/search.php"; ?>
 
-    <section>
+    <section id="mainFrame">
         <h1>Standort:</h1>
         <img src="Bilder/DummyMaps.png" alt="Karte des Geländes">
     </section>
