@@ -14,12 +14,15 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <?php include "php/search.php"; ?>
 
     <section id="mainFrame">
 
         <h1>Standort:</h1>
         <img src="Bilder/DummyMaps.png" alt="Karte des Geländes">
+        <!-- Link soll später auf spezielle Version der Vorlage führen -->
+        <a href="Beitraege/VorlageBeitrag.php" title="VorlageBeitrag">
+            Neuen Stellplatz hinzufügen
+        </a>
     </section>
 
     <?php include "php/footer.php"; ?>
