@@ -1,4 +1,4 @@
-<div class="card bg-light" style="width: 4rem;">
+<div class="card bg-light" style="width: 5rem;">
     <div class="dropdown">
         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">
             <i class="fas fa-search"></i>
