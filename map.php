@@ -15,9 +15,9 @@
 </head>
 
 <body>
-    <?php include "php/header.php"; ?>
-    <?php include "php/navigation.php"; ?>
-    <?php include "php/search.php"; ?>
+    <?php include "../php/header.php"; ?>
+    <?php include "../php/navigation.php"; ?>
+    <?php include "../php/search.php"; ?>
 
     <section>
         <div id="mainFrame">
