@@ -16,21 +16,30 @@
     <?php include "php/navigation.php"; ?>
 
     <div id="mainFrame">
-        <article>
-            <h1>Über diese Seite</h1>
-            Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen.
-        </article>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-                <?php include "php/place.php"; ?>
-            </li>
-            <li class="list-group-item">
-                <?php include "php/place.php"; ?>
-            </li>
-            <li class="list-group-item">
-                <?php include "php/place.php"; ?>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="col col-auto">
+                <div id="sideSearch">
+                    <?php include "php/search.php"; ?>
+                </div>
+            </div>
+            <div class="col">
+                <article>
+                    <h1>Über diese Seite</h1>
+                    Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen.
+                </article>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <?php include "php/place.php"; ?>
+                    </li>
+                    <li class="list-group-item">
+                        <?php include "php/place.php"; ?>
+                    </li>
+                    <li class="list-group-item">
+                        <?php include "php/place.php"; ?>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <?php include "php/footer.php"; ?>
