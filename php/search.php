@@ -33,14 +33,23 @@
               <input type="checkbox" id="publicCheck" name="Öffentlich" value="public" checked>
           </div>
 
-          <div class="form-group">
-              <label>
-                  Größe
-              </label><br>
-              <input type="radio" name="size" value="small"> Klein<br>
-              <input type="radio" name="size" value="medium"> Mittel<br>
-              <input type="radio" name="size" value="big"> Groß
-          </div><br>
+          <label for="size">
+              Größe
+          </label>
+          <div class="form-group" id="size">
+              <label for="smallCheck">
+                  Klein
+              </label>
+              <input type="checkbox" id="smallCheck" name="kleinerStellplatz" value="small" checked><br>
+              <label for="mediumCheck">
+                  Mittel
+              </label>
+              <input type="checkbox" id="mediumCheck" name="mittlererStellplatz" value="medium" checked><br>
+              <label for="bigCheck">
+                  Groß
+              </label>
+              <input type="checkbox" id="bigCheck" name="großerStellplatz" value="big" checked><br>
+          </div>
 
           <button type="submit" class="btn btn-default" formaction="../../index.php">Suchen</button>
       </form>
