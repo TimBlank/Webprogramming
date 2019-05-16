@@ -3,7 +3,20 @@
               <label for="search_q">
                   Standortname
               </label><br>
-              <input type="text" id="search_q" name="q" value="" placeholder="Standortname" autocomplete="off" />
+              <input type="text" id="search_q" name="locationName" value="" placeholder="Standortname" autocomplete="off" />
+          </div>
+
+          <div class="form-group">
+              <label for="holderType">
+                  Halterungsart
+              </label><br>
+              <select class="form-control" name="Halterungsart" id="holderType">
+                  <option value="nothingSelectet">(Nichts ausgewählt)</option>
+                  <option value="simpleFrontHolder">Einfache Vorderradhalter</option>
+                  <option value="friendlyFrontHolder">Fahrradgerechte Vorderradhalter</option>
+                  <option value="supportHolder">Anlehnbügel</option>
+                  <option value="angularHolder">Schräghochparker</option>
+              </select>
           </div>
 
           <div class="form-group">
@@ -21,14 +34,13 @@
           </div>
 
           <div class="form-group">
-              <label >
+              <label>
                   Größe
               </label><br>
-              <input type="radio" name="size" value="male" checked> Klein<br>
-              <input type="radio" name="size" value="female"> Mittel<br>
-              <input type="radio" name="size" value="other"> Groß
-          </div>
-
+              <input type="radio" name="size" value="small"> Klein<br>
+              <input type="radio" name="size" value="medium"> Mittel<br>
+              <input type="radio" name="size" value="big"> Groß
+          </div><br>
 
           <button type="submit" class="btn btn-default">Suchen</button>
       </form>
