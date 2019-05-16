@@ -13,9 +13,9 @@
 }
 
 #background {
-    background-image: url(../Bilder/background.jpg);
+    background-image: url(../Bilder/DummyMaps.png);
     background-color: black;
-    width: 1000px;
+    width: 100%;
     height: auto;
     border: 1px solid black;
     padding: 2px;
