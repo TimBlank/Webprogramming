@@ -37,7 +37,7 @@
                         <i class="fas fa-search"></i>
                         <span class="sr-only">Suche</span>
                     </a>
-                    <div class="dropdown-menu bg-light">
+                    <div class="dropdown-menu bg-light dropdown-menu-right">
                         <a class="dropdown-item">
                             <?php include "php/search.php"; ?>
                         </a>
