@@ -1,9 +1,3 @@
-<style>
-.loginPadding {
-  padding-right: 102px;
-}
-</style>
-
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top bg-primary">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -14,25 +8,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr- auto ">
-                <li class="nav-item active"><a class="nav-link" href="../../Index.php" title="Hauptseite">
+                <li class="nav-item active"><a class="nav-link" href="../../index.php" title="Hauptseite">
                         Start
                     </a></li>
-                <li class="nav-item active"><a class="nav-link" href="../../Karte.php" title="Haarentor">
+                <li class="nav-item active"><a class="nav-link" href="../../map.php" title="Haarentor">
                         Haarentor
                     </a></li>
-                <li class="nav-item active"><a class="nav-link" href="../../Karte.php" title="Wechloy">
+                <li class="nav-item active"><a class="nav-link" href="../../map.php" title="Wechloy">
                         Wechloy
                     </a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Weitere Standorte">Weitere</a>
                     <div class="dropdown-menu bg-light">
-                        <a class="dropdown-item" href="../../Karte.php" title="Johann-Justus-Weg">
+                        <a class="dropdown-item" href="../../map.php" title="Johann-Justus-Weg">
                             Johann-Justus-Weg
                         </a>
-                        <a class="dropdown-item" href="../../Karte.php" title="Botanischer Garten">
+                        <a class="dropdown-item" href="../../map.php" title="Botanischer Garten">
                             Botanischer Garten
                         </a>
-                        <a class="dropdown-item" href="../../Karte.php" title="Offis">
+                        <a class="dropdown-item" href="../../map.php" title="Offis">
                             Offis
                         </a>
                     </div>
@@ -40,10 +34,10 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav navbar-right ml-auto loginPadding">
+            <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
-                    <div class="dropdown-menu bg-light">
+                    <div class="dropdown-menu bg-light dropdown-menu-right">
                         <a class="dropdown-item">
                             <form class="form-inline dropdown-item">
                                 <div class="form-group">
@@ -56,11 +50,11 @@
                                     <label for="password">
                                         Passwort
                                     </label>
-                                    <input type="text" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
+                                    <input type="password" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
                                 </div>
                                 <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
-                            <a class="dropdown-item" href="../../Regestrierung.php" title="Hier kann man sich Registrieren">Registrieren </a>
+                            <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
                         </a>
                     </div>
                 </li>
