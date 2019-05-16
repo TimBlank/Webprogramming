@@ -24,6 +24,16 @@
 
 
         <div id="mainFrame">
+            <article class="card border-0">
+
+                <h1> <a class="card-title" title="Über diese Seite">
+                        Über diese Seite
+                    </a></h1>
+                <div class="card-body">
+                    Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen.
+                </div>
+
+            </article>
             <div class="row">
                 <div class="col col-auto">
                     <div id="sideSearch">
@@ -33,16 +43,6 @@
                 <div class="col">
                     <div class="card-group">
                         <div class="card">
-                            <article class="card border-0">
-
-                                <h1> <a class="card-title" title="Über diese Seite">
-                                        Über diese Seite
-                                    </a></h1>
-                                <div class="card-body">
-                                    Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen.
-                                </div>
-
-                            </article>
                             <ul class="list-unstyled">
                                 <li>
                                     <h1><a class="card-title" title="W6 West">
