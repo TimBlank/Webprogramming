@@ -10,6 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fahrrad Stellpätze</title>
     <link href="Bilder/IconTransparent.png" rel="icon">
+    <style type="text/css">
+        #navSearch {
+            display: none;
+        }
+
+    </style>
 </head>
 
 <body>

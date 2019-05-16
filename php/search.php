@@ -42,5 +42,5 @@
               <input type="radio" name="size" value="big"> Groß
           </div><br>
 
-          <button type="submit" class="btn btn-default">Suchen</button>
+          <button type="submit" class="btn btn-default" formaction="../../index.php">Suchen</button>
       </form>
