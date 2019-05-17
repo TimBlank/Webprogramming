@@ -13,7 +13,7 @@
 }
 
 #background {
-    background-image: url(../Bilder/DummyMaps.png);
+    background-image: url(../Bilder/DummyMaps.png);/*TODO richtiges Bild einfügen*/
     background-color: black;
     background-size: cover;
     border: 1px solid black;
