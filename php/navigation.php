@@ -32,6 +32,18 @@
                     </div>
 
                 </li>
+                <li class="nav-item dropdown sm-only" id="navSearch">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Suche">
+                        <i class="fas fa-search"></i>
+                        <span class="sr-only">Suche</span>
+                    </a>
+                    <div class="dropdown-menu bg-light dropdown-menu-right">
+                        <a class="dropdown-item">
+                            <?php include "php/search.php"; ?>
+                        </a>
+                    </div>
+
+                </li>
             </ul>
 
             <ul class="navbar-nav navbar-right ml-auto">
