@@ -25,7 +25,7 @@
     }
 
 #background {
-    background-image: url(../Bilder/Background-Image.jpg);/*TODO richtiges Bild einfügen*/
+    background-image: url(../Bilder/Background-Image.jpg);
     background-color: black;
     background-size: cover;
     border: 1px solid black;
@@ -34,7 +34,7 @@
 
 .box{
 	position: relative;
-	width: 100%;		/* desired width */
+	width: 75%;		/* desired width */
 }
 
 .box:before{
