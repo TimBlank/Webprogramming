@@ -1,7 +1,10 @@
 <?php
 
-function verifyLogin() {}
+function verifyLogin() {
+    //prüfen ob Logindaten korrekt sind
+}
 
-function registerUser() {}
+function registerUser()
+    //neuenBenutzer regristrieren
 
 ?>
