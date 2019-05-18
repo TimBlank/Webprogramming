@@ -23,6 +23,10 @@ class entry {
         return $name;
     }
 
+     public function getLocation(){
+        return $location;
+    }
+
     public function getImage(){
         return $image;
     }
@@ -46,12 +50,12 @@ class entry {
 
 
 
-//Eintrag hinzufügen, vorher Übergabewerte prüfen
-function addEntry(){
+//Eintrag hinzufügen, vorher Übergabewerte prüfen und Bild bei Erfolg im Bilder Ordner speichern
+function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType){
 
 }
 
-//Erstellt Eintrags-Objekt basierend auf einer Id
+//Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     return new entry;
 }
