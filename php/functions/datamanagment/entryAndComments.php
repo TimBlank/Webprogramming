@@ -68,4 +68,28 @@
         return $this->description;
     }
 }
+
+class comment{
+    private $author;
+    private $text;
+    private $image;
+
+    public function __construct($setAuthor="Benutzername",$setText="Hier Steht ein Kommentar, den ein Nutzer geschrieben hat.",$setImage="DummyBild.png"){
+        $this->author = $setAuthor;
+        $this->text = $setText;
+        $this->image = $setImage;
+    }
+
+    public function getAuthor(){
+        return $this->author;
+    }
+
+    public function getText(){
+        return $this->text;
+    }
+
+    public function getImage(){
+        return $this->image;
+    }
+}
 ?>

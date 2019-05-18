@@ -8,8 +8,9 @@ function verifyLogin($name, $password) {
     return false;
 }
 
-function registerUser(){
-    //neuenBenutzer regristrieren
+//neuenBenutzer regristrieren
+function registerUser($realName,$email,$password,$userName){
+    return true;
 }
 
 ?>

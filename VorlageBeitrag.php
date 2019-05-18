@@ -17,7 +17,10 @@
     <?php include "php/navigation.php"; ?>
     <?php
         include "php/functions/datamanagment/contentmanagmentDao.php";
-        $content= new entry();
+
+        //entryID muss noch richtig gesetzt werden
+        $entryID =0;
+        $content = loadEntry($entryID);
     ?>
     <div id="mainFrame">
 
@@ -37,7 +40,7 @@
                         </div>
                         <div class="row">
                             <div class="col border">
-                                <img src="Bilder/<?php echo $content->getImage() ?>" alt="Bild des Stellplatzes" class="img-fluid">
+                                <img src="Bilder/<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid">
                             </div>
                             <div class="col border">
                                 <img src="Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
@@ -75,7 +78,7 @@
                                         Art:
                                     </div>
                                     <div class="col border">
-                                       <?php echo $content->getHolderType() ?>
+                                        <?php echo $content->getHolderType() ?>
                                         <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
                                     </div>
                                 </div>
@@ -97,15 +100,18 @@
         <section>
             <h1>Kommentare</h1>
             <ul class="list-group list-group-flush">
+                <?php foreach(loadEntryComments($entryID) as $comment): ?>
                 <li class="list-group-item">
-                    <?php include "php/comment.php"; ?>
+                    <div class="card">
+                        <img src="Bilder/<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $comment->getAuthor(); ?></h5>
+                            <p class="card-text"><?php echo $comment->getText(); ?></p>
+                        </div>
+                    </div>
                 </li>
-                <li class="list-group-item">
-                    <?php include "php/comment.php"; ?>
-                </li>
-                <li class="list-group-item">
-                    <?php include "php/comment.php"; ?>
-                </li>
+                <?php endforeach; ?>
+
                 <li class="list-group-item">
                     <div class="card">
                         <form>
