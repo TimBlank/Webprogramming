@@ -73,7 +73,7 @@ class entry {
 
 
 //Eintrag hinzufügen, vorher Übergabewerte prüfen und Bild bei Erfolg im Bilder Ordner speichern
-function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType){
+function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$description){
     return true;
 }
 
