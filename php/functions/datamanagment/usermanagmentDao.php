@@ -10,7 +10,10 @@ function verifyLogin($name, $password) {
 
 //neuenBenutzer regristrieren
 function registerUser($realName,$email,$password,$userName){
+    if($name="Test"){
     return true;
+    }
+    return false;
 }
 
 ?>
