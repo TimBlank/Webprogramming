@@ -9,7 +9,7 @@ class entry {
     private $hasRoof;
     private $holderType;
 
-    public function __construct($name="Beschreibender Name",$location,$image="DummyBild",$isPublic=true,$size="Klein(0-30)/Mittel(30-100)/Groß(100+)",$hasRoof=true,$holderType="Einfacher Vorderradhalter") {
+    public function __construct($name="Beschreibender Name",$location=null,$image="DummyBild",$isPublic=true,$size="Klein(0-30)/Mittel(30-100)/Groß(100+)",$hasRoof=true,$holderType="Einfacher Vorderradhalter") {
         $this->name = $name;
         $this->location = $location;
         $this->image = $image;
@@ -52,12 +52,12 @@ class entry {
 
 //Eintrag hinzufügen, vorher Übergabewerte prüfen und Bild bei Erfolg im Bilder Ordner speichern
 function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType){
-
+    return true;
 }
 
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
-    return new entry;
+    return new entry();
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
