@@ -9,7 +9,7 @@ class entry {
     private $hasRoof;
     private $holderType;
 
-    public function __construct($name="Beschreibender Name",$location,$image,$isPublic=true,$size="Klein(0-30)/Mittel(30-100)/Groß(100+)",$hasRoof=true,$holderType="Einfacher Vorderradhalter") {
+    public function __construct($name="Beschreibender Name",$location,$image="DummyBild",$isPublic=true,$size="Klein(0-30)/Mittel(30-100)/Groß(100+)",$hasRoof=true,$holderType="Einfacher Vorderradhalter") {
         $this->name = $name;
         $this->location = $location;
         $this->image = $image;
