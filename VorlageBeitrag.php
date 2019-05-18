@@ -15,6 +15,10 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
+    <?php
+        include "php/functions/datamanagment/contentmanagmentDao.php";
+        $content= new entry();
+    ?>
     <div id="mainFrame">
 
         <section>
@@ -28,25 +32,26 @@
                     <div class="container border">
                         <div class="row border">
                             <div class="col">
-                                <h1>Beschreibender Name des Stellplatzes</h1>
+                                <h1><?php echo $content->getName(); ?></h1>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col border">
-                                <img src="Bilder/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
+                                <img src="Bilder/<?php echo $content->getImage() ?>" alt="Bild des Stellplatzes" class="img-fluid">
                             </div>
                             <div class="col border">
                                 <img src="Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                                <!-- Hier muss noch irgendwie die Position richtig eingebunden werden -->
                             </div>
                         </div>
                         <div class="row border">
                             <div class="container">
                                 <div class="row">
                                     <div class="col border">
-                                        Öffentlich:
+                                        Öffentlich/Privat:
                                     </div>
                                     <div class="col border">
-                                        Ja/Nein
+                                        <?php echo $content->stringIsPublic() ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -54,7 +59,7 @@
                                         Stellplatzgröße:
                                     </div>
                                     <div class="col border">
-                                        Größe des Stellplatzes(Klein,Mittel,Groß)
+                                        <?php echo $content->getSize() ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -62,7 +67,7 @@
                                         Überdacht:
                                     </div>
                                     <div class="col border">
-                                        Ja/Nein
+                                        <?php echo $content->stringHasRoof() ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -70,10 +75,8 @@
                                         Art:
                                     </div>
                                     <div class="col border">
-                                        Art der Fahrradhalterung siehe
-                                        <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
-                                            Wikipedia
-                                        </a>
+                                       <?php echo $content->getHolderType() ?>
+                                        <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
                                     </div>
                                 </div>
                                 <div class="row">
@@ -81,7 +84,7 @@
                                         Besonderheiten:
                                     </div>
                                     <div class="col border">
-                                        Zum Beispiel Zugänglichkeit oder anderes
+                                        <?php echo $content->getDescription() ?>
                                     </div>
                                 </div>
                             </div>
