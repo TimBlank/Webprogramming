@@ -31,14 +31,7 @@ function loadEntryComments($entryId){
     yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Bilder/Sterne.png");
 }
 
-//Gibt Ids der Einträge zurück, die ohne Suche auf der Startseite angezeigt werden
-function homeEntries(){
-    for ($i=0; $i<3; $i++){
-            yield $i;
-    }
-}
-
-//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
+//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
 function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
     if($isSearch){
         if($name=="Test"){
