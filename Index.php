@@ -20,6 +20,11 @@
     <div id="background">
         <?php include "php/header.php"; ?>
         <?php include "php/navigation.php"; ?>
+        <?php include "php/functions/datamanagment/contentmanagmentDao.php";
+
+            $contents = searchResult();
+
+        ?>
 
 
 
