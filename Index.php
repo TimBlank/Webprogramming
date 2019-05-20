@@ -49,6 +49,22 @@
                     <div class="card-group">
                         <div class="card">
                             <ul class="list-unstyled">
+                                <?php
+                                $isSearch =false;
+                                $name = null;
+                                $isPublic=null;
+                                $size=null;
+                                $hasRoof=null;
+                                $holderType=null;
+                                if(isset($_GET["SubmitSearch"])){
+                                    $isSearch =true;
+                                    if(isset($_GET["locationName"])){
+                                        $name = $_GET["locationName"];
+                                    }
+                                }
+
+                                foreach(searchResult($isSearch,$name,$isPublic,$size,$hasRoof,$holderType) as $entryID):
+                                ?>
                                 <li>
                                     <h1><a class="card-title" title="W6 West">
                                             W6 West
@@ -75,7 +91,7 @@
                                     </div>
                                     <a href="Beitraege/W6West/W6West.php" class="btn btn-primary">Mehr informationen</a>
                                 </li>
-
+                                <?php endforeach; ?>
 
                                 <li>
                                     <h1><a class="card-title" title="Bib Brücke Ulhormsweg">

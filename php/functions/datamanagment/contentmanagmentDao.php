@@ -31,18 +31,32 @@ function loadEntryComments($entryId){
     yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Bilder/Sterne.png");
 }
 
-//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
-function searchResult($name,$isPublic,$size,$hasRoof,$holderType){
-    if($name=="Test"){
-        for ($i=0; $i<3; $i++){
+//Gibt Ids der Einträge zurück, die ohne Suche auf der Startseite angezeigt werden
+function homeEntries(){
+    for ($i=0; $i<3; $i++){
             yield $i;
-        }
-    }
-    else{
-        for ($i=0; $i<3; $i++){
-            yield 0;
-        }
     }
 }
+
+//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
+function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
+    if($isSearch){
+        if($name=="Test"){
+            for ($i=0; $i<3; $i++){
+                yield $i;
+            }
+        }else{
+            for ($i=0; $i<2; $i++){
+                yield 0;
+            }
+        }
+    }else{
+        //Default Anzeige der Hauptseite
+            for ($i=0; $i<1; $i++){
+                yield $i;
+            }
+    }
+}
+
 
 ?>
