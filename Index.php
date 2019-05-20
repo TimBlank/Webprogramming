@@ -22,7 +22,7 @@
         <?php include "php/navigation.php"; ?>
         <?php include "php/functions/datamanagment/contentmanagmentDao.php";
 
-            $contents = searchResult();
+            //$contents = searchResult();
 
         ?>
 

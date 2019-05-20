@@ -20,6 +20,10 @@
 
         //entryID muss noch richtig gesetzt werden
         $entryID =0;
+        if (isset($_GET["EntryID"])){
+            $entryID =$_GET["EntryID"];
+        }
+
         $content = loadEntry($entryID);
     ?>
     <div id="mainFrame">
