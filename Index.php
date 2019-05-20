@@ -17,12 +17,9 @@
 
 <body>
 
+    <?php include "php/header.php"; ?>
+    <?php include "php/navigation.php"; ?>
     <div id="background">
-        <?php include "php/header.php"; ?>
-        <?php include "php/navigation.php"; ?>
-
-
-
         <div id="mainFrame">
             <article class="card border-0">
 

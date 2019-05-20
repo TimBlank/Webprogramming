@@ -16,70 +16,72 @@
     <?php include "../php/navigation.php"; ?>
     <div id="mainFrame">
 
-        <section>
-            <div class="container border">
-                <div class="row border">
-                    <div class="col">
-                        <h1>Beschreibender Name des Stellplatzes</h1>
+        <div id="padCC">
+            <section>
+                <div class="container border">
+                    <div class="row border">
+                        <div class="col">
+                            <h1>Beschreibender Name des Stellplatzes</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col border">
+                            <img src="DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
+                        </div>
+                        <div class="col border">
+                            <img src="../Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row border">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col border">
+                                    Öffentlich:
+                                </div>
+                                <div class="col border">
+                                    Ja/Nein
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Stellplatzgröße:
+                                </div>
+                                <div class="col border">
+                                    Größe des Stellplatzes(Klein,Mittel,Groß)
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Überdacht:
+                                </div>
+                                <div class="col border">
+                                    Ja/Nein
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Art:
+                                </div>
+                                <div class="col border">
+                                    Art der Fahrradhalterung siehe
+                                    <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
+                                        Wikipedia
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Besonderheiten:
+                                </div>
+                                <div class="col border">
+                                    Zum Beispiel Zugänglichkeit oder anderes
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col border">
-                        <img src="DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
-                    </div>
-                    <div class="col border">
-                        <img src="../Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
-                    </div>
-                </div>
-                <div class="row border">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col border">
-                                Öffentlich:
-                            </div>
-                            <div class="col border">
-                                Ja/Nein
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col border">
-                                Stellplatzgröße:
-                            </div>
-                            <div class="col border">
-                                Größe des Stellplatzes(Klein,Mittel,Groß)
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col border">
-                                Überdacht:
-                            </div>
-                            <div class="col border">
-                                Ja/Nein
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col border">
-                                Art:
-                            </div>
-                            <div class="col border">
-                                Art der Fahrradhalterung siehe
-                                <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
-                                    Wikipedia
-                                </a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col border">
-                                Besonderheiten:
-                            </div>
-                            <div class="col border">
-                                Zum Beispiel Zugänglichkeit oder anderes
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
     <?php include "../php/footer.php"; ?>
