@@ -18,6 +18,8 @@ function loadEntry($entryId){
         return new entry();
     }elseif(3){
         return new entry("W6 West","Beitraege/W6West/W6W.png",true,"Klein",true,"Einfacher Vorderradhalter","Keine");
+    }else{
+        return new entry();
     }
 
 }
