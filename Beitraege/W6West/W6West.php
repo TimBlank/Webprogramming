@@ -16,7 +16,7 @@
 
     <section>
         <h1>W6 West</h1>
-        <p><img src="ink.png" alt="Bild des Stellplatzes"></p>
+        <p><img src="W6W.png" alt="Bild des Stellplatzes"></p>
         <p><img src="BildDerKarte.png" alt="Position des Stellplatzes"></p>
         <p>Öffentlich: Ja</p>
         <p>Stellplätze: 15</p>

@@ -12,7 +12,14 @@ function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$d
 
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
-    return new entry();
+    if($entryId==1){
+        return new entry("A2 Brücke Ulhormsweg","Beitraege/A2_Bruecke_Ulhormsweg/A2BU.png",true,"Groß",true,"Einfacher Vorderradhalter","Unter der Brücke von A2 zur Bibliothek");
+    }elseif(2){
+        return new entry();
+    }elseif(3){
+        return new entry("W6 West","Beitraege/W6West/W6W.png",true,"Klein",true,"Einfacher Vorderradhalter","Keine");
+    }
+
 }
 
 function loadEntryComments($entryId){
