@@ -19,7 +19,7 @@ function loadEntryComments($entryId){
     for ($i=0; $i<2; $i++){
         yield new comment;
     }
-    yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Sterne.png");
+    yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Bilder/Sterne.png");
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen

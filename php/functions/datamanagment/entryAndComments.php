@@ -9,7 +9,7 @@
     private $holderType;
     private $description;
 
-    public function __construct($setName="Beschreibender Name",$setLocation=null,$setImage="DummyBild.png",$setIsPublic=true,$setSize="Klein(0-30)/Mittel(30-100)/Groß(100+)",$setHasRoof=true,$setHolderType="Einfacher Vorderradhalter",$setDescription="Zum Beispiel Zugänglichkeit oder anderes") {
+    public function __construct($setName="Beschreibender Name",$setLocation=null,$setImage="Bilder/DummyBild.png",$setIsPublic=true,$setSize="Klein(0-30)/Mittel(30-100)/Groß(100+)",$setHasRoof=true,$setHolderType="Einfacher Vorderradhalter",$setDescription="Zum Beispiel Zugänglichkeit oder anderes") {
         $this->name = $setName;
         $this->location = $setLocation;
         $this->image = $setImage;
@@ -74,7 +74,7 @@ class comment{
     private $text;
     private $image;
 
-    public function __construct($setAuthor="Benutzername",$setText="Hier Steht ein Kommentar, den ein Nutzer geschrieben hat.",$setImage="DummyBild.png"){
+    public function __construct($setAuthor="Benutzername",$setText="Hier Steht ein Kommentar, den ein Nutzer geschrieben hat.",$setImage="Bilder/DummyBild.png"){
         $this->author = $setAuthor;
         $this->text = $setText;
         $this->image = $setImage;
