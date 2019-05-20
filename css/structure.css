@@ -23,6 +23,7 @@
     #sideSearch {
         display: none;
     }
+}
 
 #background {
     background-image: url(../Bilder/Background-Image.jpg);
@@ -32,22 +33,24 @@
     padding: 2px;
 }
 
-.box{
-	position: relative;
-	width: 75%;		/* desired width */
+.box {
+    position: relative;
+    width: 75%;
+    /* desired width */
 }
 
-.box:before{
-	content: "";
-	display: block;
-	padding-top: 50%; 	/* initial ratio of 1:1*/
+.box:before {
+    content: "";
+    display: block;
+    padding-top: 50%;
+    /* initial ratio of 1:1*/
 }
 
-.content{
-	position:  absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 
 }
