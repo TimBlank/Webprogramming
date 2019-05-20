@@ -51,5 +51,5 @@
               <input type="checkbox" id="bigCheck" name="großerStellplatz" value="big" checked><br>
           </div>
 
-          <button type="submit" class="btn btn-default" formaction="../../index.php">Suchen</button>
+          <button type="submit" class="btn btn-default" formaction="../index.php">Suchen</button>
       </form>
