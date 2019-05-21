@@ -17,16 +17,12 @@
 
 <body>
 
-    <div id="background">
         <?php include "php/header.php"; ?>
         <?php include "php/navigation.php"; ?>
-        <?php include "php/functions/datamanagment/contentmanagmentDao.php";
+SuchePHP
+        <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
 
-            //$contents = searchResult();
-
-        ?>
-
-
+    <div id="background">
 
         <div id="mainFrame">
             <article class="card border-0">
