@@ -33,6 +33,10 @@ function loadEntryComments($entryId){
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
 function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
+    /* $size ist eine Zahl die folgenderweise berechnet wird
+    -> $size = klein + mittel + groß
+       wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
+    */
     if($isSearch){
         if($name=="A2"){
             yield 1;
