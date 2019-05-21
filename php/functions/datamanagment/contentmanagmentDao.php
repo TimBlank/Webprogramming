@@ -57,6 +57,7 @@ function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=nu
     }
 }
 
+//Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function search(){
     $isSearch =false;
     $name = null;
