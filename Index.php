@@ -17,12 +17,9 @@
 
 <body>
 
-    <div id="background">
         <?php include "php/header.php"; ?>
         <?php include "php/navigation.php"; ?>
-
-
-
+    <div id="background">
         <div id="mainFrame">
             <article class="card border-0">
 
@@ -68,7 +65,7 @@
                                             <img class="card-img-top" class="img-fluid" src="Beitraege/W6West/BildDerKarte.png" alt="Position des Stellplatzes">
                                         </div>
                                     </div>
-                                    <a href="Beitraege/VorlageBeitrag.php" class="btn btn-primary">Mehr informationen</a>
+                                    <a href="VorlageBeitrag.php" class="btn btn-primary">Mehr informationen</a>
                                 </li>
 
 
