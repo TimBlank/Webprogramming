@@ -1,5 +1,6 @@
 <?php
  class entry {
+    private $id;
     private $name;
     private $image;
     private $location;
@@ -9,7 +10,8 @@
     private $holderType;
     private $description;
 
-    public function __construct($setName="Beschreibender Name",$setImage="Bilder/DummyBild.png",$setIsPublic=true,$setSize="Klein(0-30)/Mittel(30-100)/Groß(100+)",$setHasRoof=true,$setHolderType="Einfacher Vorderradhalter",$setDescription="Zum Beispiel Zugänglichkeit oder anderes",$setLocation=null) {
+    public function __construct($setId,$setName="Beschreibender Name",$setImage="Bilder/DummyBild.png",$setIsPublic=true,$setSize="Klein(0-30)/Mittel(30-100)/Groß(100+)",$setHasRoof=true,$setHolderType="Einfacher Vorderradhalter",$setDescription="Zum Beispiel Zugänglichkeit oder anderes",$setLocation=null) {
+        $this->id = $setId;
         $this->name = $setName;
         $this->location = $setLocation;
         $this->image = $setImage;
@@ -20,7 +22,11 @@
         $this->description = $setDescription;
     }
 
-    public function getName(){
+    public function getId(){
+            return $this->id;
+    }
+
+     public function getName(){
             return $this->name;
     }
 

@@ -13,13 +13,13 @@ function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$d
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     if($entryId==1){
-        return new entry("A2 Brücke Ulhormsweg","Beitraege/A2_Bruecke_Ulhormsweg/A2BU.png",true,"Groß",true,"Einfacher Vorderradhalter","Unter der Brücke von A2 zur Bibliothek");
+        return new entry(1,"A2 Brücke Ulhormsweg","Beitraege/A2_Bruecke_Ulhormsweg/A2BU.png",true,"Groß",true,"Einfacher Vorderradhalter","Unter der Brücke von A2 zur Bibliothek");
     }elseif($entryId==2){
-        return new entry("Bib Brücke Ulhormsweg","Beitraege/Bib_Bruecke_Ulhormsweg/BBU.png",true,"Groß",true,"Einfacher Vorderradhalter","Unter der Brücke von der Bibliothek zu A2");
+        return new entry(2,"Bib Brücke Ulhormsweg","Beitraege/Bib_Bruecke_Ulhormsweg/BBU.png",true,"Groß",true,"Einfacher Vorderradhalter","Unter der Brücke von der Bibliothek zu A2");
     }elseif($entryId==3){
-        return new entry("W6 West","Beitraege/W6West/W6W.png",true,"Klein",true,"Einfacher Vorderradhalter","Keine");
+        return new entry(3,"W6 West","Beitraege/W6West/W6W.png",true,"Klein",true,"Einfacher Vorderradhalter","Keine");
     }else{
-        return new entry();
+        return new entry(0);
     }
 
 }
@@ -34,13 +34,15 @@ function loadEntryComments($entryId){
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
 function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
     if($isSearch){
-        if($name=="Test"){
-            for ($i=0; $i<3; $i++){
+        if($name=="A2"){
+            yield 1;
+        }elseif($name=="Bib"){
+            yield 2;
+        }elseif($name=="W6"){
+            yield 3;
+        } else{
+            for ($i=0; $i<4; $i++){
                 yield $i;
-            }
-        }else{
-            for ($i=0; $i<2; $i++){
-                yield 0;
             }
         }
     }else{
