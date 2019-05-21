@@ -68,7 +68,7 @@
                                             <img class="card-img-top" class="img-fluid" src="Beitraege/W6West/BildDerKarte.png" alt="Position des Stellplatzes">
                                         </div>
                                     </div>
-                                    <a href="Beitraege/W6West/W6West.php" class="btn btn-primary">Mehr informationen</a>
+                                    <a href="Beitraege/VorlageBeitrag.php" class="btn btn-primary">Mehr informationen</a>
                                 </li>
 
 

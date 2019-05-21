@@ -1,14 +1,15 @@
       <form>
-          <div class="form-group">
+          <div class="card">
+          <div class="form-group" >
               <label for="search_q">
-                  Standortname
+                  <h3>Standortname</h3>
               </label><br>
               <input type="text" id="search_q" name="locationName" value="" placeholder="Standortname" autocomplete="off" />
           </div>
 
           <div class="form-group">
               <label for="holderType">
-                  Halterungsart
+                  <h3>Halterungsart</h3>
               </label><br>
               <select class="form-control" name="Halterungsart" id="holderType">
                   <option value="nothingSelectet">(Nichts ausgewählt)</option>
@@ -34,7 +35,7 @@
           </div>
 
           <label for="size">
-              Größe
+             <h3>Größe</h3>
           </label>
           <div class="form-group" id="size">
               <label for="smallCheck">
@@ -51,5 +52,7 @@
               <input type="checkbox" id="bigCheck" name="großerStellplatz" value="big" checked><br>
           </div>
 
-          <button type="submit" class="btn btn-default" formaction="../index.php">Suchen</button>
+          <button type="submit" class="btn btn-default" formaction="../../index.php">Suchen</button>
+          </div>
+
       </form>
