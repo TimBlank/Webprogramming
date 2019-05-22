@@ -14,15 +14,17 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
+    <?php include "php/functions/userInput.php"; ?>
     <div id="mainFrame">
 
         <div class="createEntryPage">
             <section>
                 <form method="post" enctype="multipart/form-data">
+                    <?php entry(); ?>
                     <div class="container border">
                         <div class="row border">
                             <div class="col">
-                                <input type="text" class="form-control" id="entryName" placeholder="Beschreibender Name des Stellplatzes">
+                                <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes">
                             </div>
                         </div>
                         <div class="row">
@@ -31,7 +33,7 @@
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>
-                                <input type="file" id="userImage" accept="image/png, image/jpeg">
+                                <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg">
                             </div>
                             <div class="col border">
                                 <img src="Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
@@ -98,7 +100,7 @@
                                             Wikipedia
                                         </a>
                                         <div class="form-group">
-                                            <select class="form-control" name="Halterungsart" id="holderType">
+                                            <select class="form-control" name="holdingType" id="holderType">
                                                 <option value="nothingSelectet">(Nichts ausgewählt)</option>
                                                 <option value="simpleFrontHolder">Einfache Vorderradhalter</option>
                                                 <option value="friendlyFrontHolder">Fahrradgerechte Vorderradhalter</option>
@@ -113,7 +115,7 @@
                                         Besonderheiten:
                                     </div>
                                     <div class="col border">
-                                        <textarea class="form-control" id="features" placeholder="Zum Beispiel Zugänglichkeit oder anderes"></textarea>
+                                        <textarea class="form-control" id="features" name="features" placeholder="Zum Beispiel Zugänglichkeit oder anderes"></textarea>
                                     </div>
                                 </div>
                             </div>
