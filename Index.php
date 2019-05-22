@@ -16,7 +16,6 @@
 </head>
 
 <body>
-
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
