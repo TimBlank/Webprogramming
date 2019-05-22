@@ -10,6 +10,10 @@ function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$d
     return false;
 }
 
+function addComment($entryId, $username, $text, $image){
+    return true;
+}
+
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     if($entryId==1){
@@ -25,10 +29,12 @@ function loadEntry($entryId){
 }
 
 function loadEntryComments($entryId){
-    for ($i=0; $i<2; $i++){
-        yield new comment;
-    }
+
+    yield new comment;
+
     yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Bilder/Sterne.png");
+
+    yield new comment("Rainbow Dragon31","Hey ein Kommentar ohne Bild","");
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false

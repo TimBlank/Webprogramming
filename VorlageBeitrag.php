@@ -107,7 +107,9 @@
                 <?php foreach(loadEntryComments($entryID) as $comment): ?>
                 <li class="list-group-item">
                     <div class="card">
+                        <?php if($comment->getImage()!=""): ?>
                         <img src="<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes">
+                        <?php endif ?>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $comment->getAuthor(); ?></h5>
                             <p class="card-text"><?php echo $comment->getText(); ?></p>
@@ -128,7 +130,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="commentText">
-                                        Schreibe etwas
+                                        Schreibe etwas:
                                     </label>
                                     <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
                                     <textarea class="form-control" id="commentText" name="ct" placeholder="Kommentar" cols="30" rows="2"></textarea>
