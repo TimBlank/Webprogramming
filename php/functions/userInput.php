@@ -13,7 +13,7 @@ function search(){
     if(isset($_GET["SubmitSearch"])){
         $isSearch =true;
         if(isset($_GET["locationName"])){
-            $name = $_GET["locationName"];
+            $name = htmlspecialchars( $_GET["locationName"]);
         }
         if(isset($_GET["Öffentlich"])){
             $isPublic = true;
@@ -29,10 +29,10 @@ function search(){
         }
 
         if(isset($_GET["Überdacht"])){
-            $name = $_GET["locationName"];
+            $hasRoof = true;
         }
         if(isset($_GET["Halterungsart"])){
-            $name = $_GET["locationName"];
+            $holderType = htmlspecialchars($_GET["Halterungsart"]);
         }
     }
 
@@ -42,12 +42,27 @@ function search(){
 }
 
 function comment(){
-    if (isset($_FILES["commentImg"])) {
-        $image = $_FILES["commentImg"];
-        if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/Kommentare/".$image['name'])) {
-            echo "Da wama Bild".$image['name'];
-        }
+    if(isset($_POST["SubmitComment"])){
+        //Hier muss überprüft werden, ob der Benutzer eingeloggt ist
+        if (isset($_FILES["commentImg"])) {
 
+            //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
+            $image = $_FILES["commentImg"];
+
+            //Dateiendung
+            $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
+            $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
+            if($check !==false){
+                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/Kommentare/".$image['name'])) {
+                echo "Da wama Bild".$image['name']."<br>";
+                echo "Dateiendung".$imgType."<br>";
+                }
+            }else {
+               echo "Das war kein Bild <br>" ;
+            }
+
+
+        }
     }
 
 }
