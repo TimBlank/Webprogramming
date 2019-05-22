@@ -10,6 +10,13 @@ function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$descript
     return false;
 }
 
+function addComment($entryId, $username, $text){
+    if($entryId == 0){
+        return 3;
+    }
+    return false;
+}
+
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     if($entryId==1){
@@ -22,13 +29,21 @@ function loadEntry($entryId){
         return new entry(0);
     }
 
+    //Eintrag existiert nicht
+    return false;
+
 }
 
 function loadEntryComments($entryId){
-    for ($i=0; $i<2; $i++){
-        yield new comment;
+
+    if($entryId == 3){
+        yield new comment("Silly_4_8_7","Ich kann ja Kommentare schreiben, mal schauen wie das aussieht.... und er wird länger und  länger läääääääännnnnnnngeeeeeeeeeeerrrrrrrrr. Hi","Bilder/FP1.jpg");
     }
+    yield new comment;
+
     yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Bilder/Sterne.png");
+
+    yield new comment("Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
@@ -56,45 +71,4 @@ function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=nu
             }
     }
 }
-
-//Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
-function search(){
-    $isSearch =false;
-    $name = null;
-    $isPublic=null;
-    $size=0;
-    $hasRoof=null;
-    $holderType=null;
-    if(isset($_GET["SubmitSearch"])){
-        $isSearch =true;
-        if(isset($_GET["locationName"])){
-            $name = $_GET["locationName"];
-        }
-        if(isset($_GET["Öffentlich"])){
-            $isPublic = true;
-        }
-        if(isset($_GET["kleinerStellplatz"])){//klein
-            $size = $size + 1;
-        }
-        if(isset($_GET["mittlererStellplatz"])){//mittel
-            $size = $size + 2;
-        }
-        if(isset($_GET["großerStellplatz"])){//groß
-            $size = $size + 4;
-        }
-
-        if(isset($_GET["Überdacht"])){
-            $name = $_GET["locationName"];
-        }
-        if(isset($_GET["Halterungsart"])){
-            $name = $_GET["locationName"];
-        }
-    }
-
-    foreach(searchResult($isSearch,$name,$isPublic,$size,$hasRoof,$holderType) as $id) {
-        yield $id;
-    }
-}
-
-
 ?>
