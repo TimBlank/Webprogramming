@@ -45,22 +45,26 @@ function comment(){
     if(isset($_POST["SubmitComment"])){
         //Hier muss überprüft werden, ob der Benutzer eingeloggt ist
         if (isset($_FILES["commentImg"])) {
-
+            if( !empty($_FILES["commentImg"]["tmp_name"])){
             //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
             $image = $_FILES["commentImg"];
 
             //Dateiendung
             $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
-            $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
-            if($check !==false){
-                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/Kommentare/".$image['name'])) {
-                echo "Da wama Bild".$image['name']."<br>";
-                echo "Dateiendung".$imgType."<br>";
-                }
-            }else {
-               echo "Das war kein Bild <br>" ;
-            }
 
+            //Überprüfung ob Datei ein Bild
+
+                $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
+                if($check !==false){
+                    if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/Kommentare/".$image['name'])) {
+                            echo "Da wama Bild".$image['name']."<br>";
+                            echo "Dateiendung".$imgType."<br>";
+                    }
+                }else {
+                    echo "Das war kein Bild <br>" ;
+                    return false;
+                }
+            }
 
         }
     }
