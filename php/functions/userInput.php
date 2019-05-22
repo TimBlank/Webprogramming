@@ -41,5 +41,15 @@ function search(){
     }
 }
 
+function comment(){
+    if (isset($_FILES["commentImg"])) {
+        $image = $_FILES["commentImg"];
+        if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"C:\\Users\\hauke\\Desktop".$image['name'])) {
+            echo "Da wama Bild".$image['name'];
+        }
+
+    }
+}
+
 
 ?>

@@ -26,6 +26,7 @@
 
         $content = loadEntry($entryID);
     ?>
+    <?php include "php/functions/userInput.php"; ?>
     <div id="mainFrame">
 
         <section>
@@ -119,13 +120,15 @@
                 <?php endforeach; ?>
 
                 <li class="list-group-item">
+
                     <div class="card">
-                        <form method="post">
+                        <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
+                                <?php comment(); ?>
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>
-                                <input type="file" id="userImage" name="commentImg" accept="image/png, image/jpeg">
+                                <input type="file" id="userImage" name="commentImg" accept="image/png, image/jpeg" >
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
@@ -135,7 +138,7 @@
                                     <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
                                     <textarea class="form-control" id="commentText" name="ct" placeholder="Kommentar" cols="30" rows="2"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-default">Kommentieren</button>
+                                <input type="submit" name="SubmitComment" value="Kommentieren" class="btn btn-default"/>
                             </div>
                         </form>
                     </div>
