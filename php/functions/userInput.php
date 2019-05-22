@@ -46,7 +46,7 @@ function comment(){
 
         //TODO: Hier muss überprüft werden, ob der Benutzer eingeloggt ist
 
-        $entry = loadEntry($_GET[EntryID]);
+        $entry = loadEntry($_GET["EntryID"]);
         if($entry !== false){
             if(!empty($_POST["commentText"])){
 
@@ -79,7 +79,7 @@ function comment(){
             $entryId = $entry->getId();
             $commentId = addComment($entryId, $username, $text);
             if($commentId !== false && $imageExists){
-                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/".$entryId."/comments/".$commentId.$imgType)) {
+                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/".$entryId."/comments/".$commentId.".".$imgType)) {
                             echo "Bild erfolgreich hochgeladen <br>";
                 }else{
                     echo "Fehler beim speichern des Bildes <br>";

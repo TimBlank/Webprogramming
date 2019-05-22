@@ -10,7 +10,7 @@ function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$d
     return false;
 }
 
-function addComment($entryId, $username, $text, $image){
+function addComment($entryId, $username, $text){
     if($entryId == 0){
         return 3;
     }
