@@ -30,11 +30,14 @@ function loadEntry($entryId){
 
 function loadEntryComments($entryId){
 
+    if($entryId == 3){
+        yield new comment("Silly_4_8_7","Ich kann ja Kommentare schreiben, mal schauen wie das aussieht.... und er wird länger und  länger läääääääännnnnnnngeeeeeeeeeeerrrrrrrrr. Hi","Bilder/FP1.jpg");
+    }
     yield new comment;
 
     yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Bilder/Sterne.png");
 
-    yield new comment("Rainbow Dragon31","Hey ein Kommentar ohne Bild","");
+    yield new comment("Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
