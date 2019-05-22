@@ -1,8 +1,10 @@
 <?php
 include "datamanagment/contentmanagmentDao.php";
 
-function entry() {
+function newEntry() {
     if(isset($_POST["submitEntry"])){
+        //T0D0: prüfen ob Benutzer eingeloggt ist
+
         $entryName = null;
         $location = null;
         $userImage = null;
@@ -11,6 +13,7 @@ function entry() {
         $optionsCovered = null;
         $holdingType = null;
         $features = null;
+        $imgType =null;
 
         if(isset($_POST["entryName"])) {
             $entryName = htmlspecialchars($_POST["entryName"]);
@@ -19,6 +22,10 @@ function entry() {
         if(isset($_FILES["userImage"])) {
             //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
             $image = $_FILES["userImage"];
+            if(empty($image)){
+                echo "Es wurde keine Datei Hochgeladen <br>" ;
+                return false;
+            }
             //Dateiendung
             $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
             $check = getimagesize($_FILES["userImage"]["tmp_name"]);
@@ -26,6 +33,7 @@ function entry() {
                 $userImage = $image;
             } else {
                echo "Das war kein Bild <br>" ;
+                return false;
             }
         }
 
@@ -47,13 +55,13 @@ function entry() {
         }
 
         //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
-        $id = addEntry($entryName, $location, $userImage, $optionsPublic, $optionsSize, $optionsCovered, $holdingType, $features);
+        $id = addEntry($entryName, $location, $optionsPublic, $optionsSize, $optionsCovered, $holdingType, $features);
         if($id !== false) {
             echo "Test erfolgreich";
 
             mkdir("Bilder/".$id."/");
             mkdir("Bilder/".$id."/comments/");
-            move_uploaded_file($_FILES["userImage"]["tmp_name"],"Bilder/".$id."/".$image['name']);
+            move_uploaded_file($_FILES["userImage"]["tmp_name"],"Bilder/".$id."/".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
         } else {
             echo "Test fehlgeschlagen";

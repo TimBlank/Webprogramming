@@ -20,7 +20,7 @@
         <div class="createEntryPage">
             <section>
                 <form method="post" enctype="multipart/form-data">
-                    <?php entry(); ?>
+                    <?php newEntry(); ?>
                     <div class="container border">
                         <div class="row border">
                             <div class="col">

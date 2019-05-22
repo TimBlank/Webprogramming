@@ -3,7 +3,7 @@
 include "entryAndComments.php";
 
 //Eintrag hinzufügen
-function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$description){
+function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
     if($name == "Test" && $isPublic == "public" && $size == "small" && $hasRoof == "covered" && $description == "Hallo"){
     return 0;
     }
