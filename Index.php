@@ -21,7 +21,6 @@
     <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
 
     <div id="background">
-
         <div id="mainFrame">
             <article class="card border-0">
 

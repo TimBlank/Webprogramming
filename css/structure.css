@@ -55,3 +55,24 @@
     right: 0;
 
 }
+
+.createEntryPage {
+    padding-bottom: 20px
+}
+
+.createEntryPage input[type="text"] {
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.createBtn {
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center
+}

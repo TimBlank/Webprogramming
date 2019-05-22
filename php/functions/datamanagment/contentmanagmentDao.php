@@ -2,10 +2,10 @@
 
 include "entryAndComments.php";
 
-//Eintrag hinzufügen, vorher Übergabewerte prüfen und Bild bei Erfolg im Bilder Ordner speichern
-function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$description){
-    if($name="Test"){
-    return true;
+//Eintrag hinzufügen
+function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
+    if($name == "Test" && $isPublic == "public" && $size == "small" && $hasRoof == "covered" && $description == "Hallo"){
+    return 0;
     }
     return false;
 }
