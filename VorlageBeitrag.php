@@ -120,12 +120,12 @@
 
                 <li class="list-group-item">
                     <div class="card">
-                        <form>
+                        <form method="post">
                             <div class="form-group">
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>
-                                <input type="file" id="userImage" accept="image/png, image/jpeg">
+                                <input type="file" id="userImage" name="commentImg" accept="image/png, image/jpeg">
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
