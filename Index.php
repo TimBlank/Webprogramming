@@ -16,9 +16,10 @@
 </head>
 
 <body>
-
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
+    <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
+
     <div id="background">
         <div id="mainFrame">
             <article class="card border-0">
@@ -41,13 +42,15 @@
                     <div class="card-group">
                         <div class="card">
                             <ul class="list-unstyled">
+                                <?php foreach(search() as $entryID): ?>
                                 <li>
-                                    <h1><a class="card-title" title="W6 West">
-                                            W6 West
+                                    <?php $content = loadEntry($entryID); ?>
+                                    <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
+                                            <?php echo $content->getName(); ?>
                                         </a></h1>
                                     <div class="card-group">
                                         <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Beitraege/W6West/ink.png" alt="Bild des Stellplatzes">
+                                            <img class="card-img-top" class="img-fluid" src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes">
                                             <div class="card-body">
                                             </div>
                                         </div>
@@ -55,74 +58,19 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Infos</h5>
                                                 <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Wechloy</li>
-                                                    <li class="list-group-item">Überdacht</li>
-                                                    <li class="list-group-item">Öffentlich</li>
+                                                    <li class="list-group-item"><?php echo $content->stringIsPublic() ?></li>
+                                                    <li class="list-group-item"><?php echo $content->getSize() ?></li>
+                                                    <li class="list-group-item"><?php echo $content->stringHasRoof() ?></li>
                                                 </ul>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Beitraege/W6West/BildDerKarte.png" alt="Position des Stellplatzes">
+                                            <img class="card-img-top" class="img-fluid" src="Bilder/DummyMaps.png" alt="Position des Stellplatzes">
                                         </div>
                                     </div>
-                                    <a href="Beitraege/W6West/W6West.php" class="btn btn-primary">Mehr informationen</a>
+                                    <a href="VorlageBeitrag.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
-
-
-                                <li>
-                                    <h1><a class="card-title" title="Bib Brücke Ulhormsweg">
-                                            Bib Brücke Ulhormsweg
-                                        </a></h1>
-                                    <div class="card-group">
-                                        <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Beitraege/Bib_Bruecke_Ulhormsweg/ink%20(1).png" alt="FP2">
-                                            <div class="card-body">
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Infos</h5>
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Haarentor</li>
-                                                    <li class="list-group-item">Überdacht</li>
-                                                    <li class="list-group-item">unter der Brücke</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Beitraege/Bib_Bruecke_Ulhormsweg/Anmerkung%202019-04-23%20155113.png" alt="Sterne">
-                                        </div>
-                                    </div>
-                                    <a href="Beitraege/Bib_Bruecke_Ulhormsweg/Bib_Bruecke_Ulhormswg.php" class="btn btn-primary">Mehr informationen</a>
-                                </li>
-
-
-                                <li>
-                                    <h1><a class="card-title" title="Bib Brücke Ulhormsweg">
-                                            A2 Brücke Ulhormsweg
-                                        </a></h1>
-                                    <div class="card-group">
-                                        <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Beitraege/A2_Bruecke_Ulhormsweg/ink%20(1).png" alt="Bild des Stellplatzes">
-                                            <div class="card-body">
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Infos</h5>
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">Haarentor</li>
-                                                    <li class="list-group-item">Überdacht</li>
-                                                    <li class="list-group-item">Öffentlich</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Beitraege/A2_Bruecke_Ulhormsweg/Anmerkung%202019-04-23%20154043.png" alt="Position des Stellplatzes">
-                                        </div>
-                                    </div>
-                                    <a href="Beitraege/A2_Bruecke_Ulhormsweg/A2_Bruecke_Ulhormsweg.php" class="btn btn-primary">Mehr informationen</a>
-                                </li>
+                                <?php endforeach; ?>
                             </ul>
                         </div>
                     </div>
