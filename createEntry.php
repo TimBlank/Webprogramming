@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     <div class="createBtn">
-                        <button type="submit" class="btn btn-default">Erstellen</button>
+                        <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
                     </div>
                 </form>
             </section>
