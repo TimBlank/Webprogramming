@@ -11,7 +11,10 @@ function addEntry($name,$location,$image,$isPublic,$size,$hasRoof,$holderType,$d
 }
 
 function addComment($entryId, $username, $text, $image){
-    return true;
+    if($entryId == 0){
+        return 3;
+    }
+    return false;
 }
 
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
@@ -25,6 +28,9 @@ function loadEntry($entryId){
     }else{
         return new entry(0);
     }
+
+    //Eintrag existiert nicht
+    return false;
 
 }
 
