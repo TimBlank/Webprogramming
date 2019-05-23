@@ -69,7 +69,7 @@
                                             <img class="card-img-top" class="img-fluid" src="Bilder/DummyMaps.png" alt="Position des Stellplatzes">
                                         </div>
                                     </div>
-                                    <a href="VorlageBeitrag.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
+                                    <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
                                 <?php endforeach; ?>
                             </ul>

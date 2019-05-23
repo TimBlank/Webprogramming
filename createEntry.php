@@ -48,11 +48,11 @@
                                     </div>
                                     <div class="col border">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="optionsPublic" id="public" value="public" checked>
+                                            <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" checked>
                                             <label class="form-check-label" for="public">Ja</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="optionsPublic" id="private" value="notPublic">
+                                            <input class="form-check-input" type="radio" name="isPublic" id="private" value="false">
                                             <label class="form-check-label" for="private">Nein</label>
                                         </div>
                                     </div>
@@ -63,15 +63,15 @@
                                     </div>
                                     <div class="col border">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="optionsSize" id="sizeSmall" value="small" checked>
+                                            <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="small" checked>
                                             <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="optionsSize" id="sizeMedium" value="medium">
+                                            <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="medium">
                                             <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="optionsSize" id="sizeLarge" value="large">
+                                            <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="large">
                                             <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
                                         </div>
                                     </div>
@@ -82,11 +82,11 @@
                                     </div>
                                     <div class="col border">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="optionsCovered" id="covered" value="covered">
+                                            <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true">
                                             <label class="form-check-label" for="covered">Ja</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="optionsCovered" id="notCovered" value="notCovered" checked>
+                                            <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" checked>
                                             <label class="form-check-label" for="notCovered">Nein</label>
                                         </div>
                                     </div>
