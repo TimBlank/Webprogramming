@@ -5,15 +5,15 @@
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function search(){
     $isSearch =false;
-    $name = null;
+    $entryName = null;
     $isPublic=null;
     $size=0;
     $hasRoof=null;
-    $holderType=null;
+    $holdingType=null;
     if(isset($_GET["SubmitSearch"])){
         $isSearch =true;
-        if(isset($_GET["locationName"])){
-            $name = htmlspecialchars( $_GET["locationName"]);
+        if(isset($_GET["entryName"])){
+            $entryName = htmlspecialchars( $_GET["entryName"]);
         }
         if(isset($_GET["isPublic"])){
             $isPublic = true;
@@ -31,12 +31,12 @@ function search(){
         if(isset($_GET["hasRoof"])){
             $hasRoof = true;
         }
-        if(isset($_GET["Halterungsart"])){
-            $holderType = htmlspecialchars($_GET["Halterungsart"]);
+        if(isset($_GET["holdingType"])){
+            $holdingType = htmlspecialchars($_GET["holdingType"]);
         }
     }
 
-    foreach(searchResult($isSearch,$name,$isPublic,$size,$hasRoof,$holderType) as $id) {
+    foreach(searchResult($isSearch,$entryName,$isPublic,$size,$hasRoof,$holdingType) as $id) {
         yield $id;
     }
 }
@@ -99,9 +99,9 @@ function newEntry() {
         if($id !== false) {
             echo "Test erfolgreich";
 
-            mkdir("Bilder/".$id."/");
-            mkdir("Bilder/".$id."/comments/");
-            move_uploaded_file($_FILES["userImage"]["tmp_name"],"Bilder/".$id."/".$id.".".$imgType);
+            mkdir("pictures/".$id."/");
+            mkdir("pictures/".$id."/comments/");
+            move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/".$id."/".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
         } else {
             echo "Test fehlgeschlagen";
@@ -148,7 +148,7 @@ function comment(){
             $entryId = $entry->getId();
             $commentId = addComment($entryId, $username, $text);
             if($commentId !== false && $imageExists){
-                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/".$entryId."/comments/".$commentId.".".$imgType)) {
+                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/".$entryId."/comments/".$commentId.".".$imgType)) {
                             echo "Bild erfolgreich hochgeladen <br>";
                 }else{
                     echo "Fehler beim speichern des Bildes <br>";

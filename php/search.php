@@ -4,14 +4,14 @@
               <label for="search_q">
                   <h3>Standortname</h3>
               </label><br>
-              <input type="text" id="search_q" name="locationName" value="" placeholder="Standortname" autocomplete="off" />
+              <input type="text" id="search_q" name="entryName" placeholder="Standortname" autocomplete="off" />
           </div>
 
           <div class="form-group">
-              <label for="holderType">
+              <label for="holdingType">
                   <h3>Halterungsart</h3>
               </label><br>
-              <select class="form-control" name="Halterungsart" id="holderType">
+              <select class="form-control" name="holdingType" id="holdingType">
                   <option value="nothingSelectet">(Nichts ausgewählt)</option>
                   <option value="simpleFrontHolder">Einfache Vorderradhalter</option>
                   <option value="friendlyFrontHolder">Fahrradgerechte Vorderradhalter</option>

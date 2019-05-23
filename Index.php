@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/structure.css">
 
     <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
+    <link href="pictures/IconTransparent.png" rel="icon">
 </head>
 
 <body>
@@ -66,7 +66,7 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Bilder/DummyMaps.png" alt="Position des Stellplatzes">
+                                            <img class="card-img-top" class="img-fluid" src="pictures/DummyMaps.png" alt="Position des Stellplatzes">
                                         </div>
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>

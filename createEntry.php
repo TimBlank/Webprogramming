@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
+    <link href="pictures/IconTransparent.png" rel="icon">
 </head>
 
 <body>
@@ -30,14 +30,14 @@
                         </div>
                         <div class="row">
                             <div class="col border">
-                                <img src="Bilder/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
+                                <img src="pictures/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>
                                 <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg">
                             </div>
                             <div class="col border">
-                                <img src="Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                                <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
                             </div>
                         </div>
                         <div class="row border">
