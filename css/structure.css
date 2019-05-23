@@ -34,20 +34,21 @@
     padding: 2px;
 }
 
-.box {
+/*Start; Quelle: http://www.mademyday.de/css-height-equals-width-with-pure-css.html#outer_wrap */
+.mapBox .box {
     position: relative;
     width: 100%;
     /* desired width */
 }
 
-.box:before {
+.mapBox .box:before {
     content: "";
     display: block;
     padding-top: 50%;
     /* initial ratio of 1:1*/
 }
 
-.content {
+.mapBox .content {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,6 +56,7 @@
     right: 0;
 
 }
+/*Ende;*/
 
 .createEntryPage {
     padding-bottom: 20px
