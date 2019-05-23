@@ -17,7 +17,7 @@
     <section>
         <h1>A2 Brücke Ulhormsweg</h1>
         <p><img src="Anmerkung%202019-04-23%20154043.png" alt="Bild des Stellplatzes"></p>
-        <p><img src="ink%20(1).png" alt="Position des Stellplatzes"></p>
+        <p><img src="A2BU.png" alt="Position des Stellplatzes"></p>
         <p>Öffentlich: Ja</p>
         <p>Stellplätze: 103</p>
         <p>Überdacht: Ja</p>
