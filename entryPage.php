@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
+    <link href="pictures/IconTransparent.png" rel="icon">
 </head>
 
 <body>
@@ -48,7 +48,7 @@
                                 <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid">
                             </div>
                             <div class="col border">
-                                <img src="Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                                <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
                                 <!-- Hier muss noch irgendwie die Position richtig eingebunden werden -->
                             </div>
                         </div>

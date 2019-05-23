@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top bg-primary">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#"><img alt="Pixel Bike" src="../../Bilder/IconTransparent.png"></a>
+            <a class="navbar-brand" href="#"><img alt="Pixel Bike" src="../../pictures/IconTransparent.png"></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

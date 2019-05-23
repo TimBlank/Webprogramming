@@ -4,14 +4,14 @@
               <label for="search_q">
                   <h3>Standortname</h3>
               </label><br>
-              <input type="text" id="search_q" name="locationName" value="" placeholder="Standortname" autocomplete="off" />
+              <input type="text" id="search_q" name="entryName" placeholder="Standortname" autocomplete="off" />
           </div>
 
           <div class="form-group">
-              <label for="holderType">
+              <label for="holdingType">
                   <h3>Halterungsart</h3>
               </label><br>
-              <select class="form-control" name="Halterungsart" id="holderType">
+              <select class="form-control" name="holdingType" id="holdingType">
                   <option value="nothingSelectet">(Nichts ausgewählt)</option>
                   <option value="simpleFrontHolder">Einfache Vorderradhalter</option>
                   <option value="friendlyFrontHolder">Fahrradgerechte Vorderradhalter</option>
@@ -24,14 +24,14 @@
               <label for="roofCheck">
                   Überdacht
               </label>
-              <input type="checkbox" id="roofCheck" name="Überdacht" value="roof" checked>
+              <input type="checkbox" id="roofCheck" name="hasRoof" value="true" checked>
           </div>
 
           <div class="form-group">
               <label for="publicCheck">
                   Öffentlich
               </label>
-              <input type="checkbox" id="publicCheck" name="Öffentlich" value="public" checked>
+              <input type="checkbox" id="publicCheck" name="isPublic" value="true" checked>
           </div>
 
           <label for="size">
@@ -41,15 +41,15 @@
               <label for="smallCheck">
                   Klein
               </label>
-              <input type="checkbox" id="smallCheck" name="kleinerStellplatz" value="small" checked><br>
+              <input type="checkbox" id="smallCheck" name="smallSpace" value="true" checked><br>
               <label for="mediumCheck">
                   Mittel
               </label>
-              <input type="checkbox" id="mediumCheck" name="mittlererStellplatz" value="medium" checked><br>
+              <input type="checkbox" id="mediumCheck" name="mediumSpace" value="true" checked><br>
               <label for="bigCheck">
                   Groß
               </label>
-              <input type="checkbox" id="bigCheck" name="großerStellplatz" value="big" checked><br>
+              <input type="checkbox" id="bigCheck" name="largeSpace" value="true" checked><br>
           </div>
           <input type="submit" name="SubmitSearch" value="Suchen" class="btn btn-default" formaction="Index.php" />
           </div>

@@ -5,38 +5,38 @@
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function search(){
     $isSearch =false;
-    $name = null;
+    $entryName = null;
     $isPublic=null;
     $size=0;
     $hasRoof=null;
-    $holderType=null;
+    $holdingType=null;
     if(isset($_GET["SubmitSearch"])){
         $isSearch =true;
-        if(isset($_GET["locationName"])){
-            $name = htmlspecialchars( $_GET["locationName"]);
+        if(isset($_GET["entryName"])){
+            $entryName = htmlspecialchars( $_GET["entryName"]);
         }
-        if(isset($_GET["Öffentlich"])){
+        if(isset($_GET["isPublic"])){
             $isPublic = true;
         }
-        if(isset($_GET["kleinerStellplatz"])){//klein
+        if(isset($_GET["smallSpace"])){//klein
             $size = $size + 1;
         }
-        if(isset($_GET["mittlererStellplatz"])){//mittel
+        if(isset($_GET["mediumSpace"])){//mittel
             $size = $size + 2;
         }
-        if(isset($_GET["großerStellplatz"])){//groß
+        if(isset($_GET["largeSpace"])){//groß
             $size = $size + 4;
         }
 
-        if(isset($_GET["Überdacht"])){
+        if(isset($_GET["hasRoof"])){
             $hasRoof = true;
         }
-        if(isset($_GET["Halterungsart"])){
-            $holderType = htmlspecialchars($_GET["Halterungsart"]);
+        if(isset($_GET["holdingType"])){
+            $holdingType = htmlspecialchars($_GET["holdingType"]);
         }
     }
 
-    foreach(searchResult($isSearch,$name,$isPublic,$size,$hasRoof,$holderType) as $id) {
+    foreach(searchResult($isSearch,$entryName,$isPublic,$size,$hasRoof,$holdingType) as $id) {
         yield $id;
     }
 }
@@ -48,9 +48,9 @@ function newEntry() {
         $entryName = null;
         $location = null;
         $userImage = null;
-        $optionsPublic = null;
-        $optionsSize = null;
-        $optionsCovered = null;
+        $isPublic = null;
+        $size = null;
+        $hasRoof = null;
         $holdingType = null;
         $features = null;
         $imgType =null;
@@ -77,15 +77,15 @@ function newEntry() {
             }
         }
 
-        if(isset($_POST["optionsPublic"])) {
-            $optionsPublic = $_POST["optionsPublic"];
+        if(isset($_POST["isPublic"])) {
+            $isPublic = $_POST["optionsPublic"];
         }
 
-        if(isset($_POST["optionsSize"])) {
-            $optionsSize = $_POST["optionsSize"];
+        if(isset($_POST["size"])) {
+            $size = $_POST["size"];
         }
-        if(isset($_POST["optionsCovered"])) {
-            $optionsCovered = $_POST["optionsCovered"];
+        if(isset($_POST["hasRoof"])) {
+            $hasRoof = $_POST["hasRoof"];
         }
         if(isset($_POST["holdingType"])) {
             $holdingType = $_POST["holdingType"];
@@ -95,13 +95,13 @@ function newEntry() {
         }
 
         //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
-        $id = addEntry($entryName, $location, $optionsPublic, $optionsSize, $optionsCovered, $holdingType, $features);
+        $id = addEntry($entryName, $location, $isPublic, $size, $hasRoof, $holdingType, $features);
         if($id !== false) {
             echo "Test erfolgreich";
 
-            mkdir("Bilder/".$id."/");
-            mkdir("Bilder/".$id."/comments/");
-            move_uploaded_file($_FILES["userImage"]["tmp_name"],"Bilder/".$id."/".$id.".".$imgType);
+            mkdir("pictures/".$id."/");
+            mkdir("pictures/".$id."/comments/");
+            move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/".$id."/".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
         } else {
             echo "Test fehlgeschlagen";
@@ -148,7 +148,7 @@ function comment(){
             $entryId = $entry->getId();
             $commentId = addComment($entryId, $username, $text);
             if($commentId !== false && $imageExists){
-                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"Bilder/".$entryId."/comments/".$commentId.".".$imgType)) {
+                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/".$entryId."/comments/".$commentId.".".$imgType)) {
                             echo "Bild erfolgreich hochgeladen <br>";
                 }else{
                     echo "Fehler beim speichern des Bildes <br>";

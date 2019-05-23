@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
+    <link href="pictures/IconTransparent.png" rel="icon">
     <style type="text/css">
         #navSearch {
             display: none;
@@ -27,7 +27,7 @@
                     <h1>Gruppe</h1>
                 </div>
                 <div class="p-2">
-                    <img id="groupImage" src="Bilder/Gruppenbild.jpg" alt="Gruppenbild platz">
+                    <img id="groupImage" src="pictures/Gruppenbild.jpg" alt="Gruppenbild platz">
                 </div>
                 <div class="p-2">
                     Von Links nach rehts sind die Entwickler dieser Seite:
