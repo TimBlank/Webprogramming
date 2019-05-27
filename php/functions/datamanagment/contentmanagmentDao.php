@@ -4,7 +4,7 @@ include "entryAndComments.php";
 
 //Eintrag hinzufügen
 function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
-    if($name == "Test" && $isPublic == "public" && $size == "small" && $hasRoof == "covered" && $description == "Hallo"){
+    if($name == "Test" && $isPublic == "true" && $size == "small" && $hasRoof == "true" && $description == "Hallo"){
     return 0;
     }
     return false;

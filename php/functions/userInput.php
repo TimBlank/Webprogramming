@@ -4,14 +4,14 @@
 
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function search(){
-    $isSearch =false;
+    $isSearch = false;
     $entryName = null;
-    $isPublic=null;
-    $size=0;
-    $hasRoof=null;
-    $holdingType=null;
+    $isPublic = null;
+    $size = 0;
+    $hasRoof = null;
+    $holdingType = null;
     if(isset($_GET["SubmitSearch"])){
-        $isSearch =true;
+        $isSearch = true;
         if(isset($_GET["entryName"])){
             $entryName = htmlspecialchars( $_GET["entryName"]);
         }
@@ -78,7 +78,7 @@ function newEntry() {
         }
 
         if(isset($_POST["isPublic"])) {
-            $isPublic = $_POST["optionsPublic"];
+            $isPublic = $_POST["isPublic"];
         }
 
         if(isset($_POST["size"])) {
@@ -99,8 +99,12 @@ function newEntry() {
         if($id !== false) {
             echo "Test erfolgreich";
 
-            mkdir("pictures/".$id."/");
-            mkdir("pictures/".$id."/comments/");
+            if(!is_dir("pictures/".$id."/")) {
+                mkdir("pictures/".$id."/");
+            }
+            if(!is_dir("pictures/".$id."/comments/")) {
+                mkdir("pictures/".$id."/comments/");
+            }
             move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/".$id."/".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
         } else {
@@ -161,9 +165,6 @@ function comment(){
             echo "Dieser Stellplatz existiert nicht in der Datenbank <br>";
         }
     }
-
-
-
 }
 
 ?>
