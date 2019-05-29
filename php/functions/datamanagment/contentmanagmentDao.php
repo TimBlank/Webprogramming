@@ -47,28 +47,29 @@ function loadEntryComments($entryId){
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
-function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
+function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
     /* $size ist eine Zahl die folgenderweise berechnet wird
     -> $size = klein + mittel + groß
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
     */
-    if($isSearch){
-        if($name=="A2"){
+    if($name=="A2"){
             yield 1;
-        }elseif($name=="Bib"){
+    }elseif($name=="Bib"){
             yield 2;
-        }elseif($name=="W6"){
+    }elseif($name=="W6"){
             yield 3;
-        } else{
-            for ($i=0; $i<4; $i++){
-                yield $i;
-            }
+    } else{
+        for ($i=0; $i<4; $i++){
+             yield $i;
         }
-    }else{
-        //Default Anzeige der Hauptseite
-            for ($i=0; $i<1; $i++){
-                yield $i;
-            }
     }
 }
+
+//Default Anzeige der Hauptseite
+function defaultEntries(){
+    for ($i=0; $i<1; $i++){
+                yield $i;
+            }
+}
+
 ?>

@@ -4,14 +4,12 @@
 
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function search(){
-    $isSearch = false;
     $entryName = null;
     $isPublic = null;
     $size = 0;
     $hasRoof = null;
     $holdingType = null;
     if(isset($_GET["SubmitSearch"])){
-        $isSearch = true;
         if(isset($_GET["entryName"])){
             $entryName = htmlspecialchars( $_GET["entryName"]);
         }
@@ -34,11 +32,16 @@ function search(){
         if(isset($_GET["holdingType"])){
             $holdingType = htmlspecialchars($_GET["holdingType"]);
         }
+        foreach(searchResult($entryName,$isPublic,$size,$hasRoof,$holdingType) as $id) {
+            yield $id;
+        }
+    }else{
+        foreach(defaultEntries() as $id) {
+            yield $id;
+        }
     }
 
-    foreach(searchResult($isSearch,$entryName,$isPublic,$size,$hasRoof,$holdingType) as $id) {
-        yield $id;
-    }
+
 }
 
 function newEntry() {
