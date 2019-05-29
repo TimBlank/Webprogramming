@@ -13,8 +13,8 @@ function search(){
         if(isset($_GET["entryName"])){
             $entryName = htmlspecialchars( $_GET["entryName"]);
         }
-        if(isset($_GET["isPublic"])){
-            $isPublic = true;
+        if(isset($_GET["isPublic"])&&($_GET["isPublic"]=="false"||$_GET["isPublic"]=="true")) {
+            $isPublic = ($_GET["isPublic"]=="true");
         }
         if(isset($_GET["smallSpace"])){//klein
             $size = $size + 1;
@@ -26,8 +26,8 @@ function search(){
             $size = $size + 4;
         }
 
-        if(isset($_GET["hasRoof"])){
-            $hasRoof = true;
+        if(isset($_GET["hasRoof"])&&($_GET["hasRoof"]=="false"||$_GET["hasRoof"]=="true")) {
+            $hasRoof = ($_GET["hasRoof"]=="true");
         }
         if(isset($_GET["holdingType"])){
             $holdingType = htmlspecialchars($_GET["holdingType"]);
@@ -49,16 +49,17 @@ function newEntry() {
         //T0D0: prüfen ob Benutzer eingeloggt ist
 
         $entryName = null;
-        $location = null;
         $userImage = null;
         $isPublic = null;
         $size = null;
         $hasRoof = null;
         $holdingType = null;
-        $features = null;
+        $description = null;
         $imgType =null;
+        $longitude=null;
+        $latitude=null;
 
-        if(isset($_POST["entryName"])) {
+        if(isset($_POST["entryName"])&&is_string($_POST["entryName"])) {
             $entryName = htmlspecialchars($_POST["entryName"]);
         }
 
@@ -80,25 +81,35 @@ function newEntry() {
             }
         }
 
-        if(isset($_POST["isPublic"])) {
-            $isPublic = $_POST["isPublic"];
+        if(isset($_POST["isPublic"])&&($_POST["isPublic"]=="false"||$_POST["isPublic"]=="true")) {
+            $isPublic = ($_POST["isPublic"]=="true");
         }
 
-        if(isset($_POST["size"])) {
-            $size = $_POST["size"];
+        if(isset($_POST["size"])&&is_string($_POST["size"])) {
+            $size = htmlspecialchars($_POST["size"]);
         }
-        if(isset($_POST["hasRoof"])) {
-            $hasRoof = $_POST["hasRoof"];
+        if(isset($_POST["hasRoof"])&&($_POST["hasRoof"]=="false"||$_POST["hasRoof"]=="true")) {
+            $hasRoof = ($_POST["hasRoof"]=="true");
         }
-        if(isset($_POST["holdingType"])) {
-            $holdingType = $_POST["holdingType"];
+        if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"])) {
+            $holdingType = htmlspecialchars($_POST["holdingType"]);
         }
-        if(isset($_POST["features"])) {
-            $features = htmlspecialchars($_POST["features"]);
+        if(isset($_POST["description"])&&is_string($_POST["description"])) {
+            $description = htmlspecialchars($_POST["description"]);
+        }
+
+        echo "Ist das ne Komma Zahl?".$_POST["longitude"]."<br>" ;
+        if(isset($_POST["longitude"])&&is_string($_POST["longitude"]) ){
+            $longitude = (float) $_POST["longitude"];
+        }
+
+        if(isset($_POST["latitude"])&&is_string($_POST["latitude"]) ){
+            $latitude = (float) $_POST["latitude"];
         }
 
         //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
-        $id = addEntry($entryName, $location, $isPublic, $size, $hasRoof, $holdingType, $features);
+        $id = addEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
+        $latitude);
         if($id !== false) {
             echo "Test erfolgreich";
 

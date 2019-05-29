@@ -38,6 +38,8 @@
                             </div>
                             <div class="col border">
                                 <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                                <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad">
+                                <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad">
                             </div>
                         </div>
                         <div class="row border">
@@ -116,7 +118,7 @@
                                         Besonderheiten:
                                     </div>
                                     <div class="col border">
-                                        <textarea class="form-control" id="features" name="features" placeholder="Zum Beispiel Zugänglichkeit oder anderes"></textarea>
+                                        <textarea class="form-control" id="description" name="description" placeholder="Zum Beispiel Zugänglichkeit oder anderes"></textarea>
                                     </div>
                                 </div>
                             </div>
