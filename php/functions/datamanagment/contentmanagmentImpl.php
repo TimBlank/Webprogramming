@@ -1,19 +1,44 @@
 <?php
 
 include "entryAndComments.php";
+include "databaseConnection.php";
 
 //Eintrag hinzufügen
-function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){}
+function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
 
-function addComment($entryId, $username, $text){}
+    $db = databaseConnect();
+    //hier Datenbank Manipulationen
+    $db.close();
+    $db = null;
+}
+
+function addComment($entryId, $username, $text){
+
+    $db = databaseConnect();
+    //hier Datenbank Manipulationen
+    $db.close();
+    $db = null;
+}
 
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
+
+    $db = databaseConnect();
+    //hier Datenbank Manipulationen
+    $db.close();
+    $db = null;
+
     //Eintrag existiert nicht
     return false;
 }
 
 function loadEntryComments($entryId){
+
+    $db = databaseConnect();
+    //hier Datenbank Manipulationen
+    $db.close();
+    $db = null;
+
     //Kommentar existiert nicht
     return false;
 }
@@ -24,27 +49,19 @@ function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=nu
     -> $size = klein + mittel + groß
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
     */
-    if($isSearch){
-        if($name=="A2"){
-            yield 1;
-        }elseif($name=="Bib"){
-            yield 2;
-        }elseif($name=="W6"){
-            yield 3;
-        } else{
-            for ($i=0; $i<4; $i++){
-                yield $i;
-            }
-        }
-    }else{
-        //Default Anzeige der Hauptseite
-            for ($i=0; $i<1; $i++){
-                yield $i;
-            }
-    }
+
+    $db = databaseConnect();
+    //hier Datenbank Manipulationen
+    $db.close();
+    $db = null;
 }
 
 //Default Anzeige der Hauptseite
 function defaultEntries(){
+
+    $db = databaseConnect();
+    //hier Datenbank Manipulationen
+    $db.close();
+    $db = null;
 }
 ?>
