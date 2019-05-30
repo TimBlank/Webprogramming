@@ -101,10 +101,11 @@
             </div>
         </section>
 
+        <?php if($entryID !== null): ?>
         <section>
             <h1>Kommentare</h1>
             <ul class="list-group list-group-flush">
-                <?php if($entryID !== null): foreach(loadEntryComments($entryID) as $comment): ?>
+                <?php foreach(loadEntryComments($entryID) as $comment): ?>
                 <li class="list-group-item">
                     <div class="card">
                         <?php if($comment->getImage()!=""): ?>
@@ -142,9 +143,10 @@
                         </form>
                     </div>
                 </li>
-                <?php endif; ?>
+
             </ul>
         </section>
+        <?php endif; ?>
     </div>
 
     <?php include "php/footer.php"; ?>
