@@ -37,15 +37,29 @@ function loadEntry($entryId){
         $entryData = $stmt->fetchObject();
         $db.close();
         $db = null;
-    }catch (PDOException $e) {
 
-   }
+        $id = $entryData->entryId;
+        $name = $entryData->name;
+        $image = $entryData->image;
+        $isPublic = $entryData->isPublic;
+        $size = $entryData->size;
+        $hasRoof = $entryData->hasRoof;
+        $holderType = $entryData->holderType;
+        $description = $entryData->description;
+        $longitude = $entryData->longitude;
+        $latitude = $entryData->latitude;
+
+        yield new entry($id, $name, $image, $isPublic, $size, $hasRoof, $holderType,$description, $longitude, $latitude);
+
+    }catch (PDOException $ex) {
+        echo "Fehler: " . $ex->getMessage();
+    }
 
 
     //Aus $entryData entryObjekte erzeugen oder Fehler zurückgeben
 
     //Eintrag existiert nicht
-    return false;
+    //return false;
 }
 
 function loadEntryComments($entryId){
@@ -56,17 +70,19 @@ function loadEntryComments($entryId){
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":loadId", $entryId);
         $stmt->execute();
-        $entryData = $stmt->fetchObject();
         $db.close();
         $db = null;
-   }catch (PDOException $e) {
-
+       while ($commentData = $stmt->fetchObject()) {
+           yield new comment($commentData->username, $commentData->text, $commentData->image);
+       }
+   }catch (PDOException $ex) {
+       echo "Fehler: " . $ex->getMessage();
    }
 
     //Aus $entryData Kommentar Objekte erzeugen oder Fehler zurückgeben
 
     //Kommentar existiert nicht
-    return false;
+    //return false;
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
