@@ -31,6 +31,8 @@ function loadEntry($entryId){
     echo "Hallllllloooooo Echooooooooo<br>";
     try {
         $db = databaseConnect();
+
+
         $sql = "SELECT * FROM entry WHERE entryId = (:loadId)";
         $stmt = $db->prepare($sql);
         if ($stmt === false) {
@@ -40,7 +42,7 @@ function loadEntry($entryId){
         $stmt->bindParam(":loadId", $entryId);
         $stmt->execute();
         $entryData = $stmt->fetchObject();
-        $db.close();
+        //$db.close(); Funktion unbekannt ?
         $db = null;
 
         $id = $entryData->entryId;
@@ -49,7 +51,7 @@ function loadEntry($entryId){
         $isPublic = $entryData->isPublic;
         $size = $entryData->size;
         $hasRoof = $entryData->hasRoof;
-        $holderType = $entryData->holderType;
+        $holderType = $entryData->holdingType;
         $description = $entryData->description;
         $longitude = $entryData->longitude;
         $latitude = $entryData->latitude;

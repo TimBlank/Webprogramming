@@ -4,7 +4,7 @@
 function databaseConnect(){
     $user = "root";
     $pw = null;
-    $dsn = "sqlite:database.db";
+    $dsn = "sqlite:php/functions/datamanagment/database.db";
     $db = new PDO($dsn, $user, $pw);
 
     return $db;
