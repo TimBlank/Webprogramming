@@ -16,11 +16,12 @@
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <?php
-        include "php/functions/datamanagment/contentmanagmentDao.php";
+        include "php/functions/datamanagment/contentmanagmentImpl.php";
 
         $entryID =null;
         $content = new entry(null);
         if (isset($_GET["EntryID"])){
+            echo "Versuche Daten zu holen <br>";
             $entryID =htmlspecialchars($_GET["EntryID"]);
             $content = loadEntry($entryID);
         }

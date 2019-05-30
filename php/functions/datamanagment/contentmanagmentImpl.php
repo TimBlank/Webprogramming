@@ -28,10 +28,15 @@ function addComment($entryId, $username, $text){
 
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
+    echo "Hallllllloooooo Echooooooooo<br>";
     try {
         $db = databaseConnect();
         $sql = "SELECT * FROM entry WHERE entryId = (:loadId)";
         $stmt = $db->prepare($sql);
+        if ($stmt === false) {
+            echo $db->errorCode().":";
+            print_r($db->errorInfo());
+        }
         $stmt->bindParam(":loadId", $entryId);
         $stmt->execute();
         $entryData = $stmt->fetchObject();
@@ -49,7 +54,7 @@ function loadEntry($entryId){
         $longitude = $entryData->longitude;
         $latitude = $entryData->latitude;
 
-        yield new entry($id, $name, $image, $isPublic, $size, $hasRoof, $holderType,$description, $longitude, $latitude);
+        return new entry($id, $name, $image, $isPublic, $size, $hasRoof, $holderType,$description, $longitude, $latitude);
 
     }catch (PDOException $ex) {
         echo "Fehler: " . $ex->getMessage();
