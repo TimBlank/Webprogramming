@@ -5,32 +5,42 @@ include "databaseConnection.php";
 
 //Eintrag hinzufügen
 function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
+    try {
+        $db = databaseConnect();
+        //hier Datenbank Manipulationen
+        $db.close();
+        $db = null;
+    }catch (PDOException $e) {
 
-    $db = databaseConnect();
-    //hier Datenbank Manipulationen
-    $db.close();
-    $db = null;
+   }
 }
 
 function addComment($entryId, $username, $text){
+    try {
+        $db = databaseConnect();
+        //hier Datenbank Manipulationen
+        $db.close();
+        $db = null;
+    }catch (PDOException $e) {
 
-    $db = databaseConnect();
-    //hier Datenbank Manipulationen
-    $db.close();
-    $db = null;
+   }
 }
 
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
+    try {
+        $db = databaseConnect();
+        $sql = "SELECT * FROM entry WHERE entryId = (:loadId)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":loadId", $entryId);
+        $stmt->execute();
+        $entryData = $stmt->fetchObject();
+        $db.close();
+        $db = null;
+    }catch (PDOException $e) {
 
-    $db = databaseConnect();
-    $sql = "SELECT * FROM entry WHERE entryId = (:loadId)";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(":loadId", $entryId);
-    $stmt->execute();
-    $entryData = $stmt->fetchObject();
-    $db.close();
-    $db = null;
+   }
+
 
     //Aus $entryData entryObjekte erzeugen oder Fehler zurückgeben
 
@@ -40,14 +50,18 @@ function loadEntry($entryId){
 
 function loadEntryComments($entryId){
 
-    $db = databaseConnect();
-    $sql = "SELECT * FROM entry WHERE entryId = (:loadId)";
-    $stmt = $db->prepare($sql);
-    $stmt->bindParam(":loadId", $entryId);
-    $stmt->execute();
-    $entryData = $stmt->fetchObject();
-    $db.close();
-    $db = null;
+   try {
+        $db = databaseConnect();
+        $sql = "SELECT * FROM comment WHERE entryId = (:loadId)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":loadId", $entryId);
+        $stmt->execute();
+        $entryData = $stmt->fetchObject();
+        $db.close();
+        $db = null;
+   }catch (PDOException $e) {
+
+   }
 
     //Aus $entryData Kommentar Objekte erzeugen oder Fehler zurückgeben
 
@@ -62,18 +76,26 @@ function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=nu
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
     */
 
-    $db = databaseConnect();
-    //hier Datenbank Manipulationen
-    $db.close();
-    $db = null;
+        try {
+        $db = databaseConnect();
+        //hier Datenbank Manipulationen
+        $db.close();
+        $db = null;
+    }catch (PDOException $e) {
+
+   }
 }
 
 //Default Anzeige der Hauptseite
 function defaultEntries(){
 
-    $db = databaseConnect();
-    //hier Datenbank Manipulationen
-    $db.close();
-    $db = null;
+        try {
+        $db = databaseConnect();
+        //hier Datenbank Manipulationen
+        $db.close();
+        $db = null;
+    }catch (PDOException $e) {
+
+   }
 }
 ?>
