@@ -28,45 +28,38 @@ function addComment($entryId, $username, $text){
 
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
-    echo "Hallllllloooooo Echooooooooo<br>";
     try {
         $db = databaseConnect();
-
-
         $sql = "SELECT * FROM entry WHERE entryId = (:loadId)";
         $stmt = $db->prepare($sql);
-        if ($stmt === false) {
-            echo $db->errorCode().":";
-            print_r($db->errorInfo());
-        }
         $stmt->bindParam(":loadId", $entryId);
         $stmt->execute();
         $entryData = $stmt->fetchObject();
         //$db.close(); Funktion unbekannt ?
         $db = null;
+        if(!empty($entryData)){
+            $id = $entryData->entryId;
+            $name = $entryData->name;
+            $image = $entryData->image;
+            $isPublic = $entryData->isPublic;
+            $size = $entryData->size;
+            $hasRoof = $entryData->hasRoof;
+            $holderType = $entryData->holdingType;
+            $description = $entryData->description;
+            $longitude = $entryData->longitude;
+            $latitude = $entryData->latitude;
 
-        $id = $entryData->entryId;
-        $name = $entryData->name;
-        $image = $entryData->image;
-        $isPublic = $entryData->isPublic;
-        $size = $entryData->size;
-        $hasRoof = $entryData->hasRoof;
-        $holderType = $entryData->holdingType;
-        $description = $entryData->description;
-        $longitude = $entryData->longitude;
-        $latitude = $entryData->latitude;
-
-        return new entry($id, $name, $image, $isPublic, $size, $hasRoof, $holderType,$description, $longitude, $latitude);
+            return new entry($id, $name, $image, $isPublic, $size, $hasRoof, $holderType,$description, $longitude, $latitude);
+        }else{
+            //Eintrag existiert nicht
+            return false;
+        }
 
     }catch (PDOException $ex) {
         echo "Fehler: " . $ex->getMessage();
     }
 
-
     //Aus $entryData entryObjekte erzeugen oder Fehler zurückgeben
-
-    //Eintrag existiert nicht
-    //return false;
 }
 
 function loadEntryComments($entryId){
@@ -77,7 +70,7 @@ function loadEntryComments($entryId){
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":loadId", $entryId);
         $stmt->execute();
-        $db.close();
+        //$db.close(); Funktion unbekannt ?
         $db = null;
        while ($commentData = $stmt->fetchObject()) {
            yield new comment($commentData->username, $commentData->text, $commentData->image);

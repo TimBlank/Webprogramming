@@ -19,11 +19,12 @@
         include "php/functions/datamanagment/contentmanagmentImpl.php";
 
         $entryID =null;
-        $content = new entry(null);
         if (isset($_GET["EntryID"])){
-            echo "Versuche Daten zu holen <br>";
             $entryID =htmlspecialchars($_GET["EntryID"]);
-            $content = loadEntry($entryID);
+        }
+        $content = loadEntry($entryID);
+        if($content==false){
+            $content = new entry(null);
         }
     ?>
     <?php include "php/functions/userInput.php"; ?>
@@ -102,7 +103,7 @@
             </div>
         </section>
 
-        <?php if($entryID !== null): ?>
+        <?php if($content->getId() !== null): ?>
         <section>
             <h1>Kommentare</h1>
             <ul class="list-group list-group-flush">
