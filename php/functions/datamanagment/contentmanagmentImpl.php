@@ -32,7 +32,7 @@ function loadEntry($entryId){
     $db.close();
     $db = null;
 
-    //Aus $entryData entryObject erzeugen oder Fehler zurückgeben
+    //Aus $entryData entryObjekte erzeugen oder Fehler zurückgeben
 
     //Eintrag existiert nicht
     return false;
@@ -41,9 +41,15 @@ function loadEntry($entryId){
 function loadEntryComments($entryId){
 
     $db = databaseConnect();
-    //hier Datenbank Manipulationen
+    $sql = "SELECT * FROM entry WHERE entryId = (:loadId)";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(":loadId", $entryId);
+    $stmt->execute();
+    $entryData = $stmt->fetchObject();
     $db.close();
     $db = null;
+
+    //Aus $entryData Kommentar Objekte erzeugen oder Fehler zurückgeben
 
     //Kommentar existiert nicht
     return false;
