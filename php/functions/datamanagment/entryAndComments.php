@@ -14,7 +14,6 @@
     public function __construct($setId,$setName="Beschreibender Name",$setImage="pictures/DummyBild.png",$setIsPublic=true,$setSize="Klein(0-30)/Mittel(30-100)/Groß(100+)",$setHasRoof=true,$setHolderType="Einfacher Vorderradhalter",$setDescription="Zum Beispiel Zugänglichkeit oder anderes",$setLongitude=null,$setLatitude=null) {
         $this->id = $setId;
         $this->name = $setName;
-        $this->location = $setLocation;
         $this->image = $setImage;
         $this->isPublic = $setIsPublic;
         $this->size = $setSize;

@@ -18,13 +18,12 @@
     <?php
         include "php/functions/datamanagment/contentmanagmentDao.php";
 
-        //entryID muss noch richtig gesetzt werden
-        $entryID =0;
+        $entryID =null;
+        $content = new entry(null);
         if (isset($_GET["EntryID"])){
-            $entryID =$_GET["EntryID"];
+            $entryID =htmlspecialchars($_GET["EntryID"]);
+            $content = loadEntry($entryID);
         }
-
-        $content = loadEntry($entryID);
     ?>
     <?php include "php/functions/userInput.php"; ?>
     <div id="mainFrame">
@@ -105,7 +104,7 @@
         <section>
             <h1>Kommentare</h1>
             <ul class="list-group list-group-flush">
-                <?php foreach(loadEntryComments($entryID) as $comment): ?>
+                <?php if($entryID !== null): foreach(loadEntryComments($entryID) as $comment): ?>
                 <li class="list-group-item">
                     <div class="card">
                         <?php if($comment->getImage()!=""): ?>
@@ -117,7 +116,7 @@
                         </div>
                     </div>
                 </li>
-                <?php endforeach; ?>
+                <?php endforeach;?>
 
                 <li class="list-group-item">
 
@@ -143,6 +142,7 @@
                         </form>
                     </div>
                 </li>
+                <?php endif; ?>
             </ul>
         </section>
     </div>
