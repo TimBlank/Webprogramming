@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- Hauptseite-->
 
-
+<html lang="de">
 <head>
 <?php include "php/head.php";?>
 </head>

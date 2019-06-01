@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <!-- Seite für die Registrierung -->
 
-
+<html lang="de">
 <head>
 <?php include "php/head.php";?>
+        <style type="text/css">
+        #navSearch {
+            display: none;
+        }
+
+    </style>
 </head>
 
 <body>

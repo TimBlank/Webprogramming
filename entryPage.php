@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- Vorlage für einen Beitrag -->
 
-
+<html lang="de">
 <head>
 <?php include "php/head.php";?>
 </head>
