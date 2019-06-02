@@ -109,7 +109,7 @@ function newEntry() {
 
         //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
         $id = addEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
-        $latitude);
+        $latitude, $imgType);
         if($id !== false) {
             echo "Test erfolgreich";
 
@@ -164,7 +164,7 @@ function comment(){
             $username = "Testnutzer";//TODO: richtigen Benutzernamen hinzufügen
             $text = htmlspecialchars($_POST["commentText"]);
             $entryId = $entry->getId();
-            $commentId = addComment($entryId, $username, $text);
+            $commentId = addComment($entryId, $username, $text, $imgType);
             if($commentId !== false && $imageExists){
                 if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/".$entryId."/comments/".$commentId.".".$imgType)) {
                             echo "Bild erfolgreich hochgeladen <br>";
