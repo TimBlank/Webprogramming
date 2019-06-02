@@ -15,7 +15,7 @@
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <?php include "php/functions/userInput.php"; ?>
-    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
+    <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
     <div id="mainFrame">
 
         <div class="createEntryPage">
