@@ -145,8 +145,8 @@ function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdin
         $stmt->execute();
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
-       while ($commentData = $stmt->fetchObject()) {
-           yield new comment($commentData->username, $commentData->text, $commentData->image);
+       while ($entryData = $stmt->fetchObject()) {
+           yield $entryData->entryId;
        }
    }catch (PDOException $ex) {
        echo "Fehler: " . $ex->getMessage();
@@ -168,7 +168,7 @@ function defaultEntries(){
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
        while ($entryData = $stmt->fetchObject()) {
-           yield new comment($entryData->entryId);
+           yield $entryData->entryId;
        }
    }catch (PDOException $ex) {
        echo "Fehler: " . $ex->getMessage();
