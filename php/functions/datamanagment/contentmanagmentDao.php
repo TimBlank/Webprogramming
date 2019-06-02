@@ -46,7 +46,7 @@ function loadEntryComments($entryId){
     yield new comment("Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
 }
 
-//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
+//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
 function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
     /* $size ist eine Zahl die folgenderweise berechnet wird
     -> $size = klein + mittel + groß

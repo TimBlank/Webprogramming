@@ -131,14 +131,10 @@ function loadEntryComments($entryId){
        echo "Fehler: " . $ex->getMessage();
    }
 
-    //Aus $entryData Kommentar Objekte erzeugen oder Fehler zurückgeben
-
-    //Kommentar existiert nicht
-    //return false;
 }
 
-//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
-function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
+//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
+function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
     /* $size ist eine Zahl die folgenderweise berechnet wird
     -> $size = klein + mittel + groß
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
