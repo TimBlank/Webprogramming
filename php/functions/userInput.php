@@ -98,7 +98,6 @@ function newEntry() {
             $description = htmlspecialchars($_POST["description"]);
         }
 
-        echo "Ist das ne Komma Zahl?".$_POST["longitude"]."<br>" ;
         if(isset($_POST["longitude"])&&is_string($_POST["longitude"]) ){
             $longitude = (float) $_POST["longitude"];
         }

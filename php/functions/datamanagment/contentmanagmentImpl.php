@@ -136,8 +136,8 @@ function loadEntryComments($entryId){
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
 function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
     //TODO: Vollständig implementieren
-        $name = "%".$name."%"
-        try {
+        $name = "%".$name."%";
+    try {
         $db = databaseConnect();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
         $stmt = $db->prepare($sql);
