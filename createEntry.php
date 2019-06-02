@@ -15,7 +15,7 @@
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <?php include "php/functions/userInput.php"; ?>
-    <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
+    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
     <div id="mainFrame">
 
         <div class="createEntryPage">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="row">
                             <div class="col border">
-                                <img src="pictures/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
+                                <img src="pictures/dummyEntry/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>

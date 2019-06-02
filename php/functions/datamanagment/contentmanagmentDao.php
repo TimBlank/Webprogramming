@@ -3,7 +3,7 @@
 include "entryAndComments.php";
 
 //Eintrag hinzufügen
-function addEntry($name,$isPublic, $size, $hasRoof, $holderType, $description, $longitude, $latitude, $imageType){
+function addEntry($name,$isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
     if($name == "Test" && $isPublic == "true" && $size == "small" && $hasRoof == "true" && $description == "Hallo"){
     return 0;
     }
@@ -47,7 +47,7 @@ function loadEntryComments($entryId){
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
-function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
+function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
     /* $size ist eine Zahl die folgenderweise berechnet wird
     -> $size = klein + mittel + groß
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde

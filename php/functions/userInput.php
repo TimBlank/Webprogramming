@@ -113,13 +113,13 @@ function newEntry() {
         if($id !== false) {
             echo "Test erfolgreich";
 
-            if(!is_dir("pictures/".$id."/")) {
-                mkdir("pictures/".$id."/");
+            if(!is_dir("pictures/Enry".$id."/")) {
+                mkdir("pictures/Entry".$id."/");
             }
-            if(!is_dir("pictures/".$id."/comments/")) {
-                mkdir("pictures/".$id."/comments/");
+            if(!is_dir("pictures/Entry".$id."/comments/")) {
+                mkdir("pictures/Entry".$id."/comments/");
             }
-            move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/".$id."/".$id.".".$imgType);
+            move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
         } else {
             echo "Test fehlgeschlagen";
@@ -166,8 +166,7 @@ function comment(){
             $entryId = $entry->getId();
             $commentId = addComment($entryId, $username, $text, $imgType);
             if($commentId !== false && $imageExists){
-                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/".$entryId."/comments/".$commentId.".".$imgType)) {
-                            echo "Bild erfolgreich hochgeladen <br>";
+                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
                 }else{
                     echo "Fehler beim speichern des Bildes <br>";
                 }
