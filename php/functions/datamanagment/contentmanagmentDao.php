@@ -3,14 +3,14 @@
 include "entryAndComments.php";
 
 //Eintrag hinzufügen
-function addEntry($name,$isPublic,$size,$hasRoof,$holderType,$description,$longitude,$latitude){
+function addEntry($name,$isPublic, $size, $hasRoof, $holderType, $description, $longitude, $latitude, $imageType){
     if($name == "Test" && $isPublic == "true" && $size == "small" && $hasRoof == "true" && $description == "Hallo"){
     return 0;
     }
     return false;
 }
 
-function addComment($entryId, $username, $text){
+function addComment($entryId, $username, $text, $imageType){
     if($entryId == 0){
         return 3;
     }

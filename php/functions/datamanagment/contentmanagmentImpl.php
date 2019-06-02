@@ -4,7 +4,7 @@ include "entryAndComments.php";
 include "databaseConnection.php";
 
 //Eintrag hinzufügen
-function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
+function addEntry($name, $location, $isPublic, $size, $hasRoof, $holderType, $description, $imageType){
     try {
         $db = databaseConnect();
         //hier Datenbank Manipulationen
@@ -15,7 +15,7 @@ function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$descript
    }
 }
 
-function addComment($entryId, $username, $text){
+function addComment($entryId, $username, $text, $imageType){
     try {
         $db = databaseConnect();
         //hier Datenbank Manipulationen
