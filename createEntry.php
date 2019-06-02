@@ -65,15 +65,15 @@
                                     </div>
                                     <div class="col border">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="small" checked>
+                                            <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" checked>
                                             <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="medium">
+                                            <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel">
                                             <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="large">
+                                            <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß">
                                             <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
                                         </div>
                                     </div>
@@ -104,11 +104,11 @@
                                         </a>
                                         <div class="form-group">
                                             <select class="form-control" name="holdingType" id="holderType">
-                                                <option value="nothingSelectet">(Nichts ausgewählt)</option>
-                                                <option value="simpleFrontHolder">Einfache Vorderradhalter</option>
-                                                <option value="friendlyFrontHolder">Fahrradgerechte Vorderradhalter</option>
-                                                <option value="supportHolder">Anlehnbügel</option>
-                                                <option value="angularHolder">Schräghochparker</option>
+                                                <option value="(Keine Angabe)">(Keine Angabe)</option>
+                                                <option value="Einfacher Vorderradhalter">Einfacher Vorderradhalter</option>
+                                                <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
+                                                <option value="Anlehnbügel">Anlehnbügel</option>
+                                                <option value="Schräghochparker">Schräghochparker</option>
                                             </select>
                                         </div>
                                     </div>
