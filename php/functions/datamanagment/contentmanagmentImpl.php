@@ -135,31 +135,43 @@ function loadEntryComments($entryId){
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
 function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
+    //TODO: Vollständig implementieren
+        $name = "%".$name."%"
+        try {
+        $db = databaseConnect();
+        $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":name", $name);
+        $stmt->execute();
+        //$db.close(); TODO: Funktion unbekannt ?
+        $db = null;
+       while ($commentData = $stmt->fetchObject()) {
+           yield new comment($commentData->username, $commentData->text, $commentData->image);
+       }
+   }catch (PDOException $ex) {
+       echo "Fehler: " . $ex->getMessage();
+   }
     /* $size ist eine Zahl die folgenderweise berechnet wird
     -> $size = klein + mittel + groß
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
     */
-
-        try {
-        $db = databaseConnect();
-        //hier Datenbank Manipulationen
-        //$db.close(); TODO: Funktion unbekannt ?
-        $db = null;
-    }catch (PDOException $e) {
-
-   }
 }
 
 //Default Anzeige der Hauptseite
 function defaultEntries(){
-
-        try {
+    //Gibt alle exestierenden Einträge zurück
+    try {
         $db = databaseConnect();
-        //hier Datenbank Manipulationen
+        $sql = "SELECT entryId FROM entry";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
-    }catch (PDOException $e) {
-
+       while ($entryData = $stmt->fetchObject()) {
+           yield new comment($entryData->entryId);
+       }
+   }catch (PDOException $ex) {
+       echo "Fehler: " . $ex->getMessage();
    }
 }
 ?>
