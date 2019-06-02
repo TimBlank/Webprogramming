@@ -148,15 +148,14 @@ function comment(){
                 //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
                 $image = $_FILES["commentImg"];
 
-                //Dateiendung
-                $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
-
                 //Überprüfung ob Datei ein Bild ist
                 $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
                 if($check == false){
                     echo "Das war kein Bild <br>" ;
                     return false;
                 }else {
+                    //Dateiendung
+                    $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
                     $imageExists = true;
                 }
             }
@@ -165,7 +164,7 @@ function comment(){
             $text = htmlspecialchars($_POST["commentText"]);
             $entryId = $entry->getId();
             $commentId = addComment($entryId, $username, $text, $imgType);
-            if($commentId !== false && $imageExists){
+            if($imageExists && $commentId !== false){
                 if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
                 }else{
                     echo "Fehler beim speichern des Bildes <br>";

@@ -22,19 +22,18 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
         $stmt->bindParam(":imageType", $imageType);
         $stmt->execute();
 
-        $id = $db->lastInsertId(); // Autowert abfragen
+        $id = $db->lastInsertId();
+
+        //Dateipfad des Bildes angeben
         $imagePath = "pictures/Entry".$id."/EntryPic".$id.".".$imageType;
-            //richtigen dateipfad angeben
         $sql ="UPDATE entry SET image = (:image) WHERE entryId = (:id)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":image", $imagePath);
         $stmt->execute();
-        echo "Daten mit der ID $id eingetragen.<br />";
-
 
         $db->commit();
-        //$db.close(); Funktion unbekannt ?
+        //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
         return $id;
     }catch (Exception $ex) {
@@ -46,11 +45,36 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
 function addComment($entryId, $username, $text, $imageType){
     try {
         $db = databaseConnect();
-        //hier Datenbank Manipulationen
-        $db.close();
-        $db = null;
-    }catch (PDOException $e) {
+        $db->beginTransaction();
 
+        $sql = "INSERT INTO comment (username, text, image, entryId) VALUES (:username, :text, :imageType, :entryId)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":text", $text);
+        $stmt->bindParam(":imageType", $imageType);
+        $stmt->bindParam(":entryId", $entryId);
+        $stmt->execute();
+
+        $id = $db->lastInsertId();
+
+        if($imageType != null){
+             //Dateipfad angeben
+            $imagePath = "pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$id.".".$imageType;
+            $sql ="UPDATE comment SET image = (:image) WHERE commentId = (:id)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(":id", $id);
+            $stmt->bindParam(":image", $imagePath);
+            $stmt->execute();
+        }
+
+
+        $db->commit();
+        //$db.close(); TODO: Funktion unbekannt ?
+        $db = null;
+        return $id;
+    }catch (Exception $ex) {
+        echo "Fehler: " . $ex->getMessage(). "<br />";
+        $db->rollBack();
    }
 }
 
@@ -98,7 +122,7 @@ function loadEntryComments($entryId){
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":id", $entryId);
         $stmt->execute();
-        //$db.close(); Funktion unbekannt ?
+        //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
        while ($commentData = $stmt->fetchObject()) {
            yield new comment($commentData->username, $commentData->text, $commentData->image);
@@ -123,7 +147,7 @@ function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=nu
         try {
         $db = databaseConnect();
         //hier Datenbank Manipulationen
-        $db.close();
+        //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
     }catch (PDOException $e) {
 
@@ -136,7 +160,7 @@ function defaultEntries(){
         try {
         $db = databaseConnect();
         //hier Datenbank Manipulationen
-        $db.close();
+        //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
     }catch (PDOException $e) {
 
