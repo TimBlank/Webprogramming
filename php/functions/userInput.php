@@ -186,27 +186,52 @@ function register() {
         $passwordRepeat = null;
         $accountName = null;
 
+        $formCor = true;
+
         if(isset($_POST["name"])&&is_string($_POST["name"])) {
             $name = htmlspecialchars($_POST["name"]);
+        } else {
+            $formCor = false;
+            echo "Fehler beim Namen. <br>";
         }
 
         if(isset($_POST["email"])&&filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $email = htmlspecialchars($_POST["email"]);
+        } else {
+            $formCor = false;
+            echo "Fehler bei der E-Mail. <br>";
         }
 
         if(isset($_POST["password"])) {
             $password = $_POST["password"];
+        } else {
+            $formCor = false;
+            echo "Fehler beim Passwort. <br>";
         }
 
         if(isset($_POST["passwordRepeat"])) {
             $passwordRepeat = $_POST["passwordRepeat"];
+        } else {
+            $formCor = false;
+            echo "Fehler beim Passwort wiederholen. <br>";
         }
 
         if(isset($_POST["accountName"])&&is_string($_POST["accountName"])) {
             $accountName = htmlspecialchars($_POST["accountName"]);
+        } else {
+            $formCor = false;
+            echo "Fehler beim Account Namen. <br>";
         }
 
-        $registerUser($name, $email, $password, $accountName);
+        if($formCor == true) {
+            if($password == $passwordRepeat) {
+                $registerUser($name, $email, $password, $accountName);
+            } else {
+                echo "Passwörter sind nicht gleich.";
+            }
+        } else {
+            echo "Fehler bei der Registrierung";
+        }
     }
 }
 
