@@ -21,12 +21,15 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
+    <?php include "php/functions/userInput.php"; ?>
+    <?php include "php/functions/datamanagment/usermanagementDao.php"; ?>
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
                 <section>
                     <!--Name-->
                     <form>
+                        <?php register)(); ?>
                         <div class="form-row">
                             <div class="col-sm">
                                 <label class="form-control">

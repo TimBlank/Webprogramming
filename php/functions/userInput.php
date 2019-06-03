@@ -178,4 +178,36 @@ function comment(){
     }
 }
 
+function register() {
+    if(isset($_POST["registerBtn"])){
+        $name = null;
+        $email = null;
+        $password = null;
+        $passwordRepeat = null;
+        $accountName = null;
+
+        if(isset($_POST["name"])&&is_string($_POST["name"])) {
+            $name = htmlspecialchars($_POST["name"]);
+        }
+
+        if(isset($_POST["email"])&&filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $email = htmlspecialchars($_POST["email"]);
+        }
+
+        if(isset($_POST["password"])) {
+            $password = $_POST["password"];
+        }
+
+        if(isset($_POST["passwordRepeat"])) {
+            $passwordRepeat = $_POST["passwordRepeat"];
+        }
+
+        if(isset($_POST["accountName"])&&is_string($_POST["accountName"])) {
+            $accountName = htmlspecialchars($_POST["accountName"]);
+        }
+
+        $registerUser($name, $email, $password, $accountName);
+    }
+}
+
 ?>
