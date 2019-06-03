@@ -45,28 +45,46 @@
 
                 </li>
             </ul>
+<!--Login
+
+
+<form action="php/login.php" methode="post">
+<input type="text" name="username" placeholder="Benutzername">
+<input type="password" name="password" placeholder="Passwort">
+</form>
+-->
+
 
             <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
                     <div class="dropdown-menu bg-light dropdown-menu-right">
                         <a class="dropdown-item">
-                            <form class="form-inline dropdown-item">
-                                <div class="form-group">
+                            <form action="php/login.php" methode="post" class="form-inline dropdown-item">
+                               <!-- <div class="form-group">
                                     <label for="username">
                                         Benutzername
                                     </label>
+                                    </div>
+                                -->
                                     <input type="text" class="form-control" id="username" name="un" value="" placeholder="Benutzername" autocomplete="off" />
-                                </div>
+                                <!--
                                 <div class="form-group">
                                     <label for="password">
                                         Passwort
                                     </label>
+                                    </div>
+                                -->
                                     <input type="password" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
-                                </div>
-                                <button type="submit" class="btn btn-default">Einloggen</button>
+                                    <button type="submit" class="btn btn-default">Einloggen</button>
                             </form>
+
                             <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
+
+                            <form action="php/logout.php" class="form-inline dropdown-item">
+                                    <button type="submit" class="btn btn-default">Auslogen</button>
+                            </form>
+
                         </a>
                     </div>
                 </li>
