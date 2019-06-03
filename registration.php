@@ -19,13 +19,13 @@
 </head>
 
 <body>
+    <div id="bg">
+        <img src="../pictures/Background-Image.jpg">
+    </div>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <div id="mainFrame">
-
-
-        <div class="mx-auto">
-
+        <div class="regis">
             <section>
                 <!--Name-->
                 <form>
@@ -87,12 +87,14 @@
                             <input type="text" class="form-control" id="accountName" placeholder="Accountname">
                         </div>
                     </div>
+                    <div class="registerButton">
+                        <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
+                    </div>
                 </form>
-
             </section>
-
         </div>
     </div>
+
 
     <?php include "php/footer.php"; ?>
 

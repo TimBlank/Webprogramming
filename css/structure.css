@@ -26,7 +26,6 @@
 }
 
 #background {
-
     background-image: url(../pictures/Background-Image.jpg);
     background-color: black;
     background-size: cover;
@@ -77,4 +76,37 @@
     bottom: 0;
     right: 0;
     text-align: center
+}
+
+.registerButton {
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center
+}
+
+@media (max-width: 575px) {
+    .regis .form-row {
+        padding-bottom: 20px;
+    }
+}
+
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
 }
