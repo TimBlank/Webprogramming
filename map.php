@@ -2,8 +2,9 @@
 <!-- Seite auf der Stellplätze angzeigt werden, kann auf einen Bereich eingestellt werden(Haarentor, Wechloy, etc.) -->
 
 <html lang="de">
+
 <head>
-<?php include "php/head.php";?>
+    <?php include "php/head.php";?>
 </head>
 
 <body>
@@ -35,6 +36,10 @@
             </div>
         </div>
     </section>
+    <!--TODO    Bereiche: einteilen
+                Marker:   setzen
+                Webseite: https://wiki.openstreetmap.org/wiki/OpenLayers
+    -->
 
     <?php include "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
