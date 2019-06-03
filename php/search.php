@@ -12,11 +12,11 @@
                   <h3>Halterungsart</h3>
               </label><br>
               <select class="form-control" name="holdingType" id="holdingType">
-                  <option value="nothingSelectet">(Nichts ausgewählt)</option>
-                  <option value="simpleFrontHolder">Einfache Vorderradhalter</option>
-                  <option value="friendlyFrontHolder">Fahrradgerechte Vorderradhalter</option>
-                  <option value="supportHolder">Anlehnbügel</option>
-                  <option value="angularHolder">Schräghochparker</option>
+                  <option value="(Keine Angabe)">(Keine Angabe)</option>
+                  <option value="Einfache Vorderradhalter">Einfache Vorderradhalter</option>
+                  <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
+                  <option value="Anlehnbügel">Anlehnbügel</option>
+                  <option value="Schräghochparker">Schräghochparker</option>
               </select>
           </div>
 
