@@ -4,19 +4,17 @@
 
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function search(){
-    $isSearch = false;
     $entryName = null;
     $isPublic = null;
     $size = 0;
     $hasRoof = null;
     $holdingType = null;
     if(isset($_GET["SubmitSearch"])){
-        $isSearch = true;
         if(isset($_GET["entryName"])){
             $entryName = htmlspecialchars( $_GET["entryName"]);
         }
-        if(isset($_GET["isPublic"])){
-            $isPublic = true;
+        if(isset($_GET["isPublic"])&&($_GET["isPublic"]=="false"||$_GET["isPublic"]=="true")) {
+            $isPublic = ($_GET["isPublic"]=="true");
         }
         if(isset($_GET["smallSpace"])){//klein
             $size = $size + 1;
@@ -28,17 +26,22 @@ function search(){
             $size = $size + 4;
         }
 
-        if(isset($_GET["hasRoof"])){
-            $hasRoof = true;
+        if(isset($_GET["hasRoof"])&&($_GET["hasRoof"]=="false"||$_GET["hasRoof"]=="true")) {
+            $hasRoof = ($_GET["hasRoof"]=="true");
         }
         if(isset($_GET["holdingType"])){
             $holdingType = htmlspecialchars($_GET["holdingType"]);
         }
+        foreach(searchResult($entryName,$isPublic,$size,$hasRoof,$holdingType) as $id) {
+            yield $id;
+        }
+    }else{
+        foreach(defaultEntries() as $id) {
+            yield $id;
+        }
     }
 
-    foreach(searchResult($isSearch,$entryName,$isPublic,$size,$hasRoof,$holdingType) as $id) {
-        yield $id;
-    }
+
 }
 
 function newEntry() {
@@ -46,16 +49,17 @@ function newEntry() {
         //T0D0: prüfen ob Benutzer eingeloggt ist
 
         $entryName = null;
-        $location = null;
         $userImage = null;
         $isPublic = null;
         $size = null;
         $hasRoof = null;
         $holdingType = null;
-        $features = null;
+        $description = null;
         $imgType =null;
+        $longitude=null;
+        $latitude=null;
 
-        if(isset($_POST["entryName"])) {
+        if(isset($_POST["entryName"])&&is_string($_POST["entryName"])) {
             $entryName = htmlspecialchars($_POST["entryName"]);
         }
 
@@ -77,35 +81,44 @@ function newEntry() {
             }
         }
 
-        if(isset($_POST["isPublic"])) {
-            $isPublic = $_POST["isPublic"];
+        if(isset($_POST["isPublic"])&&($_POST["isPublic"]=="false"||$_POST["isPublic"]=="true")) {
+            $isPublic = ($_POST["isPublic"]=="true");
         }
 
-        if(isset($_POST["size"])) {
-            $size = $_POST["size"];
+        if(isset($_POST["size"])&&is_string($_POST["size"])) {
+            $size = htmlspecialchars($_POST["size"]);
         }
-        if(isset($_POST["hasRoof"])) {
-            $hasRoof = $_POST["hasRoof"];
+        if(isset($_POST["hasRoof"])&&($_POST["hasRoof"]=="false"||$_POST["hasRoof"]=="true")) {
+            $hasRoof = ($_POST["hasRoof"]=="true");
         }
-        if(isset($_POST["holdingType"])) {
-            $holdingType = $_POST["holdingType"];
+        if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"])) {
+            $holdingType = htmlspecialchars($_POST["holdingType"]);
         }
-        if(isset($_POST["features"])) {
-            $features = htmlspecialchars($_POST["features"]);
+        if(isset($_POST["description"])&&is_string($_POST["description"])) {
+            $description = htmlspecialchars($_POST["description"]);
+        }
+
+        if(isset($_POST["longitude"])&&is_string($_POST["longitude"]) ){
+            $longitude = (float) $_POST["longitude"];
+        }
+
+        if(isset($_POST["latitude"])&&is_string($_POST["latitude"]) ){
+            $latitude = (float) $_POST["latitude"];
         }
 
         //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
-        $id = addEntry($entryName, $location, $isPublic, $size, $hasRoof, $holdingType, $features);
+        $id = addEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
+        $latitude, $imgType);
         if($id !== false) {
             echo "Test erfolgreich";
 
-            if(!is_dir("pictures/".$id."/")) {
-                mkdir("pictures/".$id."/");
+            if(!is_dir("pictures/Entry".$id."/")) {
+                mkdir("pictures/Entry".$id."/");
             }
-            if(!is_dir("pictures/".$id."/comments/")) {
-                mkdir("pictures/".$id."/comments/");
+            if(!is_dir("pictures/Entry".$id."/comments/")) {
+                mkdir("pictures/Entry".$id."/comments/");
             }
-            move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/".$id."/".$id.".".$imgType);
+            move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
         } else {
             echo "Test fehlgeschlagen";
@@ -134,15 +147,14 @@ function comment(){
                 //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
                 $image = $_FILES["commentImg"];
 
-                //Dateiendung
-                $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
-
                 //Überprüfung ob Datei ein Bild ist
                 $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
                 if($check == false){
                     echo "Das war kein Bild <br>" ;
                     return false;
                 }else {
+                    //Dateiendung
+                    $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
                     $imageExists = true;
                 }
             }
@@ -150,10 +162,9 @@ function comment(){
             $username = "Testnutzer";//TODO: richtigen Benutzernamen hinzufügen
             $text = htmlspecialchars($_POST["commentText"]);
             $entryId = $entry->getId();
-            $commentId = addComment($entryId, $username, $text);
-            if($commentId !== false && $imageExists){
-                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/".$entryId."/comments/".$commentId.".".$imgType)) {
-                            echo "Bild erfolgreich hochgeladen <br>";
+            $commentId = addComment($entryId, $username, $text, $imgType);
+            if($imageExists && $commentId !== false){
+                if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
                 }else{
                     echo "Fehler beim speichern des Bildes <br>";
                 }
