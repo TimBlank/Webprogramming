@@ -112,7 +112,7 @@ function newEntry() {
         if($id !== false) {
             echo "Test erfolgreich";
 
-            if(!is_dir("pictures/Enry".$id."/")) {
+            if(!is_dir("pictures/Entry".$id."/")) {
                 mkdir("pictures/Entry".$id."/");
             }
             if(!is_dir("pictures/Entry".$id."/comments/")) {
