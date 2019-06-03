@@ -19,79 +19,78 @@
 </head>
 
 <body>
-    <div id="bg">
-        <img src="../pictures/Background-Image.jpg">
-    </div>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <div id="mainFrame">
-        <div class="regis">
-            <section>
-                <!--Name-->
-                <form>
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Name:
-                            </label>
+    <div id="background">
+        <div id="mainFrame">
+            <div class="regis">
+                <section>
+                    <!--Name-->
+                    <form>
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Name:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="name" placeholder="Name">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
-                        </div>
-                    </div>
 
-                    <!--Email-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Email:
-                            </label>
+                        <!--Email-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Email:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="email" class="form-control" id="email" placeholder="Email">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="email" class="form-control" id="email" placeholder="Email">
-                        </div>
-                    </div>
 
-                    <!--Passwort-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Passwort:
-                            </label>
+                        <!--Passwort-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Passwort:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" id="password" placeholder="Passwort">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="password" class="form-control" id="password" placeholder="Passwort">
-                        </div>
-                    </div>
 
-                    <!--Passwort wiederholen-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Passwort wiederholen:
-                            </label>
+                        <!--Passwort wiederholen-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Passwort wiederholen:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" id="passwordRepeat" placeholder="Passwort">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="password" class="form-control" id="passwordRepeat" placeholder="Passwort">
-                        </div>
-                    </div>
 
-                    <!--Acountname-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Accountname:
-                            </label>
+                        <!--Acountname-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Accountname:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" id="accountName" placeholder="Accountname">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="accountName" placeholder="Accountname">
+                        <div class="registerButton">
+                            <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
                         </div>
-                    </div>
-                    <div class="registerButton">
-                        <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
-                    </div>
-                </form>
-            </section>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
 
