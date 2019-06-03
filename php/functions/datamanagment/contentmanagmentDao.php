@@ -3,14 +3,14 @@
 include "entryAndComments.php";
 
 //Eintrag hinzufügen
-function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
+function addEntry($name,$isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
     if($name == "Test" && $isPublic == "true" && $size == "small" && $hasRoof == "true" && $description == "Hallo"){
     return 0;
     }
     return false;
 }
 
-function addComment($entryId, $username, $text){
+function addComment($entryId, $username, $text, $imageType){
     if($entryId == 0){
         return 3;
     }
@@ -46,29 +46,30 @@ function loadEntryComments($entryId){
     yield new comment("Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
 }
 
-//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
-function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
+//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
+function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
     /* $size ist eine Zahl die folgenderweise berechnet wird
     -> $size = klein + mittel + groß
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
     */
-    if($isSearch){
-        if($name=="A2"){
+    if($name=="A2"){
             yield 1;
-        }elseif($name=="Bib"){
+    }elseif($name=="Bib"){
             yield 2;
-        }elseif($name=="W6"){
+    }elseif($name=="W6"){
             yield 3;
-        } else{
-            for ($i=0; $i<4; $i++){
-                yield $i;
-            }
+    } else{
+        for ($i=0; $i<4; $i++){
+             yield $i;
         }
-    }else{
-        //Default Anzeige der Hauptseite
-            for ($i=0; $i<1; $i++){
-                yield $i;
-            }
     }
 }
+
+//Default Anzeige der Hauptseite
+function defaultEntries(){
+    for ($i=0; $i<1; $i++){
+                yield $i;
+            }
+}
+
 ?>

@@ -12,13 +12,14 @@
     <?php
         include "php/functions/datamanagment/contentmanagmentDao.php";
 
-        //entryID muss noch richtig gesetzt werden
-        $entryID =0;
+        $entryID =null;
         if (isset($_GET["EntryID"])){
-            $entryID =$_GET["EntryID"];
+            $entryID =htmlspecialchars($_GET["EntryID"]);
         }
-
         $content = loadEntry($entryID);
+        if($content==false){
+            $content = new entry(null);
+        }
     ?>
     <?php include "php/functions/userInput.php"; ?>
     <div id="mainFrame">
@@ -96,6 +97,7 @@
             </div>
         </section>
 
+        <?php if($content->getId() !== null): ?>
         <section>
             <h1>Kommentare</h1>
             <ul class="list-group list-group-flush">
@@ -111,7 +113,7 @@
                         </div>
                     </div>
                 </li>
-                <?php endforeach; ?>
+                <?php endforeach;?>
 
                 <li class="list-group-item">
 
@@ -137,8 +139,10 @@
                         </form>
                     </div>
                 </li>
+
             </ul>
         </section>
+        <?php endif; ?>
     </div>
 
     <?php include "php/footer.php"; ?>
