@@ -195,7 +195,7 @@ function register() {
             echo "Fehler beim Namen. <br>";
         }
 
-        if(isset($_POST["email"])&&filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if(isset($_POST["email"]) && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
             $email = htmlspecialchars($_POST["email"]);
         } else {
             $formCor = false;
@@ -225,7 +225,7 @@ function register() {
 
         if($formCor == true) {
             if($password == $passwordRepeat) {
-                $registerUser($name, $email, $password, $accountName);
+                registerUser($name, $email, $password, $accountName);
             } else {
                 echo "Passwörter sind nicht gleich.";
             }

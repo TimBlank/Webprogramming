@@ -22,14 +22,14 @@
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
     <?php include "php/functions/userInput.php"; ?>
-    <?php include "php/functions/datamanagment/usermanagementDao.php"; ?>
+    <?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
                 <section>
                     <!--Name-->
-                    <form>
-                        <?php register)(); ?>
+                    <form method="post">
+                        <?php register(); ?>
                         <div class="form-row">
                             <div class="col-sm">
                                 <label class="form-control">
@@ -37,7 +37,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="name" placeholder="Name">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                             </div>
                         </div>
 
@@ -49,7 +49,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="email" class="form-control" id="email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="password" class="form-control" id="password" placeholder="Passwort">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
                             </div>
                         </div>
 
@@ -73,7 +73,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="password" class="form-control" id="passwordRepeat" placeholder="Passwort">
+                                <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort">
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" id="accountName" placeholder="Accountname">
+                                <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
                             </div>
                         </div>
                         <div class="registerButton">
