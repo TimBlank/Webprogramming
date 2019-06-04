@@ -8,12 +8,8 @@
         $Password = $_Post['pw'];
 
 
-         try{
-             verifyLogin($name, $password);
 
-         }
 
-             /*
          if(empty($Username)||empty($Password) ){
             header("Location: ../index.php?error=emptyfields")
             exit();
@@ -66,11 +62,10 @@
 
 
 
-        /* verifyLogin();
-
-
-        $RePassword = $_Post['??'];
-        $Email = $_Post['??'];
-        $accountname = $_Post['??'];
-
-     }*/
+       //prüfen ob Logindaten korrekt sind
+function verifyLogin($name, $password) {
+    if($name="Test"){
+    return true;
+    }
+    return false;
+}
