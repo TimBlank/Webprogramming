@@ -18,36 +18,15 @@
     <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
     <div id="background">
         <div id="mainFrame">
-
-<<<<<<< HEAD:createEntryPage.php
-        <div class="createEntryPage">
-            <section>
-                <form action="php/functions/createEntryFunction.php" method="post" enctype="multipart/form-data">
-                    <?php //newEntry(); ?>
-                    <div class="container border">
-                        <div class="row border">
-                            <div class="col">
-                                <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col border">
-                                <img src="pictures/dummyEntry/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
-                                <label for="userImage">
-                                    Bild hinzufügen
-                                </label>
-                                <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg">
-=======
             <div class="createEntryPage">
                 <section>
-                    <form method="post" enctype="multipart/form-data">
-                        <?php newEntry(); ?>
+                    <form action="php/functions/createEntryFunction.php" method="post" enctype="multipart/form-data">
+                        <?php //newEntry(); ?>
                         <div class="container border">
                             <div class="row border">
                                 <div class="col">
                                     <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes">
                                 </div>
->>>>>>> origin/DEV:createEntry.php
                             </div>
                             <div class="row">
                                 <div class="col border">
