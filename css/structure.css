@@ -65,6 +65,14 @@
     padding-bottom: 20px
 }
 
+.createEntryPage .container {
+    background-color: white;
+}
+
+.createEntryPage .col{
+    width: 50%;
+}
+
 .createEntryPage input[type="text"] {
     width: 100%;
     top: 0;

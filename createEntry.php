@@ -16,119 +16,121 @@
     <?php include "php/navigation.php"; ?>
     <?php include "php/functions/userInput.php"; ?>
     <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
-    <div id="mainFrame">
+    <div id="background">
+        <div id="mainFrame">
 
-        <div class="createEntryPage">
-            <section>
-                <form method="post" enctype="multipart/form-data">
-                    <?php newEntry(); ?>
-                    <div class="container border">
-                        <div class="row border">
-                            <div class="col">
-                                <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes">
+            <div class="createEntryPage">
+                <section>
+                    <form method="post" enctype="multipart/form-data">
+                        <?php newEntry(); ?>
+                        <div class="container border">
+                            <div class="row border">
+                                <div class="col">
+                                    <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    <img src="pictures/dummyEntry/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
+                                    <label for="userImage">
+                                        Bild hinzufügen
+                                    </label>
+                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg">
+                                </div>
+                                <div class="col border">
+                                    <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                                    <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad">
+                                    <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad">
+                                </div>
+                            </div>
+                            <div class="row border">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col border">
+                                            Öffentlich:
+                                        </div>
+                                        <div class="col border">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" checked>
+                                                <label class="form-check-label" for="public">Ja</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="isPublic" id="private" value="false">
+                                                <label class="form-check-label" for="private">Nein</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col border">
+                                            Stellplatzgröße:
+                                        </div>
+                                        <div class="col border">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" checked>
+                                                <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel">
+                                                <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß">
+                                                <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col border">
+                                            Überdacht:
+                                        </div>
+                                        <div class="col border">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true">
+                                                <label class="form-check-label" for="covered">Ja</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" checked>
+                                                <label class="form-check-label" for="notCovered">Nein</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col border">
+                                            Art:
+                                        </div>
+                                        <div class="col border">
+                                            Art der Fahrradhalterung siehe
+                                            <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
+                                                Wikipedia
+                                            </a>
+                                            <div class="form-group">
+                                                <select class="form-control" name="holdingType" id="holderType">
+                                                    <option value="(Keine Angabe)">(Keine Angabe)</option>
+                                                    <option value="Einfacher Vorderradhalter">Einfacher Vorderradhalter</option>
+                                                    <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
+                                                    <option value="Anlehnbügel">Anlehnbügel</option>
+                                                    <option value="Schräghochparker">Schräghochparker</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col border">
+                                            Besonderheiten:
+                                        </div>
+                                        <div class="col border">
+                                            <textarea class="form-control" id="description" name="description" placeholder="Zum Beispiel Zugänglichkeit oder anderes"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col border">
-                                <img src="pictures/dummyEntry/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
-                                <label for="userImage">
-                                    Bild hinzufügen
-                                </label>
-                                <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg">
-                            </div>
-                            <div class="col border">
-                                <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
-                                <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad">
-                                <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad">
-                            </div>
+                        <div class="createBtn">
+                            <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
                         </div>
-                        <div class="row border">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col border">
-                                        Öffentlich:
-                                    </div>
-                                    <div class="col border">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" checked>
-                                            <label class="form-check-label" for="public">Ja</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="isPublic" id="private" value="false">
-                                            <label class="form-check-label" for="private">Nein</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Stellplatzgröße:
-                                    </div>
-                                    <div class="col border">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" checked>
-                                            <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel">
-                                            <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß">
-                                            <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Überdacht:
-                                    </div>
-                                    <div class="col border">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true">
-                                            <label class="form-check-label" for="covered">Ja</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" checked>
-                                            <label class="form-check-label" for="notCovered">Nein</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Art:
-                                    </div>
-                                    <div class="col border">
-                                        Art der Fahrradhalterung siehe
-                                        <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
-                                            Wikipedia
-                                        </a>
-                                        <div class="form-group">
-                                            <select class="form-control" name="holdingType" id="holderType">
-                                                <option value="(Keine Angabe)">(Keine Angabe)</option>
-                                                <option value="Einfacher Vorderradhalter">Einfacher Vorderradhalter</option>
-                                                <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
-                                                <option value="Anlehnbügel">Anlehnbügel</option>
-                                                <option value="Schräghochparker">Schräghochparker</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Besonderheiten:
-                                    </div>
-                                    <div class="col border">
-                                        <textarea class="form-control" id="description" name="description" placeholder="Zum Beispiel Zugänglichkeit oder anderes"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="createBtn">
-                        <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
-                    </div>
-                </form>
-            </section>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
 
