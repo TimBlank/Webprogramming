@@ -49,7 +49,7 @@ if(isset($_POST["SubmitComment"])){
         }
     }else{
         //echo "Dieser Stellplatz existiert nicht in der Datenbank <br>";
-        header("Location:http://localhost/createEntryPage.php");
+        header("Location:http://localhost/Index.php");
 
     }
 }

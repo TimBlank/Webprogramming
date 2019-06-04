@@ -48,14 +48,18 @@ if(isset($_POST["registerBtn"])){
         if($password == $passwordRepeat) {
             if(registerUser($name, $email, $password, $accountName)){
                 header("Location:http://localhost/Index.php");
+            }else{
+                header("Location:http://localhost/registration.php");
             }
         } else {
             //echo "Passwörter sind nicht gleich.";
+            header("Location:http://localhost/registration.php");
         }
     } else {
          //echo "Fehler bei der Registrierung";
+        header("Location:http://localhost/registration.php");
     }
-    header("Location:http://localhost/registration.php");
+
 }
 
 ?>

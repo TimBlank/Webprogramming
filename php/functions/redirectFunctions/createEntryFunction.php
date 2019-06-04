@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST["submitEntry"])){
     //T0D0: prüfen ob Benutzer eingeloggt ist
 
@@ -66,7 +65,6 @@ if(isset($_POST["submitEntry"])){
     $latitude, $imgType);
     if($id !== false) {
         //echo "Test erfolgreich";
-
         if(!is_dir("pictures/Entry".$id."/")) {
             mkdir("pictures/Entry".$id."/");
         }
@@ -79,9 +77,8 @@ if(isset($_POST["submitEntry"])){
     } else {
         //echo "Test fehlgeschlagen";
         //TODO: Fehler anzeigen.
+         header("Location:http://localhost/createEntryPage.php");
     }
-    header("Location:http://localhost/createEntryPage.php");
+
 }
-
-
 ?>

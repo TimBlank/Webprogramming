@@ -17,7 +17,7 @@ function registerUser($realName,$email,$password,$userName){
         fclose($handle);
         return true;
     } else {
-        echo "Error";
+        //echo "Error";
         return false;
     }
 }
