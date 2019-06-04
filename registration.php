@@ -21,78 +21,82 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <div id="mainFrame">
+    <?php include "php/functions/userInput.php"; ?>
+    <?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
+    <div id="background">
+        <div id="mainFrame">
+            <div class="regis">
+                <section>
+                    <!--Name-->
+                    <form method="post">
+                        <?php register(); ?>
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Name:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                            </div>
+                        </div>
 
+                        <!--Email-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Email:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                            </div>
+                        </div>
 
-        <div class="mx-auto">
+                        <!--Passwort-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Passwort:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
+                            </div>
+                        </div>
 
-            <section>
-                <!--Name-->
-                <form>
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Name:
-                            </label>
+                        <!--Passwort wiederholen-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Passwort wiederholen:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="name" placeholder="Name">
-                        </div>
-                    </div>
 
-                    <!--Email-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Email:
-                            </label>
+                        <!--Acountname-->
+                        <div class="form-row">
+                            <div class="col-sm">
+                                <label class="form-control">
+                                    Accountname:
+                                </label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
+                            </div>
                         </div>
-                        <div class="col">
-                            <input type="email" class="form-control" id="email" placeholder="Email">
+                        <div class="registerButton">
+                            <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
                         </div>
-                    </div>
-
-                    <!--Passwort-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Passwort:
-                            </label>
-                        </div>
-                        <div class="col">
-                            <input type="password" class="form-control" id="password" placeholder="Passwort">
-                        </div>
-                    </div>
-
-                    <!--Passwort wiederholen-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Passwort wiederholen:
-                            </label>
-                        </div>
-                        <div class="col">
-                            <input type="password" class="form-control" id="passwordRepeat" placeholder="Passwort">
-                        </div>
-                    </div>
-
-                    <!--Acountname-->
-                    <div class="form-row">
-                        <div class="col-sm">
-                            <label class="form-control">
-                                Accountname:
-                            </label>
-                        </div>
-                        <div class="col">
-                            <input type="text" class="form-control" id="accountName" placeholder="Accountname">
-                        </div>
-                    </div>
-                </form>
-
-            </section>
-
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
+
 
     <?php include "php/footer.php"; ?>
 
