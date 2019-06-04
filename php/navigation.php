@@ -62,8 +62,7 @@
                     <div class="dropdown-menu bg-light dropdown-menu-right">
                         <a class="dropdown-item">
 
-                            <form action="php/login.php" methode="post" class="form-inline dropdown-item">
-                                <?php login(); ?>
+                            <form action="php/functions/login.php" methode="post" class="form-inline dropdown-item">
                                     <div class="form-group">
                                     <label for="username">
                                         Benutzername
