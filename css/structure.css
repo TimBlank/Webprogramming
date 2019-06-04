@@ -25,6 +25,10 @@
     }
 }
 
+#searchForm{
+    padding: 8px;
+}
+
 #background {
     background-image: url(../pictures/Background-Image.jpg);
     background-color: black;
