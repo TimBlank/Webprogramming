@@ -21,7 +21,7 @@ if(isset($_POST["submitEntry"])){
         //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
         $image = $_FILES["userImage"];
         if(empty($image)){
-            echo "Es wurde keine Datei Hochgeladen <br>" ;
+            //echo "Es wurde keine Datei Hochgeladen <br>" ;
             return false;
         }
             //Dateiendung
@@ -30,7 +30,7 @@ if(isset($_POST["submitEntry"])){
         if($check !==false){
             $userImage = $image;
         } else {
-            echo "Das war kein Bild <br>" ;
+            //echo "Das war kein Bild <br>" ;
             return false;
         }
     }

@@ -9,7 +9,7 @@ if(isset($_POST["SubmitComment"])){
         if(!empty($_POST["commentText"])){
 
         }else{
-            echo "Du musst schon was schreiben <br>" ;
+            //echo "Du musst schon was schreiben <br>" ;
             return false;
         }
 
@@ -22,7 +22,7 @@ if(isset($_POST["SubmitComment"])){
             //Überprüfung ob Datei ein Bild ist
             $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
             if($check == false){
-                echo "Das war kein Bild <br>" ;
+                //echo "Das war kein Bild <br>" ;
                 return false;
             }else {
                 //Dateiendung
