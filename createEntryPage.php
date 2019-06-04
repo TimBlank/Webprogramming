@@ -20,7 +20,7 @@
         <div id="mainFrame">
             <div class="createEntryPage">
                 <section>
-                    <form action="php/functions/createEntryFunction.php" method="post" enctype="multipart/form-data">
+                    <form action="redirect.php" method="post" enctype="multipart/form-data">
                         <?php //newEntry(); ?>
                         <div class="container border">
                             <div class="row border">

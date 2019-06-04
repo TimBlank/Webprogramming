@@ -1,5 +1,4 @@
 <?php
-include "datamanagment/contentmanagmentDao.php";
 
 if(isset($_POST["submitEntry"])){
     //T0D0: prüfen ob Benutzer eingeloggt ist
@@ -78,10 +77,10 @@ if(isset($_POST["submitEntry"])){
             //TODO: Auf neue Eintragsseite gehen.
         header("Location:http://localhost/entryPage.php?EntryID=".$id);
     } else {
-        echo "Test fehlgeschlagen";
-        header("Location:http://localhost/createEntryPage.php");
+        //echo "Test fehlgeschlagen";
         //TODO: Fehler anzeigen.
     }
+    header("Location:http://localhost/createEntryPage.php");
 }
 
 
