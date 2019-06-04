@@ -54,6 +54,7 @@
 </form>
 -->
 <?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
+<?php include "php/functions/userInput.php"; ?>
 
             <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
@@ -62,7 +63,7 @@
                         <a class="dropdown-item">
 
                             <form action="php/login.php" methode="post" class="form-inline dropdown-item">
-                                <?php //verifyLogin(); ?>
+                                <?php login(); ?>
                                     <div class="form-group">
                                     <label for="username">
                                         Benutzername
