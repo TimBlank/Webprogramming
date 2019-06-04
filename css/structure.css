@@ -25,8 +25,11 @@
     }
 }
 
-#background {
+#searchForm{
+    padding: 8px;
+}
 
+#background {
     background-image: url(../pictures/Background-Image.jpg);
     background-color: black;
     background-size: cover;
@@ -62,6 +65,14 @@
     padding-bottom: 20px
 }
 
+.createEntryPage .container {
+    background-color: white;
+}
+
+.createEntryPage .col{
+    width: 50%;
+}
+
 .createEntryPage input[type="text"] {
     width: 100%;
     top: 0;
@@ -77,4 +88,19 @@
     bottom: 0;
     right: 0;
     text-align: center
+}
+
+.registerButton {
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center
+}
+
+@media (max-width: 575px) {
+    .regis .form-row {
+        padding-bottom: 20px;
+    }
 }

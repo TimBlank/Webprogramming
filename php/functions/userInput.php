@@ -3,13 +3,13 @@
 
 
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
-function search(){
-    $entryName = null;
-    $isPublic = null;
-    $size = 0;
-    $hasRoof = null;
-    $holdingType = null;
+function loadEntries(){
     if(isset($_GET["SubmitSearch"])){
+        $entryName = null;
+        $isPublic = null;
+        $size = 0;
+        $hasRoof = null;
+        $holdingType = null;
         if(isset($_GET["entryName"])){
             $entryName = htmlspecialchars( $_GET["entryName"]);
         }
@@ -174,6 +174,63 @@ function comment(){
             }
         }else{
             echo "Dieser Stellplatz existiert nicht in der Datenbank <br>";
+        }
+    }
+}
+
+function register() {
+    if(isset($_POST["registerBtn"])){
+        $name = null;
+        $email = null;
+        $password = null;
+        $passwordRepeat = null;
+        $accountName = null;
+
+        $formCor = true;
+
+        if(isset($_POST["name"])&&is_string($_POST["name"])) {
+            $name = htmlspecialchars($_POST["name"]);
+        } else {
+            $formCor = false;
+            echo "Fehler beim Namen. <br>";
+        }
+
+        if(isset($_POST["email"]) && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+            $email = htmlspecialchars($_POST["email"]);
+        } else {
+            $formCor = false;
+            echo "Fehler bei der E-Mail. <br>";
+        }
+
+        if(isset($_POST["password"])) {
+            $password = $_POST["password"];
+        } else {
+            $formCor = false;
+            echo "Fehler beim Passwort. <br>";
+        }
+
+        if(isset($_POST["passwordRepeat"])) {
+            $passwordRepeat = $_POST["passwordRepeat"];
+        } else {
+            $formCor = false;
+            echo "Fehler beim Passwort wiederholen. <br>";
+        }
+
+        if(isset($_POST["accountName"])&&is_string($_POST["accountName"])) {
+            $accountName = htmlspecialchars($_POST["accountName"]);
+        } else {
+            $formCor = false;
+            echo "Fehler beim Account Namen. <br>";
+        }
+
+        if($formCor == true) {
+            if($password == $passwordRepeat) {
+                registerUser($name, $email, $password, $accountName);
+            } else {
+                echo "Passwörter sind nicht gleich.";
+            }
+        } else {
+            echo "Fehler bei der Registrierung";
         }
     }
 }

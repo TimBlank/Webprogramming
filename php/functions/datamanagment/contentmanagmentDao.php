@@ -5,7 +5,11 @@ include "entryAndComments.php";
 //Eintrag hinzufügen
 function addEntry($name,$isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
     if($name == "Test" && $isPublic == "true" && $size == "Klein" && $hasRoof == "true" && $description == "Hallo"){
+<<<<<<< HEAD
     return 3;
+=======
+    return 0;
+>>>>>>> origin/DEV
     }
     return false;
 }

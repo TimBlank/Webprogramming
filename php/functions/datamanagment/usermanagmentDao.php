@@ -10,10 +10,15 @@ function verifyLogin($name, $password) {
 
 //neuenBenutzer regristrieren
 function registerUser($realName,$email,$password,$userName){
-    if($name="Test"){
-    return true;
+    if($realName == "Test") {
+        $file = 'reg.txt';
+        $handle = fopen($file, 'a') or die('Cannot open file:  '.$file);
+        $text = fwrite($handle, $realName . ";" . $email . ";" . $password . ";" . $userName . "\n");
+        fclose($handle);
+        return true;
+    } else {
+        echo "Error";
+        return false;
     }
-    return false;
 }
-
 ?>

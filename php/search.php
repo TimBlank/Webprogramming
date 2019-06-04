@@ -1,5 +1,5 @@
       <form>
-          <div class="card">
+          <div class="card" id="searchForm">
           <div class="form-group" >
               <label for="search_q">
                   <h3>Standortname</h3>
