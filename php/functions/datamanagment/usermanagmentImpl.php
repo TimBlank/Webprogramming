@@ -12,6 +12,7 @@ function verifyLogin($name, $password) {
         $hashData = $stmt->fetchObject();
         $hash = $hashData->password;
         $db.close();
+
         $db = null;
 
     return password_verify($password, $hash);
@@ -35,7 +36,7 @@ function registerUser($realName,$email,$password,$username){
         $userData = $stmt->fetchObject();
         if(empty($userData)){
             //Passwort Hashen und neuen Benutzer hinzufügen
-            $passwordHash = password_hash($password);
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO user (username, password) VALUES (:username, :passwordHash)";
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":username", $username);

@@ -235,7 +235,8 @@ function register() {
     }
 }
 
-//Login TOODO
+
+//Login TODO
 function login() {
     if(isset($_POST[""])){
         $name = null;
@@ -263,4 +264,5 @@ function login() {
         }
     }
 }
+
 ?>
