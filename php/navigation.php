@@ -82,7 +82,7 @@
                             <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
 
                             <form action="php/logout.php" class="form-inline dropdown-item">
-                                    <button type="submit" class="btn btn-default">Auslogen</button>
+                                    <button type="submit" class="btn btn-default" name="logout-button">Auslogen</button>
                             </form>
 
                         </a>

@@ -1,14 +1,13 @@
 <?php
      if(isset($_Post['login-submit'])){
-
-        require '/functions/datamanagment/databaseConnection.php';
-         require '/funtions/datamanagment/usermanagmentImpl.php';
+         require 'php/funtions/login.php';
 
         $Username = $_Post['un'];
         $Password = $_Post['pw'];
 
 
 
+========================================================================================================================================================================
 
          if(empty($Username)||empty($Password) ){
             header("Location: ../index.php?error=emptyfields")
@@ -35,7 +34,12 @@
                         exit();
                      }
                      else if($passwordcheck= true){
-
+                         <?php
+                            ini_set("session.use_cookies", 1);
+                            ini_set("session.use_only_cookies", 0);
+                            ini_set("session.use_trans_sid", 0);
+                            session_start();
+                        ?>
                      }
                      else(){
                          header("Location: ../index.php?error=wrongpassword")
@@ -57,10 +61,36 @@
 
 
 
+========================================================================================================================================================================
+//Login TODO
+function login() {
+    if(isset($_POST["login-submit"])){
+        $name = null;
+        $password = null;
 
+        $formCor = true;
 
+        if(isset($_POST["name"])&&is_string($_POST["name"])) {
+            $name = htmlspecialchars($_POST["name"]);
+        } else {
+            $formCor = false;
+            echo "Falscher Namen. <br>";
+        }
 
+        if(isset($_POST["password"])) {
+            $password = $_POST["password"];
+        } else {
+            $formCor = false;
+            echo "Falsches Passwort. <br>";
+        }
 
+        if($formCor == true) {
+        } else {
+            echo "Fehler bei beim Login";
+        }
+    }
+}
+========================================================================================================================================================================
 
        //prüfen ob Logindaten korrekt sind
 function verifyLogin($name, $password) {

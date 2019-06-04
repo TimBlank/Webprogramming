@@ -21,9 +21,10 @@
         <div id="mainFrame">
             <div class="regis">
                 <section>
-                    <!--Name-->
                     <form method="post">
                         <?php register(); ?>
+
+                        <!--Name-->
                         <div class="form-row">
                             <div class="col-sm">
                                 <label class="form-control">
@@ -82,6 +83,7 @@
                                 <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
                             </div>
                         </div>
+
                         <div class="registerButton">
                             <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
                         </div>

@@ -236,33 +236,4 @@ function register() {
 }
 
 
-//Login TODO
-function login() {
-    if(isset($_POST[""])){
-        $name = null;
-        $password = null;
-
-        $formCor = true;
-
-        if(isset($_POST["name"])&&is_string($_POST["name"])) {
-            $name = htmlspecialchars($_POST["name"]);
-        } else {
-            $formCor = false;
-            echo "Falscher Namen. <br>";
-        }
-
-        if(isset($_POST["password"])) {
-            $password = $_POST["password"];
-        } else {
-            $formCor = false;
-            echo "Falsches Passwort. <br>";
-        }
-
-        if($formCor == true) {
-        } else {
-            echo "Fehler bei beim Login";
-        }
-    }
-}
-
 ?>
