@@ -22,8 +22,8 @@
     <section>
         <div id="mainFrame">
             <div class="row">
-                <div class="col col-auto">
-                    <div id="sideSearch">
+                <div class="col col-auto" id="sideSearch">
+                    <div>
                         <?php include "php/search.php"; ?>
                     </div>
                 </div>
