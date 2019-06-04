@@ -3,13 +3,13 @@
 
 
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
-function search(){
-    $entryName = null;
-    $isPublic = null;
-    $size = 0;
-    $hasRoof = null;
-    $holdingType = null;
+function loadEntries(){
     if(isset($_GET["SubmitSearch"])){
+        $entryName = null;
+        $isPublic = null;
+        $size = 0;
+        $hasRoof = null;
+        $holdingType = null;
         if(isset($_GET["entryName"])){
             $entryName = htmlspecialchars( $_GET["entryName"]);
         }

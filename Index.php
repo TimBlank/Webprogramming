@@ -43,7 +43,7 @@
                     <div class="card-group">
                         <div class="card">
                             <ul class="list-unstyled">
-                                <?php foreach(search() as $entryID): ?>
+                                <?php foreach(loadEntries() as $entryID): ?>
                                 <li>
                                     <?php $content = loadEntry($entryID); ?>
                                     <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
