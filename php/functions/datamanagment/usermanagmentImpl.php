@@ -10,11 +10,11 @@ function verifyLogin($name, $password) {
         $stmt->bindParam(":loadName", $name);
         $stmt->execute();
         $hashData = $stmt->fetchObject();
-        $hash = $hashData->password
+        $hash = $hashData->password;
         $db.close();
         $db = null;
 
-    yield password_verify($password, $hash);
+    return password_verify($password, $hash);
 
     }catch (PDOException $ex) {
         echo "Fehler: " . $ex->getMessage();

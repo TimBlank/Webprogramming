@@ -60,6 +60,7 @@
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
                     <div class="dropdown-menu bg-light dropdown-menu-right">
                         <a class="dropdown-item">
+
                             <form action="php/login.php" methode="post" class="form-inline dropdown-item">
                                <!-- <div class="form-group">
                                     <label for="username">
@@ -76,7 +77,7 @@
                                     </div>
                                 -->
                                     <input type="password" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
-                                    <button type="submit" class="btn btn-default">Einloggen</button>
+                                    <button type="submit" class="btn btn-default" name="login-submit">Einloggen</button>
                             </form>
 
                             <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
