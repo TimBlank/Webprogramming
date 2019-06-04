@@ -14,10 +14,11 @@
             exit();
          }
          else(){
-             //TODO richtige namen aus der Daten bank
-             $sql ="SELECT * FROM usertable WHERE username=? OR email=? OR Accountname=?; ";
-             //TODO verbind zur Datenbank
-             $stmt= mysql_stmt_init($conn);
+             //TODO  $sql ="SELECT * FROM user WHERE username=? OR email=? OR Accountname=?;";
+             $sql ="SELECT * FROM user WHERE username=?;";
+             $db = databaseConnect();
+             $stmt= mysql_stmt_init(db);
+
              if(!mysql_stmt_prepare($stmt, $sql)){
                  header("Location: ../index.php?error=sqlerror")
                  exit();
@@ -26,9 +27,9 @@
                  mysql_stmt_bind_param($stmt, "ss" ,$Username,$Username );
                  mysql_stmt_execute($stmt);
                  $results= mysql_stmt_get_result($stmt);
-                 if(empty($row= mysql_fetch_assoc())){
+                 if(!empty($row= mysql_fetch_assoc())){
                      //TODO richtiger name aus der Datenbank
-                     $passwordcheck= password_verify($Password, $row['pwdUsers' ]);
+                     $passwordcheck= password_verify($Password, $row['password' ]);
                      if($passwordcheck= false){
                         header("Location: ../index.php?error=wrongpassword")
                         exit();
@@ -39,6 +40,8 @@
                             ini_set("session.use_only_cookies", 0);
                             ini_set("session.use_trans_sid", 0);
                             session_start();
+
+                            $db = null;
                         ?>
                      }
                      else(){
@@ -61,41 +64,22 @@
 
 
 
-========================================================================================================================================================================
-//Login TODO
-function login() {
-    if(isset($_POST["login-submit"])){
-        $name = null;
-        $password = null;
-
-        $formCor = true;
-
-        if(isset($_POST["name"])&&is_string($_POST["name"])) {
-            $name = htmlspecialchars($_POST["name"]);
-        } else {
-            $formCor = false;
-            echo "Falscher Namen. <br>";
-        }
-
-        if(isset($_POST["password"])) {
-            $password = $_POST["password"];
-        } else {
-            $formCor = false;
-            echo "Falsches Passwort. <br>";
-        }
-
-        if($formCor == true) {
-        } else {
-            echo "Fehler bei beim Login";
-        }
-    }
-}
-========================================================================================================================================================================
-
-       //prüfen ob Logindaten korrekt sind
 function verifyLogin($name, $password) {
-    if($name="Test"){
-    return true;
-    }
-    return false;
+    try{
+        $db = databaseConnect();
+        $sql = "SELECT password FROM user WHERE username = (:loadName)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":loadName", $name);
+        $stmt->execute();
+        $hashData = $stmt->fetchObject();
+        $hash = $hashData->password;
+        $db.close();
+
+        $db = null;
+
+    return password_verify($password, $hash);
+
+    }catch (PDOException $ex) {
+        echo "Fehler: " . $ex->getMessage();
+   }
 }
