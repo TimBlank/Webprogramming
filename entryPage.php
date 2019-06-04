@@ -124,9 +124,9 @@
                 <li class="list-group-item">
 
                     <div class="card">
-                        <form method="post" enctype="multipart/form-data">
+                        <form action="redirect.php" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <?php comment(); ?>
+                                <?php //comment(); ?>
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>
