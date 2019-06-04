@@ -53,7 +53,7 @@
 <input type="password" name="password" placeholder="Passwort">
 </form>
 -->
-
+<?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
 
             <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
@@ -62,20 +62,18 @@
                         <a class="dropdown-item">
 
                             <form action="php/login.php" methode="post" class="form-inline dropdown-item">
-                               <!-- <div class="form-group">
+                                <?php //verifyLogin(); ?>
+                                    <div class="form-group">
                                     <label for="username">
                                         Benutzername
                                     </label>
                                     </div>
-                                -->
                                     <input type="text" class="form-control" id="username" name="un" value="" placeholder="Benutzername" autocomplete="off" />
-                                <!--
                                 <div class="form-group">
                                     <label for="password">
                                         Passwort
                                     </label>
                                     </div>
-                                -->
                                     <input type="password" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
                                     <button type="submit" class="btn btn-default" name="login-submit">Einloggen</button>
                             </form>
