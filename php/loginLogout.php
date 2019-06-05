@@ -24,7 +24,7 @@
                                 Passwort
                             </label>
 
-                            <input type="text" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" />
+                            <input type="password" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" />
                         </div>
                         <button type="submit" class="btn btn-default" name="loginSubmit" value="loginSubmit">
                             Einloggen

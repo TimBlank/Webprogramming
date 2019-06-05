@@ -12,4 +12,4 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fahrrad Stellpätze</title>
-<link href="Bilder/IconTransparent.png" rel="icon">
+<link href="pictures/IconTransparent.png" rel="icon">
