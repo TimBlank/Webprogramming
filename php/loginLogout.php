@@ -3,7 +3,7 @@
 
         <?php if(isset($_SESSION["User"])){?>
 
-        <form action="php/functions/logout.php" method="post" class="form-inline dropdown-item">
+        <form action="redirect.php" method="post" class="form-inline dropdown-item">
             <button type="submit" class="btn btn-default" name="logoutSubmit" value="logoutSubmit">
                 Ausloggen
             </button>
@@ -13,7 +13,7 @@
         <div class="dropdown-menu bg-light dropdown-menu-right">
             <a class="dropdown-item">
                 <div class="form-inline dropdown-item">
-                    <form action="php/functions/login.php\" method="post" class="form-inline dropdown-item">
+                    <form action="redirect.php" method="post" class="form-inline dropdown-item">
                         <div>
                             <label for="username">
                                 Benutzername

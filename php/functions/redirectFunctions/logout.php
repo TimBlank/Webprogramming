@@ -1,6 +1,5 @@
 <?php
 if(isset($_POST["logoutSubmit"])){
-echo "LOGOUT <br>";
  $_SESSION = array();
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();

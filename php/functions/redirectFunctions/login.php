@@ -1,5 +1,4 @@
 <?php
-include "datamanagment/usermanagmentDao.php";
 try{
     if(isset($_POST["loginSubmit"])){
 
@@ -10,14 +9,14 @@ try{
         if(isset($_POST["un"]) && is_string($_POST["un"])) {
             $Username = htmlspecialchars($_POST["un"]);
             } else {
-                echo "Fehler beim Usernamen. <br>";
+                //echo "Fehler beim Usernamen. <br>";
                 $formIsSet=false;
             }
 
         if(isset($_POST["pw"]) && is_string($_POST["pw"])) {
             $Password = htmlspecialchars($_POST['pw']);
         } else {
-           echo "Fehler beim Password. <br>";
+           //echo "Fehler beim Password. <br>";
            $formIsSet=false;
         }
 
@@ -30,6 +29,6 @@ try{
     }
 }
     finally{
-        echo "Ende <br> ";
+        //echo "Ende <br> ";
 }
 ?>
