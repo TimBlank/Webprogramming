@@ -9,6 +9,7 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
+    <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
     <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
     <?php include "php/functions/userInput.php"; ?>
 
