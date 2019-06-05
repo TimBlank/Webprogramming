@@ -22,9 +22,6 @@
             <div class="regis">
                 <section>
                     <form action="redirect.php" method="post">
-
-                        <?php //register(); ?>
-
                         <!--Name-->
                         <div class="form-row">
                             <div class="col-sm">
