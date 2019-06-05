@@ -70,6 +70,7 @@
                             <a class="dropdown-item">
                                 <div class="form-inline dropdown-item">
                                     <form action="php/functions/login.php\" method="post" class="form-inline dropdown-item">
+                                        <div>
                                         <label for="username">
                                             Benutzername
                                         </label>
@@ -80,6 +81,7 @@
                                         </label>
 
                                         <input type="text" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" />
+                                        </div>
                                         <button type="submit" class="btn btn-default" name="login-submit">
                                             Einloggen
                                         </button>
