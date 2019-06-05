@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST["submitEntry"])){
 
-    isset($_SESSION["User"]){}
+    if(isset($_SESSION["User"])){
 
     $entryName = null;
     $userImage = null;
@@ -79,6 +79,9 @@ if(isset($_POST["submitEntry"])){
         //echo "Test fehlgeschlagen";
         //TODO: Fehler anzeigen.
          header("Location:http://localhost/createEntryPage.php");
+    }
+    }else{
+        header("Location:http://localhost/registration.php");
     }
 
 }

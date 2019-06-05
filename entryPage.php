@@ -12,7 +12,7 @@
     <?php
         include "php/functions/datamanagment/contentmanagmentDao.php";
 
-        $entryID =null;
+        $entryID = null;
         if (isset($_GET["EntryID"])){
             $entryID =htmlspecialchars($_GET["EntryID"]);
         }
@@ -119,6 +119,7 @@
 
                     <div class="card">
                         <form action="redirect.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                             <div class="form-group">
                                 <?php //comment(); ?>
                                 <label for="userImage">
