@@ -5,8 +5,9 @@ if(isset($_POST["SubmitComment"])){
     if(isset($_SESSION["User"])){
 
         $entry = loadEntry($_POST["EntryID"]);
-        $inputsCorrect = true;
         if($entry !== false){
+            $inputsCorrect = true;
+            $entryId = $entry->getId();
             if(!empty($_POST["commentText"])){
 
             }else{
@@ -35,20 +36,22 @@ if(isset($_POST["SubmitComment"])){
             if($inputsCorrect){
                 $username = htmlspecialchars($_SESSION["User"]);
                 $text = htmlspecialchars($_POST["commentText"]);
-                $entryId = $entry->getId();
                 $commentId = addComment($entryId, $username, $text, $imgType);
                 if($imageExists && $commentId !== false){
                     if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
                     header("Location:http://localhost/entryPage?EntryID=".$entryId.".php");
                     }else{
                         //echo "Fehler beim speichern des Bildes <br>";
-                        header("Location:http://localhost/entryPage?EntryID=".$entryId.".php");
+                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
                     }
 
                 }elseif($commentId == false){
                     //echo "Fehler beim speichern des Kommentares in der Datenbank <br>";
-                    header("Location:http://localhost/entryPage?EntryID=".$entryId.".php");
+                    header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
                 }
+            }else{
+                //echo "Falsche Eingabe <br>";
+                header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
             }
 
         }else{
