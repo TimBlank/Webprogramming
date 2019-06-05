@@ -4,9 +4,11 @@ ini_set("session.use_only_cookies", 0);
 ini_set("session.use_trans_sid", 0);
 session_start();
 
-include "php/functions/datamanagment/usermanagmentDao.php";
+include "php/functions/datamanagment/databaseConnection.php";
 
-include "php/functions/datamanagment/contentmanagmentDao.php";
+include "php/functions/datamanagment/usermanagmentImpl.php";
+
+include "php/functions/datamanagment/contentmanagmentImpl.php";
 
 include "php/functions/redirectFunctions/createEntryFunction.php";
 
