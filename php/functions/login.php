@@ -30,8 +30,9 @@ if (isset($Username) && isset($Password)  ){
 
     if($Username=="Test" && $Password=="Test" ){
         session_start();    //$_SESSION gloable variable becomes Available
-        $_SESSION["Test"]= $Username;
-        //header('Location: http://localhost/index.php');
+        $_SESSION["User"]= $Username;
+        $_SESSION["passs"]= $Password;
+        header('Location: http://localhost/index.php');
         exit;
     }
 
