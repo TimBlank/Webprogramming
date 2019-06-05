@@ -57,43 +57,41 @@
             <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
 
-                            <?php
-                                if(isset($_SESSION["User"])){
-                                    echo "<form action=\"php/functions/logout.php\" class=\"form-inline dropdown-item\">";
-                                    echo "<button type=\"submit\" class=\"btn btn-default\" name=\"logout-button\">";
-                                        echo "Auslogen";
-                                    echo "</button>";
+                    <?php if(isset($_SESSION["User"])){?>
 
-                                }else{
-                                    echo"<a class=\"nav-link dropdown-toggle active\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" title=\"Einloggen oder Regestrieren\">Login</a>";
-                                    echo"<div class=\"dropdown-menu bg-light dropdown-menu-right\">";
-                                    echo"<a class=\"dropdown-item\">";
-                                    echo"<div  class=\"form-inline dropdown-item\">";
-                                    echo"<form  action=\"php/functions/login.php\" method=\"post\" class=\"form-inline dropdown-item\">";
-                                    echo"<label for=\"username\">";
-                                        echo"Benutzername";
-                                    echo"</label>";
+                    <form action="php/functions/logout.php" class="form-inline dropdown-item">
+                        <button type="submit" class="btn btn-default" name="logout-button">
+                            Auslogen
+                        </button>
 
-                                    echo"<input type=\"text\" class=\"form-control\" id=\"username\" name=\"un\" placeholder=\"Benutzername\" autocomplete=\"off\" />";
-                                    echo"<label for=\"password\">";
-                                        echo"Passwort";
-                                    echo"</label>";
+                        <?php }else{ ?>
+                        <a class="nav-link dropdown-toggle active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login</a>
+                        <div class="dropdown-menu bg-light dropdown-menu-right">
+                            <a class="dropdown-item">
+                                <div class="form-inline dropdown-item">
+                                    <form action="php/functions/login.php\" method="post" class="form-inline dropdown-item">
+                                        <label for="username">
+                                            Benutzername
+                                        </label>
 
-                                    echo"<input type=\"text\" class=\"form-control\" id=\"password\" name=\"pw\" placeholder=\"Passwort\" autocomplete=\"off\" />";
-                                    echo"<button type=\"submit\" class=\"btn btn-default\" name=\"login-submit\">";
-                                        echo"Einloggen";
-                                    echo"</button>";
-                                    echo" </form>";
+                                        <input type="text" class="form-control" id="username" name="un" placeholder="Benutzername" autocomplete="off" />
+                                        <label for="password">
+                                            Passwort
+                                        </label>
 
-                                    echo"<a class=\"dropdown-item\" href=\"../../registration.php\" title=\"Hier kann man sich Registrieren\">";
-                                        echo"Registrieren";
-                                    echo"</a>";
-                                    echo"</div>";
-                                    echo"</a>";
-                                    echo"</div>";
-                                //echo"";
-                                }
-                                ?>
+                                        <input type="text" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" />
+                                        <button type="submit" class="btn btn-default" name="login-submit">
+                                            Einloggen
+                                        </button>
+                                    </form>
+
+                                    <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">
+                                        Registrieren
+                                    </a>
+                                </div>
+                            </a>
+                        </div>
+                        <?php } ?>
                 </li>
             </ul>
         </div>
