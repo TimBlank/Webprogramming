@@ -13,11 +13,9 @@
     <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
     <div id="background">
         <div id="mainFrame">
-
             <div class="createEntryPage">
                 <section>
-                    <form method="post" enctype="multipart/form-data">
-                        <?php newEntry(); ?>
+                    <form action="redirect.php" method="post" enctype="multipart/form-data">
                         <div class="container border">
                             <div class="row border">
                                 <div class="col">

@@ -33,7 +33,7 @@
                     </div>
                     <?php
                         if(isset($_SESSION["User"])){
-                        echo "<a href=\"createEntry.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Neuen Stellplatz hinzufügen</a>";
+                        echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Neuen Stellplatz hinzufügen</a>";
                         }
                         ?>
                 </div>

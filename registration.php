@@ -21,9 +21,7 @@
         <div id="mainFrame">
             <div class="regis">
                 <section>
-                    <form method="post">
-                        <?php register(); ?>
-
+                    <form action="redirect.php" method="post">
                         <!--Name-->
                         <div class="form-row">
                             <div class="col-sm">

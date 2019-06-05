@@ -9,10 +9,9 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <?php
-        include "php/functions/datamanagment/contentmanagmentDao.php";
-
-        $entryID =null;
+    <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
+    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
+    <?php   $entryID = null;
         if (isset($_GET["EntryID"])){
             $entryID =htmlspecialchars($_GET["EntryID"]);
         }
@@ -118,9 +117,9 @@
                 <li class="list-group-item">
 
                     <div class="card">
-                        <form method="post" enctype="multipart/form-data">
+                        <form action="redirect.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                             <div class="form-group">
-                                <?php comment(); ?>
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>

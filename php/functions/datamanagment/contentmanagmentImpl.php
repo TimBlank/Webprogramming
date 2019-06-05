@@ -1,7 +1,6 @@
 <?php
 
 include "entryAndComments.php";
-include "databaseConnection.php";
 
 //Eintrag hinzufügen
 function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
