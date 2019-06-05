@@ -45,7 +45,7 @@
 
                 </li>
             </ul>
-<!--Login
+            <!--Login
 
 
 <form action="php/login.php" methode="post">
@@ -53,37 +53,45 @@
 <input type="password" name="password" placeholder="Passwort">
 </form>
 -->
-<?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
-<?php include "php/functions/userInput.php"; ?>
 
             <ul class="navbar-nav navbar-right ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
+                    <a class="nav-link dropdown-toggle active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
                     <div class="dropdown-menu bg-light dropdown-menu-right">
                         <a class="dropdown-item">
 
-                            <form action="php/functions/login.php" methode="post" class="form-inline dropdown-item">
-                                    <div class="form-group">
-                                    <label for="username">
-                                        Benutzername
-                                    </label>
-                                    </div>
-                                    <input type="text" class="form-control" id="username" name="un" value="" placeholder="Benutzername" autocomplete="off" />
-                                <div class="form-group">
-                                    <label for="password">
-                                        Passwort
-                                    </label>
-                                    </div>
-                                    <input type="password" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
-                                    <button type="submit" class="btn btn-default" name="login-submit">Einloggen</button>
-                            </form>
+                            <div  class="form-inline dropdown-item">
+                                    <form  action="php/functions/login.php" method="post" class="form-inline dropdown-item">
+                                <label for="username">
+                                    Benutzername
+                                </label>
+                                <input type="text" class="form-control" id="username" name="un" placeholder="Benutzername" autocomplete="off" />
+                                <label for="password">
+                                    Passwort
+                                </label>
 
-                            <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
+                                <input type="text" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" />
+                                <button type="submit" class="btn btn-default" name="login-submit">
+                                    Einloggen
+                                </button>
+                                </form>
 
-                            <form action="php/logout.php" class="form-inline dropdown-item">
-                                    <button type="submit" class="btn btn-default" name="logout-button">Auslogen</button>
-                            </form>
-
+                                <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">
+                                    Registrieren
+                                </a>
+  <!--                              <form action="php/functions/logout.php" class="form-inline dropdown-item">
+                                <button type="submit" class="btn btn-default" name="logout-button">
+                                Auslogen
+                                    </button>
+    -->                        <?php
+                                if(isset($_SESSION["Test"])){
+                                echo "<form action=\"php/functions/logout.php\" class=\"form-inline dropdown-item\">";
+                                echo "<button type=\"submit\" class=\"btn btn-default\" name=\"logout-button\">";
+                                    echo "Auslogen";
+                                    echo "</button>";
+                                }
+                                ?>
+                            </div>
                         </a>
                     </div>
                 </li>
