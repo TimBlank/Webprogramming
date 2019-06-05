@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["submitEntry"])){
+if(isset($_POST["submitEntry"]) && isset($_SESSION["User"])){
     //T0D0: prüfen ob Benutzer eingeloggt ist
 
     $entryName = null;

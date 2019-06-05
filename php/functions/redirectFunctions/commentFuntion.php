@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST["SubmitComment"])){
+if(isset($_POST["SubmitComment"]) && isset($_SESSION["User"])){
 
     //TODO: Hier muss überprüft werden, ob der Benutzer eingeloggt ist
 
