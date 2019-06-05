@@ -9,10 +9,9 @@
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <?php
-        include "php/functions/datamanagment/contentmanagmentDao.php";
-
-        $entryID = null;
+    <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
+    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
+    <?php   $entryID = null;
         if (isset($_GET["EntryID"])){
             $entryID =htmlspecialchars($_GET["EntryID"]);
         }

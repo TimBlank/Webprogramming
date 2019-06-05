@@ -39,16 +39,16 @@ if(isset($_POST["SubmitComment"])){
                 $commentId = addComment($entryId, $username, $text, $imgType);
                 if($imageExists && $commentId !== false){
                     if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
-                    header("Location:http://localhost/entryPage?EntryID=".$entryId.".php");
+
                     }else{
                         //echo "Fehler beim speichern des Bildes <br>";
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
                     }
 
                 }elseif($commentId == false){
                     //echo "Fehler beim speichern des Kommentares in der Datenbank <br>";
                     header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
                 }
+                header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
             }else{
                 //echo "Falsche Eingabe <br>";
                 header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
