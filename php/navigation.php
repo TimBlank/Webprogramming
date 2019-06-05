@@ -11,6 +11,18 @@
                 <li class="nav-item active"><a class="nav-link" href="../../index.php" title="Hauptseite">
                         Start
                     </a></li>
+                <li class="nav-item dropdown sm-only" id="navSearch">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Suche">
+                        <i class="fas fa-search"></i>
+                        <span class="sr-only">Suche</span>
+                    </a>
+                    <div class="dropdown-menu bg-light">
+                        <a class="dropdown-item">
+                            <?php include "php/search.php"; ?>
+                        </a>
+                    </div>
+
+                </li>
                 <li class="nav-item active"><a class="nav-link" href="../../map.php" title="Haarentor">
                         Haarentor
                     </a></li>
@@ -28,18 +40,6 @@
                         </a>
                         <a class="dropdown-item" href="../../map.php" title="Offis">
                             Offis
-                        </a>
-                    </div>
-
-                </li>
-                <li class="nav-item dropdown sm-only" id="navSearch">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Suche">
-                        <i class="fas fa-search"></i>
-                        <span class="sr-only">Suche</span>
-                    </a>
-                    <div class="dropdown-menu bg-light dropdown-menu-right">
-                        <a class="dropdown-item">
-                            <?php include "php/search.php"; ?>
                         </a>
                     </div>
 
