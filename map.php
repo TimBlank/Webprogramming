@@ -1,18 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
 <!-- Seite auf der Stellplätze angzeigt werden, kann auf einen Bereich eingestellt werden(Haarentor, Wechloy, etc.) -->
 
+<html lang="de">
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="css/structure.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Fahrrad Stellpätze</title>
-    <link href="pictures/IconTransparent.png" rel="icon">
+    <?php include "php/head.php";?>
 </head>
 
 <body>
@@ -39,11 +31,19 @@
                             </div>
                         </div>
                     </div>
-                    <a href="createEntry.php" class="btn btn-primary" title="VorlageBeitrag">Neuen Stellplatz hinzufügen</a>
+                    <?php
+                        if(isset($_SESSION["User"])){
+                        echo "<a href=\"createEntry.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Neuen Stellplatz hinzufügen</a>";
+                        }
+                        ?>
                 </div>
             </div>
         </div>
     </section>
+    <!--TODO    Bereiche: einteilen
+                Marker:   setzen
+                Webseite: https://wiki.openstreetmap.org/wiki/OpenLayers
+    -->
 
     <?php include "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

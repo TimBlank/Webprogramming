@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
 <!-- Seite für die Registrierung -->
 
+<html lang="de">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/structure.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fahrrad Stellpätze</title>
-    <link href="pictures/IconTransparent.png" rel="icon">
-    <style type="text/css">
+<?php include "php/head.php";?>
+        <style type="text/css">
         #navSearch {
             display: none;
         }
@@ -27,9 +21,11 @@
         <div id="mainFrame">
             <div class="regis">
                 <section>
-                    <!--Name-->
                     <form action="redirect.php" method="post">
-                        <?php register(); ?>
+
+                        <?php //register(); ?>
+
+                        <!--Name-->
                         <div class="form-row">
                             <div class="col-sm">
                                 <label class="form-control">
@@ -88,6 +84,7 @@
                                 <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
                             </div>
                         </div>
+
                         <div class="registerButton">
                             <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
                         </div>
