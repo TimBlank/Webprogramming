@@ -11,6 +11,18 @@
                 <li class="nav-item active"><a class="nav-link" href="../../index.php" title="Hauptseite">
                         Start
                     </a></li>
+                <li class="nav-item dropdown sm-only" id="navSearch">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Suche">
+                        <i class="fas fa-search"></i>
+                        <span class="sr-only">Suche</span>
+                    </a>
+                    <div class="dropdown-menu bg-light">
+                        <a class="dropdown-item">
+                            <?php include "php/search.php"; ?>
+                        </a>
+                    </div>
+
+                </li>
                 <li class="nav-item active"><a class="nav-link" href="../../map.php" title="Haarentor">
                         Haarentor
                     </a></li>
@@ -32,45 +44,8 @@
                     </div>
 
                 </li>
-                <li class="nav-item dropdown sm-only" id="navSearch">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Suche">
-                        <i class="fas fa-search"></i>
-                        <span class="sr-only">Suche</span>
-                    </a>
-                    <div class="dropdown-menu bg-light dropdown-menu-right">
-                        <a class="dropdown-item">
-                            <?php include "php/search.php"; ?>
-                        </a>
-                    </div>
-
-                </li>
             </ul>
-
-            <ul class="navbar-nav navbar-right ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login/Registrierung</a>
-                    <div class="dropdown-menu bg-light dropdown-menu-right">
-                        <a class="dropdown-item">
-                            <form class="form-inline dropdown-item">
-                                <div class="form-group">
-                                    <label for="username">
-                                        Benutzername
-                                    </label>
-                                    <input type="text" class="form-control" id="username" name="un" value="" placeholder="Benutzername" autocomplete="off" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">
-                                        Passwort
-                                    </label>
-                                    <input type="password" class="form-control" id="password" name="pw" value="" placeholder="Passwort" autocomplete="off" />
-                                </div>
-                                <button type="submit" class="btn btn-default">Einloggen</button>
-                            </form>
-                            <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">Registrieren </a>
-                        </a>
-                    </div>
-                </li>
-            </ul>
+            <?php include "php/loginLogout.php"; ?>
         </div>
     </div>
 </nav>

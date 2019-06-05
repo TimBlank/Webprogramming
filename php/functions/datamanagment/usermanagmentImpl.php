@@ -11,7 +11,8 @@ function verifyLogin($name, $password) {
         $stmt->execute();
         $hashData = $stmt->fetchObject();
         $hash = $hashData->password;
-        //$db.close();
+        //$db.close(); TODO: Funktion unbekannt ?
+
         $db = null;
 
     return password_verify($password, $hash);

@@ -2,7 +2,7 @@
 
 //prüfen ob Logindaten korrekt sind
 function verifyLogin($name, $password) {
-    if($name="Test"){
+    if($name=="Test" && $password=="Test"){
     return true;
     }
     return false;

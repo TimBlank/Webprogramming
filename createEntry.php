@@ -1,14 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
 <!-- Vorlage für einen Beitrag -->
 
+<html lang="de">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/structure.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fahrrad Stellpätze</title>
-    <link href="pictures/IconTransparent.png" rel="icon">
+<?php include "php/head.php";?>
 </head>
 
 <body>
