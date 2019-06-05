@@ -1,4 +1,5 @@
 <?php
+if(isset($_POST["logoutSubmit"])){
 echo "LOGOUT <br>";
  $_SESSION = array();
 if (ini_get("session.use_cookies")) {
@@ -7,6 +8,6 @@ if (ini_get("session.use_cookies")) {
         $params["domain"], $params["secure"], $params["httponly"]
     );
 }
+}
 header('Location: http://localhost/index.php');
-exit;
 ?>
