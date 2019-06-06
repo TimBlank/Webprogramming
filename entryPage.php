@@ -114,7 +114,7 @@
                 </li>
                 <?php endforeach;?>
 
-                <li class="list-group-item">
+                <li class="list-group-item" id="addCommentSection">
 
                     <div class="card">
                         <form action="redirect.php" method="post" enctype="multipart/form-data">
