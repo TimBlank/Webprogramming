@@ -4,7 +4,7 @@
               <label for="search_q">
                   <h3>Standortname</h3>
               </label><br>
-              <input type="text" id="search_q" name="entryName" placeholder="Standortname" autocomplete="off" />
+              <input type="text" class="form-control" id="search_q" name="entryName" placeholder="Standortname" autocomplete="off" />
           </div>
 
           <div class="form-group">
