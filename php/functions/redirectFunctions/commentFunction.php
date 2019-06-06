@@ -46,12 +46,12 @@ if(isset($_POST["SubmitComment"])){
 
                 }elseif($commentId == false){
                     //echo "Fehler beim speichern des Kommentares in der Datenbank <br>";
-                    header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+                    header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
                 }
-                header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+                header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
             }else{
                 //echo "Falsche Eingabe <br>";
-                header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+                header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
             }
 
         }else{
@@ -60,6 +60,7 @@ if(isset($_POST["SubmitComment"])){
 
         }
     }else{
+        //echo nicht eingeloggt;
         header("Location:http://localhost/registration.php");
     }
 }
