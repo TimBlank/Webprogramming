@@ -14,6 +14,13 @@
             <a class="dropdown-item">
                 <div class="form-inline dropdown-item">
                     <form action="redirect.php" method="post" class="form-inline dropdown-item">
+                        <?php
+                        $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+                        $url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                        echo $url."<br>"; // Outputs: Full URL
+                        echo '<input type="hidden" name="PrevPage" value="'.$url.'">';
+                    ?>
                         <div>
                             <label for="username">
                                 Benutzername

@@ -25,7 +25,7 @@ try{
             $_SESSION["User"]= $Username;
             $_SESSION["passs"]= $Password;
         }
-        header('Location: http://localhost/index.php');
+        header('Location: '.$PrevPage);
     }
 }
     finally{
