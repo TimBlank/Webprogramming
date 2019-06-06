@@ -13,13 +13,13 @@
 }
 
 
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
     #navSearch {
         display: none;
     }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 1199.98px) {
     #sideSearch {
         display: none;
     }
@@ -103,4 +103,12 @@
     .regis .form-row {
         padding-bottom: 20px;
     }
+}
+
+.dropdown-item {
+    padding: .25rem .5rem;
+}
+
+#loginBtn {
+    padding-top: 3px;
 }
