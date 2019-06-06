@@ -34,9 +34,11 @@
 
                             <input type="password" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" />
                         </div>
-                        <button type="submit" class="btn btn-default" name="loginSubmit" value="loginSubmit">
-                            Einloggen
-                        </button>
+                        <div id="loginBtn">
+                            <button type="submit" class="btn btn-default" name="loginSubmit" value="loginSubmit">
+                                Einloggen
+                            </button>
+                        </div>
                     </form>
 
                     <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">
