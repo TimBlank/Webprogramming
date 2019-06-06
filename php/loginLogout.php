@@ -31,7 +31,6 @@
                                 Einloggen
                             </button>
                         </div>
-                        <!-- Test Kommentar-->
                     </form>
 
                     <a class="dropdown-item" href="../../registration.php" title="Hier kann man sich Registrieren">
