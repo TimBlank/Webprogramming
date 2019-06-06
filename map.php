@@ -1,18 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
 <!-- Seite auf der Stellplätze angzeigt werden, kann auf einen Bereich eingestellt werden(Haarentor, Wechloy, etc.) -->
 
+<html lang="de">
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="css/structure.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
+    <?php include "php/head.php";?>
 </head>
 
 <body>
@@ -22,8 +14,8 @@
     <section>
         <div id="mainFrame">
             <div class="row">
-                <div class="col col-auto">
-                    <div id="sideSearch">
+                <div class="col col-auto" id="sideSearch">
+                    <div>
                         <?php include "php/search.php"; ?>
                     </div>
                 </div>
@@ -33,15 +25,25 @@
                                 Standort:
                             </a></h1>
                         <!-- TODO Höhe adaptiv-->
-                        <div class='box'>
-                            <iframe class="content" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=7.756347656250001%2C53.0193631492509%2C8.463592529296877%2C53.23772373999386&amp;layer=mapnik" style="border: 1px solid black"></iframe><br /><small><a href="https://www.openstreetmap.org/#map=11/53.1287/8.1100">Größere Karte anzeigen</a></small>
+                        <div class="mapBox">
+                            <div class='box'>
+                                <iframe class="content" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=7.756347656250001%2C53.0193631492509%2C8.463592529296877%2C53.23772373999386&amp;layer=mapnik" style="border: 1px solid black"></iframe><br /><small><a href="https://www.openstreetmap.org/#map=11/53.1287/8.1100">Größere Karte anzeigen</a></small>
+                            </div>
                         </div>
                     </div>
-                    <a href="createEntry.php" class="btn btn-primary" title="VorlageBeitrag">Neuen Stellplatz hinzufügen</a>
+                    <?php
+                        if(isset($_SESSION["User"])){
+                        echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Neuen Stellplatz hinzufügen</a>";
+                        }
+                        ?>
                 </div>
             </div>
         </div>
     </section>
+    <!--TODO    Bereiche: einteilen
+                Marker:   setzen
+                Webseite: https://wiki.openstreetmap.org/wiki/OpenLayers
+    -->
 
     <?php include "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

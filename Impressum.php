@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<!-- Impressum-->
 
+<html lang="de">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/structure.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
-    <style type="text/css">
+<?php include "php/head.php";?>
+        <style type="text/css">
         #navSearch {
             display: none;
         }
@@ -27,7 +22,7 @@
                     <h1>Gruppe</h1>
                 </div>
                 <div class="p-2">
-                    <img id="groupImage" src="Bilder/Gruppenbild.jpg" alt="Gruppenbild platz">
+                    <img id="groupImage" src="pictures/Gruppenbild.jpg" alt="Gruppenbild platz">
                 </div>
                 <div class="p-2">
                     Von Links nach rehts sind die Entwickler dieser Seite:

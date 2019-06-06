@@ -1,24 +1,16 @@
 <!DOCTYPE html>
-<html lang="de">
 <!-- Hauptseite-->
 
+<html lang="de">
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/structure.css">
-
-    <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
+<?php include "php/head.php";?>
 </head>
 
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <?php include "php/functions/datamanagment/contentmanagmentDao.php"; ?>
+    <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
+    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
     <?php include "php/functions/userInput.php"; ?>
 
     <div id="background">
@@ -34,8 +26,8 @@
 
             </article>
             <div class="row">
-                <div class="col col-auto">
-                    <div id="sideSearch">
+                <div class="col col-auto" id="sideSearch">
+                    <div>
                         <?php include "php/search.php"; ?>
                     </div>
                 </div>
@@ -43,7 +35,7 @@
                     <div class="card-group">
                         <div class="card">
                             <ul class="list-unstyled">
-                                <?php foreach(search() as $entryID): ?>
+                                <?php foreach(loadEntries() as $entryID): ?>
                                 <li>
                                     <?php $content = loadEntry($entryID); ?>
                                     <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
@@ -66,10 +58,10 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="Bilder/DummyMaps.png" alt="Position des Stellplatzes">
+                                            <img class="card-img-top" class="img-fluid" src="pictures/DummyMaps.png" alt="Position des Stellplatzes">
                                         </div>
                                     </div>
-                                    <a href="VorlageBeitrag.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
+                                    <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
                                 <?php endforeach; ?>
                             </ul>

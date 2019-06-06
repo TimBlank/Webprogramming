@@ -25,29 +25,33 @@
     }
 }
 
-#background {
+#searchForm{
+    padding: 8px;
+}
 
-    background-image: url(../Bilder/Background-Image.jpg);
+#background {
+    background-image: url(../pictures/Background-Image.jpg);
     background-color: black;
     background-size: cover;
     border: 1px solid black;
     padding: 2px;
 }
 
-.box {
+/*Start; Quelle: http://www.mademyday.de/css-height-equals-width-with-pure-css.html#outer_wrap */
+.mapBox .box {
     position: relative;
     width: 100%;
     /* desired width */
 }
 
-.box:before {
+.mapBox .box:before {
     content: "";
     display: block;
     padding-top: 50%;
     /* initial ratio of 1:1*/
 }
 
-.content {
+.mapBox .content {
     position: absolute;
     top: 0;
     left: 0;
@@ -55,9 +59,18 @@
     right: 0;
 
 }
+/*Ende;*/
 
 .createEntryPage {
     padding-bottom: 20px
+}
+
+.createEntryPage .container {
+    background-color: white;
+}
+
+.createEntryPage .col{
+    width: 50%;
 }
 
 .createEntryPage input[type="text"] {
@@ -75,4 +88,19 @@
     bottom: 0;
     right: 0;
     text-align: center
+}
+
+.registerButton {
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center
+}
+
+@media (max-width: 575px) {
+    .regis .form-row {
+        padding-bottom: 20px;
+    }
 }

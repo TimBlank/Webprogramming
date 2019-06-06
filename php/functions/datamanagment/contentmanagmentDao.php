@@ -3,14 +3,14 @@
 include "entryAndComments.php";
 
 //Eintrag hinzufügen
-function addEntry($name,$location,$isPublic,$size,$hasRoof,$holderType,$description){
-    if($name == "Test" && $isPublic == "public" && $size == "small" && $hasRoof == "covered" && $description == "Hallo"){
-    return 0;
+function addEntry($name,$isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
+    if($name == "Test" && $isPublic == "true" && $size == "Klein" && $hasRoof == "true" && $description == "Hallo"){
+        return 3;
     }
     return false;
 }
 
-function addComment($entryId, $username, $text){
+function addComment($entryId, $username, $text, $imageType){
     if($entryId == 0){
         return 3;
     }
@@ -37,38 +37,39 @@ function loadEntry($entryId){
 function loadEntryComments($entryId){
 
     if($entryId == 3){
-        yield new comment("Silly_4_8_7","Ich kann ja Kommentare schreiben, mal schauen wie das aussieht.... und er wird länger und  länger läääääääännnnnnnngeeeeeeeeeeerrrrrrrrr. Hi","Bilder/FP1.jpg");
+        yield new comment("Silly_4_8_7","Ich kann ja Kommentare schreiben, mal schauen wie das aussieht.... und er wird länger und  länger läääääääännnnnnnngeeeeeeeeeeerrrrrrrrr. Hi","pictures/FP1.jpg");
     }
     yield new comment;
 
-    yield new comment("Anderer Nutzer","Hey noch ein Kommentar","Bilder/Sterne.png");
+    yield new comment("Anderer Nutzer","Hey noch ein Kommentar","pictures/Sterne.png");
 
     yield new comment("Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
 }
 
-//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen oder ausgewählte Orte wenn isSearch=false
-function searchResult($isSearch,$name=null,$isPublic=null,$size=null,$hasRoof=null,$holderType=null){
+//Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
+function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
     /* $size ist eine Zahl die folgenderweise berechnet wird
     -> $size = klein + mittel + groß
        wobei klein=1, mittel=2, groß=4 oder 0 wenn es nicht ausgewählt wurde
     */
-    if($isSearch){
-        if($name=="A2"){
+    if($name=="A2"){
             yield 1;
-        }elseif($name=="Bib"){
+    }elseif($name=="Bib"){
             yield 2;
-        }elseif($name=="W6"){
+    }elseif($name=="W6"){
             yield 3;
-        } else{
-            for ($i=0; $i<4; $i++){
-                yield $i;
-            }
+    } else{
+        for ($i=0; $i<4; $i++){
+             yield $i;
         }
-    }else{
-        //Default Anzeige der Hauptseite
-            for ($i=0; $i<1; $i++){
-                yield $i;
-            }
     }
 }
+
+//Default Anzeige der Hauptseite
+function defaultEntries(){
+    for ($i=0; $i<1; $i++){
+                yield $i;
+            }
+}
+
 ?>

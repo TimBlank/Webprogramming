@@ -1,38 +1,32 @@
 <!DOCTYPE html>
-<html lang="de">
 <!-- Vorlage für einen Beitrag -->
 
+<html lang="de">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/structure.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fahrrad Stellpätze</title>
-    <link href="Bilder/IconTransparent.png" rel="icon">
+<?php include "php/head.php";?>
 </head>
 
 <body>
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
-    <?php
-        include "php/functions/datamanagment/contentmanagmentDao.php";
-
-        //entryID muss noch richtig gesetzt werden
-        $entryID =0;
+    <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
+    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
+    <?php   $entryID = null;
         if (isset($_GET["EntryID"])){
-            $entryID =$_GET["EntryID"];
+            $entryID =htmlspecialchars($_GET["EntryID"]);
         }
-
         $content = loadEntry($entryID);
+        if($content==false){
+            $content = new entry(null);
+        }
     ?>
     <?php include "php/functions/userInput.php"; ?>
     <div id="mainFrame">
 
         <section>
             <div class="row">
-                <div class="col col-auto">
-                    <div id="sideSearch">
+                <div class="col col-auto" id="sideSearch">
+                    <div>
                         <?php include "php/search.php"; ?>
                     </div>
                 </div>
@@ -48,7 +42,7 @@
                                 <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid">
                             </div>
                             <div class="col border">
-                                <img src="Bilder/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                                <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
                                 <!-- Hier muss noch irgendwie die Position richtig eingebunden werden -->
                             </div>
                         </div>
@@ -102,6 +96,7 @@
             </div>
         </section>
 
+        <?php if($content->getId() !== null): ?>
         <section>
             <h1>Kommentare</h1>
             <ul class="list-group list-group-flush">
@@ -117,14 +112,14 @@
                         </div>
                     </div>
                 </li>
-                <?php endforeach; ?>
+                <?php endforeach;?>
 
                 <li class="list-group-item">
 
                     <div class="card">
-                        <form method="post" enctype="multipart/form-data">
+                        <form action="redirect.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                             <div class="form-group">
-                                <?php comment(); ?>
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>
@@ -143,8 +138,10 @@
                         </form>
                     </div>
                 </li>
+
             </ul>
         </section>
+        <?php endif; ?>
     </div>
 
     <?php include "php/footer.php"; ?>
