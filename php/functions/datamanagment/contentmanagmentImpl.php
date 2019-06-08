@@ -157,6 +157,23 @@ function searchResult($name="",$isPublic=null,$size=null,$hasRoof=null,$holdingT
 
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":name", $name);
+
+        if($isPublic!==null && is_bool($isPublic)){
+                $stmt->bindParam(":isPublic", $isPublic);
+        }
+
+        if(is_bool($size!==null && is_numeric($size) && $size>0)){
+            //Noch keine Ahnung was hier hinkommt
+        }
+
+        if($hasRoof!==null && is_bool($hasRoof)){
+            $stmt->bindParam(":hasRoof", $hasRoof);
+        }
+
+        if($holdingType!==null && is_string($holdingType) && $holdingType !="(Keine Angabe)"){
+            $stmt->bindParam(":holdingType", $holdingType);
+        }
+
         $stmt->execute();
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
