@@ -2,8 +2,9 @@
 <!-- Hauptseite-->
 
 <html lang="de">
+
 <head>
-<?php include "php/head.php";?>
+    <?php include "php/head.php";?>
 </head>
 
 <body>
