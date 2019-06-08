@@ -30,7 +30,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required>
                             </div>
                         </div>
 
@@ -66,7 +66,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort">
+                                <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort" required>
                             </div>
                         </div>
 
@@ -78,7 +78,7 @@
                                 </label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
+                                <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>
                             </div>
                         </div>
 

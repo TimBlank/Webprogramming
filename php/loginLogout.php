@@ -10,7 +10,7 @@
         <?php if(isset($_SESSION["User"])){?>
 
         <form action="redirect.php" method="post" class="form-inline dropdown-item">
-            <?php echo '<input type="hidden" name="PrevPage" value="'.$url.'">';?>
+            <?php echo '<input type="hidden" name="PrevPage" value="'.$url.'" required>';?>
             <button type="submit" class="btn btn-default" name="logoutSubmit" value="logoutSubmit">
                 Ausloggen
             </button>
@@ -21,18 +21,18 @@
             <a class="dropdown-item">
                 <div class="form-inline dropdown-item">
                     <form action="redirect.php" method="post" class="form-inline dropdown-item">
-                        <?php echo '<input type="hidden" name="PrevPage" value="'.$url.'">';?>
+                        <?php echo '<input type="hidden" name="PrevPage" value="'.$url.'" required>';?>
                         <div>
                             <label for="username">
                                 Benutzername
                             </label>
 
-                            <input type="text" class="form-control" id="username" name="un" placeholder="Benutzername" autocomplete="off" />
+                            <input type="text" class="form-control" id="username" name="un" placeholder="Benutzername" autocomplete="off" required >
                             <label for="password">
                                 Passwort
                             </label>
 
-                            <input type="password" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" />
+                            <input type="password" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" required >
                         </div>
                         <div id="loginBtn">
                             <button type="submit" class="btn btn-default" name="loginSubmit" value="loginSubmit">
