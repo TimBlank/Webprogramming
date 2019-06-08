@@ -133,12 +133,28 @@ function loadEntryComments($entryId){
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
-function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
+function searchResult($name="",$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
     //TODO: Vollständig implementieren
         $name = "%".$name."%";
     try {
         $db = databaseConnect();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
+        if($isPublic!==null && is_bool($isPublic)){
+            $sql = $sql." AND isPublic = (:isPublic)"
+        }
+
+        if(is_bool($size!==null && is_numeric($size) && $size>0)){
+            //Noch keine Ahnung was hier hinkommt
+        }
+
+        if($hasRoof!==null && is_bool($hasRoof)){
+            $sql = $sql." AND hasRoof = (:hasRoof)"
+        }
+
+        if($holdingType!==null && is_string($holdingType) && $holdingType !="(Keine Angabe)"){
+            $sql = $sql." AND holdingType = (:holdingType)"
+        }
+
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":name", $name);
         $stmt->execute();

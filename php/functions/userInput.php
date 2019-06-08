@@ -5,7 +5,7 @@
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function loadEntries(){
     if(isset($_GET["SubmitSearch"])){
-        $entryName = null;
+        $entryName = "";
         $isPublic = null;
         $size = 0;
         $hasRoof = null;
