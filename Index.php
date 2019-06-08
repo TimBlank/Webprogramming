@@ -35,9 +35,15 @@
                     <div class="card-group">
                         <div class="card">
                             <ul class="list-unstyled">
-                                <?php foreach(loadEntries() as $entryID): ?>
+                                <?php
+                                    $resultCount=0;
+                                    foreach(loadEntries() as $entryID):
+                                ?>
                                 <li>
-                                    <?php $content = loadEntry($entryID); ?>
+                                    <?php
+                                    $resultCount=$resultCount+1;
+                                    $content = loadEntry($entryID);
+                                    ?>
                                     <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
                                             <?php echo $content->getName(); ?>
                                         </a></h1>
@@ -63,7 +69,11 @@
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
-                                <?php endforeach; ?>
+                                <?php endforeach;
+                                if($resultCount==0){
+                                    echo "<li>Keine Ergebnisse</li>";
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>

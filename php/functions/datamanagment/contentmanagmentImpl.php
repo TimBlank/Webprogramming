@@ -140,7 +140,7 @@ function searchResult($name="",$isPublic=null,$size=null,$hasRoof=null,$holdingT
         $db = databaseConnect();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
         if($isPublic!==null && is_bool($isPublic)){
-            $sql = $sql." AND isPublic = (:isPublic)"
+            $sql = $sql." AND isPublic = (:isPublic)";
         }
 
         if(is_bool($size!==null && is_numeric($size) && $size>0)){
@@ -148,11 +148,11 @@ function searchResult($name="",$isPublic=null,$size=null,$hasRoof=null,$holdingT
         }
 
         if($hasRoof!==null && is_bool($hasRoof)){
-            $sql = $sql." AND hasRoof = (:hasRoof)"
+            $sql = $sql." AND hasRoof = (:hasRoof)";
         }
 
         if($holdingType!==null && is_string($holdingType) && $holdingType !="(Keine Angabe)"){
-            $sql = $sql." AND holdingType = (:holdingType)"
+            $sql = $sql." AND holdingType = (:holdingType)";
         }
 
         $stmt = $db->prepare($sql);
@@ -194,7 +194,7 @@ function defaultEntries(){
     //Gibt alle exestierenden Einträge zurück
     try {
         $db = databaseConnect();
-        $sql = "SELECT entryId FROM entry";
+        $sql = "SELECT entryId FROM entry ORDER BY entryId DESC";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         //$db.close(); TODO: Funktion unbekannt ?

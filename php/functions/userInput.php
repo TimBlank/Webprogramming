@@ -13,8 +13,10 @@ function loadEntries(){
         if(isset($_GET["entryName"])){
             $entryName = htmlspecialchars( $_GET["entryName"]);
         }
-        if(isset($_GET["isPublic"])&&($_GET["isPublic"]=="false"||$_GET["isPublic"]=="true")) {
-            $isPublic = ($_GET["isPublic"]=="true");
+        if(isset($_GET["isPublic"])) {
+            $isPublic = true;
+        }else{
+            $isPublic = false;
         }
         if(isset($_GET["smallSpace"])){//klein
             $size = $size + 1;
@@ -26,8 +28,10 @@ function loadEntries(){
             $size = $size + 4;
         }
 
-        if(isset($_GET["hasRoof"])&&($_GET["hasRoof"]=="false"||$_GET["hasRoof"]=="true")) {
-            $hasRoof = ($_GET["hasRoof"]=="true");
+        if(isset($_GET["hasRoof"])) {
+            $hasRoof = true;
+        }else{
+            $hasRoof = false;
         }
         if(isset($_GET["holdingType"])){
             $holdingType = htmlspecialchars($_GET["holdingType"]);

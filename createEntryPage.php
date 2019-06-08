@@ -99,7 +99,7 @@
                                             <div class="form-group">
                                                 <select class="form-control" name="holdingType" id="holderType">
                                                     <option value="(Keine Angabe)">(Keine Angabe)</option>
-                                                    <option value="Einfacher Vorderradhalter">Einfacher Vorderradhalter</option>
+                                                    <option value="Einfache Vorderradhalter">Einfacher Vorderradhalter</option>
                                                     <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
                                                     <option value="Anlehnbügel">Anlehnbügel</option>
                                                     <option value="Schräghochparker">Schräghochparker</option>
