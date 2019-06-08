@@ -19,7 +19,7 @@
                         <div class="container border">
                             <div class="row border">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes">
+                                    <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -28,12 +28,12 @@
                                     <label for="userImage">
                                         Bild hinzufügen
                                     </label>
-                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg">
+                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" required>
                                 </div>
                                 <div class="col border">
                                     <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
-                                    <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad">
-                                    <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad">
+                                    <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" required>
+                                    <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" required>
                                 </div>
                             </div>
                             <div class="row border">
@@ -97,7 +97,7 @@
                                                 Wikipedia
                                             </a>
                                             <div class="form-group">
-                                                <select class="form-control" name="holdingType" id="holderType">
+                                                <select class="form-control" name="holdingType" id="holderType" required>
                                                     <option value="(Keine Angabe)">(Keine Angabe)</option>
                                                     <option value="Einfacher Vorderradhalter">Einfacher Vorderradhalter</option>
                                                     <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
