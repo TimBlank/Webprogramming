@@ -144,7 +144,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
         }
 
         if($smallSize == "Klein" || $mediumSize == "Mittel" || $largeSize == "Groß"){
-            $sql = $sql."AND (size = (:smallSize) OR size = (:mediumSize) OR size = (:largeSize))";
+            $sql = $sql." AND (size = (:smallSize) OR size = (:mediumSize) OR size = (:largeSize))";
         }
 
         if($hasRoof!==null && is_bool($hasRoof)){
