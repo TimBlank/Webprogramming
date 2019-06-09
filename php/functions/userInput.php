@@ -7,7 +7,9 @@ function loadEntries(){
     if(isset($_GET["SubmitSearch"])){
         $entryName = "";
         $isPublic = null;
-        $size = 0;
+        $smallSize = "false";
+        $mediumSize = "false";
+        $largeSize = "false";
         $hasRoof = null;
         $holdingType = null;
         if(isset($_GET["entryName"])){
@@ -19,13 +21,13 @@ function loadEntries(){
             $isPublic = false;
         }
         if(isset($_GET["smallSpace"])){//klein
-            $size = $size + 1;
+            $smallSize = "Klein";
         }
         if(isset($_GET["mediumSpace"])){//mittel
-            $size = $size + 2;
+            $mediumSize = "Mittel";
         }
         if(isset($_GET["largeSpace"])){//groß
-            $size = $size + 4;
+            $largeSize = "Groß";
         }
 
         if(isset($_GET["hasRoof"])) {
@@ -36,7 +38,7 @@ function loadEntries(){
         if(isset($_GET["holdingType"])){
             $holdingType = htmlspecialchars($_GET["holdingType"]);
         }
-        foreach(searchResult($entryName,$isPublic,$size,$hasRoof,$holdingType) as $id) {
+        foreach(searchResult($entryName, $isPublic, $smallSize, $mediumSize, $largeSize, $hasRoof, $holdingType) as $id) {
             yield $id;
         }
     }else{
@@ -45,6 +47,5 @@ function loadEntries(){
         }
     }
 }
-
 
 ?>

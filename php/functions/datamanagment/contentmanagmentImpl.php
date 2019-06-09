@@ -133,7 +133,7 @@ function loadEntryComments($entryId){
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
-function searchResult($name="",$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
+function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize = "false", $largeSize = "false", $hasRoof=null,$holdingType=null){
     //TODO: Vollständig implementieren
         $name = "%".$name."%";
     try {
@@ -143,8 +143,8 @@ function searchResult($name="",$isPublic=null,$size=null,$hasRoof=null,$holdingT
             $sql = $sql." AND isPublic = (:isPublic)";
         }
 
-        if(is_bool($size!==null && is_numeric($size) && $size>0)){
-            //Noch keine Ahnung was hier hinkommt
+        if($smallSize == "Klein" || $mediumSize == "Mittel" || $largeSize == "Groß"){
+            $sql = $sql."AND (size = (:smallSize) OR size = (:mediumSize) OR size = (:largeSize))";
         }
 
         if($hasRoof!==null && is_bool($hasRoof)){
@@ -162,8 +162,10 @@ function searchResult($name="",$isPublic=null,$size=null,$hasRoof=null,$holdingT
                 $stmt->bindParam(":isPublic", $isPublic);
         }
 
-        if(is_bool($size!==null && is_numeric($size) && $size>0)){
-            //Noch keine Ahnung was hier hinkommt
+        if($smallSize == "Klein" || $mediumSize == "Mittel" || $largeSize == "Groß"){
+            $stmt->bindParam(":smallSize", $smallSize);
+            $stmt->bindParam(":mediumSize", $mediumSize);
+            $stmt->bindParam(":largeSize", $largeSize);
         }
 
         if($hasRoof!==null && is_bool($hasRoof)){
