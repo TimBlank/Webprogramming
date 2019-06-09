@@ -124,7 +124,7 @@ function loadEntryComments($entryId){
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
        while ($commentData = $stmt->fetchObject()) {
-           yield new comment($commentData->username, $commentData->text, $commentData->image);
+           yield new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
        }
    }catch (PDOException $ex) {
        echo "Fehler: " . $ex->getMessage();

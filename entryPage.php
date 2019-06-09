@@ -2,8 +2,9 @@
 <!-- Vorlage für einen Beitrag -->
 
 <html lang="de">
+
 <head>
-<?php include "php/head.php";?>
+    <?php include "php/head.php";?>
 </head>
 
 <body>
@@ -109,6 +110,13 @@
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $comment->getAuthor(); ?></h5>
                             <p class="card-text"><?php echo $comment->getText(); ?></p>
+                            <?php if(isset($_SESSION["User"])&& $_SESSION["User"] == $comment->getAuthor()): ?>
+                            <form action="redirect.php" method="post">
+                                <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
+                                <input type="hidden" name="CommentID" value="<?php echo $comment->getCommentID(); ?>">
+                                <input type="submit" name="DeleteComment" value="Kommentar Löschen" class="btn btn-default" />
+                            </form>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </li>
@@ -123,7 +131,7 @@
                                 <label for="userImage">
                                     Bild hinzufügen
                                 </label>
-                                <input type="file" id="userImage" name="commentImg" accept="image/png, image/jpeg" >
+                                <input type="file" id="userImage" name="commentImg" accept="image/png, image/jpeg">
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
@@ -133,7 +141,7 @@
                                     <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
                                     <textarea class="form-control" id="commentText" name="commentText" placeholder="Kommentar" cols="30" rows="2" required></textarea>
                                 </div>
-                                <input type="submit" name="SubmitComment" value="Kommentieren" class="btn btn-default"/>
+                                <input type="submit" name="SubmitComment" value="Kommentieren" class="btn btn-default" />
                             </div>
                         </form>
                     </div>
