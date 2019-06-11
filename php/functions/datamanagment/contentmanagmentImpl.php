@@ -133,14 +133,49 @@ function loadEntryComments($entryId){
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
-function searchResult($name=null,$isPublic=null,$size=null,$hasRoof=null,$holdingType=null){
+function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize = "false", $largeSize = "false", $hasRoof=null,$holdingType=null){
     //TODO: Vollständig implementieren
         $name = "%".$name."%";
     try {
         $db = databaseConnect();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
+        if($isPublic!==null && is_bool($isPublic)){
+            $sql = $sql." AND isPublic = (:isPublic)";
+        }
+
+        if($smallSize == "Klein" || $mediumSize == "Mittel" || $largeSize == "Groß"){
+            $sql = $sql." AND (size = (:smallSize) OR size = (:mediumSize) OR size = (:largeSize))";
+        }
+
+        if($hasRoof!==null && is_bool($hasRoof)){
+            $sql = $sql." AND hasRoof = (:hasRoof)";
+        }
+
+        if($holdingType!==null && is_string($holdingType) && $holdingType !="(Keine Angabe)"){
+            $sql = $sql." AND holdingType = (:holdingType)";
+        }
+
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":name", $name);
+
+        if($isPublic!==null && is_bool($isPublic)){
+                $stmt->bindParam(":isPublic", $isPublic);
+        }
+
+        if($smallSize == "Klein" || $mediumSize == "Mittel" || $largeSize == "Groß"){
+            $stmt->bindParam(":smallSize", $smallSize);
+            $stmt->bindParam(":mediumSize", $mediumSize);
+            $stmt->bindParam(":largeSize", $largeSize);
+        }
+
+        if($hasRoof!==null && is_bool($hasRoof)){
+            $stmt->bindParam(":hasRoof", $hasRoof);
+        }
+
+        if($holdingType!==null && is_string($holdingType) && $holdingType !="(Keine Angabe)"){
+            $stmt->bindParam(":holdingType", $holdingType);
+        }
+
         $stmt->execute();
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
@@ -161,7 +196,7 @@ function defaultEntries(){
     //Gibt alle exestierenden Einträge zurück
     try {
         $db = databaseConnect();
-        $sql = "SELECT entryId FROM entry";
+        $sql = "SELECT entryId FROM entry ORDER BY entryId DESC";
         $stmt = $db->prepare($sql);
         $stmt->execute();
         //$db.close(); TODO: Funktion unbekannt ?
