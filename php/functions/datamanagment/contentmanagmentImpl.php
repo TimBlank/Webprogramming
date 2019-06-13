@@ -158,15 +158,15 @@ function loadEntryComments($entryId){
 function loadComment($commentId){
     try {
         $db = databaseConnect();
-        $sql = "SELECT * FROM comment WHERE entryId = (:id)";
+        $sql = "SELECT * FROM comment WHERE commentId = (:id)";
         $stmt = $db->prepare($sql);
-        $stmt->bindParam(":id", $entryId);
+        $stmt->bindParam(":id", $commentId);
         $stmt->execute();
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
         $commentData = $stmt->fetchObject();
         if(!empty($commentData)){
-        return new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
+            return new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
         }else{
             return false;
         }
