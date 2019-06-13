@@ -19,7 +19,7 @@
     <?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
     <div id="background">
         <div id="mainFrame">
-            <div class="regis">
+            <div class="regis" max-width: 40px;>
                 <section>
                     <form action="redirect.php" method="post">
                         <!--Name-->

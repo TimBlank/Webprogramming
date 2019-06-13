@@ -93,14 +93,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                        if(isset($_SESSION["User"])){
+                        echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">löschen</a>";
+                        }
+                        ?>
+                                            <?php
+                        if(isset($_SESSION["User"])){
+                        echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">überarbeiten</a>";
+                        }
+                        ?>
                         </div>
                     </div>
                 </div>
             </div>
+
             </div>
         </section>
 
-        <div id="mainFrame">
+        <div id="marginTop">
         <?php if($content->getId() !== null): ?>
         <div class="card">
         <section>
