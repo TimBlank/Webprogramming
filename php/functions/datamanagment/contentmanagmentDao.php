@@ -17,6 +17,10 @@ function addComment($entryId, $username, $text, $imageType){
     return false;
 }
 
+function deleteComment($commentID){
+    return true;
+}
+
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     if($entryId==1){
@@ -44,6 +48,10 @@ function loadEntryComments($entryId){
     yield new comment(1,"Anderer Nutzer","Hey noch ein Kommentar","pictures/Sterne.png");
 
     yield new comment(2,"Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
+}
+
+function loadComment($commentId){
+    return new comment(1);
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
