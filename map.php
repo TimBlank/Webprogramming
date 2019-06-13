@@ -11,6 +11,7 @@
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
 
+    <div id="background">
     <section>
         <div id="mainFrame">
             <div class="row">
@@ -38,8 +39,9 @@
                         ?>
                 </div>
             </div>
-        </div>
-    </section>
+            </div>
+        </section>
+    </div>
     <!--TODO    Bereiche: einteilen
                 Marker:   setzen
                 Webseite: https://wiki.openstreetmap.org/wiki/OpenLayers
