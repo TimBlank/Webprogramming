@@ -2,9 +2,10 @@
 <!-- Seite für die Registrierung -->
 
 <html lang="de">
+
 <head>
-<?php include "php/head.php";?>
-        <style type="text/css">
+    <?php include "php/head.php";?>
+    <style type="text/css">
         #navSearch {
             display: none;
         }
@@ -23,63 +24,28 @@
                 <section>
                     <form action="redirect.php" method="post">
                         <!--Name-->
-                        <div class="form-row">
-                            <div class="col-sm">
-                                <label class="form-control">
-                                    Name:
-                                </label>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
-                            </div>
-                        </div>
-
-                        <!--Email-->
-                        <div class="form-row">
-                            <div class="col-sm">
-                                <label class="form-control">
-                                    Email:
-                                </label>
-                            </div>
-                            <div class="col">
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                            </div>
-                        </div>
-
-                        <!--Passwort-->
-                        <div class="form-row">
-                            <div class="col-sm">
-                                <label class="form-control">
-                                    Passwort:
-                                </label>
-                            </div>
-                            <div class="col">
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required>
-                            </div>
-                        </div>
-
-                        <!--Passwort wiederholen-->
-                        <div class="form-row">
-                            <div class="col-sm">
-                                <label class="form-control">
-                                    Passwort wiederholen:
-                                </label>
-                            </div>
-                            <div class="col">
-                                <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort" required>
-                            </div>
+                        <div>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                         </div>
 
                         <!--Acountname-->
-                        <div class="form-row">
-                            <div class="col-sm">
-                                <label class="form-control">
-                                    Accountname:
-                                </label>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>
-                            </div>
+                        <div>
+                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
+                        </div>
+
+                        <!--Email-->
+                        <div>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com">
+                        </div>
+
+                        <!--Passwort-->
+                        <div>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
+                        </div>
+
+                        <!--Passwort wiederholen-->
+                        <div>
+                            <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort Wiederholen">
                         </div>
 
                         <div class="registerButton">
