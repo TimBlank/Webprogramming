@@ -2,9 +2,10 @@
 <!-- Seite für die Registrierung -->
 
 <html lang="de">
+
 <head>
-<?php include "php/head.php";?>
-        <style type="text/css">
+    <?php include "php/head.php";?>
+    <style type="text/css">
         #navSearch {
             display: none;
         }
@@ -19,32 +20,32 @@
     <?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
     <div id="background">
         <div id="mainFrame">
-            <div class="regis" max-width: 40px;>
+            <div class="regis">
                 <section>
                     <form action="redirect.php" method="post">
                         <!--Name-->
-                        <div >
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                        <div>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
                         </div>
 
                         <!--Acountname-->
-                        <div >
-                                <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
+                        <div>
+                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
                         </div>
 
                         <!--Email-->
-                        <div >
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com">
+                        <div>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com">
                         </div>
 
                         <!--Passwort-->
-                        <div >
-                                <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
-                         </div>
+                        <div>
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
+                        </div>
 
                         <!--Passwort wiederholen-->
-                        <div >
-                                <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort Wiederholen">
+                        <div>
+                            <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort Wiederholen">
                         </div>
 
                         <div class="registerButton">
