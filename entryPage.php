@@ -11,6 +11,7 @@
     <?php include "php/navigation.php"; ?>
     <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
     <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
+    <div id="background">
     <?php   $entryID = null;
         if (isset($_GET["EntryID"])){
             $entryID =htmlspecialchars($_GET["EntryID"]);
@@ -30,7 +31,9 @@
                         <?php include "php/search.php"; ?>
                     </div>
                 </div>
+
                 <div class="col">
+                    <div class="card">
                     <div class="container border">
                         <div class="row border">
                             <div class="col">
@@ -94,11 +97,16 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
 
+        <div id="mainFrame">
         <?php if($content->getId() !== null): ?>
+        <div class="card">
         <section>
+            <div class="card">
             <h1>Kommentare</h1>
+                </div>
             <ul class="list-group list-group-flush">
                 <?php foreach(loadEntryComments($entryID) as $comment): ?>
                 <li class="list-group-item">
@@ -112,11 +120,12 @@
                         </div>
                     </div>
                 </li>
+
                 <?php endforeach;?>
 
                 <li class="list-group-item" id="addCommentSection">
 
-                    <div class="card">
+
                         <form action="redirect.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                             <div class="form-group">
@@ -136,14 +145,16 @@
                                 <input type="submit" name="SubmitComment" value="Kommentieren" class="btn btn-default"/>
                             </div>
                         </form>
-                    </div>
+
                 </li>
 
             </ul>
         </section>
+            </div>
         <?php endif; ?>
-    </div>
 
+    </div>
+</div>
     <?php include "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
