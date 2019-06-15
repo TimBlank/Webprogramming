@@ -193,7 +193,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
     try {
         $db = databaseConnect();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
-        if($isPublic!==null && is_bool($isPublic)){
+        if($isPublic==true){
             $sql = $sql." AND isPublic = (:isPublic)";
         }
 
@@ -201,7 +201,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $sql = $sql." AND (size = (:smallSize) OR size = (:mediumSize) OR size = (:largeSize))";
         }
 
-        if($hasRoof!==null && is_bool($hasRoof)){
+        if($hasRoof==true){
             $sql = $sql." AND hasRoof = (:hasRoof)";
         }
 
@@ -212,7 +212,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":name", $name);
 
-        if($isPublic!==null && is_bool($isPublic)){
+        if($isPublic==true){
                 $stmt->bindParam(":isPublic", $isPublic);
         }
 
@@ -222,7 +222,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $stmt->bindParam(":largeSize", $largeSize);
         }
 
-        if($hasRoof!==null && is_bool($hasRoof)){
+        if($hasRoof==true){
             $stmt->bindParam(":hasRoof", $hasRoof);
         }
 
