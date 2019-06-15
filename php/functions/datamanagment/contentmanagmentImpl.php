@@ -1,8 +1,10 @@
 <?php
 
-include "entryAndComments.php";
+include_once "entryAndComments.php";
+include_once "Icontentmanagment.php";
 
 //Eintrag hinzufügen
+class Contentmanagment implements iContentmanagment{
 function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
   try {
         $db = databaseConnect();
@@ -251,5 +253,6 @@ function defaultEntries(){
    }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
+}
 }
 ?>

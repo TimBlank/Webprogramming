@@ -1,6 +1,6 @@
 <?php
-include "entryAndComments.php";
-interface Icontentmanagment {
+include_once "entryAndComments.php";
+interface iContentmanagment {
 
     public function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType);
 

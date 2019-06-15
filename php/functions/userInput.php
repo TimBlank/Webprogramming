@@ -38,11 +38,11 @@ function loadEntries(){
         if(isset($_GET["holdingType"])){
             $holdingType = htmlspecialchars($_GET["holdingType"]);
         }
-        foreach(searchResult($entryName, $isPublic, $smallSize, $mediumSize, $largeSize, $hasRoof, $holdingType) as $id) {
+        foreach($contentmanager->searchResult($entryName, $isPublic, $smallSize, $mediumSize, $largeSize, $hasRoof, $holdingType) as $id) {
             yield $id;
         }
     }else{
-        foreach(defaultEntries() as $id) {
+        foreach($contentmanager->defaultEntries() as $id) {
             yield $id;
         }
     }
