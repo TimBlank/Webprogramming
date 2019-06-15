@@ -2,8 +2,9 @@
 <!-- Vorlage für einen Beitrag -->
 
 <html lang="de">
+
 <head>
-<?php include_once "php/head.php";?>
+    <?php include_once "php/head.php";?>
 </head>
 
 <body>
@@ -117,9 +118,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="createBtn">
-                            <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
+                            <div class="createBtn">
+                                <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
+                            </div>
                         </div>
                     </form>
                 </section>
