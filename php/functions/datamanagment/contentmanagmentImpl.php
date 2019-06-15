@@ -77,6 +77,29 @@ function addComment($entryId, $username, $text, $imageType){
    }
 }
 
+function deleteComment($commentId){
+    try {
+        $db = databaseConnect();
+        $sql = "SELECT * FROM comment WHERE commentId = (:commentId)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":commentId", $commentId);
+        $stmt->execute();
+        $commentData = $stmt->fetchObject();
+        if(empty($commentData)){
+            return false;
+        }else {
+            $sql = "DELETE FROM comment WHERE commentId = (:commentId)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(":commentId", $commentId);
+            $stmt->execute();
+            return true;
+        }
+
+        }catch (Exception $ex) {
+        echo "Fehler: " . $ex->getMessage();
+    }
+}
+
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     try {
@@ -106,7 +129,7 @@ function loadEntry($entryId){
             return false;
         }
 
-    }catch (PDOException $ex) {
+    }catch (Exception $ex) {
         echo "Fehler: " . $ex->getMessage();
     }
 
@@ -124,12 +147,33 @@ function loadEntryComments($entryId){
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
        while ($commentData = $stmt->fetchObject()) {
-           yield new comment($commentData->username, $commentData->text, $commentData->image);
+           yield new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
        }
-   }catch (PDOException $ex) {
+   }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
 
+}
+
+function loadComment($commentId){
+    try {
+        $db = databaseConnect();
+        $sql = "SELECT * FROM comment WHERE commentId = (:id)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":id", $commentId);
+        $stmt->execute();
+        //$db.close(); TODO: Funktion unbekannt ?
+        $db = null;
+        $commentData = $stmt->fetchObject();
+        if(!empty($commentData)){
+            return new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
+        }else{
+            return false;
+        }
+
+   }catch (Exception $ex) {
+       echo "Fehler: " . $ex->getMessage();
+   }
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
@@ -182,7 +226,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
        while ($entryData = $stmt->fetchObject()) {
            yield $entryData->entryId;
        }
-   }catch (PDOException $ex) {
+   }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
     /* $size ist eine Zahl die folgenderweise berechnet wird
@@ -204,7 +248,7 @@ function defaultEntries(){
        while ($entryData = $stmt->fetchObject()) {
            yield $entryData->entryId;
        }
-   }catch (PDOException $ex) {
+   }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
 }

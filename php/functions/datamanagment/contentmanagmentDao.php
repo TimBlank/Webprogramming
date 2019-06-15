@@ -17,6 +17,10 @@ function addComment($entryId, $username, $text, $imageType){
     return false;
 }
 
+function deleteComment($commentID){
+    return true;
+}
+
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     if($entryId==1){
@@ -37,13 +41,17 @@ function loadEntry($entryId){
 function loadEntryComments($entryId){
 
     if($entryId == 3){
-        yield new comment("Silly_4_8_7","Ich kann ja Kommentare schreiben, mal schauen wie das aussieht.... und er wird länger und  länger läääääääännnnnnnngeeeeeeeeeeerrrrrrrrr. Hi","pictures/FP1.jpg");
+        yield new comment(0,"Silly_4_8_7","Ich kann ja Kommentare schreiben, mal schauen wie das aussieht.... und er wird länger und  länger läääääääännnnnnnngeeeeeeeeeeerrrrrrrrr. Hi","pictures/FP1.jpg");
     }
-    yield new comment;
+    yield new comment(4);
 
-    yield new comment("Anderer Nutzer","Hey noch ein Kommentar","pictures/Sterne.png");
+    yield new comment(1,"Anderer Nutzer","Hey noch ein Kommentar","pictures/Sterne.png");
 
-    yield new comment("Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
+    yield new comment(2,"Rainbow_Dragon31","Hey ein Kommentar ohne Bild","");
+}
+
+function loadComment($commentId){
+    return new comment(1);
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
