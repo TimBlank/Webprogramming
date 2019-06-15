@@ -11,10 +11,10 @@ if(isset($_POST["PrevPage"])){
 include_once "php/functions/datamanagment/databaseConnection.php";
 
 include_once "php/functions/datamanagment/usermanagmentImpl.php";
-//$usermanager = new Usermanagment;
+$usermanager = new Usermanagment;
 
 include_once "php/functions/datamanagment/contentmanagmentImpl.php";
-//$contentmanager = new Contentmanagment;
+$contentmanager = new Contentmanagment;
 
 include_once "php/functions/redirectFunctions/createEntryFunction.php";
 

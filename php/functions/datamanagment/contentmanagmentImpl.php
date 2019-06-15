@@ -43,6 +43,14 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
    }
 }
 
+    public function deleteEntry($entryId){
+        //TODO: Implementieren
+    }
+
+    public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
+        //TODO: Implementieren
+    }
+
 function addComment($entryId, $username, $text, $imageType){
     try {
         $db = databaseConnect();

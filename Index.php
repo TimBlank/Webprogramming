@@ -38,7 +38,7 @@
                             <ul class="list-unstyled">
                                 <?php
                                     $resultCount=0;
-                                    foreach($contentmanager->loadEntries() as $entryID):
+                                    foreach(loadEntries($contentmanager) as $entryID):
                                 ?>
                                 <li>
                                     <?php

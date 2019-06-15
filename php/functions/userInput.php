@@ -1,9 +1,8 @@
 <?php
 //Diese Datei könnte einen besseren Namen haben
 
-
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
-function loadEntries(){
+function loadEntries($contentmanager){
     if(isset($_GET["SubmitSearch"])){
         $entryName = "";
         $isPublic = null;
