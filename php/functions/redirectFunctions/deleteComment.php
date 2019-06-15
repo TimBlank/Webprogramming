@@ -7,7 +7,7 @@ if(isset($_POST["DeleteComment"])){
     }
     if(isset($_SESSION["User"]) && isset($_POST["CommentID"])&&$entryId!==null){
         $commentId = htmlspecialchars($_POST["CommentID"]);
-        $comment = loadComment($commentId);
+        $comment = $contentmanager->loadComment($commentId);
         if($comment->getAuthor() == $_SESSION["User"]){
         $removedFromDB = $contentmanager->deleteComment($commentId);
         if($removedFromDB){
