@@ -71,6 +71,7 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
     }
 
     public function alterEntry($entryId,$name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
+        return false;
         //TODO: Implementieren
     }
 

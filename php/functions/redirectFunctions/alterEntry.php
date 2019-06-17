@@ -74,15 +74,15 @@ if(isset($_POST["alterEntry"])){
                     $image=$oldEntryData->getImage();
                     if(unlink($image)){
                         move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
                     }else{
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
                     }
                 }catch (Exception $ex) {
                     echo "Fehler: " . $ex->getMessage();
                 }
             }else{
-                header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
             }
 
         header("Location:http://localhost/entryPage.php?EntryID=".$id);
