@@ -70,7 +70,7 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
     }
     }
 
-    public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
+    public function alterEntry($entryId,$name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
         //TODO: Implementieren
     }
 

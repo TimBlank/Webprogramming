@@ -6,7 +6,7 @@ interface iContentmanagment {
 
     public function deleteEntry($entryId);
 
-    public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType);
+    public function alterEntry($entryId,$name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType);
 
     public function addComment($entryId, $username, $text, $imageType);
 

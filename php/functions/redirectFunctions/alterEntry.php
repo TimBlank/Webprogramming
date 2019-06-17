@@ -1,7 +1,10 @@
 <?php
 if(isset($_POST["alterEntry"])){
-
-    if(isset($_SESSION["User"])){
+    if(isset($_POST["EntryID"])){
+        $entryId = htmlspecialchars($_POST["EntryID"]);
+    }
+    if(isset($_SESSION["User"]) && $entryId!==null){
+    $oldEntryData= $contentmanager->loadEntry($entryId);
 
     $entryName = null;
     $userImage = null;
@@ -52,34 +55,21 @@ if(isset($_POST["alterEntry"])){
 
     if(isset($_POST["description"])&&is_string($_POST["description"])) {
          $description = htmlspecialchars($_POST["description"]);
-    }else{
-        $inputsCorrect = false;
     }
 
     if(isset($_POST["longitude"])&&is_string($_POST["longitude"]) ){
         $longitude = (float) $_POST["longitude"];
-    }else{
-        $inputsCorrect = false;
     }
 
     if(isset($_POST["latitude"])&&is_string($_POST["latitude"]) ){
         $latitude = (float) $_POST["latitude"];
-    }else{
-        $inputsCorrect = false;
     }
 
-    //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
-    if($inputsCorrect){
-    $id = $contentmanager->addEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
+    $id = $contentmanager->alterEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
     $latitude, $imgType);
     if($id !== false) {
-        //echo "Test erfolgreich";
-        if(!is_dir("pictures/Entry".$id."/")) {
-            mkdir("pictures/Entry".$id."/");
-        }
-        if(!is_dir("pictures/Entry".$id."/comments/")) {
-            mkdir("pictures/Entry".$id."/comments/");
-        }
+
+
         move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
         header("Location:http://localhost/entryPage.php?EntryID=".$id);
@@ -88,9 +78,7 @@ if(isset($_POST["alterEntry"])){
         //TODO: Fehler anzeigen.
          header("Location:http://localhost/createEntryPage.php");
     }
-    }else {
-         header("Location:http://localhost/createEntryPage.php");
-    }
+
     }else{
         header("Location:http://localhost/registration.php");
     }

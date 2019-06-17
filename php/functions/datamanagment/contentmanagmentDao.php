@@ -15,7 +15,7 @@ public function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $descr
 
 public function deleteEntry($entryId){return true;}
 
-    public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){return true;}
+    public function alterEntry($entryId,$name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){return true;}
 
 public function addComment($entryId, $username, $text, $imageType){
     if($entryId == 0){
