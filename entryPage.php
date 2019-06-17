@@ -92,16 +92,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php
-                        if(isset($_SESSION["User"])){
-                        echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Löschen</a>";
-                        }
-                        ?>
-                                    <?php
-                        if(isset($_SESSION["User"])){
-                        echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Bearbeiten</a>";
-                        }
-                        ?>
+                                    <?php if(!$content->getId()==null && isset($_SESSION["User"])): ?>
+                                    <form action="redirect.php" method="post">
+                                    <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
+                                    <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
+                                    </form>
+                                    <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary" title="VorlageBeitrag">Bearbeiten</a>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
