@@ -56,7 +56,7 @@ if(isset($_POST["submitEntry"])){
     }else{
         $inputsCorrect = false;
     }
-    if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"]) && in_array($_POST["size"],["(Keine Angabe)","Einfache Vorderradhalter","Fahrradgerechte Vorderradhalter","Anlehnbügel","Schräghochparker"],true)) {
+    if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"]) && in_array($_POST["holdingType"],["(Keine Angabe)","Einfache Vorderradhalter","Fahrradgerechte Vorderradhalter","Anlehnbügel","Schräghochparker"],true)) {
         $holdingType = htmlspecialchars($_POST["holdingType"]);
     }else{
         $inputsCorrect = false;

@@ -50,7 +50,7 @@ if(isset($_POST["alterEntry"])){
         $hasRoof = ($_POST["hasRoof"]=="true");
     }
 
-    if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"]) && in_array($_POST["size"],["(Keine Angabe)","Einfache Vorderradhalter","Fahrradgerechte Vorderradhalter","Anlehnbügel","Schräghochparker"],true)) {
+    if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"]) && in_array($_POST["holdingType"],["(Keine Angabe)","Einfache Vorderradhalter","Fahrradgerechte Vorderradhalter","Anlehnbügel","Schräghochparker"],true)) {
         $holdingType = htmlspecialchars($_POST["holdingType"]);
     }
 
@@ -73,7 +73,7 @@ if(isset($_POST["alterEntry"])){
                 try{
                     $image=$oldEntryData->getImage();
                     if(unlink($image)){
-                        move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
+                        move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$entryId."/EntryPic".$entryId.".".$imgType);
                         header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
                     }else{
                         header("Location:http://localhost/entryPage.php?EntryID=".$entryId);

@@ -103,14 +103,14 @@ public function alterEntry($entryId,$name, $isPublic, $size,    $hasRoof, $holdi
             $sql=$sql.", latitude=(:latitude)";
         }
         if($imageType!==null){
-            $sql=$sql.", imageType=(:imageType)";
+            $sql=$sql.", image=(:image)";
         }
 
 
         $sql=$sql." WHERE entryId=(:entryId)";
         $stmt = $db->prepare($sql);
 
-
+        $stmt->bindParam(":entryId", $entryId);
         if($name!==null){
             $stmt->bindParam(":name", $name);
         }
@@ -140,7 +140,7 @@ public function alterEntry($entryId,$name, $isPublic, $size,    $hasRoof, $holdi
         }
         if($imageType!==null){
              $imagePath = "pictures/Entry".$entryId."/EntryPic".$entryId.".".$imageType;
-            $stmt->bindParam(":imageType", $imagePath);
+            $stmt->bindParam(":image", $imagePath);
         }
 
         $stmt->execute();
