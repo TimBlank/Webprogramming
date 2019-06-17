@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["submitEntry"])){
+if(isset($_POST["alterEntry"])){
 
     if(isset($_SESSION["User"])){
 
@@ -15,52 +15,41 @@ if(isset($_POST["submitEntry"])){
     $latitude=null;
     $inputsCorrect = true;
 
+
     if(isset($_POST["entryName"])&&is_string($_POST["entryName"])) {
         $entryName = htmlspecialchars($_POST["entryName"]);
-    }else{
-        $inputsCorrect = false;
     }
 
     if(isset($_FILES["userImage"])) {
         //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
         $image = $_FILES["userImage"];
-        if(empty($image)){
-            //echo "Es wurde keine Datei Hochgeladen <br>" ;
-            $inputsCorrect = false;
-        }else{
+        if(!empty($image)){
             //Dateiendung
             $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
             $check = getimagesize($_FILES["userImage"]["tmp_name"]);
             if($check !==false){
                 $userImage = $image;
             } else {
-                //echo "Das war kein Bild <br>" ;
-                $inputsCorrect = false;
+                $imgType= null;
             }
         }
     }
 
     if(isset($_POST["isPublic"])&&($_POST["isPublic"]=="false"||$_POST["isPublic"]=="true")) {
         $isPublic = ($_POST["isPublic"]=="true");
-    }else{
-        $inputsCorrect = false;
     }
 
     if(isset($_POST["size"])&&is_string($_POST["size"])&& in_array($_POST["size"],["Klein","Mittel","Groß"],true)) {
         $size = htmlspecialchars($_POST["size"]);
-    }else{
-        $inputsCorrect = false;
     }
     if(isset($_POST["hasRoof"])&&($_POST["hasRoof"]=="false"||$_POST["hasRoof"]=="true")) {
         $hasRoof = ($_POST["hasRoof"]=="true");
-    }else{
-        $inputsCorrect = false;
     }
+
     if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"]) && in_array($_POST["size"],["(Keine Angabe)","Einfache Vorderradhalter","Fahrradgerechte Vorderradhalter","Anlehnbügel","Schräghochparker"],true)) {
         $holdingType = htmlspecialchars($_POST["holdingType"]);
-    }else{
-        $inputsCorrect = false;
     }
+
     if(isset($_POST["description"])&&is_string($_POST["description"])) {
          $description = htmlspecialchars($_POST["description"]);
     }else{
