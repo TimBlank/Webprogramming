@@ -131,11 +131,11 @@
                                             </a>
                                             <div class="form-group">
                                                 <select class="form-control" name="holdingType" id="holderType" required>
-                                                    <option value="(Keine Angabe)">(Keine Angabe)</option>
-                                                    <option value="Einfache Vorderradhalter">Einfacher Vorderradhalter</option>
-                                                    <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
-                                                    <option value="Anlehnbügel">Anlehnbügel</option>
-                                                    <option value="Schräghochparker">Schräghochparker</option>
+                                                    <option value="(Keine Angabe)" <?php if($content->getHolderType()=="(Keine Angabe)" || $content->getId()==null){echo "selected";}?>>(Keine Angabe)</option>
+                                                    <option value="Einfache Vorderradhalter" <?php if($content->getHolderType()=="Einfache Vorderradhalter"){echo "selected";}?>>Einfacher Vorderradhalter</option>
+                                                    <option value="Fahrradgerechte Vorderradhalter" <?php if($content->getHolderType()=="Fahrradgerechte Vorderradhalter"){echo "selected";}?>>Fahrradgerechte Vorderradhalter</option>
+                                                    <option value="Anlehnbügel" <?php if($content->getHolderType()=="Anlehnbügel"){echo "selected";}?>>Anlehnbügel</option>
+                                                    <option value="Schräghochparker" <?php if($content->getHolderType()=="Schräghochparker"){echo "selected";}?>>Schräghochparker</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -151,7 +151,7 @@
                                 </div>
                             </div>
                             <div class="createBtn">
-                                <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
+                                <input type="submit" name="<?php if($content->getId()==null){echo "submitEntry";}else{echo "alterEntry";}?>" value="<?php if($content->getId()==null){echo "Erstellen";}else{echo "Bearbeiten";}?>" class="btn btn-default">
                             </div>
                         </div>
                     </form>
