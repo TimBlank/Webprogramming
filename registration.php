@@ -4,7 +4,7 @@
 <html lang="de">
 
 <head>
-    <?php include "php/head.php";?>
+    <?php include_once "php/head.php";?>
     <style type="text/css">
         #navSearch {
             display: none;
@@ -14,10 +14,10 @@
 </head>
 
 <body>
-    <?php include "php/header.php"; ?>
-    <?php include "php/navigation.php"; ?>
-    <?php include "php/functions/userInput.php"; ?>
-    <?php include "php/functions/datamanagment/usermanagmentDao.php"; ?>
+    <?php include_once "php/header.php"; ?>
+    <?php include_once "php/navigation.php"; ?>
+    <?php include_once "php/functions/userInput.php"; ?>
+    <?php include_once "php/functions/datamanagment/usermanagmentDao.php"; ?>
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
@@ -58,7 +58,7 @@
     </div>
 
 
-    <?php include "php/footer.php"; ?>
+    <?php include_once "php/footer.php"; ?>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

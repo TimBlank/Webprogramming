@@ -81,7 +81,7 @@ if(isset($_POST["submitEntry"])){
 
     //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
     if($inputsCorrect){
-    $id = addEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
+    $id = $contentmanager->addEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
     $latitude, $imgType);
     if($id !== false) {
         //echo "Test erfolgreich";

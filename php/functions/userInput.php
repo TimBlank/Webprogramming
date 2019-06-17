@@ -1,9 +1,8 @@
 <?php
 //Diese Datei könnte einen besseren Namen haben
 
-
 //Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
-function loadEntries(){
+function loadEntries($contentmanager){
     if(isset($_GET["SubmitSearch"])){
         $entryName = "";
         $isPublic = null;
@@ -38,11 +37,11 @@ function loadEntries(){
         if(isset($_GET["holdingType"])){
             $holdingType = htmlspecialchars($_GET["holdingType"]);
         }
-        foreach(searchResult($entryName, $isPublic, $smallSize, $mediumSize, $largeSize, $hasRoof, $holdingType) as $id) {
+        foreach($contentmanager->searchResult($entryName, $isPublic, $smallSize, $mediumSize, $largeSize, $hasRoof, $holdingType) as $id) {
             yield $id;
         }
     }else{
-        foreach(defaultEntries() as $id) {
+        foreach($contentmanager->defaultEntries() as $id) {
             yield $id;
         }
     }

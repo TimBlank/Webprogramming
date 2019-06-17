@@ -1,5 +1,7 @@
 <?php
 
+include_once "IusermanagmentDao.php";
+class Usermanagment implements iUsermanagment{
 //prüfen ob Logindaten korrekt sind
 function verifyLogin($name, $password) {
     try{
@@ -60,6 +62,7 @@ function registerUser($realName,$email,$password,$username){
     }
 
 
+}
 }
 
 ?>

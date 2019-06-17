@@ -1,8 +1,10 @@
 <?php
 
-include "entryAndComments.php";
+include_once "entryAndComments.php";
+include_once "Icontentmanagment.php";
 
 //Eintrag hinzufügen
+class Contentmanagment implements iContentmanagment{
 function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
   try {
         $db = databaseConnect();
@@ -41,6 +43,14 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
    }
 }
 
+    public function deleteEntry($entryId){
+        //TODO: Implementieren
+    }
+
+    public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
+        //TODO: Implementieren
+    }
+
 function addComment($entryId, $username, $text, $imageType){
     try {
         $db = databaseConnect();
@@ -77,6 +87,29 @@ function addComment($entryId, $username, $text, $imageType){
    }
 }
 
+function deleteComment($commentId){
+    try {
+        $db = databaseConnect();
+        $sql = "SELECT * FROM comment WHERE commentId = (:commentId)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":commentId", $commentId);
+        $stmt->execute();
+        $commentData = $stmt->fetchObject();
+        if(empty($commentData)){
+            return false;
+        }else {
+            $sql = "DELETE FROM comment WHERE commentId = (:commentId)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(":commentId", $commentId);
+            $stmt->execute();
+            return true;
+        }
+
+        }catch (Exception $ex) {
+        echo "Fehler: " . $ex->getMessage();
+    }
+}
+
 //Gibt Eintrags-Objekt basierend auf einer Id zurück
 function loadEntry($entryId){
     try {
@@ -106,7 +139,7 @@ function loadEntry($entryId){
             return false;
         }
 
-    }catch (PDOException $ex) {
+    }catch (Exception $ex) {
         echo "Fehler: " . $ex->getMessage();
     }
 
@@ -124,12 +157,33 @@ function loadEntryComments($entryId){
         //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
        while ($commentData = $stmt->fetchObject()) {
-           yield new comment($commentData->username, $commentData->text, $commentData->image);
+           yield new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
        }
-   }catch (PDOException $ex) {
+   }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
 
+}
+
+function loadComment($commentId){
+    try {
+        $db = databaseConnect();
+        $sql = "SELECT * FROM comment WHERE commentId = (:id)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":id", $commentId);
+        $stmt->execute();
+        //$db.close(); TODO: Funktion unbekannt ?
+        $db = null;
+        $commentData = $stmt->fetchObject();
+        if(!empty($commentData)){
+            return new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
+        }else{
+            return false;
+        }
+
+   }catch (Exception $ex) {
+       echo "Fehler: " . $ex->getMessage();
+   }
 }
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
@@ -139,7 +193,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
     try {
         $db = databaseConnect();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
-        if($isPublic!==null && is_bool($isPublic)){
+        if($isPublic==true){
             $sql = $sql." AND isPublic = (:isPublic)";
         }
 
@@ -147,7 +201,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $sql = $sql." AND (size = (:smallSize) OR size = (:mediumSize) OR size = (:largeSize))";
         }
 
-        if($hasRoof!==null && is_bool($hasRoof)){
+        if($hasRoof==true){
             $sql = $sql." AND hasRoof = (:hasRoof)";
         }
 
@@ -158,7 +212,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":name", $name);
 
-        if($isPublic!==null && is_bool($isPublic)){
+        if($isPublic==true){
                 $stmt->bindParam(":isPublic", $isPublic);
         }
 
@@ -168,7 +222,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $stmt->bindParam(":largeSize", $largeSize);
         }
 
-        if($hasRoof!==null && is_bool($hasRoof)){
+        if($hasRoof==true){
             $stmt->bindParam(":hasRoof", $hasRoof);
         }
 
@@ -182,7 +236,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
        while ($entryData = $stmt->fetchObject()) {
            yield $entryData->entryId;
        }
-   }catch (PDOException $ex) {
+   }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
     /* $size ist eine Zahl die folgenderweise berechnet wird
@@ -204,8 +258,9 @@ function defaultEntries(){
        while ($entryData = $stmt->fetchObject()) {
            yield $entryData->entryId;
        }
-   }catch (PDOException $ex) {
+   }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
+}
 }
 ?>
