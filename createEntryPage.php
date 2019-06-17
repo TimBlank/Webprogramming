@@ -45,7 +45,7 @@
                                         </div>
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" checked>
+                                                <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" required>
                                                 <label class="form-check-label" for="public">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" checked>
+                                                <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" required>
                                                 <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -79,11 +79,11 @@
                                         </div>
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true">
+                                                <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true" required>
                                                 <label class="form-check-label" for="covered">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" checked>
+                                                <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false">
                                                 <label class="form-check-label" for="notCovered">Nein</label>
                                             </div>
                                         </div>
