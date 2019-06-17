@@ -1,8 +1,10 @@
 <?php
 
-include "entryAndComments.php";
+include_once "entryAndComments.php";
+include_once "Icontentmanagment.php";
 
 //Eintrag hinzufügen
+class Contentmanagment implements iContentmanagment{
 function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
   try {
         $db = databaseConnect();
@@ -40,6 +42,14 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
         $db->rollBack();
    }
 }
+
+    public function deleteEntry($entryId){
+        //TODO: Implementieren
+    }
+
+    public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
+        //TODO: Implementieren
+    }
 
 function addComment($entryId, $username, $text, $imageType){
     try {
@@ -183,7 +193,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
     try {
         $db = databaseConnect();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
-        if($isPublic!==null && is_bool($isPublic)){
+        if($isPublic==true){
             $sql = $sql." AND isPublic = (:isPublic)";
         }
 
@@ -191,7 +201,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $sql = $sql." AND (size = (:smallSize) OR size = (:mediumSize) OR size = (:largeSize))";
         }
 
-        if($hasRoof!==null && is_bool($hasRoof)){
+        if($hasRoof==true){
             $sql = $sql." AND hasRoof = (:hasRoof)";
         }
 
@@ -202,7 +212,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":name", $name);
 
-        if($isPublic!==null && is_bool($isPublic)){
+        if($isPublic==true){
                 $stmt->bindParam(":isPublic", $isPublic);
         }
 
@@ -212,7 +222,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $stmt->bindParam(":largeSize", $largeSize);
         }
 
-        if($hasRoof!==null && is_bool($hasRoof)){
+        if($hasRoof==true){
             $stmt->bindParam(":hasRoof", $hasRoof);
         }
 
@@ -251,5 +261,6 @@ function defaultEntries(){
    }catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
+}
 }
 ?>

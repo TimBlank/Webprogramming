@@ -46,7 +46,7 @@ if(isset($_POST["registerBtn"])){
 
     if($formCor == true) {
         if($password == $passwordRepeat) {
-            if(registerUser($name, $email, $password, $accountName)){
+            if($usermanager->registerUser($name, $email, $password, $accountName)){
                 header("Location:http://localhost/Index.php");
             }else{
                 header("Location:http://localhost/registration.php");

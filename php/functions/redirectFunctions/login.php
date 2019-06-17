@@ -20,7 +20,7 @@ try{
            $formIsSet=false;
         }
 
-        if($formIsSet && verifyLogin($Username,$Password) ){
+        if($formIsSet && $usermanager->verifyLogin($Username,$Password) ){
             session_start();    //$_SESSION gloable variable becomes Available
             $_SESSION["User"]= $Username;
             $_SESSION["passs"]= $Password;

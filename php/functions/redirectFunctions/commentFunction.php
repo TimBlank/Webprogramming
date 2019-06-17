@@ -4,7 +4,7 @@ if(isset($_POST["SubmitComment"])){
 
     if(isset($_SESSION["User"])){
 
-        $entry = loadEntry($_POST["EntryID"]);
+        $entry = $contentmanager->loadEntry($_POST["EntryID"]);
         if($entry !== false){
             $inputsCorrect = true;
             $entryId = $entry->getId();
@@ -36,7 +36,7 @@ if(isset($_POST["SubmitComment"])){
             if($inputsCorrect){
                 $username = htmlspecialchars($_SESSION["User"]);
                 $text = htmlspecialchars($_POST["commentText"]);
-                $commentId = addComment($entryId, $username, $text, $imgType);
+                $commentId = $contentmanager->addComment($entryId, $username, $text, $imgType);
                 if($imageExists && $commentId !== false){
                     if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
 
