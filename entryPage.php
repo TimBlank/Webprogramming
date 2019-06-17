@@ -92,12 +92,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <?php if(!$content->getId()==null && isset($_SESSION["User"])): ?>
+                                    <?php if($content->getId()!==null && isset($_SESSION["User"])): ?>
+                                    <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary" title="VorlageBeitrag">Bearbeiten</a>
                                     <form action="redirect.php" method="post">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                     <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
                                     </form>
-                                    <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary" title="VorlageBeitrag">Bearbeiten</a>
                                     <?php endif; ?>
                                 </div>
                             </div>
