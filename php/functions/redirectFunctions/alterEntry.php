@@ -1,5 +1,6 @@
 <?php
 if(isset($_POST["alterEntry"])){
+    $entryId=null;
     if(isset($_POST["EntryID"])){
         $entryId = htmlspecialchars($_POST["EntryID"]);
     }
@@ -65,17 +66,27 @@ if(isset($_POST["alterEntry"])){
         $latitude = (float) $_POST["latitude"];
     }
 
-    $id = $contentmanager->alterEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
+    $wasAltered = $contentmanager->alterEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
     $latitude, $imgType);
-    if($id !== false) {
+    if($wasAltered) {
+            if($imgType!==null){
+                try{
+                    $image=$oldEntryData->getImage();
+                    if(unlink($image)){
+                        move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
+                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                    }else{
+                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                    }
+                }catch (Exception $ex) {
+                    echo "Fehler: " . $ex->getMessage();
+                }
+            }else{
+                header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+            }
 
-
-        move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
-            //TODO: Auf neue Eintragsseite gehen.
         header("Location:http://localhost/entryPage.php?EntryID=".$id);
     } else {
-        //echo "Test fehlgeschlagen";
-        //TODO: Fehler anzeigen.
          header("Location:http://localhost/createEntryPage.php");
     }
 
