@@ -9,6 +9,7 @@ if(isset($_POST["DeleteEntry"])){
         $removedFromDB = $contentmanager->deleteEntry($entryId);
         if($removedFromDB){
             delete_directory("pictures/Entry".$entryId);
+            header("Location:http://localhost/Index.php");
         }else{
             header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
         }
