@@ -20,6 +20,8 @@ include_once "php/functions/redirectFunctions/createEntryFunction.php";
 
 include_once "php/functions/redirectFunctions/commentFunction.php";
 
+include_once "php/functions/redirectFunctions/deleteEntry.php";
+
 include_once "php/functions/redirectFunctions/deleteComment.php";
 
 include_once "php/functions/redirectFunctions/registerFunction.php";

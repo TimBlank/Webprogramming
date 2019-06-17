@@ -44,7 +44,30 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
 }
 
     public function deleteEntry($entryId){
-        //TODO: Implementieren
+        try {
+        $db = databaseConnect();
+        $sql = "SELECT * FROM entry WHERE entryId = (:entryId)";
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":entryId", $entryId);
+        $stmt->execute();
+        $entryData = $stmt->fetchObject();
+        if(empty($entryData)){
+            return false;
+        }else {
+            $sql = "DELETE FROM entry WHERE entryId = (:entryId)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(":entryId", $entryId);
+            $stmt->execute();
+            $sql = "DELETE FROM comment WHERE entryId = (:entryId)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(":entryId", $entryId);
+            $stmt->execute();
+            return true;
+        }
+
+        }catch (Exception $ex) {
+        echo "Fehler: " . $ex->getMessage();
+    }
     }
 
     public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
