@@ -66,7 +66,7 @@ if(isset($_POST["alterEntry"])){
         $latitude = (float) $_POST["latitude"];
     }
 
-    $wasAltered = $contentmanager->alterEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
+    $wasAltered = $contentmanager->alterEntry($entryId, $entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
     $latitude, $imgType);
     if($wasAltered) {
             if($imgType!==null){
@@ -85,7 +85,7 @@ if(isset($_POST["alterEntry"])){
                 header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
             }
 
-        header("Location:http://localhost/entryPage.php?EntryID=".$id);
+        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
     } else {
          header("Location:http://localhost/createEntryPage.php");
     }

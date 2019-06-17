@@ -38,7 +38,7 @@
                                     <label for="userImage">
                                         Bild hinzufügen
                                     </label>
-                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" required>
+                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" <?php if($content->getId()==null){echo "required";}?>>
                                 </div>
                                 <div class="col border">
                                     <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
@@ -150,6 +150,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                             <div class="createBtn">
                                 <input type="submit" name="<?php if($content->getId()==null){echo "submitEntry";}else{echo "alterEntry";}?>" value="<?php if($content->getId()==null){echo "Erstellen";}else{echo "Bearbeiten";}?>" class="btn btn-default">
                             </div>
