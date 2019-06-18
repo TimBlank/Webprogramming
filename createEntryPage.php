@@ -11,7 +11,16 @@
     <?php include_once "php/header.php"; ?>
     <?php include_once "php/navigation.php"; ?>
     <?php include_once "php/functions/userInput.php"; ?>
-    <?php include_once "php/functions/datamanagment/contentmanagmentDao.php"; ?>
+    <?php
+        $entryID = null;
+        if (isset($_GET["EntryID"])){
+            $entryID =htmlspecialchars($_GET["EntryID"]);
+        }
+        $content = $contentmanager->loadEntry($entryID);
+        if($content==false){
+            $content = new entry(null,null,$setImage="pictures/dummyEntry/DummyBild.png",null,null,null,null,null,null,null);
+        }
+    ?>
     <div id="background">
         <div id="mainFrame">
             <div class="createEntryPage">
@@ -20,21 +29,21 @@
                         <div class="container border">
                             <div class="row border">
                                 <div class="col">
-                                    <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes" required>
+                                    <input type="text" class="form-control" id="entryName" name="entryName" placeholder="Beschreibender Name des Stellplatzes" value="<?php echo $content->getName(); ?>" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col border">
-                                    <img src="pictures/dummyEntry/DummyBild.png" alt="Bild des Stellplatzes" class="img-fluid">
+                                    <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid">
                                     <label for="userImage">
                                         Bild hinzufügen
                                     </label>
-                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" required>
+                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" <?php if($content->getId()==null){echo "required";}?>>
                                 </div>
                                 <div class="col border">
                                     <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
-                                    <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" required>
-                                    <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" required>
+                                    <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" value="<?php echo $content->getLongitude(); ?>" required>
+                                    <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" value="<?php echo $content->getLatitude(); ?>" required>
                                 </div>
                             </div>
                             <div class="row border">
@@ -45,11 +54,17 @@
                                         </div>
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" checked>
+                                                <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" <?php
+                                                       if($content->getIsPublic() || $content->getId()==null){
+                                                            echo "checked";}?>
+                                                >
                                                 <label class="form-check-label" for="public">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="isPublic" id="private" value="false">
+                                                <input class="form-check-input" type="radio" name="isPublic" id="private" value="false" <?php
+                                                       if(!$content->getIsPublic() && $content->getId()!==null){
+                                                            echo "checked";}?>
+                                                >
                                                 <label class="form-check-label" for="private">Nein</label>
                                             </div>
                                         </div>
@@ -60,15 +75,24 @@
                                         </div>
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" checked>
+                                                <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" <?php
+                                                       if($content->getSize()=="Klein" || $content->getId()!==null){
+                                                            echo "checked";}?>
+                                                >
                                                 <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel">
+                                                <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel" <?php
+                                                       if($content->getSize()=="Mittel"){
+                                                            echo "checked";}?>
+                                                >
                                                 <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß">
+                                                <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß" <?php
+                                                       if($content->getSize()=="Groß"){
+                                                            echo "checked";}?>
+                                                >
                                                 <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
                                             </div>
                                         </div>
@@ -79,11 +103,19 @@
                                         </div>
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true">
+                                                <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true" <?php
+                                                       if($content->getHasRoof() || $content->getId()==null){
+                                                            echo "checked";}?>
+                                                >
                                                 <label class="form-check-label" for="covered">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" checked>
+                                                <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" <?php
+                                                       if(!$content->getHasRoof() && $content->getId()!==null){
+                                                            echo "checked";
+                                                       }
+                                                       ?>
+                                                >
                                                 <label class="form-check-label" for="notCovered">Nein</label>
                                             </div>
                                         </div>
@@ -99,11 +131,11 @@
                                             </a>
                                             <div class="form-group">
                                                 <select class="form-control" name="holdingType" id="holderType" required>
-                                                    <option value="(Keine Angabe)">(Keine Angabe)</option>
-                                                    <option value="Einfache Vorderradhalter">Einfacher Vorderradhalter</option>
-                                                    <option value="Fahrradgerechte Vorderradhalter">Fahrradgerechte Vorderradhalter</option>
-                                                    <option value="Anlehnbügel">Anlehnbügel</option>
-                                                    <option value="Schräghochparker">Schräghochparker</option>
+                                                    <option value="(Keine Angabe)" <?php if($content->getHolderType()=="(Keine Angabe)" || $content->getId()==null){echo "selected";}?>>(Keine Angabe)</option>
+                                                    <option value="Einfache Vorderradhalter" <?php if($content->getHolderType()=="Einfache Vorderradhalter"){echo "selected";}?>>Einfacher Vorderradhalter</option>
+                                                    <option value="Fahrradgerechte Vorderradhalter" <?php if($content->getHolderType()=="Fahrradgerechte Vorderradhalter"){echo "selected";}?>>Fahrradgerechte Vorderradhalter</option>
+                                                    <option value="Anlehnbügel" <?php if($content->getHolderType()=="Anlehnbügel"){echo "selected";}?>>Anlehnbügel</option>
+                                                    <option value="Schräghochparker" <?php if($content->getHolderType()=="Schräghochparker"){echo "selected";}?>>Schräghochparker</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -113,13 +145,14 @@
                                             Besonderheiten:
                                         </div>
                                         <div class="col border">
-                                            <textarea class="form-control" id="description" name="description" placeholder="Zum Beispiel Zugänglichkeit oder anderes"></textarea>
+                                            <textarea class="form-control" id="description" name="description" placeholder="Zum Beispiel Zugänglichkeit oder anderes"><?php echo $content->getDescription(); ?></textarea>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                             <div class="createBtn">
-                                <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
+                                <input type="submit" name="<?php if($content->getId()==null){echo "submitEntry";}else{echo "alterEntry";}?>" value="<?php if($content->getId()==null){echo "Erstellen";}else{echo "Bearbeiten";}?>" class="btn btn-default">
                             </div>
                         </div>
                     </form>

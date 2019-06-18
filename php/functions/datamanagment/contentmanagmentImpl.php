@@ -34,7 +34,6 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
         $stmt->execute();
 
         $db->commit();
-        //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
         return $id;
     }catch (Exception $ex) {
@@ -46,6 +45,7 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
     public function deleteEntry($entryId){
         try {
         $db = databaseConnect();
+        $db->beginTransaction();
         $sql = "SELECT * FROM entry WHERE entryId = (:entryId)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":entryId", $entryId);
@@ -62,6 +62,8 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":entryId", $entryId);
             $stmt->execute();
+            $db->commit();
+            $db=null;
             return true;
         }
 
@@ -70,9 +72,88 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
     }
     }
 
-    public function alterEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
-        //TODO: Implementieren
+public function alterEntry($entryId,$name, $isPublic, $size,    $hasRoof, $holdingType, $description, $longitude, $latitude,    $imageType){
+        try {
+        $db = databaseConnect();
+        $db->beginTransaction();
+
+        $sql = "UPDATE entry SET entryId=(:entryId)";
+        if($name!==null){
+            $sql=$sql.", name=(:name)";
+        }
+        if($isPublic!==null){
+            $sql=$sql.", isPublic=(:isPublic)";
+        }
+        if($size!==null){
+            $sql=$sql.", size=(:size)";
+        }
+        if($hasRoof!==null){
+            $sql=$sql.", hasRoof=(:hasRoof)";
+        }
+        if($holdingType!==null){
+            $sql=$sql.", holdingType=(:holdingType)";
+        }
+        if($description!==null){
+            $sql=$sql.", description=(:description)";
+        }
+        if($longitude!==null){
+            $sql=$sql.", longitude=(:longitude)";
+        }
+        if($latitude!==null){
+            $sql=$sql.", latitude=(:latitude)";
+        }
+        if($imageType!==null){
+            $sql=$sql.", image=(:image)";
+        }
+
+
+        $sql=$sql." WHERE entryId=(:entryId)";
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(":entryId", $entryId);
+        if($name!==null){
+            $stmt->bindParam(":name", $name);
+        }
+        if($isPublic!==null){
+            $stmt->bindParam(":isPublic", $isPublic);
+        }
+        if($size!==null){
+            $stmt->bindParam(":size", $size);
+        }
+        if($size!==null){
+            $stmt->bindParam(":size", $size);
+        }
+        if($hasRoof!==null){
+            $stmt->bindParam(":hasRoof", $hasRoof);
+        }
+        if($holdingType!==null){
+            $stmt->bindParam(":holdingType", $holdingType);
+        }
+        if($description!==null){
+            $stmt->bindParam(":description", $description);
+        }
+        if($longitude!==null){
+            $stmt->bindParam(":longitude", $longitude);
+        }
+        if($latitude!==null){
+            $stmt->bindParam(":latitude", $latitude);
+        }
+        if($imageType!==null){
+             $imagePath = "pictures/Entry".$entryId."/EntryPic".$entryId.".".$imageType;
+            $stmt->bindParam(":image", $imagePath);
+        }
+
+        $stmt->execute();
+
+        $db->commit();
+        $db = null;
+        return true;
+    }catch (Exception $ex) {
+        echo "Fehler: " . $ex->getMessage(). "<br />";
+        $db->rollBack();
+        return false;
     }
+}
 
 function addComment($entryId, $username, $text, $imageType){
     try {
@@ -101,7 +182,6 @@ function addComment($entryId, $username, $text, $imageType){
 
 
         $db->commit();
-        //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
         return $id;
     }catch (Exception $ex) {
@@ -113,6 +193,7 @@ function addComment($entryId, $username, $text, $imageType){
 function deleteComment($commentId){
     try {
         $db = databaseConnect();
+        $db->beginTransaction();
         $sql = "SELECT * FROM comment WHERE commentId = (:commentId)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":commentId", $commentId);
@@ -125,6 +206,8 @@ function deleteComment($commentId){
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":commentId", $commentId);
             $stmt->execute();
+            $db->commit();
+            $db = null;
             return true;
         }
 
@@ -137,12 +220,13 @@ function deleteComment($commentId){
 function loadEntry($entryId){
     try {
         $db = databaseConnect();
+        $db->beginTransaction();
         $sql = "SELECT * FROM entry WHERE entryId = (:id)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":id", $entryId);
         $stmt->execute();
         $entryData = $stmt->fetchObject();
-        //$db.close(); Funktion unbekannt ?
+        $db->commit();
         $db = null;
         if(!empty($entryData)){
             $id = $entryData->entryId;
@@ -165,19 +249,18 @@ function loadEntry($entryId){
     }catch (Exception $ex) {
         echo "Fehler: " . $ex->getMessage();
     }
-
-    //Aus $entryData entryObjekte erzeugen oder Fehler zurückgeben
 }
 
 function loadEntryComments($entryId){
 
    try {
         $db = databaseConnect();
+        $db->beginTransaction();
         $sql = "SELECT * FROM comment WHERE entryId = (:id)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":id", $entryId);
         $stmt->execute();
-        //$db.close(); TODO: Funktion unbekannt ?
+        $db->commit();
         $db = null;
        while ($commentData = $stmt->fetchObject()) {
            yield new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
@@ -191,11 +274,12 @@ function loadEntryComments($entryId){
 function loadComment($commentId){
     try {
         $db = databaseConnect();
+        $db->beginTransaction();
         $sql = "SELECT * FROM comment WHERE commentId = (:id)";
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":id", $commentId);
         $stmt->execute();
-        //$db.close(); TODO: Funktion unbekannt ?
+        $db->commit();
         $db = null;
         $commentData = $stmt->fetchObject();
         if(!empty($commentData)){
@@ -211,10 +295,10 @@ function loadComment($commentId){
 
 //Gibt Ids von Einträgen zurück, auf die die Suchkriterien zutreffen
 function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize = "false", $largeSize = "false", $hasRoof=null,$holdingType=null){
-    //TODO: Vollständig implementieren
         $name = "%".$name."%";
     try {
         $db = databaseConnect();
+        $db->beginTransaction();
         $sql = "SELECT entryId FROM entry WHERE name LIKE (:name)";
         if($isPublic==true){
             $sql = $sql." AND isPublic = (:isPublic)";
@@ -254,7 +338,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
         }
 
         $stmt->execute();
-        //$db.close(); TODO: Funktion unbekannt ?
+        $db->commit();
         $db = null;
        while ($entryData = $stmt->fetchObject()) {
            yield $entryData->entryId;
@@ -273,10 +357,11 @@ function defaultEntries(){
     //Gibt alle exestierenden Einträge zurück
     try {
         $db = databaseConnect();
+        $db->beginTransaction();
         $sql = "SELECT entryId FROM entry ORDER BY entryId DESC";
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        //$db.close(); TODO: Funktion unbekannt ?
+        $db->commit();
         $db = null;
        while ($entryData = $stmt->fetchObject()) {
            yield $entryData->entryId;
