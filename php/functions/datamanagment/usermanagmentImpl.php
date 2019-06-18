@@ -47,6 +47,7 @@ function registerUser($realName,$email,$password,$username){
             return true;
         }else{
             //Benutzer existiert bereits
+            $db->commit();
             $db = null;
             return false;
         }
