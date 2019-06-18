@@ -5,6 +5,42 @@
 
 <head>
     <?php include_once "php/head.php";?>
+    <script>
+        function getPosition(){
+            if (navigator.geolocation) {
+                var options = {
+                    enableHighAccuracy: true
+                }
+                navigator.geolocation.getCurrentPosition(showPosition, showError, options);
+            } else {
+                alert('Browser unterstützt kein Geolocation.');
+            }
+        }
+
+        function showPosition(position) {
+            document.getElementById("longitude").value=position.coords.longitude ;
+            var latitudeInput = document.getElementById("latitude").value=position.coords.latitude;
+        }
+
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                        alert('Abfrage ihrer Geoposition ist untersagt.');
+                        break;
+                case error.POSITION_UNAVAILABLE:
+                        alert('Keine Geopositionsdaten verfügbar.');
+                        break;
+                case error.TIMEOUT:
+                        alert('Timeout überschritten.');
+                        break;
+                default:
+                        alert('Fehler: ' + error.message + ')');
+            }
+        }
+
+
+
+    </script>
 </head>
 
 <body>
@@ -44,6 +80,7 @@
                                     <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
                                     <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" value="<?php echo $content->getLongitude(); ?>" required>
                                     <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" value="<?php echo $content->getLatitude(); ?>" required>
+                                    <button onclick="getPosition()">Meine Position</button>
                                 </div>
                             </div>
                             <div class="row border">
