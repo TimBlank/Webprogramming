@@ -76,7 +76,7 @@
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" <?php
-                                                       if($content->getSize()=="Klein" || $content->getId()!==null){
+                                                       if($content->getSize()=="Klein" || $content->getId()==null){
                                                             echo "checked";}?>
                                                 >
                                                 <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
