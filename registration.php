@@ -25,27 +25,27 @@
                     <form action="redirect.php" method="post">
                         <!--Name-->
                         <div>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
                         </div>
 
                         <!--Acountname-->
                         <div>
-                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname">
+                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>
                         </div>
 
                         <!--Email-->
                         <div>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com" required>
                         </div>
 
                         <!--Passwort-->
                         <div>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required>
                         </div>
 
                         <!--Passwort wiederholen-->
                         <div>
-                            <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort Wiederholen">
+                            <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort Wiederholen" required>
                         </div>
 
                         <div class="registerButton">
