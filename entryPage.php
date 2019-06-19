@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col border">
-                                        <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid">
+                                        <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid" id="myImg" onclick="openImgModal(this.src);">
                                     </div>
                                     <div class="col border">
                                         <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
@@ -95,8 +95,8 @@
                                     <?php if($content->getId()!==null && isset($_SESSION["User"])): ?>
                                     <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary" title="VorlageBeitrag">Bearbeiten</a>
                                     <form action="redirect.php" method="post">
-                                    <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
-                                    <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
+                                        <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
+                                        <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
                                     </form>
                                     <?php endif; ?>
                                 </div>
@@ -118,9 +118,11 @@
                             <?php foreach($contentmanager->loadEntryComments($entryID) as $comment): ?>
                             <li class="list-group-item">
                                 <div class="card">
-                                    <?php if($comment->getImage()!=""): ?>
-                                    <img src="<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes">
-                                    <?php endif ?>
+                                    <div class="commentImage">
+                                        <?php if($comment->getImage()!=""): ?>
+                                        <img src="<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
+                                        <?php endif ?>
+                                    </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $comment->getAuthor(); ?></h5>
                                         <p class="card-text"><?php echo $comment->getText(); ?></p>
@@ -170,6 +172,7 @@
             </div>
         </div>
     </div>
+
     <?php include_once "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

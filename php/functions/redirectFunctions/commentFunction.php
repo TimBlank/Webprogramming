@@ -38,6 +38,7 @@ if(isset($_POST["SubmitComment"])){
                 $text = htmlspecialchars($_POST["commentText"]);
                 $commentId = $contentmanager->addComment($entryId, $username, $text, $imgType);
                 if($imageExists && $commentId !== false){
+                    mkdir("pictures/Entry".$entryId."/comments/");
                     if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
 
                     }else{
