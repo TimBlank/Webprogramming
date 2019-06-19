@@ -5,6 +5,21 @@
 
 <head>
     <?php include_once "php/head.php";?>
+    <script>
+        //Quelle: https://stackoverflow.com/questions/14791247/how-to-create-image-uploader-with-preview
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
 </head>
 
 <body>
@@ -145,10 +160,11 @@
                                 <form action="redirect.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                     <div class="form-group">
+                                        <img src="pictures/IconTransparent.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
                                         <label for="userImage">
                                             Bild hinzufügen
-                                        </label>
-                                        <input type="file" id="userImage" name="commentImg" accept="image/png, image/jpeg">
+                                        </label><br>
+                                        <input type="file" id="userImage" onchange="readURL(this);" name="commentImg" accept="image/png, image/jpeg">
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
