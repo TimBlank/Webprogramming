@@ -118,9 +118,11 @@
                             <?php foreach($contentmanager->loadEntryComments($entryID) as $comment): ?>
                             <li class="list-group-item">
                                 <div class="card">
-                                    <?php if($comment->getImage()!=""): ?>
-                                    <img src="<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
-                                    <?php endif ?>
+                                    <div class="commentImage">
+                                        <?php if($comment->getImage()!=""): ?>
+                                        <img src="<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
+                                        <?php endif ?>
+                                    </div>
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $comment->getAuthor(); ?></h5>
                                         <p class="card-text"><?php echo $comment->getText(); ?></p>
