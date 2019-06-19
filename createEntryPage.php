@@ -97,9 +97,7 @@
                                             Überdacht:
                                         </div>
                                         <div class="col border">
-
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false">
                                                 <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true" <?php
                                                        if($content->getHasRoof()){
                                                             echo "checked";}?> required>
