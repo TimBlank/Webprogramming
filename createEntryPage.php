@@ -55,16 +55,14 @@
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" <?php
-                                                       if($content->getIsPublic() || $content->getId()==null){
-                                                            echo "checked";}?>
-                                                >
+                                                       if($content->getIsPublic()){
+                                                            echo "checked";}?> required>
                                                 <label class="form-check-label" for="public">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="isPublic" id="private" value="false" <?php
                                                        if(!$content->getIsPublic() && $content->getId()!==null){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="private">Nein</label>
                                             </div>
                                         </div>
@@ -76,23 +74,20 @@
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" <?php
-                                                       if($content->getSize()=="Klein" || $content->getId()==null){
-                                                            echo "checked";}?>
-                                                >
+                                                       if($content->getSize()=="Klein" ){
+                                                            echo "checked";}?> required>
                                                 <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel" <?php
                                                        if($content->getSize()=="Mittel"){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß" <?php
                                                        if($content->getSize()=="Groß"){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
                                             </div>
                                         </div>
@@ -104,9 +99,8 @@
                                         <div class="col border">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true" <?php
-                                                       if($content->getHasRoof() || $content->getId()==null){
-                                                            echo "checked";}?>
-                                                >
+                                                       if($content->getHasRoof()){
+                                                            echo "checked";}?> required>
                                                 <label class="form-check-label" for="covered">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -114,8 +108,7 @@
                                                        if(!$content->getHasRoof() && $content->getId()!==null){
                                                             echo "checked";
                                                        }
-                                                       ?>
-                                                >
+                                                       ?>>
                                                 <label class="form-check-label" for="notCovered">Nein</label>
                                             </div>
                                         </div>
