@@ -6,7 +6,7 @@
 <head>
     <?php include_once "php/head.php";?>
     <script>
-        function getPosition(){
+        function getPosition() {
             if (navigator.geolocation) {
                 var options = {
                     enableHighAccuracy: true
@@ -18,27 +18,25 @@
         }
 
         function showPosition(position) {
-            document.getElementById("longitude").value=position.coords.longitude ;
-            var latitudeInput = document.getElementById("latitude").value=position.coords.latitude;
+            document.getElementById("longitude").value = position.coords.longitude;
+            document.getElementById("latitude").value = position.coords.latitude;
         }
 
         function showError(error) {
-            switch(error.code) {
+            switch (error.code) {
                 case error.PERMISSION_DENIED:
-                        alert('Abfrage ihrer Geoposition ist untersagt.');
-                        break;
+                    alert('Abfrage ihrer Geoposition ist untersagt.');
+                    break;
                 case error.POSITION_UNAVAILABLE:
-                        alert('Keine Geopositionsdaten verfügbar.');
-                        break;
+                    alert('Keine Geopositionsdaten verfügbar.');
+                    break;
                 case error.TIMEOUT:
-                        alert('Timeout überschritten.');
-                        break;
+                    alert('Timeout überschritten.');
+                    break;
                 default:
-                        alert('Fehler: ' + error.message + ')');
+                    alert('Fehler: ' + error.message + ')');
             }
         }
-
-
 
     </script>
 </head>
@@ -93,15 +91,13 @@
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" <?php
                                                        if($content->getIsPublic() || $content->getId()==null){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="public">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="isPublic" id="private" value="false" <?php
                                                        if(!$content->getIsPublic() && $content->getId()!==null){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="private">Nein</label>
                                             </div>
                                         </div>
@@ -114,22 +110,19 @@
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" <?php
                                                        if($content->getSize()=="Klein" || $content->getId()==null){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel" <?php
                                                        if($content->getSize()=="Mittel"){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
                                             </div>
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß" <?php
                                                        if($content->getSize()=="Groß"){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
                                             </div>
                                         </div>
@@ -142,8 +135,7 @@
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true" <?php
                                                        if($content->getHasRoof() || $content->getId()==null){
-                                                            echo "checked";}?>
-                                                >
+                                                            echo "checked";}?>>
                                                 <label class="form-check-label" for="covered">Ja</label>
                                             </div>
                                             <div class="form-check form-check-inline">
@@ -151,8 +143,7 @@
                                                        if(!$content->getHasRoof() && $content->getId()!==null){
                                                             echo "checked";
                                                        }
-                                                       ?>
-                                                >
+                                                       ?>>
                                                 <label class="form-check-label" for="notCovered">Nein</label>
                                             </div>
                                         </div>
