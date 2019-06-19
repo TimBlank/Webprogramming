@@ -125,3 +125,11 @@
 .regis input {
     margin-top: 5px;
 }
+
+.imageUpload {
+    height: 100px;
+    max-width: 180px;
+    background: #999999;
+    /*color: #ffffff;
+    border: 2px solid red;*/
+}

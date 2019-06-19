@@ -71,8 +71,8 @@
                                     <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid">
                                     <label for="userImage">
                                         Bild hinzufügen
-                                    </label>
-                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" <?php if($content->getId()==null){echo "required";}?>>
+                                    </label><br>
+                                    <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" class="imageUpload" <?php if($content->getId()==null){echo "required";}?>>
                                 </div>
                                 <div class="col border">
                                     <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
