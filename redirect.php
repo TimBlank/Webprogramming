@@ -4,20 +4,32 @@ ini_set("session.use_only_cookies", 0);
 ini_set("session.use_trans_sid", 0);
 session_start();
 
-include "php/functions/datamanagment/databaseConnection.php";
+$PrevPage = "http://localhost/index.php";
+if(isset($_POST["PrevPage"])){
+ $PrevPage = htmlspecialchars($_POST["PrevPage"]);
+}
+include_once "php/functions/datamanagment/databaseConnection.php";
 
-include "php/functions/datamanagment/usermanagmentImpl.php";
+include_once "php/functions/datamanagment/usermanagmentImpl.php";
+$usermanager = new Usermanagment;
 
-include "php/functions/datamanagment/contentmanagmentImpl.php";
+include_once "php/functions/datamanagment/contentmanagmentImpl.php";
+$contentmanager = new Contentmanagment;
 
-include "php/functions/redirectFunctions/createEntryFunction.php";
+include_once "php/functions/redirectFunctions/createEntryFunction.php";
 
-include "php/functions/redirectFunctions/commentFunction.php";
+include_once "php/functions/redirectFunctions/commentFunction.php";
 
-include "php/functions/redirectFunctions/registerFunction.php";
+include_once "php/functions/redirectFunctions/deleteEntry.php";
 
-include "php/functions/redirectFunctions/login.php";
+include_once "php/functions/redirectFunctions/alterEntry.php";
 
-include "php/functions/redirectFunctions/logout.php";
+include_once "php/functions/redirectFunctions/deleteComment.php";
+
+include_once "php/functions/redirectFunctions/registerFunction.php";
+
+include_once "php/functions/redirectFunctions/login.php";
+
+include_once "php/functions/redirectFunctions/logout.php";
 
 ?>

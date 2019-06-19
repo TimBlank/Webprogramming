@@ -4,7 +4,7 @@
               <label for="search_q">
                   <h3>Standortname</h3>
               </label><br>
-              <input type="text" id="search_q" name="entryName" placeholder="Standortname" autocomplete="off" />
+              <input type="text" class="form-control" id="search_q" name="entryName" placeholder="Standortname" autocomplete="off" />
           </div>
 
           <div class="form-group">
@@ -22,16 +22,16 @@
 
           <div class="form-group">
               <label for="roofCheck">
-                  Überdacht
+                  Nur überdachte
               </label>
-              <input type="checkbox" id="roofCheck" name="hasRoof" value="true" checked>
+              <input type="checkbox" id="roofCheck" name="hasRoof" value="true">
           </div>
 
           <div class="form-group">
               <label for="publicCheck">
-                  Öffentlich
+                  Nur öffentliche
               </label>
-              <input type="checkbox" id="publicCheck" name="isPublic" value="true" checked>
+              <input type="checkbox" id="publicCheck" name="isPublic" value="true">
           </div>
 
           <label for="size">

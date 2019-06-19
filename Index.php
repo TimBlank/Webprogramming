@@ -2,16 +2,17 @@
 <!-- Hauptseite-->
 
 <html lang="de">
+
 <head>
-<?php include "php/head.php";?>
+    <?php include_once "php/head.php";?>
 </head>
 
 <body>
-    <?php include "php/header.php"; ?>
-    <?php include "php/navigation.php"; ?>
-    <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
-    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
-    <?php include "php/functions/userInput.php"; ?>
+    <?php include_once "php/header.php"; ?>
+    <?php include_once "php/navigation.php"; ?>
+    <?php include_once "php/functions/datamanagment/databaseConnection.php"; ?>
+    <?php include_once "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
+    <?php include_once "php/functions/userInput.php"; ?>
 
     <div id="background">
         <div id="mainFrame">
@@ -21,7 +22,7 @@
                         Über diese Seite
                     </a></h1>
                 <div class="card-body">
-                    Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen.
+                    Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen und Kommentare schreiben.
                 </div>
 
             </article>
@@ -35,15 +36,21 @@
                     <div class="card-group">
                         <div class="card">
                             <ul class="list-unstyled">
-                                <?php foreach(loadEntries() as $entryID): ?>
+                                <?php
+                                    $resultCount=0;
+                                    foreach(loadEntries($contentmanager) as $entryID):
+                                ?>
                                 <li>
-                                    <?php $content = loadEntry($entryID); ?>
+                                    <?php
+                                    $resultCount=$resultCount+1;
+                                    $content = $contentmanager->loadEntry($entryID);
+                                    ?>
                                     <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
                                             <?php echo $content->getName(); ?>
                                         </a></h1>
                                     <div class="card-group">
                                         <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes">
+                                            <img class="card-img-top" class="img-fluid" src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
                                             <div class="card-body">
                                             </div>
                                         </div>
@@ -63,7 +70,11 @@
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
-                                <?php endforeach; ?>
+                                <?php endforeach;
+                                if($resultCount==0){
+                                    echo "<li>Keine Ergebnisse</li>";
+                                }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -71,7 +82,7 @@
             </div>
         </div>
     </div>
-    <?php include "php/footer.php"; ?>
+    <?php include_once "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
