@@ -3,7 +3,12 @@
     <h2>Universität Oldenburg</h2>
     <script>
         window.onload = function() {
-            if (<?php echo isset($_SESSION["Message"])?>) {
+            if (<?php
+                    if (isset($_SESSION["Message"])) {
+                        echo isset($_SESSION["Message"]);
+                    } else
+                        echo 0;
+                ?>) {
                 $('#myModal').modal();
             }
         }
