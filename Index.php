@@ -50,7 +50,7 @@
                                         </a></h1>
                                     <div class="card-group">
                                         <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes">
+                                            <img class="card-img-top" class="img-fluid" src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
                                             <div class="card-body">
                                             </div>
                                         </div>
