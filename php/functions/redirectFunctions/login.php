@@ -21,7 +21,6 @@ try{
         }
 
         if($formIsSet && $usermanager->verifyLogin($Username,$Password) ){
-            //$_SESSION gloable variable becomes Available
             $_SESSION["User"]= $Username;
             $_SESSION["passs"]= $Password;
             $_SESSION["Message"] = "Login Erfolgreich";
