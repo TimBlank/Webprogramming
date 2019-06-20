@@ -74,24 +74,24 @@ if(isset($_POST["alterEntry"])){
                     $image=$oldEntryData->getImage();
                     if(unlink($image)){
                         move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$entryId."/EntryPic".$entryId.".".$imgType);
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+                        header('Location: '.$domain."/entryPage.php?EntryID=".$entryId);
                     }else{
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+                        header('Location: '.$domain."/entryPage.php?EntryID=".$entryId);
                     }
                 }catch (Exception $ex) {
                     echo "Fehler: " . $ex->getMessage();
                 }
             }else{
-                header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+                header('Location: '.$domain."/entryPage.php?EntryID=".$entryId);
             }
 
-        header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+        header('Location: '.$domain."/entryPage.php?EntryID=".$entryId);
     } else {
-         header("Location:http://localhost/createEntryPage.php");
+         header('Location: '.$domain.$prevPage);
     }
 
     }else{
-        header("Location:http://localhost/registration.php");
+        header('Location: '.$domain."/registration.php");
     }
 
 }

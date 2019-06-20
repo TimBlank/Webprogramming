@@ -93,17 +93,17 @@ if(isset($_POST["submitEntry"])){
         }
         move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
             //TODO: Auf neue Eintragsseite gehen.
-        header("Location:http://localhost/entryPage.php?EntryID=".$id);
+        header('Location: '.$domain."/entryPage.php?EntryID=".$id);
     } else {
         //echo "Test fehlgeschlagen";
         //TODO: Fehler anzeigen.
-         header("Location:http://localhost/createEntryPage.php");
+         header('Location: '.$domain.$prevPage);
     }
     }else {
-         header("Location:http://localhost/createEntryPage.php");
+         header('Location: '.$domain.$prevPage);
     }
     }else{
-        header("Location:http://localhost/registration.php");
+        header('Location: '.$domain."/registration.php");
     }
 
 }
