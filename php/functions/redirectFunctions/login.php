@@ -21,14 +21,14 @@ try{
         }
 
         if($formIsSet && $usermanager->verifyLogin($Username,$Password) ){
-            session_start();    //$_SESSION gloable variable becomes Available
+            //$_SESSION gloable variable becomes Available
             $_SESSION["User"]= $Username;
             $_SESSION["passs"]= $Password;
             $_SESSION["Message"] = "Login Erfolgreich";
         } else {
             $_SESSION["Message"] = "Login Falsch";
         }
-        header('Location: '.$PrevPage);
+        header('Location: '.$domain.$prevPage);
     }
 }
     finally{
