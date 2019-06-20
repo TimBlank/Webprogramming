@@ -1,11 +1,7 @@
 <?php
 
 if(isset($_POST["DeleteComment"])){
-    $entryId=null;
-    if(isset($_POST["EntryID"])){
-        $entryId = htmlspecialchars($_POST["EntryID"]);
-    }
-    if(isset($_SESSION["User"]) && isset($_POST["CommentID"])&&$entryId!==null){
+    if(isset($_SESSION["User"]) && isset($_POST["CommentID"])){
         $commentId = htmlspecialchars($_POST["CommentID"]);
         $comment = $contentmanager->loadComment($commentId);
         if($comment->getAuthor() == $_SESSION["User"]){
@@ -15,25 +11,25 @@ if(isset($_POST["DeleteComment"])){
             if(!empty($image) || $image!==null){
                 try{
                     if(unlink($image)){
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                        header('Location: '.$domain.$prevPage."#addCommentSection");
                     }else{
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                        header('Location: '.$domain.$prevPage."#addCommentSection");
                     }
                 }catch (Exception $ex) {
                     echo "Fehler: " . $ex->getMessage();
                 }
             }else{
-                        header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                        header('Location: '.$domain.$prevPage."#addCommentSection");
             }
 
         }else{
-            header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+            header('Location: '.$domain.$prevPage."#addCommentSection");
         }
         }else{
-            header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+            header('Location: '.$domain.$prevPage."#addCommentSection");
         }
     }else{
-            header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+            header('Location: '.$domain.$prevPage."#addCommentSection");
     }
 }
 ?>

@@ -47,22 +47,22 @@ if(isset($_POST["SubmitComment"])){
 
                 }elseif($commentId == false){
                     //echo "Fehler beim speichern des Kommentares in der Datenbank <br>";
-                    header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                    header('Location: '.$domain.$prevPage."#addCommentSection");
                 }
-                header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                header('Location: '.$domain.$prevPage."#addCommentSection");
             }else{
                 //echo "Falsche Eingabe <br>";
-                header("Location:http://localhost/entryPage.php?EntryID=".$entryId."#addCommentSection");
+                header('Location: '.$domain.$prevPage."#addCommentSection");
             }
 
         }else{
             //echo "Dieser Stellplatz existiert nicht in der Datenbank <br>";
-            header("Location:http://localhost/Index.php");
+            header('Location: '.$domain."Index.php");
 
         }
     }else{
         //echo nicht eingeloggt;
-        header("Location:http://localhost/registration.php");
+        header('Location: '.$domain."registration.php");
     }
 }
 

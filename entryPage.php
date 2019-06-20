@@ -143,7 +143,6 @@
                                         <p class="card-text"><?php echo $comment->getText(); ?></p>
                                         <?php if(isset($_SESSION["User"])&& $_SESSION["User"] == $comment->getAuthor()): ?>
                                         <form action="redirect.php" method="post">
-                                            <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                             <input type="hidden" name="CommentID" value="<?php echo $comment->getCommentID(); ?>">
                                             <input type="submit" name="DeleteComment" value="Kommentar Löschen" class="btn btn-default" />
                                         </form>

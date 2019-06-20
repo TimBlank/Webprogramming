@@ -7,7 +7,7 @@ if (ini_get("session.use_cookies")) {
         $params["domain"], $params["secure"], $params["httponly"]
     );
 }
-    header('Location: '.$PrevPage);
+    header('Location: '.$domain.$prevPage);
 }
 
 ?>

@@ -48,18 +48,18 @@ if(isset($_POST["registerBtn"])){
         if($password == $passwordRepeat) {
             if($usermanager->registerUser($name, $email, $password, $accountName)){
                 $_SESSION["Message"] = "Registrierung erfolgreich.";
-                header("Location:http://localhost/Index.php");
+                header('Location: '.$domain."/Index.php");
             }else{
                 $_SESSION["Message"] = "Registrierung fehlgeschlagen.";
-                header("Location:http://localhost/registration.php");
+                header('Location: '.$domain."/registration.php");
             }
         } else {
             $_SESSION["Message"] = "Passwörter sind nicht gleich.";
-            header("Location:http://localhost/registration.php");
+            header('Location: '.$domain."/registration.php");
         }
     } else {
          $_SESSION["Message"] = "Fehler bei der Registrierung";
-        header("Location:http://localhost/registration.php");
+        header('Location: '.$domain."/registration.php");
     }
 
 }

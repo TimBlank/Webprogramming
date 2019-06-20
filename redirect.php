@@ -4,9 +4,12 @@ ini_set("session.use_only_cookies", 0);
 ini_set("session.use_trans_sid", 0);
 session_start();
 
-$PrevPage = "http://localhost/index.php";
-if(isset($_POST["PrevPage"])){
- $PrevPage = htmlspecialchars($_POST["PrevPage"]);
+$domain = "http://localhost";
+$prevPage = "/index.php";
+
+if(isset($_SESSION["page"])&& isset($_SESSION["domain"])){
+    $domain = $_SESSION["domain"];
+    $prevPage = $_SESSION["page"];
 }
 include_once "php/functions/datamanagment/databaseConnection.php";
 
