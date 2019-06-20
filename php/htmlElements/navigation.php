@@ -18,7 +18,7 @@
                     </a>
                     <div class="dropdown-menu bg-light">
                         <a class="dropdown-item">
-                            <?php include "php/search.php"; ?>
+                            <?php include "php/htmlElements/search.php"; ?>
                         </a>
                     </div>
 
@@ -45,7 +45,7 @@
 
                 </li>
             </ul>
-            <?php include "php/loginLogout.php"; ?>
+            <?php include "php/htmlElements/loginLogout.php"; ?>
         </div>
     </div>
 </nav>
