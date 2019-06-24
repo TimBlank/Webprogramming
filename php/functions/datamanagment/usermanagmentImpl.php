@@ -37,10 +37,11 @@ function registerUser($realName,$email,$password,$username){
         if(empty($userData)){
             //Passwort Hashen und neuen Benutzer hinzufügen
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO user (username, password) VALUES (:username, :passwordHash)";
+            $sql = "INSERT INTO user (username, password, email) VALUES (:username, :passwordHash, :email)";
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":passwordHash", $passwordHash);
+            §stm->bindParam(":email", $email);
             $stmt->execute();
             $db->commit();
             $db = null;
