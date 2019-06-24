@@ -12,34 +12,34 @@
     <?php include "php/navigation.php"; ?>
 
     <div id="background">
-    <section>
-        <div id="mainFrame">
-            <div class="row">
-                <div class="col col-auto" id="sideSearch">
-                    <div>
-                        <?php include "php/search.php"; ?>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <h1><a :class="card-title" title="Standort:">
-                                Standort:
-                            </a></h1>
-                        <!-- TODO Höhe adaptiv-->
-                        <div class="mapBox">
-                            <div class='box'>
-                               <iframe src="https://www.google.com/maps/d/embed?mid=1PEH14t02jnaQdPOHBk3g4pOd2qnDYgeT" width="100%" height="100%"></iframe>
-
-                            </div>
+        <section>
+            <div id="mainFrame">
+                <div class="row">
+                    <div class="col col-auto" id="sideSearch">
+                        <div>
+                            <?php include "php/search.php"; ?>
                         </div>
                     </div>
-                    <?php
+                    <div class="col">
+                        <div class="card">
+                            <h1><a :class="card-title" title="Standort:">
+                                    Standort:
+                                </a></h1>
+                            <!-- TODO Höhe adaptiv-->
+                            <div class="mapBox">
+                                <div class='box'>
+
+                                    <iframe class="content" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/d/embed?mid=1PEH14t02jnaQdPOHBk3g4pOd2qnDYgeT" style="border: 1px solid black"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
                         if(isset($_SESSION["User"])){
                         echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Neuen Stellplatz hinzufügen</a>";
                         }
                         ?>
+                    </div>
                 </div>
-            </div>
             </div>
         </section>
     </div>
