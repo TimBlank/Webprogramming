@@ -112,6 +112,10 @@
     .regis .form-row {
         padding-bottom: 20px;
     }
+    #weatherWidget {
+        display: none;
+    }
+
 }
 
 .dropdown-item {
