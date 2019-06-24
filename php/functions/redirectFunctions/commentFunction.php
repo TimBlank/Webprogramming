@@ -57,12 +57,12 @@ if(isset($_POST["SubmitComment"])){
 
         }else{
             //echo "Dieser Stellplatz existiert nicht in der Datenbank <br>";
-            header('Location: '.$domain."Index.php");
+            header('Location: '.$domain."/Index.php");
 
         }
     }else{
         //echo nicht eingeloggt;
-        header('Location: '.$domain."registration.php");
+        header('Location: '.$domain."/registration.php");
     }
 }
 
