@@ -25,6 +25,9 @@
     #noScrSearch {
         display: none;
     }
+    #weatherWidget {
+        display: none;
+    }
 }
 
 @media (max-width: 1251.98px) {
