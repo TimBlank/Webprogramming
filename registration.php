@@ -23,11 +23,6 @@
             <div class="regis">
                 <section>
                     <form action="redirect.php" method="post">
-                        <!--Name-->
-                        <div>
-                            <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
-                        </div>
-
                         <!--Acountname-->
                         <div>
                             <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>

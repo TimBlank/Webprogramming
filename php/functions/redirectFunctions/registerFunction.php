@@ -9,13 +9,6 @@ if(isset($_POST["registerBtn"])){
 
     $formCor = true;
 
-    if(isset($_POST["name"])&&is_string($_POST["name"])) {
-        $name = htmlspecialchars($_POST["name"]);
-    } else {
-        $formCor = false;
-        //echo "Fehler beim Namen. <br>";
-    }
-
     if(isset($_POST["email"]) && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         $email = htmlspecialchars($_POST["email"]);
     } else {
@@ -46,7 +39,7 @@ if(isset($_POST["registerBtn"])){
 
     if($formCor == true) {
         if($password == $passwordRepeat) {
-            if($usermanager->registerUser($name, $email, $password, $accountName)){
+            if($usermanager->registerUser($email, $password, $accountName)){
                 $_SESSION["Message"] = "Registrierung erfolgreich.";
                 header('Location: '.$domain."/Index.php");
             }else{
