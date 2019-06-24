@@ -23,7 +23,7 @@ function verifyLogin($name, $password) {
 }
 
 //neuenBenutzer regristrieren
-function registerUser($realName,$email,$password,$username){
+function registerUser($email,$password,$username){
       try {
         $db = databaseConnect();
         $db->beginTransaction();
@@ -41,7 +41,7 @@ function registerUser($realName,$email,$password,$username){
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":username", $username);
             $stmt->bindParam(":passwordHash", $passwordHash);
-            §stm->bindParam(":email", $email);
+            $stmt->bindParam(":email", $email);
             $stmt->execute();
             $db->commit();
             $db = null;
