@@ -19,10 +19,10 @@
 
 
 @media (min-width: 1252px) {
-    #navSearch {
+    .navSearch {
         display: none;
     }
-    #noScrSearch {
+    #smallWeatherlWidget {
         display: none;
     }
 }
@@ -112,6 +112,10 @@
     .regis .form-row {
         padding-bottom: 20px;
     }
+    #smallWeatherlWidget {
+        display: none;
+    }
+
 }
 
 .dropdown-item {

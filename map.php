@@ -17,6 +17,7 @@
                 <div class="row">
                     <div class="col col-auto" id="sideSearch">
                         <div>
+                            <?php include "php/htmlElements/bigWeatherWidget.php"; ?>
                             <?php include "php/htmlElements/search.php"; ?>
                         </div>
                     </div>
