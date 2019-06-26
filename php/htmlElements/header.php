@@ -1,6 +1,6 @@
 <header class="bg-light">
     <div class="row">
-        <div id="weatherWidget" class="col col-auto">
+        <div id="smallWeatherlWidget" class="col col-auto weatherWidget">
             <!-- Quelle: https://www.wetter.com/apps_und_mehr/website/homepagewidget/ -->
             <div id="wcom-787daf86d62ad2487d987c0b10510398" style="border: 1px solid rgb(0, 123, 255); background-color: rgb(255, 255, 255); border-radius: 5px;" class="wcom-default w150x150">
                 <link rel="stylesheet" href="//cs3.wettercomassets.com/woys/5/css/w.css" media="all">
@@ -18,6 +18,14 @@
                 </script>
             </div>
         </div>
+        <noscript>
+            <style>
+                .weatherWidget {
+                    display: none;
+                }
+
+            </style>
+        </noscript>
         <div class="col">
             <h1>Fahrrad Stellplätze</h1>
             <h2>Universität Oldenburg</h2>
