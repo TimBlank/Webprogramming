@@ -5,12 +5,7 @@
 
 <head>
     <?php include_once "php/htmlElements/head.php";?>
-    <style type="text/css">
-        #navSearch {
-            display: none;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/noSearchWeather.css">
 </head>
 
 <body>

@@ -5,6 +5,7 @@
 
 <head>
     <?php include_once "php/htmlElements/head.php";?>
+    <link rel="stylesheet" href="css/noSearchWeather.css">
     <script>
         function getPosition() {
             if (navigator.geolocation) {
