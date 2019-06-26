@@ -42,7 +42,7 @@
                     </button>
                 </a>
                 <?php include_once "php/htmlElements/noscriptLogInOut.php" ?>
-                <div id="noScrSearch">
+                <div class="navSearch">
                     <?php include_once "php/htmlElements/search.php" ?>
                 </div>
             </noscript>

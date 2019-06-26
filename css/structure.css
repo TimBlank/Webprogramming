@@ -19,10 +19,7 @@
 
 
 @media (min-width: 1252px) {
-    #navSearch {
-        display: none;
-    }
-    #noScrSearch {
+    .navSearch {
         display: none;
     }
     #smallWeatherlWidget {

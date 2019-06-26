@@ -11,7 +11,7 @@
                 <li class="nav-item active"><a class="nav-link" href="../../index.php" title="Hauptseite">
                         Start
                     </a></li>
-                <li class="nav-item dropdown sm-only" id="navSearch">
+                <li class="nav-item dropdown sm-only navSearch">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Suche">
                         <i class="fas fa-search"></i>
                         <span class="sr-only">Suche</span>
