@@ -1,4 +1,6 @@
 <?php
+include_once "php/functions/redirectFunctions/checkFunctions.php";
+
 if(isset($_POST["submitEntry"])){
 
     if(isset($_SESSION["User"])){
@@ -28,13 +30,12 @@ if(isset($_POST["submitEntry"])){
             //echo "Es wurde keine Datei Hochgeladen <br>" ;
             $inputsCorrect = false;
         }else{
-            //Dateiendung
-            $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
             $check = getimagesize($_FILES["userImage"]["tmp_name"]);
-            if($check !==false){
+
+            if(checkImage($check)) {
                 $userImage = $image;
-            } else {
-                //echo "Das war kein Bild <br>" ;
+                $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
+            }else{
                 $inputsCorrect = false;
             }
         }
