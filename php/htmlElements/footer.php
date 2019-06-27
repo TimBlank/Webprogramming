@@ -3,10 +3,10 @@
     <nav class="navbar fixed-bottom navbar-light bg-dark " style="padding:0px;">
 
         <a class="navbar-item text-light" href="../../impressum.php" title="Impressum" style="margin-left: auto;margin-right: auto;">
-            Impressum<br>
+            Impressum
         </a>
         <a class="navbar-item text-light" href="../../impressum.php" title="Datenschutz" style="margin-left: auto;margin-right: auto;">
-            Datenschutz<br>
+            Datenschutz
         </a>
 
     </nav>
