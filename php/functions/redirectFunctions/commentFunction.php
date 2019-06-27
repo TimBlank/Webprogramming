@@ -1,70 +1,69 @@
 <?php
 
 if(isset($_POST["SubmitComment"])){
-
     if(isset($_SESSION["User"])){
+        if(isset($_POST["EntryID"])){
+            $entry = $contentmanager->loadEntry($_POST["EntryID"]);
+            if($entry !== false){
+                $inputsCorrect = true;
+                $entryId = $entry->getId();
+                if(isset($_POST["commentText"]) && !empty($_POST["commentText"])){
 
-        $entry = $contentmanager->loadEntry($_POST["EntryID"]);
-        if($entry !== false){
-            $inputsCorrect = true;
-            $entryId = $entry->getId();
-            if(!empty($_POST["commentText"])){
-
-            }else{
-                //echo "Du musst schon was schreiben <br>" ;
-                $inputsCorrect = false;
-            }
-
-            $imageExists = false;
-            $imgType = null;
-            if( !empty($_FILES["commentImg"]["tmp_name"])){
-                //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
-                $image = $_FILES["commentImg"];
-
-                //Überprüfung ob Datei ein Bild ist
-                $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
-                if($check == false){
-                    //echo "Das war kein Bild <br>" ;
+                }else{
+                    $_SESSION["Message"] = "Du musst schon was schreiben";
                     $inputsCorrect = false;
-                }else {
-                    //Dateiendung
-                    $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
-                    $imageExists = true;
                 }
-            }
-
-            if($inputsCorrect){
-                $username = htmlspecialchars($_SESSION["User"]);
-                $text = htmlspecialchars($_POST["commentText"]);
-                $commentId = $contentmanager->addComment($entryId, $username, $text, $imgType);
-                if($imageExists && $commentId !== false){
-                    mkdir("pictures/Entry".$entryId."/comments/");
-                    if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
-
-                    }else{
-                        //echo "Fehler beim speichern des Bildes <br>";
+                $imageExists = false;
+                $imgType = null;
+                if(isset($_FILES["commentImg"]) && !empty($_FILES["commentImg"]["tmp_name"])){
+                    //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
+                    $image = $_FILES["commentImg"];
+                    //Überprüfung ob Datei ein Bild ist
+                    $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
+                    if($check == false){
+                        $_SESSION["Message"] = "Das war kein Bild";
+                        $inputsCorrect = false;
+                    }else {
+                        //Dateiendung
+                        if($check[0] <= 3840 && $check[1]<= 2160) {
+                            $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
+                            $imageExists = true;
+                        }else{
+                            $_SESSION["Message"] = "Das Bild ist zu groß.";
+                            $inputsCorrect = false;
+                        }
                     }
+                }
+                if($inputsCorrect){
+                    $username = htmlspecialchars($_SESSION["User"]);
+                    $text = htmlspecialchars($_POST["commentText"]);
+                    $commentId = $contentmanager->addComment($entryId, $username, $text, $imgType);
+                    if($imageExists && $commentId !== false){
+                        mkdir("pictures/Entry".$entryId."/comments/");
+                        if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
 
-                }elseif($commentId == false){
-                    //echo "Fehler beim speichern des Kommentares in der Datenbank <br>";
+                        }else{
+                            $_SESSION["Message"] = "Fehler beim speichern des Bildes.";
+                        }
+                    }elseif($commentId == false){
+                        $_SESSION["Message"] = "Fehler beim speichern des Kommentares in der Datenbank.";
+                        header('Location: '.$domain.$prevPage."#addCommentSection");
+                    }
+                    header('Location: '.$domain.$prevPage."#addCommentSection");
+                }else{
                     header('Location: '.$domain.$prevPage."#addCommentSection");
                 }
-                header('Location: '.$domain.$prevPage."#addCommentSection");
             }else{
-                //echo "Falsche Eingabe <br>";
-                header('Location: '.$domain.$prevPage."#addCommentSection");
+                $_SESSION["Message"] = "Dieser Stellplatz existiert nicht in der Datenbank";
+                header('Location: '.$domain."Index.php");
             }
-
         }else{
-            //echo "Dieser Stellplatz existiert nicht in der Datenbank <br>";
-            header('Location: '.$domain."/Index.php");
-
+            $_SESSION["Message"] = "Fehler beim Erkennen des Stellplatzes.";
         }
     }else{
-        //echo nicht eingeloggt;
-        header('Location: '.$domain."/registration.php");
+        $_SESSION["Message"] = "Bitte mit einem Registrierten Account einloggen um Kommentare zu schreiben.";
+        header('Location: '.$domain."registration.php");
     }
 }
-
 
 ?>

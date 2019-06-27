@@ -12,7 +12,7 @@
     <?php include_once "php/htmlElements/navigation.php"; ?>
     <?php include_once "php/functions/datamanagment/databaseConnection.php"; ?>
     <?php include_once "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
-    <?php include_once "php/functions/userInput.php"; ?>
+    <?php include_once "php/functions/loadEntries.php"; ?>
 
     <div id="background">
         <div id="mainFrame">

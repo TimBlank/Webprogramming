@@ -11,7 +11,7 @@
 <body>
     <?php include_once "php/htmlElements/header.php"; ?>
     <?php include_once "php/htmlElements/navigation.php"; ?>
-    <?php include_once "php/functions/userInput.php"; ?>
+    <?php include_once "php/functions/loadEntries.php"; ?>
     <?php include_once "php/functions/datamanagment/usermanagmentDao.php"; ?>
     <div id="background">
         <div id="mainFrame">

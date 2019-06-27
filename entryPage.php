@@ -35,7 +35,7 @@
             $content = new entry(null);
         }
     ?>
-        <?php include_once "php/functions/userInput.php"; ?>
+        <?php include_once "php/functions/loadEntries.php"; ?>
         <div id="mainFrame">
 
             <section>

@@ -60,7 +60,7 @@
 <body>
     <?php include_once "php/htmlElements/header.php"; ?>
     <?php include_once "php/htmlElements/navigation.php"; ?>
-    <?php include_once "php/functions/userInput.php"; ?>
+    <?php include_once "php/functions/loadEntries.php"; ?>
     <?php
         $entryID = null;
         if (isset($_GET["EntryID"])){
