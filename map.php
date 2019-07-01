@@ -4,12 +4,22 @@
 <html lang="de">
 
 <head>
+    <title>Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <!--Php include -->
     <?php include "php/head.php";?>
 </head>
 
 <body>
+    <!--Php include -->
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
+    <!--Googlemaps include -->
+    <script src="mapscript.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=  " async defer></script>
+    <!-- TODO API KEY -->
+
 
     <div id="background">
         <section>
@@ -43,6 +53,21 @@
                 </div>
             </div>
         </section>
+    </div>
+    <div>
+        <div id="map">
+            <script>
+                var map;
+                function initMap(){
+                    map =new google.maps.Map(document.getElementById('map'),{
+                        zoom: 10,
+                        center: new google.maps.LatLng(42,42),
+                        mapTypid: 'terrain'
+                    })
+                    var script = document.createElement('script');
+                }
+            </script>
+        </div>
     </div>
     <!--TODO    Bereiche: einteilen
                 Marker:   setzen
