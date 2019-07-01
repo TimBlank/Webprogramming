@@ -17,8 +17,8 @@
     <?php include "php/navigation.php"; ?>
     <!--Googlemaps include -->
     <script src="mapscript.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=  " async defer></script>
-    <!-- TODO API KEY -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7xuOTZWXpbH7CgL8f7ZS9_pGUygPPYro
+" async defer></script>
 
 
     <div id="background">
