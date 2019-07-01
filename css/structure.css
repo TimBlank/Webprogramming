@@ -7,9 +7,8 @@
 
 }
 
-#groupImage { /*ubenutzt*/
-    max-width: 100%;
-    height: auto;
+#headerRow {
+    margin-right: 0;
 }
 
 .card {

@@ -1,4 +1,5 @@
 <?php
+include_once "php/functions/redirectFunctions/checkFunctions.php";
 
 if(isset($_POST["SubmitComment"])){
     if(isset($_SESSION["User"])){
@@ -20,21 +21,15 @@ if(isset($_POST["SubmitComment"])){
                     $image = $_FILES["commentImg"];
                     //Überprüfung ob Datei ein Bild ist
                     $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
-                    if($check == false){
-                        $_SESSION["Message"] = "Das war kein Bild";
+
+                    $imageExists = checkImage($check);
+                    if(!$imageExists) {
                         $inputsCorrect = false;
-                    }else {
-                        //Dateiendung
-                        if($check[0] <= 3840 && $check[1]<= 2160) {
-                            $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
-                            $imageExists = true;
-                        }else{
-                            $_SESSION["Message"] = "Das Bild ist zu groß.";
-                            $inputsCorrect = false;
-                        }
                     }
                 }
                 if($inputsCorrect){
+                    $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
+
                     $username = htmlspecialchars($_SESSION["User"]);
                     $text = htmlspecialchars($_POST["commentText"]);
                     $commentId = $contentmanager->addComment($entryId, $username, $text, $imgType);
@@ -50,6 +45,7 @@ if(isset($_POST["SubmitComment"])){
                         header('Location: '.$domain.$prevPage."#addCommentSection");
                     }
                     header('Location: '.$domain.$prevPage."#addCommentSection");
+
                 }else{
                     header('Location: '.$domain.$prevPage."#addCommentSection");
                 }

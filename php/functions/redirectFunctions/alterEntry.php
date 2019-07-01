@@ -1,4 +1,6 @@
 <?php
+include_once "php/functions/redirectFunctions/checkFunctions.php";
+
 if(isset($_POST["alterEntry"])){
     $entryId=null;
     if(isset($_POST["EntryID"])){
@@ -28,11 +30,10 @@ if(isset($_POST["alterEntry"])){
         //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
         $image = $_FILES["userImage"];
         if(!empty($image)){
-            //Dateiendung
-            $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
             $check = getimagesize($_FILES["userImage"]["tmp_name"]);
-            if($check !==false){
+            if(checkImage($check)) {
                 $userImage = $image;
+                $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
             } else {
                 $imgType= null;
             }
