@@ -4,12 +4,23 @@
 <html lang="de">
 
 <head>
+    <title>Map</title>
+    <meta name="viewport" content= "initial-scale=1.0">
+    <meta charset="utf-8">
+    <!-- Php include -->
     <?php include "php/head.php";?>
+
 </head>
 
 <body>
+    <!--Php include -->
     <?php include "php/header.php"; ?>
     <?php include "php/navigation.php"; ?>
+    <!--Google Maps Scripts -->
+    <script src="mapscript.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key= " async defer></script>
+                                                    <!-- TODO ^api key hinzufügen-->
+
 
     <div id="background">
     <section>
@@ -25,6 +36,7 @@
                         <h1><a :class="card-title" title="Standort:">
                                 Standort:
                             </a></h1>
+
                         <!-- TODO Höhe adaptiv-->
                         <div class="mapBox">
                             <div class='box'>
@@ -43,9 +55,28 @@
             </div>
         </section>
     </div>
-    <!--TODO    Bereiche: einteilen
-                Marker:   setzen
-                Webseite: https://wiki.openstreetmap.org/wiki/OpenLayers
+
+
+    <div id="map">
+    <sript>
+        var map;
+        function initMap(){
+                map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: new googlr.maps.LatLng(2.8,-187.3),
+                    mapTypId: 'terrain'
+                })
+                var script = document.createElement('script');
+            }
+        </sript>
+
+    </div>
+    <!--TODO
+            Bereiche: einteilen
+            Marker:   setzen
+            Api-key=
+
+
     -->
 
     <?php include "php/footer.php"; ?>
