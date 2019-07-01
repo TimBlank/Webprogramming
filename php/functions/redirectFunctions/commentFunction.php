@@ -22,8 +22,10 @@ if(isset($_POST["SubmitComment"])){
                     //Überprüfung ob Datei ein Bild ist
                     $check = getimagesize($_FILES["commentImg"]["tmp_name"]);
 
-                    $imageExists = checkImage(getimagesize($_FILES["commentImg"]["tmp_name"]));
-                    $inputsCorrect = $imageExists;
+                    $imageExists = checkImage($check);
+                    if(!$imageExists) {
+                        $inputsCorrect = false;
+                    }
                 }
                 if($inputsCorrect){
                     $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
