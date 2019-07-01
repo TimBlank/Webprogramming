@@ -51,14 +51,14 @@ if(isset($_POST["SubmitComment"])){
                 }
             }else{
                 $_SESSION["Message"] = "Dieser Stellplatz existiert nicht in der Datenbank";
-                header('Location: '.$domain."Index.php");
+                header('Location: '.$domain."/Index.php");
             }
         }else{
             $_SESSION["Message"] = "Fehler beim Erkennen des Stellplatzes.";
         }
     }else{
         $_SESSION["Message"] = "Bitte mit einem Registrierten Account einloggen um Kommentare zu schreiben.";
-        header('Location: '.$domain."registration.php");
+        header('Location: '.$domain."/registration.php");
     }
 }
 
