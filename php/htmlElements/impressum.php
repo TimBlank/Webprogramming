@@ -1,4 +1,5 @@
 <!-- Impressum wurde mit der Seite https://www.e-recht24.de/impressum-generator.html erzeugt-->
+<div class="legalText">
 <h1>Impressum</h1>
 
 <h2>Angaben gemäß § 5 TMG</h2>
@@ -32,3 +33,4 @@
 <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
 
 <p>Quelle: <a href="https://www.e-recht24.de/impressum-generator.html">https://www.e-recht24.de/impressum-generator.html</a></p>
+</div>
