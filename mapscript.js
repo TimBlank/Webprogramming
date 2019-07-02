@@ -107,7 +107,7 @@ function creatMarker (){
 
 
     //INFO WINDOW
-function creatMarker (){
+function creatWithWindow (){
     var a = 43;
     var b = 40;
 
