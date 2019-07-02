@@ -1,21 +1,32 @@
 var map, infoWindow;
 
 function creatMap (){
-    var a = 43,
-    var b = 40,
-    var diff = 0.0033;
+    var a = 43;
+    var b = 40;
+//    var diff = 0.0033;
 
     var options ={
-        center: {lat: a, lng: b}, // TODO abfragen wo ort
+        center: {lat: a, lng: b},
         zoom : 14,
         // disabelDefaultUI: true,  //für Karten auf Hauptseite
         // draggable: flase,        //für Karten auf Hauptseite
     };
 
     map = new google.maps.Map(document.getElementById('map'),options);
+}
 
-    //BEREICHE hizufügen
-    /*
+
+function creatMainMap (){
+    var a = 43;
+    var b = 40;
+//    var diff = 0.0033;
+
+    var options ={
+        center: {lat: a, lng: b},
+        zoom : 14,
+        // disabelDefaultUI: true,  //für Karten auf Hauptseite
+        // draggable: flase,        //für Karten auf Hauptseite
+    };
     var polygonCordinates = [
         {lat: a + diff, lng: b -diff },
         {lat: a - diff, lng: b -diff },
@@ -56,11 +67,22 @@ function logArray (array){
 
     console.log(vertices);
 }
-*/
 
 
-    //SEARCHBAR hinzufügen von Markern
-    /*
+
+
+
+//SEARCHBAR hinzufügen von Markern
+
+function creatMarker (){
+    var a = 43;
+    var b = 40;
+
+    var options ={
+        center: {lat: a, lng: b},
+        zoom : 14,
+            };
+
     var input = document.getElementById('search'); //TODO name von searchbar
     var searchBox= new google.maps.places.searchBox(input);
 
@@ -81,11 +103,19 @@ function logArray (array){
         else
             bounds.extend(Ort.geometry.location)
     };
-    */
+
 
 
     //INFO WINDOW
-    /*
+function creatMarker (){
+    var a = 43;
+    var b = 40;
+
+    var options ={
+        center: {lat: a, lng: b},
+        zoom : 14,
+            };
+
     infoWindow = new google.maps.infoWindow;
 
     if (navigator.geolocation){
@@ -112,4 +142,4 @@ function handelLocationError (content, position){
     infoWindow.setContent(content);
     infoWindow.open(map);
 }
-*/
+

@@ -58,8 +58,12 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <iframe src="https://www.google.com/maps/d/embed?mid=1PEH14t02jnaQdPOHBk3g4pOd2qnDYgeT" width="100%" height="100%"></iframe>
-                                        </div>
+                                            <div id ="map">
+                                                <!--
+                                                <iframe src="https://www.google.com/maps/d/embed?mid=1PEH14t02jnaQdPOHBk3g4pOd2qnDYgeT" width="100%" height="100%"></iframe>
+                                                -->
+                                            </div>
+                                            </div>
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
@@ -75,7 +79,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+    <!-- Googlemaps script -->
+    <script src="mapscript.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7xuOTZWXpbH7CgL8f7ZS9_pGUygPPYro" async defer></script>
 </body>
 
 </html>
