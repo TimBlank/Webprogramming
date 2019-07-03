@@ -31,7 +31,62 @@
                                     <input type="file" id="userImage" name="userImage" accept="image/png, image/jpeg" required>
                                 </div>
                                 <div class="col border">
-                                    <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
+                                    <div id="map"></div>
+
+                                    <script>
+                                        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                                        var labelIndex = 0;
+
+                                        function initMap() {
+                                            var location = {
+                                                lat: 53.147294,
+                                                lng: 8.180886
+                                            };
+                                            var map = new google.maps.Map(document.getElementById("map"), {
+                                                zoom: 10,
+                                                center: location
+                                            });
+                                            // This event listener calls addMarker() when the map is clicked.
+                                            google.maps.event.addListener(map, 'click', function(event) {
+                                                addMarker(event.latLng, map);
+                                            });
+
+
+                                        }
+
+                                        // Adds a marker to the map.
+                                        function addMarker(location, map) {
+                                            // Add the marker at the clicked location, and add the next-available label
+                                            // from the array of alphabetical characters.
+                                            var marker = new google.maps.Marker({
+                                                position: location,
+                                                label: labels[labelIndex++ % labels.length],
+                                                map: map
+                                            });
+
+
+
+
+                                            map.addListener('center_changed', function() {
+                                                // 3 seconds after the center of the map has changed, pan back to the
+                                                // marker.
+                                                window.setTimeout(function() {
+                                                    map.panTo(marker.getPosition());
+                                                }, 3000);
+                                            });
+
+                                            marker.addListener('click', function() {
+                                                window.location = "../Index.php";
+                                            });
+
+
+
+                                        }
+
+                                    </script>
+                                    <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
+                                    </script>
+                                </div>
                                     <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" required>
                                     <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" required>
                                 </div>
