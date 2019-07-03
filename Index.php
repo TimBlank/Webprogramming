@@ -79,8 +79,10 @@
                                                 lng: 8.180886
                                             };
                                             var map = new google.maps.Map(document.getElementById("minimap"), {
-                                                zoom: 10,
-                                                center: location
+                                                zoom: 16,
+                                                center: location,
+                                                draggable: false,
+                                                disableDefaultUI: true
                                             });
 
                                             // Add a marker at the center of the map.
