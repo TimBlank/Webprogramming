@@ -5,21 +5,7 @@
 
 <head>
     <?php include_once "php/htmlElements/head.php";?>
-    <script>
-        //Quelle: https://stackoverflow.com/questions/14791247/how-to-create-image-uploader-with-preview
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#imagePreview').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-    </script>
+    <?php include_once "javascript/imagePreview.php";?>
 </head>
 
 <body>
@@ -165,6 +151,7 @@
                                             Bild hinzufügen
                                         </label><br>
                                         <input type="file" id="userImage" onchange="readURL(this);" name="commentImg" accept="image/png, image/jpeg">
+                                        <label for="userImage" id="imageError" style="color:red;"> </label><br>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
