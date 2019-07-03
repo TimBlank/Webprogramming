@@ -40,21 +40,7 @@
         }
 
     </script>
-    <script>
-        //Quelle: https://stackoverflow.com/questions/14791247/how-to-create-image-uploader-with-preview
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#imagePreview').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-    </script>
+    <?php include_once "javascript/imagePreview.php";?>
 </head>
 
 <body>
@@ -89,6 +75,7 @@
                                         Bild hinzufügen
                                     </label><br>
                                     <input type="file" id="userImage" onchange="readURL(this);" name="userImage" accept="image/png, image/jpeg"  <?php if($content->getId()==null){echo "required";}?>>
+                                    <label for="userImage" id="imageError" style="color:red;"> </label><br>
                                 </div>
                                 <div class="col border">
                                     <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
