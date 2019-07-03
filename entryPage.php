@@ -48,23 +48,23 @@
                                     <div id="map"></div>
 
                                     <script>
-                                        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                                        var labelIndex = 0;
+                                        var labels = "<?php echo $content->getName(); ?>";
 
                                         function initMap() {
                                             var location = {
                                                 lat: 53.147294,
                                                 lng: 8.180886
+
+                                                //TODO die werte aus Datenbank
+
+                                                /*lat: ?php echo $content->getLatitude(); ?> ,
+                                                lng= ?php echo $content->getLongitude(); ?>*/
+
                                             };
                                             var map = new google.maps.Map(document.getElementById("map"), {
                                                 zoom: 10,
                                                 center: location
                                             });
-                                            // This event listener calls addMarker() when the map is clicked.
-                                            google.maps.event.addListener(map, 'click', function(event) {
-                                                addMarker(event.latLng, map);
-                                            });
-
                                             // Add a marker at the center of the map.
                                             addMarker(location, map);
                                         }
@@ -75,7 +75,7 @@
                                             // from the array of alphabetical characters.
                                             var marker = new google.maps.Marker({
                                                 position: location,
-                                                label: labels[labelIndex++ % labels.length],
+
                                                 map: map
                                             });
 
