@@ -93,7 +93,7 @@
                                             // from the array of alphabetical characters.
                                             var marker = new google.maps.Marker({
                                                 position: location,
-                                                label: "Harentor",
+                                                label: "A2",
                                                 //label: content.getName(),
                                                 map: map
                                             });
