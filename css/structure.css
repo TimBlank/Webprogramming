@@ -67,6 +67,11 @@
 
 /*Ende;*/
 
+#map {
+    height: 500px;
+    width: 500px;
+}
+
 .createEntryPage {
     padding-bottom: 20px
 }

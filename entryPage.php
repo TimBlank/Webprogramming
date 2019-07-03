@@ -4,6 +4,7 @@
 <html lang="de">
 
 <head>
+
     <?php include_once "php/head.php";?>
     <script>
         //Quelle: https://stackoverflow.com/questions/14791247/how-to-create-image-uploader-with-preview
@@ -36,6 +37,7 @@
         }
     ?>
         <?php include_once "php/functions/userInput.php"; ?>
+
         <div id="mainFrame">
 
             <section>
@@ -56,12 +58,70 @@
                                 </div>
                                 <div class="row">
                                     <div class="col border">
+
                                         <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid" id="myImg" onclick="openImgModal(this.src);">
                                     </div>
                                     <div class="col border">
                                         <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
                                         <!-- Hier muss noch irgendwie die Position richtig eingebunden werden -->
+
                                     </div>
+                                    <div id="map"></div>
+
+                                    <script>
+                                        var labels = "<?php echo $content->getName(); ?>";
+
+                                        function initMap() {
+                                            var location = {
+                                                lat: 53.147294,
+                                                lng: 8.180886
+
+                                                //TODO die werte aus Datenbank
+
+                                                /*lat: ?php echo $content->getLatitude(); ?> ,
+                                                lng= ?php echo $content->getLongitude(); ?>*/
+
+                                            };
+                                            var map = new google.maps.Map(document.getElementById("map"), {
+                                                zoom: 10,
+                                                center: location
+                                            });
+                                            // Add a marker at the center of the map.
+                                            addMarker(location, map);
+                                        }
+
+                                        // Adds a marker to the map.
+                                        function addMarker(location, map) {
+                                            // Add the marker at the clicked location, and add the next-available label
+                                            // from the array of alphabetical characters.
+                                            var marker = new google.maps.Marker({
+                                                position: location,
+
+                                                map: map
+                                            });
+
+
+
+
+                                            map.addListener('center_changed', function() {
+                                                // 3 seconds after the center of the map has changed, pan back to the
+                                                // marker.
+                                                window.setTimeout(function() {
+                                                    map.panTo(marker.getPosition());
+                                                }, 3000);
+                                            });
+
+                                            marker.addListener('click', function() {
+                                                window.location = "../Index.php";
+                                            });
+
+
+
+                                        }
+
+                                    </script>
+                                    <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
+                                    </script>
                                 </div>
                                 <div class="row border">
                                     <div class="container">
@@ -107,6 +167,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <?php if($content->getId()!==null && isset($_SESSION["User"])): ?>
                                     <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary" title="VorlageBeitrag">Bearbeiten</a>
                                     <form action="redirect.php" method="post">
@@ -114,6 +175,7 @@
                                         <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
                                     </form>
                                     <?php endif; ?>
+
                                 </div>
                             </div>
                         </div>
@@ -130,6 +192,7 @@
                             <h1>Kommentare</h1>
                         </div>
                         <ul class="list-group list-group-flush">
+
                             <?php foreach($contentmanager->loadEntryComments($entryID) as $comment): ?>
                             <li class="list-group-item">
                                 <div class="card">
@@ -148,6 +211,7 @@
                                             <input type="submit" name="DeleteComment" value="Kommentar Löschen" class="btn btn-default" />
                                         </form>
                                         <?php endif; ?>
+
                                     </div>
                                 </div>
                             </li>
@@ -160,11 +224,13 @@
                                 <form action="redirect.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                     <div class="form-group">
+
                                         <img src="pictures/IconTransparent.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
                                         <label for="userImage">
                                             Bild hinzufügen
                                         </label><br>
                                         <input type="file" id="userImage" onchange="readURL(this);" name="commentImg" accept="image/png, image/jpeg">
+
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
@@ -180,6 +246,7 @@
 
                             </li>
 
+
                         </ul>
                     </section>
                 </div>
@@ -193,6 +260,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
