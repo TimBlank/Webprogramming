@@ -34,9 +34,8 @@
                                     <div id="map"></div>
 
                                     <script>
-                                        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                                        var labelIndex = 0;
-
+                                        var markerSet =0;
+                                        var label = "Name des Stellplatzes";
                                         function initMap() {
                                             var location = {
                                                 lat: 53.147294,
@@ -58,30 +57,15 @@
                                         function addMarker(location, map) {
                                             // Add the marker at the clicked location, and add the next-available label
                                             // from the array of alphabetical characters.
+                                            if (markerSet==0){
+                                                markerSet=1;
                                             var marker = new google.maps.Marker({
                                                 position: location,
-                                                label: labels[labelIndex++ % labels.length],
-                                                map: map
+                                                map: map,
+                                                draggable: true
                                             });
-
-
-
-
-                                            map.addListener('center_changed', function() {
-                                                // 3 seconds after the center of the map has changed, pan back to the
-                                                // marker.
-                                                window.setTimeout(function() {
-                                                    map.panTo(marker.getPosition());
-                                                }, 3000);
-                                            });
-
-                                            marker.addListener('click', function() {
-                                                window.location = "../Index.php";
-                                            });
-
-
-
-                                        }
+                                                };
+                                }
 
                                     </script>
                                     <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
