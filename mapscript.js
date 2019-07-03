@@ -1,20 +1,28 @@
+
+
+
+
+
+/*
+
+
 var map;
 
 
-function creatMap (){
+function creatMap(){
     var a = 43;
     var b = 40;
-    var diff = 0.0033;
+   // var diff = 0.0033;
 
     var options ={
         center: {lat: a, lng: b}, // TODO abfragen wo ort
-        zoom : 14,
+        zoom : 14
         // disabelDefaultUI: true,  //für Karten auf Hauptseite
         // draggable: flase,        //für Karten auf Hauptseite
     };
 
     map = new google.maps.Map(document.getElementById('map'),options);
-
+}
     //BEREICHE hizufügen
     /*
     var polygonCordinates = [
