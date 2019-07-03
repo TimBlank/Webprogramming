@@ -4,14 +4,7 @@
 <html lang="de">
 
 <head>
-    <style>
-        #maps {
-            height: 500px
-        }
-
-    </style>
-
-    <title>Map</title>
+    <title>MainMap</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <!--Php include -->
@@ -38,19 +31,25 @@
                             <h1><a :class="card-title" title="Standort:">
                                     Standort:
                                 </a></h1>
-                            <!-- TODO Höhe adaptiv-->
-                            <div class="mapBox">
-                                <div class='box'>
-                                    <div id="map">
-                                    </div>
-                                    <!--
-                                    <iframe class="content" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/d/embed?mid=1PEH14t02jnaQdPOHBk3g4pOd2qnDYgeT" style="border: 1px solid black"></iframe>
 
--->
-
-
-                                </div>
+                            <div id="map">
                             </div>
+                            <script>
+                                function initMap() {
+                                    var location = {
+                                        lat: 53.147294,
+                                        lng: 8.180886
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("map"), {
+                                        zoom: 10,
+                                        center: location
+                                    });
+                                }
+
+                            </script>
+                            <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
+
+
                         </div>
                         <?php
                         if(isset($_SESSION["User"])){
@@ -66,13 +65,6 @@
     <div>
 
     </div>
-    <!--TODO    Bereiche: einteilen
-                Marker:   setzen
-                Webseite: https://wiki.openstreetmap.org/wiki/OpenLayers
-    -->
-    <!--Googlemaps script -->
-    <script src="mapscript.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=creatMap&key=AIzaSyA7xuOTZWXpbH7CgL8f7ZS9_pGUygPPYro" async defer></script>
 
 
     <?php include "php/footer.php"; ?>
