@@ -1,5 +1,7 @@
 <?php
 
+include_once "IusermanagmentDao.php";
+class Usermanagment implements iUsermanagment{
 //prüfen ob Logindaten korrekt sind
 function verifyLogin($name, $password) {
     try{
@@ -10,7 +12,6 @@ function verifyLogin($name, $password) {
         $stmt->execute();
         $hashData = $stmt->fetchObject();
         $hash = $hashData->password;
-        //$db.close(); TODO: Funktion unbekannt ?
 
         $db = null;
 
@@ -42,12 +43,11 @@ function registerUser($realName,$email,$password,$username){
             $stmt->bindParam(":passwordHash", $passwordHash);
             $stmt->execute();
             $db->commit();
-            //$db.close(); TODO: Funktion unbekannt ?
             $db = null;
             return true;
         }else{
             //Benutzer existiert bereits
-            //$db.close(); TODO: Funktion unbekannt ?
+            $db->commit();
             $db = null;
             return false;
         }
@@ -55,11 +55,11 @@ function registerUser($realName,$email,$password,$username){
     }catch (PDOException $ex) {
         echo "Fehler: " . $ex->getMessage(). "<br />";
         $db->rollBack();
-        //$db.close(); TODO: Funktion unbekannt ?
         $db = null;
     }
 
 
+}
 }
 
 ?>
