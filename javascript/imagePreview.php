@@ -28,12 +28,12 @@
                 image.onload = function() {
                     var width = image.width;
                     var height = image.height;
-                    if (isInAspectRatio(height, width)) {
-                        $('#imageError').empty();
-                        $('#imageError').append("Ungültiges Seitenverhältnis");
-                    } else {
+                    if (isInAspectRatio(width, height)) {
                         $('#imageError').empty();
                         $('#imageError').append(" ");
+                    } else {
+                        $('#imageError').empty();
+                        $('#imageError').append("Ungültiges Seitenverhältnis");
                     }
                 }
 
