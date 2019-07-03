@@ -8,7 +8,7 @@
     include_once "php/functions/datamanagment/contentmanagmentImpl.php";
     //Quelle: https://www.tutorialrepublic.com/faq/how-to-get-current-page-url-in-php.php
     $contentmanager = new Contentmanagment;
-    $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
     $domain = $protocol.$_SERVER['HTTP_HOST'];
     $page = $_SERVER['REQUEST_URI'];
     $_SESSION["domain"]=$domain;

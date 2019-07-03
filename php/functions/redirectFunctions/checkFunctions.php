@@ -2,13 +2,13 @@
 
 function checkImage($check) {
     if($check == false) {
-        $_SESSION["Message"] = "Das war kein Bild";
+        $_SESSION["Message"] = $_SESSION["Message"] . "Das war kein Bild. <br>";
         return false;
     } else {
         if($check[0] <= 3840 && $check[1]<= 2160) {
             return isInAspectRatio($check[0], $check[1]);
         }else{
-            $_SESSION["Message"] = "Das Bild ist zu groß.";
+            $_SESSION["Message"] = $_SESSION["Message"] . "Das Bild ist zu groß. <br>";
             return false;
         }
     }
@@ -16,12 +16,12 @@ function checkImage($check) {
 
 function isInAspectRatio($nA, $nB) {
     if($nB > $nA) {
-        $_SESSION["Message"] = "Bilder im Hochformat werden nicht unterstützt.";
+        $_SESSION["Message"] = $_SESSION["Message"] . "Bilder im Hochformat werden nicht unterstützt. <br>";
         return false;
     }elseif($nA < $nB * 2.5) {
         return true;
     }else{
-        $_SESSION["Message"] = "Das Bild ist in einem zu breiten Seitenverhältnis.";
+        $_SESSION["Message"] = $_SESSION["Message"] . "Das Bild ist in einem zu breiten Seitenverhältnis. <br>";
         return false;
     }
 }

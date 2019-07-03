@@ -11,7 +11,7 @@ if(isset($_POST["SubmitComment"])){
                 if(isset($_POST["commentText"]) && !empty($_POST["commentText"])){
 
                 }else{
-                    $_SESSION["Message"] = "Du musst schon was schreiben";
+                    $_SESSION["Message"] = $_SESSION["Message"] . "Du musst schon was schreiben. <br>";
                     $inputsCorrect = false;
                 }
                 $imageExists = false;
@@ -38,10 +38,10 @@ if(isset($_POST["SubmitComment"])){
                         if (move_uploaded_file($_FILES["commentImg"]["tmp_name"],"pictures/Entry".$entryId."/comments/Entry".$entryId."CommPic".$commentId.".".$imgType)) {
 
                         }else{
-                            $_SESSION["Message"] = "Fehler beim speichern des Bildes.";
+                            $_SESSION["Message"] = $_SESSION["Message"] . "Fehler beim speichern des Bildes. <br>";
                         }
                     }elseif($commentId == false){
-                        $_SESSION["Message"] = "Fehler beim speichern des Kommentares in der Datenbank.";
+                        $_SESSION["Message"] = $_SESSION["Message"] . "Fehler beim speichern des Kommentares in der Datenbank. <br>";
                         header('Location: '.$domain.$prevPage."#addCommentSection");
                     }
                     header('Location: '.$domain.$prevPage."#addCommentSection");
@@ -50,14 +50,14 @@ if(isset($_POST["SubmitComment"])){
                     header('Location: '.$domain.$prevPage."#addCommentSection");
                 }
             }else{
-                $_SESSION["Message"] = "Dieser Stellplatz existiert nicht in der Datenbank";
+                $_SESSION["Message"] = $_SESSION["Message"] . "Dieser Stellplatz existiert nicht in der Datenbank. <br>";
                 header('Location: '.$domain."/Index.php");
             }
         }else{
-            $_SESSION["Message"] = "Fehler beim Erkennen des Stellplatzes.";
+            $_SESSION["Message"] = $_SESSION["Message"] . "Fehler beim Erkennen des Stellplatzes.  <br>";
         }
     }else{
-        $_SESSION["Message"] = "Bitte mit einem Registrierten Account einloggen um Kommentare zu schreiben.";
+        $_SESSION["Message"] = $_SESSION["Message"] . "Bitte mit einem Registrierten Account einloggen um Kommentare zu schreiben.  <br>";
         header('Location: '.$domain."/registration.php");
     }
 }
