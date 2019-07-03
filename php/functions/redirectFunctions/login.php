@@ -23,9 +23,9 @@ try{
         if($formIsSet && $usermanager->verifyLogin($Username,$Password) ){
             $_SESSION["User"]= $Username;
             $_SESSION["passs"]= $Password;
-            $_SESSION["Message"] = "Login Erfolgreich";
+            $_SESSION["Message"] = $_SESSION["Message"] . "Login Erfolgreich.  <br>";
         } else {
-            $_SESSION["Message"] = "Login Falsch";
+            $_SESSION["Message"] = $_SESSION["Message"] . "Login Falsch.  <br>";
         }
         header('Location: '.$domain.$prevPage);
     }
