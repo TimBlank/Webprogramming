@@ -2,8 +2,16 @@
 <!-- Hauptseite-->
 
 <html lang="de">
+
 <head>
-<?php include "php/head.php";?>
+    <?php include "php/head.php";?>
+    <style>
+        #minimap {
+            height: 250px;
+            width: 250px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -58,7 +66,29 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <iframe src="https://www.google.com/maps/d/embed?mid=1PEH14t02jnaQdPOHBk3g4pOd2qnDYgeT" width="100%" height="100%"></iframe>
+                                            <div id="minimap">
+                                            </div>
+                                            <script>
+                                                // TODO mehrere Karten auf der Seite
+                                                // TODO location einzelnt
+                                                // Marker für location
+                                                function initMap() {
+                                                    var markers = [];
+
+                                                    var location = {
+                                                        lat: 53.147294,
+                                                        lng: 8.180886
+                                                    };
+                                                    var map = new google.maps.Map(document.getElementById("minimap"), {
+                                                        zoom: 10,
+                                                        center: location,
+                                                        disabelDefaultUI: true,
+                                                        draggable: false
+                                                    });
+                                                }
+
+                                            </script>
+                                            <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
                                         </div>
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
