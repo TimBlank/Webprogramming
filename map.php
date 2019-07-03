@@ -40,15 +40,25 @@
                                         lat: 53.147294,
                                         lng: 8.180886
                                     };
+
+
                                     var map = new google.maps.Map(document.getElementById("map"), {
                                         zoom: 10,
-                                        center: location
+                                        center: location,
+
                                     });
+                                    var label= "uni";
                                     // Add a marker at the center of the map.
-                                    addMarker(location, map);
-                                    for (i=$entry.length,i>0,i--){
-                                        addMarker(location, map);
-                                    }
+                                    addMarker(location, map, label);
+                                  /*  for (i=$entry.length,i>0,i--){
+                                        if ("<?php //echo $content->getImage(); ?>"== "name des Ortes"){
+                                        var markLocation(){
+                                        lat: <?php //echo $content->getLatitude(); ?> ,
+                                        lng: <?php //echo $content->getLongitude(); ?>
+                                        }
+                                        addMarker(markLocation, map,label);
+                                        }
+                                    }*/
                                 }
 
                                 // Adds a marker to the map.
