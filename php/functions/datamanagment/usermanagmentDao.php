@@ -11,8 +11,8 @@ public function verifyLogin($name, $password) {
 }
 
 //neuenBenutzer regristrieren
-public function registerUser($realName,$email,$password,$userName){
-    if($realName == "Test") {
+public function registerUser($email,$password,$userName){
+    if($userName == "Test") {
         $file = 'reg.txt';
         $handle = fopen($file, 'a') or die('Cannot open file:  '.$file);
         $text = fwrite($handle, $realName . ";" . $email . ";" . $password . ";" . $userName . "\n");

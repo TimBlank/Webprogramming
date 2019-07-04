@@ -9,13 +9,13 @@ if(isset($_POST["DeleteEntry"])){
         $removedFromDB = $contentmanager->deleteEntry($entryId);
         if($removedFromDB){
             delete_directory("pictures/Entry".$entryId);
-            header("Location:http://localhost/Index.php");
+            header('Location: '.$domain."/Index.php");
         }else{
-            header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+            header('Location: '.$domain.$prevPage);
         }
 
     }else{
-            header("Location:http://localhost/entryPage.php?EntryID=".$entryId);
+            header('Location: '.$domain.$prevPage);
     }
 }
 
@@ -27,7 +27,7 @@ function delete_directory($dirname) {
      if (!$dir_handle)
           return false;
      while($file = readdir($dir_handle)) {
-           if ($file != "." && $file != "..") {
+           if ($file !== "." && $file !== "..") {
                 if (!is_dir($dirname."/".$file))
                      unlink($dirname."/".$file);
                 else

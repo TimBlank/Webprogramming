@@ -4,7 +4,8 @@
 <html lang="de">
 
 <head>
-    <?php include_once "php/head.php";?>
+    <?php include_once "php/htmlElements/head.php";?>
+    <link rel="stylesheet" href="css/noSearchWeather.css">
     <script>
         function getPosition() {
             if (navigator.geolocation) {
@@ -39,27 +40,13 @@
         }
 
     </script>
-    <script>
-        //Quelle: https://stackoverflow.com/questions/14791247/how-to-create-image-uploader-with-preview
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#imagePreview').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-    </script>
+    <?php include_once "javascript/imagePreview.php";?>
 </head>
 
 <body>
-    <?php include_once "php/header.php"; ?>
-    <?php include_once "php/navigation.php"; ?>
-    <?php include_once "php/functions/userInput.php"; ?>
+    <?php include_once "php/htmlElements/header.php"; ?>
+    <?php include_once "php/htmlElements/navigation.php"; ?>
+    <?php include_once "php/functions/loadEntries.php"; ?>
     <?php
         $entryID = null;
         if (isset($_GET["EntryID"])){
@@ -88,12 +75,22 @@
                                         Bild hinzufügen
                                     </label><br>
                                     <input type="file" id="userImage" onchange="readURL(this);" name="userImage" accept="image/png, image/jpeg"  <?php if($content->getId()==null){echo "required";}?>>
+                                    <label for="userImage" id="imageError" style="color:red;"> </label><br>
                                 </div>
                                 <div class="col border">
                                     <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
                                     <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" value="<?php echo $content->getLongitude(); ?>" required>
                                     <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" value="<?php echo $content->getLatitude(); ?>" required>
-                                    <button onclick="getPosition()" class="btn btn-default">Meine Position</button>
+                                    <button type="button" onclick="getPosition()" class="btn btn-default" id="posBtn">Meine Position</button>
+                                    <!--Start Quelle https://stackoverflow.com/questions/1577598/how-to-hide-parts-of-html-when-javascript-is-disabled-->
+                                    <noscript>
+                                        <style>
+                                            #posBtn {
+                                                display: none;
+                                            }
+                                        </style>
+                                    </noscript>
+                                    <!--Ende-->
                                 </div>
                             </div>
                             <div class="row border">
@@ -204,7 +201,7 @@
         </div>
     </div>
 
-    <?php include_once "php/footer.php"; ?>
+    <?php include_once "php/htmlElements/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

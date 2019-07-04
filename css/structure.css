@@ -7,9 +7,8 @@
 
 }
 
-#groupImage {
-    max-width: 100%;
-    height: auto;
+#headerRow {
+    margin-right: 0;
 }
 
 .card {
@@ -19,7 +18,10 @@
 
 
 @media (min-width: 1252px) {
-    #navSearch {
+    .navSearch {
+        display: none;
+    }
+    #smallWeatherlWidget {
         display: none;
     }
 }
@@ -109,6 +111,10 @@
     .regis .form-row {
         padding-bottom: 20px;
     }
+    #smallWeatherlWidget {
+        display: none;
+    }
+
 }
 
 .dropdown-item {
@@ -214,4 +220,12 @@
     height: auto;
     width: auto;
     max-height: 60%;
+}
+
+.noScr {
+    margin: 8px
+}
+
+.legalText{
+    padding: 10px;
 }

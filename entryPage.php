@@ -4,27 +4,13 @@
 <html lang="de">
 
 <head>
-    <?php include_once "php/head.php";?>
-    <script>
-        //Quelle: https://stackoverflow.com/questions/14791247/how-to-create-image-uploader-with-preview
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#imagePreview').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-    </script>
+    <?php include_once "php/htmlElements/head.php";?>
+    <?php include_once "javascript/imagePreview.php";?>
 </head>
 
 <body>
-    <?php include_once "php/header.php"; ?>
-    <?php include_once "php/navigation.php"; ?>
+    <?php include_once "php/htmlElements/header.php"; ?>
+    <?php include_once "php/htmlElements/navigation.php"; ?>
     <div id="background">
         <?php   $entryID = null;
         if (isset($_GET["EntryID"])){
@@ -35,14 +21,15 @@
             $content = new entry(null);
         }
     ?>
-        <?php include_once "php/functions/userInput.php"; ?>
+        <?php include_once "php/functions/loadEntries.php"; ?>
         <div id="mainFrame">
 
             <section>
                 <div class="row">
                     <div class="col col-auto" id="sideSearch">
                         <div>
-                            <?php include "php/search.php"; ?>
+                            <?php include "php/htmlElements/bigWeatherWidget.php"; ?>
+                            <?php include "php/htmlElements/search.php"; ?>
                         </div>
                     </div>
 
@@ -134,7 +121,7 @@
                             <li class="list-group-item">
                                 <div class="card">
                                     <div class="commentImage">
-                                        <?php if($comment->getImage()!=""): ?>
+                                        <?php if($comment->getImage()!==""): ?>
                                         <img src="<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
                                         <?php endif ?>
                                     </div>
@@ -143,7 +130,6 @@
                                         <p class="card-text"><?php echo $comment->getText(); ?></p>
                                         <?php if(isset($_SESSION["User"])&& $_SESSION["User"] == $comment->getAuthor()): ?>
                                         <form action="redirect.php" method="post">
-                                            <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                             <input type="hidden" name="CommentID" value="<?php echo $comment->getCommentID(); ?>">
                                             <input type="submit" name="DeleteComment" value="Kommentar Löschen" class="btn btn-default" />
                                         </form>
@@ -165,6 +151,7 @@
                                             Bild hinzufügen
                                         </label><br>
                                         <input type="file" id="userImage" onchange="readURL(this);" name="commentImg" accept="image/png, image/jpeg">
+                                        <label for="userImage" id="imageError" style="color:red;"> </label><br>
                                     </div>
                                     <div class="card-body">
                                         <div class="form-group">
@@ -189,7 +176,7 @@
         </div>
     </div>
 
-    <?php include_once "php/footer.php"; ?>
+    <?php include_once "php/htmlElements/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
