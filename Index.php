@@ -4,15 +4,7 @@
 <html lang="de">
 
 <head>
-
-    <?php include "php/head.php";?>
-    <style>
-        #minimap {
-            height: 250px;
-            width: 250px;
-        }
-
-    </style>
+    <?php include_once "php/head.php";?>
 </head>
 
 <body>
@@ -73,65 +65,8 @@
                                             </div>
                                         </div>
                                         <div class="card">
-
-                                            <!--Googlemaps Karte Anfang -->
-                                            <div id="minimap">
-                                            </div>
-                                            <script>
-                                                // TODO mehrere Karten auf der Seite
-
-                                                function initMap() {
-                                            var location = {
-                                                lat: 53.147294,
-                                                lng: 8.180886
-                                            };
-                                            var map = new google.maps.Map(document.getElementById("minimap"), {
-                                                zoom: 16,
-                                                center: location,
-                                                draggable: false,
-                                                disableDefaultUI: true
-                                            });
-
-                                            // Add a marker at the center of the map.
-                                            addMarker(location, map);
-                                        }
-
-                                        // Adds a marker to the map.
-                                        function addMarker(location, map) {
-                                            // Add the marker at the clicked location, and add the next-available label
-                                            // from the array of alphabetical characters.
-                                            var marker = new google.maps.Marker({
-                                                position: location,
-                                                label: "A2",
-                                                //label: content.getName(),
-                                                map: map
-                                            });
-
-
-
-
-                                            map.addListener('center_changed', function() {
-                                                // 3 seconds after the center of the map has changed, pan back to the
-                                                // marker.
-                                                window.setTimeout(function() {
-                                                    map.panTo(marker.getPosition());
-                                                }, 3000);
-                                            });
-
-                                            marker.addListener('click', function() {
-                                                window.location = "entryPage.php?EntryID=1";
-                                            });
-
-
-
-                                        }
-
-                                            </script>
-                                            <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
+                                            <img class="card-img-top" class="img-fluid" src="pictures/DummyMaps.png" alt="Position des Stellplatzes">
                                         </div>
-                                        <!--Googlemaps Karte ende -->
-
-
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
