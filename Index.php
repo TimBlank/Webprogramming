@@ -7,7 +7,7 @@
 
     <?php include "php/head.php";?>
     <style>
-        #minimap {
+        .map {
             height: 250px;
             width: 250px;
         }
@@ -75,17 +75,17 @@
                                         <div class="card">
 
                                             <!--Googlemaps Karte Anfang -->
-                                            <div id="minimap">
+                                            <div id="minimap<?php echo $content->getId(); ?>" class="map">
                                             </div>
                                             <script>
                                                 // TODO mehrere Karten auf der Seite
 
-                                                function initMap() {
+                                                function initMap<?php echo $content->getId(); ?>() {
                                             var location = {
                                                 lat: 53.147294,
                                                 lng: 8.180886
                                             };
-                                            var map = new google.maps.Map(document.getElementById("minimap"), {
+                                            var map<?php echo $content->getId(); ?> = new google.maps.Map(document.getElementById("minimap<?php echo $content->getId(); ?>"), {
                                                 zoom: 16,
                                                 center: location,
                                                 draggable: false,
@@ -93,7 +93,7 @@
                                             });
 
                                             // Add a marker at the center of the map.
-                                            addMarker(location, map);
+                                            addMarker(location, map<?php echo $content->getId(); ?>);
                                         }
 
                                         // Adds a marker to the map.
@@ -127,7 +127,7 @@
                                         }
 
                                             </script>
-                                            <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
+                                            <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap<?php echo $content->getId(); ?> "></script>
                                         </div>
                                         <!--Googlemaps Karte ende -->
 
