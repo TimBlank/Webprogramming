@@ -121,7 +121,7 @@
                             <li class="list-group-item">
                                 <div class="card">
                                     <div class="commentImage">
-                                        <?php if($comment->getImage()!==""): ?>
+                                        <?php if($comment->getImage()!=""): ?>
                                         <img src="<?php echo $comment->getImage(); ?>" class="card-img-top" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
                                         <?php endif ?>
                                     </div>

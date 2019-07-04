@@ -29,7 +29,6 @@ if(isset($_POST["SubmitComment"])){
                 }
                 if($inputsCorrect){
                     $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
-
                     $username = htmlspecialchars($_SESSION["User"]);
                     $text = htmlspecialchars($_POST["commentText"]);
                     $commentId = $contentmanager->addComment($entryId, $username, $text, $imgType);
@@ -45,7 +44,6 @@ if(isset($_POST["SubmitComment"])){
                         header('Location: '.$domain.$prevPage."#addCommentSection");
                     }
                     header('Location: '.$domain.$prevPage."#addCommentSection");
-
                 }else{
                     header('Location: '.$domain.$prevPage."#addCommentSection");
                 }

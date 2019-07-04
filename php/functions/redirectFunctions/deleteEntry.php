@@ -27,7 +27,7 @@ function delete_directory($dirname) {
      if (!$dir_handle)
           return false;
      while($file = readdir($dir_handle)) {
-           if ($file !== "." && $file !== "..") {
+           if ($file != "." && $file != "..") {
                 if (!is_dir($dirname."/".$file))
                      unlink($dirname."/".$file);
                 else
