@@ -3,15 +3,15 @@
 
 <html lang="de">
 <head>
-<?php include "php/head.php";?>
+<?php include_once "php/head.php";?>
 </head>
 
 <body>
-    <?php include "php/header.php"; ?>
-    <?php include "php/navigation.php"; ?>
-    <?php include "php/functions/datamanagment/databaseConnection.php"; ?>
-    <?php include "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
-    <?php include "php/functions/userInput.php"; ?>
+    <?php include_once "php/header.php"; ?>
+    <?php include_once "php/navigation.php"; ?>
+    <?php include_once "php/functions/datamanagment/databaseConnection.php"; ?>
+    <?php include_once "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
+    <?php include_once "php/functions/userInput.php"; ?>
 
     <div id="background">
         <div id="mainFrame">
@@ -35,11 +35,11 @@
                     <div class="card-group">
                         <div class="card">
                             <ul class="list-unstyled">
-                                <?php foreach(loadEntries() as $entryID): ?>
+                                <?php foreach(loadEntries($contentmanager) as $entryID): ?>
                                 <li>
                                     <?php $content = loadEntry($entryID); ?>
                                     <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
-                                            <?php echo $content->getName(); ?>
+                                            <?php $content = $contentmanager->loadEntry($entryID); ?>
                                         </a></h1>
                                     <div class="card-group">
                                         <div class="card">

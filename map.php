@@ -9,7 +9,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <!--Php include -->
-    <?php include "php/head.php";?>
+    <?php include_once "php/head.php";?>
 
 </head>
 
@@ -35,11 +35,7 @@
 
                             <div id="map">
 
-                            <!-- TODO Höhe adaptiv
-                            <div class="mapBox">
-                                <div class='box'>
-                                    <iframe class="content" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=7.756347656250001%2C53.0193631492509%2C8.463592529296877%2C53.23772373999386&amp;layer=mapnik" style="border: 1px solid black"></iframe><br /><small><a href="https://www.openstreetmap.org/#map=11/53.1287/8.1100">Größere Karte anzeigen</a></small>
-                                </div>-->
+                            <!-- TODO Höhe adaptiv-->
 
                             </div>
                             <script>
@@ -58,7 +54,7 @@
                                     var label= "uni";
                                     // Add a marker at the center of the map.
                                     addMarker(location, map, label);
-                                  /*  for (i=$entry.length,i>0,i--){
+                                /*      for (i=$entry.length,i>0,i--){
                                         if ("<?php //echo $content->getImage(); ?>"== "name des Ortes"){
                                         var markLocation(){
                                         lat: <?php //echo $content->getLatitude(); ?> ,
@@ -66,7 +62,8 @@
                                         }
                                         addMarker(markLocation, map,label);
                                         }
-                                    }*/
+                                    }
+                                */
                                 }
 
                                 // Adds a marker to the map.
