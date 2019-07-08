@@ -37,9 +37,8 @@
                             <ul class="list-unstyled">
                                 <?php foreach(loadEntries($contentmanager) as $entryID): ?>
                                 <li>
-                                    <?php  $content = loadEntry($entryID); ?>
+                                    <<?php $content = $contentmanager->loadEntry($entryID); ?>
                                     <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
-                                            <?php $content = $contentmanager->loadEntry($entryID); ?>
                                         </a></h1>
                                     <div class="card-group">
                                         <div class="card">
