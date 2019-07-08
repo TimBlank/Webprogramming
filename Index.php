@@ -2,8 +2,9 @@
 <!-- Hauptseite-->
 
 <html lang="de">
+
 <head>
-<?php include_once "php/head.php";?>
+    <?php include_once "php/head.php";?>
 </head>
 
 <body>
@@ -57,12 +58,36 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div id ="map">
-                                                <!--
-                                                <iframe src="https://www.google.com/maps/d/embed?mid=1PEH14t02jnaQdPOHBk3g4pOd2qnDYgeT" width="100%" height="100%"></iframe>
-                                                -->
+                                            <div id="minimap">
                                             </div>
-                                            </div>
+                                            <script>
+                                                function initMap() {
+                                                    var location = {
+                                                        lat: 53.147294,
+                                                        lng: 8.180886
+                                                    };
+
+
+                                                    var map = new google.maps.Map(document.getElementById("minimap"), {
+                                                        zoom: 10,
+                                                        center: location,
+
+                                                    });
+                                                    var label = "uni";
+                                                    addMarker(location, map, label);
+                                                }
+
+                                                function addMarker(location, map, label) {
+                                                    var marker = new google.maps.Marker({
+                                                        position: location,
+                                                        label: label,
+                                                        map: map
+                                                    });
+                                                }
+
+                                            </script>
+                                        </div>
+
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
                                 </li>
@@ -74,6 +99,8 @@
             </div>
         </div>
     </div>
+
+
     <?php include "php/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
