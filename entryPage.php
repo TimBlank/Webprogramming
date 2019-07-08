@@ -62,10 +62,7 @@
                                         <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid" id="myImg" onclick="openImgModal(this.src);">
                                     </div>
                                     <div class="col border">
-                                        <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
-                                        <!-- Hier muss noch irgendwie die Position richtig eingebunden werden -->
 
-                                    </div>
                                     <div id="map"></div>
 
                                     <script>
@@ -123,6 +120,7 @@
                                     <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
                                     </script>
                                 </div>
+                                    </div>
                                 <div class="row border">
                                     <div class="container">
                                         <div class="row">
