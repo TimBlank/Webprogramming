@@ -1,7 +1,9 @@
 <?php
 
+include_once "IusermanagmentDao.php";
+class UsermanagmentDao implements iUsermanagment{
 //prüfen ob Logindaten korrekt sind
-function verifyLogin($name, $password) {
+public function verifyLogin($name, $password) {
     if($name=="Test" && $password=="Test"){
     return true;
     }
@@ -9,7 +11,7 @@ function verifyLogin($name, $password) {
 }
 
 //neuenBenutzer regristrieren
-function registerUser($realName,$email,$password,$userName){
+public function registerUser($realName,$email,$password,$userName){
     if($realName == "Test") {
         $file = 'reg.txt';
         $handle = fopen($file, 'a') or die('Cannot open file:  '.$file);
@@ -21,4 +23,5 @@ function registerUser($realName,$email,$password,$userName){
         return false;
     }
 }
+    }
 ?>

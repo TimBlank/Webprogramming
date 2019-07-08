@@ -1,9 +1,12 @@
-
 <?php
     ini_set("session.use_cookies", 1);
     ini_set("session.use_only_cookies", 0);
     ini_set("session.use_trans_sid", 0);
     session_start();
+
+    include_once "php/functions/datamanagment/databaseConnection.php";
+    include_once "php/functions/datamanagment/contentmanagmentImpl.php";
+    $contentmanager = new Contentmanagment;
 ?>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
