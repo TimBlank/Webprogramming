@@ -133,7 +133,6 @@
                                 </div>
 
 
-                                    <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
                                     <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" value="<?php echo $content->getLongitude(); ?>" required>
                                     <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" value="<?php echo $content->getLatitude(); ?>" required>
                                     <button onclick="getPosition()" class="btn btn-default">Meine Position</button>
