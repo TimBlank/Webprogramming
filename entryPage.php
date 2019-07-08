@@ -63,64 +63,59 @@
                                     </div>
                                     <div class="col border">
 
-                                    <div id="map"></div>
+                                        <div id="map"></div>
 
-                                    <script>
-                                        var labels = "<?php echo $content->getName(); ?>";
+                                        <script>
+                                            var labels = "<?php echo $content->getName(); ?>";
 
-                                        function initMap() {
-                                            var location = {
-                                                lat: 53.147294,
-                                                lng: 8.180886
+                                            function initMap() {
+                                                var location = {
+                                                    lat: 53.147294,
+                                                    lng: 8.180886
 
-                                                //TODO die werte aus Datenbank
+                                                    //TODO die werte aus Datenbank
 
-                                                /*lat: ?php echo $content->getLatitude(); ?> ,
-                                                lng= ?php echo $content->getLongitude(); ?>*/
+                                                    /*lat: ?php echo $content->getLatitude(); ?> ,
+                                                    lng= ?php echo $content->getLongitude(); ?>*/
 
-                                            };
-                                            var map = new google.maps.Map(document.getElementById("map"), {
-                                                zoom: 10,
-                                                center: location
-                                            });
-                                            // Add a marker at the center of the map.
-                                            addMarker(location, map);
-                                        }
+                                                };
+                                                var map = new google.maps.Map(document.getElementById("map"), {
+                                                    zoom: 10,
+                                                    center: location
+                                                });
+                                                // Add a marker at the center of the map.
+                                                addMarker(location, map);
+                                            }
 
-                                        // Adds a marker to the map.
-                                        function addMarker(location, map) {
-                                            // Add the marker at the clicked location, and add the next-available label
-                                            // from the array of alphabetical characters.
-                                            var marker = new google.maps.Marker({
-                                                position: location,
+                                            // Adds a marker to the map.
+                                            function addMarker(location, map) {
+                                                // Add the marker at the clicked location, and add the next-available label
+                                                // from the array of alphabetical characters.
+                                                var marker = new google.maps.Marker({
+                                                    position: location,
 
-                                                map: map
-                                            });
+                                                    map: map
+                                                });
 
+                                                map.addListener('center_changed', function() {
+                                                    // 3 seconds after the center of the map has changed, pan back to the
+                                                    // marker.
+                                                    window.setTimeout(function() {
+                                                        map.panTo(marker.getPosition());
+                                                    }, 3000);
+                                                });
 
+                                                marker.addListener('click', function() {
+                                                    window.location = "../Index.php";
+                                                });
 
+                                            }
 
-                                            map.addListener('center_changed', function() {
-                                                // 3 seconds after the center of the map has changed, pan back to the
-                                                // marker.
-                                                window.setTimeout(function() {
-                                                    map.panTo(marker.getPosition());
-                                                }, 3000);
-                                            });
-
-                                            marker.addListener('click', function() {
-                                                window.location = "../Index.php";
-                                            });
-
-
-
-                                        }
-
-                                    </script>
-                                    <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
-                                    </script>
-                                </div>
+                                        </script>
+                                        <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
+                                        </script>
                                     </div>
+                                </div>
                                 <div class="row border">
                                     <div class="container">
                                         <div class="row">
