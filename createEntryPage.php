@@ -7,6 +7,9 @@
     <?php include_once "php/htmlElements/head.php";?>
     <link rel="stylesheet" href="css/noSearchWeather.css">
     <script>
+        var map = null;
+        var marker = null;
+
         function changeInputCoordinates(longitude, latitude) {
             document.getElementById("longitude").value = longitude;
             document.getElementById("latitude").value = latitude;
@@ -24,7 +27,17 @@
         }
 
         function showPosition(position) {
-            changeInputCoordinates(position.coords.longitude, position.coords.latitude);
+            var longitude = position.coords.longitude;
+            var latitude = position.coords.latitude;
+            changeInputCoordinates(longitude, latitude);
+            var latlng = new google.maps.LatLng(latitude, longitude);
+            if (map !== null) {
+                map.panTo(latlng);
+                if (marker == null) {
+                    addMarker(latlng, map);
+                }
+                marker.setPosition(latlng);
+            }
         }
 
         function showError(error) {
@@ -51,7 +64,7 @@
                 lat: 53.147294,
                 lng: 8.180886
             };
-            var map = new google.maps.Map(document.getElementById("map"), {
+            map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
                 center: location
             });
@@ -59,7 +72,6 @@
             google.maps.event.addListener(map, 'click', function(event) {
                 addMarker(event.latLng, map);
             });
-
 
         }
 
@@ -69,7 +81,7 @@
             // from the array of alphabetical characters.
             if (markerSet == 0) {
                 markerSet = 1;
-                var marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                     position: location,
                     map: map,
                     draggable: true
