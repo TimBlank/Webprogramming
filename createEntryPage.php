@@ -7,6 +7,11 @@
     <?php include_once "php/htmlElements/head.php";?>
     <link rel="stylesheet" href="css/noSearchWeather.css">
     <script>
+        function changeInputCoordinates(longitude, latitude) {
+            document.getElementById("longitude").value = longitude;
+            document.getElementById("latitude").value = latitude;
+        }
+
         function getPosition() {
             if (navigator.geolocation) {
                 var options = {
@@ -19,8 +24,7 @@
         }
 
         function showPosition(position) {
-            document.getElementById("longitude").value = position.coords.longitude;
-            document.getElementById("latitude").value = position.coords.latitude;
+            changeInputCoordinates(position.coords.longitude, position.coords.latitude);
         }
 
         function showError(error) {
@@ -37,8 +41,48 @@
                 default:
                     alert('Fehler: ' + error.message + ')');
             }
+
         }
 
+        var markerSet = 0;
+
+        function initMap() {
+            var location = {
+                lat: 53.147294,
+                lng: 8.180886
+            };
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: location
+            });
+            // This event listener calls addMarker() when the map is clicked.
+            google.maps.event.addListener(map, 'click', function(event) {
+                addMarker(event.latLng, map);
+            });
+
+
+        }
+
+        // Adds a marker to the map.
+        function addMarker(location, map) {
+            // Add the marker at the clicked location, and add the next-available label
+            // from the array of alphabetical characters.
+            if (markerSet == 0) {
+                markerSet = 1;
+                var marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    draggable: true
+                });
+                changeInputCoordinates(location.lng(), location.lat());
+                google.maps.event.addListener(marker, 'dragend', function() {
+                    changeInputCoordinates(marker.getPosition().lng(), marker.getPosition().lat());
+                });
+            };
+        }
+
+    </script>
+    <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
     </script>
     <?php include_once "javascript/imagePreview.php";?>
 </head>
@@ -71,6 +115,7 @@
                             <div class="row">
                                 <div class="col border">
                                     <img src="<?php echo $content->getImage(); ?>" id="imagePreview" alt="Bild des Stellplatzes" class="img-fluid"><br>
+                                    <label id="Test"> </label>
                                     <label for="userImage">
                                         Bild hinzufügen
                                     </label><br>
@@ -94,45 +139,6 @@
                                         </style>
                                     </noscript>
                                     <!--Ende-->
-
-                                    <script>
-                                        var markerSet = 0;
-                                        var label = "Name des Stellplatzes";
-
-                                        function initMap() {
-                                            var location = {
-                                                lat: 53.147294,
-                                                lng: 8.180886
-                                            };
-                                            var map = new google.maps.Map(document.getElementById("map"), {
-                                                zoom: 10,
-                                                center: location
-                                            });
-                                            // This event listener calls addMarker() when the map is clicked.
-                                            google.maps.event.addListener(map, 'click', function(event) {
-                                                addMarker(event.latLng, map);
-                                            });
-
-
-                                        }
-
-                                        // Adds a marker to the map.
-                                        function addMarker(location, map) {
-                                            // Add the marker at the clicked location, and add the next-available label
-                                            // from the array of alphabetical characters.
-                                            if (markerSet == 0) {
-                                                markerSet = 1;
-                                                var marker = new google.maps.Marker({
-                                                    position: location,
-                                                    map: map,
-                                                    draggable: true
-                                                });
-                                            };
-                                        }
-
-                                    </script>
-                                    <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
-                                    </script>
                                 </div>
                             </div>
                         </div>

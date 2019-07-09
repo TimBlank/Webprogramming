@@ -10,15 +10,14 @@
     }
 
     function initMap(location, entryId) {
+                var map = new google.maps.Map(document.getElementById("minimap" + entryId), {
+                    zoom: 16,
+                    center: location,
+                    draggable: false,
+                    disableDefaultUI: true
+                });
 
-        var map = new google.maps.Map(document.getElementById("minimap"+entryId), {
-            zoom: 16,
-            center: location,
-            draggable: false,
-            disableDefaultUI: true
-        });
-
-        return map;
+                return map;
     }
 
     // Adds a marker to the map.
