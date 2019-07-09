@@ -91,13 +91,13 @@
                         </script>
                         <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
 
-
-                    </div>
                     <?php
                         if(isset($_SESSION["User"])){
                         echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Neuen Stellplatz hinzufügen</a>";
                         }
                         ?>
+                    </div>
+
                 </div>
             </div>
         </section>
