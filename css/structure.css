@@ -71,7 +71,7 @@
 
 #map {
     height: 500px;
-    width: 500px;
+    width: height+50px;
 }
 
 .createEntryPage {
