@@ -72,7 +72,7 @@ function addEntry($name, $isPublic, $size, $hasRoof, $holdingType, $description,
     }
     }
 
-public function alterEntry($entryId,$name, $isPublic, $size,    $hasRoof, $holdingType, $description, $longitude, $latitude,    $imageType){
+public function alterEntry($entryId, $name, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude, $latitude, $imageType){
         try {
         $db = databaseConnect();
         $db->beginTransaction();
@@ -312,7 +312,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $sql = $sql." AND hasRoof = (:hasRoof)";
         }
 
-        if($holdingType!==null && is_string($holdingType) && $holdingType !="(Keine Angabe)"){
+        if($holdingType!=null && is_string($holdingType) && $holdingType != "(Keine Angabe)"){
             $sql = $sql." AND holdingType = (:holdingType)";
         }
 
@@ -333,7 +333,7 @@ function searchResult($name="",$isPublic=null,$smallSize = "false", $mediumSize 
             $stmt->bindParam(":hasRoof", $hasRoof);
         }
 
-        if($holdingType!==null && is_string($holdingType) && $holdingType !="(Keine Angabe)"){
+        if($holdingType!=null && is_string($holdingType) && $holdingType != "(Keine Angabe)"){
             $stmt->bindParam(":holdingType", $holdingType);
         }
 
