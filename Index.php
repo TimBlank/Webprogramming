@@ -5,7 +5,7 @@
 
 <head>
     <style>
-        .minimap {
+        .map {
             height: 250px;
             width: 250px;
         }
@@ -79,8 +79,48 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div class="minimap">
+                                            <div id="minimap<?php echo $content->getId(); ?>" class="map">
                                             </div>
+                                            <script>
+                                                // TODO mehrere Karten auf der Seite
+                                                function initMap<?php echo $content->getId(); ?>() {
+                                                    var location<?php echo $content->getId(); ?> = {
+                                                        lat: parseFloat(<?php echo '"'.$content->getLatitude().'"';?>.replace(",", ".")),
+                                                        lng: parseFloat(<?php echo '"'.$content->getLongitude().'"';?>.replace(",", "."))
+                                                    };
+                                                    var map<?php echo $content->getId(); ?> = new google.maps.Map(document.getElementById("minimap<?php echo $content->getId(); ?>"), {
+                                                        zoom: 16,
+                                                        center: location<?php echo $content->getId(); ?>,
+                                                        draggable: false,
+                                                        disableDefaultUI: true
+                                                    });
+                                                    // Add a marker at the center of the map.
+                                                    addMarker<?php echo $content->getId(); ?>(location<?php echo $content->getId(); ?>, map<?php echo $content->getId(); ?>);
+                                                }
+                                                // Adds a marker to the map.
+                                                function addMarker<?php echo $content->getId(); ?>(location, map) {
+                                                    // Add the marker at the clicked location, and add the next-available label
+                                                    // from the array of alphabetical characters.
+                                                    var marker<?php echo $content->getId(); ?> = new google.maps.Marker({
+                                                        position: location,
+                                                        label: name,
+                                                        //label: content.getName(),
+                                                        map: map
+                                                    });
+                                                    map.addListener('center_changed', function() {
+                                                        // 3 seconds after the center of the map has changed, pan back to the
+                                                        // marker.
+                                                        window.setTimeout(function() {
+                                                            map.panTo(marker.getPosition());
+                                                        }, 3000);
+                                                    });
+                                                    marker<?php echo $content->getId(); ?>.addListener('click', function() {
+                                                        window.location = "entryPage.php?EntryID=1";
+                                                    });
+                                                }
+
+                                            </script>
+                                            <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap<?php echo $content->getId(); ?> "></script>
                                         </div>
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
@@ -91,7 +131,7 @@
                                 }
                                 ?>
                                 <script>
-                                    window.onload = function() {
+                                    /*window.onload = function() {
                                         $('.entry').each(function() {
                                             var entryId = this.id;
                                             var entryName = $(".entryName", this).text();
@@ -102,7 +142,7 @@
                                             var map = initMap(location, mapElement);
                                             addMarker(location, map, entryId, entryName);
                                         });
-                                    }
+                                    }*/
 
                                 </script>
                             </ul>
