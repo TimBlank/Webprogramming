@@ -59,6 +59,7 @@
                                         </div>
                                         <div class="card">
                                             <div id="minimap">
+                                                <?php $content->getId() ?>
                                             </div>
                                             <script>
                                                 function initMap() {
