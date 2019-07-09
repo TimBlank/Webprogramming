@@ -64,15 +64,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col border">
-
                                         <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid" id="myImg" onclick="openImgModal(this.src);">
                                     </div>
                                     <div class="col border">
-                                        <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
-                                        <!-- Hier muss noch irgendwie die Position richtig eingebunden werden -->
-
+                                        <div id="map"></div>
                                     </div>
-                                    <div id="map"></div>
+
 
                                     <script>
                                         var labels = "<?php echo $content->getName(); ?>";
