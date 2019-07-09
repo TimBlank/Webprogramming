@@ -9,9 +9,9 @@
         return location;
     }
 
-    function initMap(location, mapElement) {
+    function initMap(location, entryId) {
 
-        var map = new google.maps.Map(mapElement, {
+        var map = new google.maps.Map(document.getElementById("minimap"+entryId), {
             zoom: 16,
             center: location,
             draggable: false,
@@ -31,10 +31,6 @@
             //label: content.getName(),
             map: map
         });
-
-
-
-
         map.addListener('center_changed', function() {
             // 3 seconds after the center of the map has changed, pan back to the
             // marker.
@@ -46,11 +42,6 @@
         marker.addListener('click', function() {
             window.location = "entryPage.php?EntryID=" + entryId;
         });
-
-
-
     }
 
-</script>
-<script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
 </script>
