@@ -49,16 +49,11 @@
 
         }
 
-        var markerSet = 0;
-
         function initMap() {
-            var location = {
-                lat: 53.147294,
-                lng: 8.180886
-            };
+            var latlng = new google.maps.LatLng(53.147294, 8.180886);
             map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 10,
-                center: location
+                center: latlng
             });
             // This event listener calls addMarker() when the map is clicked.
             google.maps.event.addListener(map, 'click', function(event) {
@@ -71,8 +66,7 @@
         function addMarker(location, map) {
             // Add the marker at the clicked location, and add the next-available label
             // from the array of alphabetical characters.
-            if (markerSet == 0) {
-                markerSet = 1;
+            if (marker == null) {
                 marker = new google.maps.Marker({
                     position: location,
                     map: map,
@@ -82,6 +76,8 @@
                 google.maps.event.addListener(marker, 'dragend', function() {
                     changeInputCoordinates(marker.getPosition().lng(), marker.getPosition().lat());
                 });
+            } else {
+                marker.setPosition(location);
             };
         }
 

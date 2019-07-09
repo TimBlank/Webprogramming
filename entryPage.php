@@ -4,22 +4,6 @@
 <html lang="de">
 
 <head>
-    <script>
-        //Quelle: https://stackoverflow.com/questions/14791247/how-to-create-image-uploader-with-preview
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function(e) {
-                    $('#imagePreview').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-    </script>
-
     <?php include_once "php/htmlElements/head.php";?>
     <?php include_once "javascript/imagePreview.php";?>
 
