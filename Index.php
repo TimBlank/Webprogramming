@@ -7,7 +7,7 @@
     <style>
         .map {
             height: 250px;
-            width: 250px;
+            width: height+100px;
             margin: 10px;
         }
 
