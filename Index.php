@@ -8,6 +8,7 @@
         .map {
             height: 250px;
             width: 250px;
+            margin: 10px;
         }
 
     </style>
