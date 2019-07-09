@@ -147,8 +147,9 @@
                                     window.onload = function() {
                                         $('.entry').each(function() {
                                             var entryId = this.id;
-                                            $('#Test').append(" Beitrag:" + entryId +"Längengrad:" + $(".longitude", this).text() + " Breitengrad:" + $(".latitude", this).text() + "<br>");
-                                            $(".longitude", this).text();
+                                            var longitude = parseFloat($(".longitude", this).text().replace(",", "."));
+                                            var latitude = parseFloat($(".latitude", this).text().replace(",", "."));
+                                            $('#Test').append(" Beitrag:" + entryId +"Längengrad:" + longitude + " Breitengrad:" + latitude + "<br>");
                                         });
                                     }
 
