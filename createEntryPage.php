@@ -139,7 +139,7 @@
 
                                 </div>
                             </div>
-                            <div class="row border">
+
                                 <div class="container">
                                     <div class="row">
                                         <div class="col border">
@@ -235,14 +235,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <input type="submit" name="submitEntry" value="Erstellen" class="btn btn-default">
+
+
                             <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                             <div class="createBtn">
                                 <input type="submit" name="<?php if($content->getId()==null){echo "submitEntry";}else{echo "alterEntry";}?>" value="<?php if($content->getId()==null){echo "Erstellen";}else{echo "Bearbeiten";}?>" class="btn btn-default">
                             </div>
-                        </div>
-                    </form>
+                        </form>
                 </section>
             </div>
         </div>
