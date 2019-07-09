@@ -5,7 +5,7 @@
 
 <head>
     <style>
-        #minimap {
+        .minimap {
             height: 250px;
             width: 250px;
         }
