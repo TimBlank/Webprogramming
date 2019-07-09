@@ -66,13 +66,13 @@
         function addMarker(location, map) {
             // Add the marker at the clicked location, and add the next-available label
             // from the array of alphabetical characters.
+            changeInputCoordinates(location.lng(), location.lat());
             if (marker == null) {
                 marker = new google.maps.Marker({
                     position: location,
                     map: map,
                     draggable: true
                 });
-                changeInputCoordinates(location.lng(), location.lat());
                 google.maps.event.addListener(marker, 'dragend', function() {
                     changeInputCoordinates(marker.getPosition().lng(), marker.getPosition().lat());
                 });
