@@ -210,13 +210,7 @@
 
 
 /*Input für Bilder */
-#userImage{
-    height: 30%;
-    max-width: 100%;
-    background: #e0e0e0;
-    /*color: #ffffff;
-    border: 2px solid red;*/
-}
+
 
 #imagePreview{
     padding-left: 10px;
