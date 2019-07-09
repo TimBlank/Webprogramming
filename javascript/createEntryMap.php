@@ -32,6 +32,18 @@
             }
         }
 
+        function showOldPosition(longitude, latitude){
+            changeInputCoordinates(longitude, latitude);
+            var latlng = new google.maps.LatLng(latitude, longitude);
+            if (map !== null) {
+                map.panTo(latlng);
+                if (marker == null) {
+                    addMarker(latlng, map);
+                }
+                marker.setPosition(latlng);
+            }
+        }
+
         function showError(error) {
             switch (error.code) {
                 case error.PERMISSION_DENIED:

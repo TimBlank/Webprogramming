@@ -51,11 +51,14 @@
                                     <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" value="<?php echo $content->getLongitude(); ?>" required>
                                     <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" value="<?php echo $content->getLatitude(); ?>" required>
 
-                                    <button type="button" onclick="getPosition()" class="btn btn-default" id="posBtn">Meine Position</button>
+                                    <button type="button" onclick="getPosition()" class="btn btn-default posBtn" id="posBtn">Meine Position</button>
+                                    <?php if($content->getId()!==null){
+                                        echo "<button type='button' onclick='showOldPosition(".$content->getLongitude().", ".$content->getLatitude().")' class='btn btn-default posBtn' id='oldPosBtn'>Alte Position</button>";
+                                    } ?>
                                     <!--Start Quelle https://stackoverflow.com/questions/1577598/how-to-hide-parts-of-html-when-javascript-is-disabled-->
                                     <noscript>
                                         <style>
-                                            #posBtn {
+                                            .posBtn {
                                                 display: none;
                                             }
 
