@@ -33,7 +33,6 @@
                     </a></h1>
                 <div class="card-body">
                     Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen und Kommentare schreiben.
-                    <label id="Test"> </label>
                 </div>
 
             </article>
