@@ -21,26 +21,15 @@
         function showPosition(position) {
             var longitude = position.coords.longitude;
             var latitude = position.coords.latitude;
-            changeInputCoordinates(longitude, latitude);
-            var latlng = new google.maps.LatLng(latitude, longitude);
-            if (map !== null) {
-                map.panTo(latlng);
-                if (marker == null) {
-                    addMarker(latlng, map);
-                }
-                marker.setPosition(latlng);
-            }
+            showOldPosition(longitude, latitude);
         }
 
-        function showOldPosition(longitude, latitude){
+        function showOldPosition(longitude, latitude) {
             changeInputCoordinates(longitude, latitude);
             var latlng = new google.maps.LatLng(latitude, longitude);
             if (map !== null) {
                 map.panTo(latlng);
-                if (marker == null) {
-                    addMarker(latlng, map);
-                }
-                marker.setPosition(latlng);
+                addMarker(latlng, map);
             }
         }
 
@@ -71,7 +60,6 @@
             google.maps.event.addListener(map, 'click', function(event) {
                 addMarker(event.latLng, map);
             });
-
         }
 
         // Adds a marker to the map.

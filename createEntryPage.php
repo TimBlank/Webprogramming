@@ -24,6 +24,12 @@
             $content = new entry(null,null,$setImage="pictures/dummyEntry/DummyBild.png",null,null,null,null,null,null,null);
         }
     ?>
+
+    <script>
+        window.onload = function() {
+            initMap();
+        }
+    </script>
     <div id="background">
         <div id="mainFrame">
             <div class="createEntryPage">
