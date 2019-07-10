@@ -43,7 +43,9 @@
                             <div class="container border">
                                 <div class="row border">
                                     <div class="col">
-                                        <h1><?php echo $content->getName(); ?></h1>
+                                        <h1><a class="card-title entryName" title="<?php echo $content->getName(); ?>">
+                                            <?php echo $content->getName(); ?>
+                                        </a></h1>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -53,15 +55,15 @@
                                     <div class="col border">
                                         <div id="map"></div>
                                     </div>
-
+                                    <p hidden class="longitude"><?php echo $content->getLongitude();?></p>
+                                    <p hidden class="latitude"><?php echo $content->getLatitude();?></p>
 
                                     <script>
-                                        var labels = "<?php echo $content->getName(); ?>";
-
                                         function initMap() {
+                                            var entryName = $(".entryName").text();
                                             var location = {
-                                                lat: 53.147294,
-                                                lng: 8.180886
+                                                lat: parseFloat($(".latitude").text().replace(",", ".")),
+                                                lng: parseFloat($(".longitude").text().replace(",", "."))
 
                                                 //TODO die werte aus Datenbank
 
@@ -70,20 +72,20 @@
 
                                             };
                                             var map = new google.maps.Map(document.getElementById("map"), {
-                                                zoom: 10,
+                                                zoom: 16,
                                                 center: location
                                             });
                                             // Add a marker at the center of the map.
-                                            addMarker(location, map);
+                                            addMarker(location, map, entryName);
                                         }
 
                                         // Adds a marker to the map.
-                                        function addMarker(location, map) {
+                                        function addMarker(location, map, label) {
                                             // Add the marker at the clicked location, and add the next-available label
                                             // from the array of alphabetical characters.
                                             var marker = new google.maps.Marker({
                                                 position: location,
-
+                                                label: label,
                                                 map: map
                                             });
 
@@ -97,12 +99,6 @@
                                                     map.panTo(marker.getPosition());
                                                 }, 3000);
                                             });
-
-                                            marker.addListener('click', function() {
-                                                window.location = "../Index.php";
-                                            });
-
-
 
                                         }
 

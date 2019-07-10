@@ -27,7 +27,6 @@
         var marker = new google.maps.Marker({
             position: location,
             label: entryName,
-            //label: content.getName(),
             map: map
         });
         map.addListener('center_changed', function() {
