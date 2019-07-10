@@ -21,10 +21,10 @@
         function showPosition(position) {
             var longitude = position.coords.longitude;
             var latitude = position.coords.latitude;
-            showOldPosition(longitude, latitude);
+            setMarkerAndPan(longitude, latitude);
         }
 
-        function showOldPosition(longitude, latitude) {
+        function setMarkerAndPan(longitude, latitude) {
             changeInputCoordinates(longitude, latitude);
             var latlng = new google.maps.LatLng(latitude, longitude);
             if (map !== null) {
