@@ -15,7 +15,6 @@
     <?php include_once "php/htmlElements/header.php"; ?>
     <?php include_once "php/htmlElements/navigation.php"; ?>
 
-
     <div id="background">
         <section>
             <div id="mainFrame">
@@ -26,6 +25,16 @@
                             <?php include "php/htmlElements/search.php"; ?>
                         </div>
                     </div>
+                    <ul hidden>
+                    <?php foreach($contentmanager->defaultEntries() as $id):?>
+                        <?php $entry = $contentmanager->loadEntry($id);?>
+                        <li id="<?php echo $entry->getId();?>" class="entry">
+                        <p class="entryName"><?php echo $entry->getName();?></p>
+                        <p class="longitude"><?php echo $entry->getLongitude();?></p>
+                        <p class="latitude"><?php echo $entry->getLatitude();?></p>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
                     <div class="col">
                         <div class="card">
                             <h1><a :class="card-title" title="Standort:">
@@ -91,7 +100,7 @@
                         </script>
                         <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
 
-                    <?php
+                        <?php
                         if(isset($_SESSION["User"])){
                         echo "<a href=\"createEntryPage.php\" class=\"btn btn-primary\" title=\"VorlageBeitrag\">Neuen Stellplatz hinzufügen</a>";
                         }

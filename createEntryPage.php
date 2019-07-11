@@ -136,100 +136,98 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row border">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col border">
-                                        Öffentlich:
-                                    </div>
-                                    <div class="col border">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" <?php
+                        <div class="container">
+                            <div class="row">
+                                <div class="col border">
+                                    Öffentlich:
+                                </div>
+                                <div class="col border">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="isPublic" id="public" value="true" <?php
                                                        if($content->getIsPublic()){
                                                             echo "checked";}?> required>
-                                            <label class="form-check-label" for="public">Ja</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="isPublic" id="private" value="false" <?php
+                                        <label class="form-check-label" for="public">Ja</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="isPublic" id="private" value="false" <?php
                                                        if(!$content->getIsPublic() && $content->getId()!==null){
                                                             echo "checked";}?>>
-                                            <label class="form-check-label" for="private">Nein</label>
-                                        </div>
+                                        <label class="form-check-label" for="private">Nein</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Stellplatzgröße:
-                                    </div>
-                                    <div class="col border">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" <?php
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Stellplatzgröße:
+                                </div>
+                                <div class="col border">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="size" id="sizeSmall" value="Klein" <?php
                                                        if($content->getSize()=="Klein" ){
                                                             echo "checked";}?> required>
-                                            <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel" <?php
+                                        <label class="form-check-label" for="sizeSmall">Klein (1-30)</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="size" id="sizeMedium" value="Mittel" <?php
                                                        if($content->getSize()=="Mittel"){
                                                             echo "checked";}?>>
-                                            <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß" <?php
+                                        <label class="form-check-label" for="sizeMedium">Mittel (31-99)</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="size" id="sizeLarge" value="Groß" <?php
                                                        if($content->getSize()=="Groß"){
                                                             echo "checked";}?>>
-                                            <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
-                                        </div>
+                                        <label class="form-check-label" for="sizeLarge">Groß (100+)</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Überdacht:
-                                    </div>
-                                    <div class="col border">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true" <?php
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Überdacht:
+                                </div>
+                                <div class="col border">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasRoof" id="covered" value="true" <?php
                                                        if($content->getHasRoof()){
                                                             echo "checked";}?> required>
-                                            <label class="form-check-label" for="covered">Ja</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" <?php
+                                        <label class="form-check-label" for="covered">Ja</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="hasRoof" id="notCovered" value="false" <?php
                                                        if(!$content->getHasRoof() && $content->getId()!==null){
                                                             echo "checked";
                                                        }
                                                        ?>>
-                                            <label class="form-check-label" for="notCovered">Nein</label>
-                                        </div>
+                                        <label class="form-check-label" for="notCovered">Nein</label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Art:
-                                    </div>
-                                    <div class="col border">
-                                        Art der Fahrradhalterung siehe
-                                        <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
-                                            Wikipedia
-                                        </a>
-                                        <div class="form-group">
-                                            <select class="form-control" name="holdingType" id="holderType" required>
-                                                <option value="(Keine Angabe)" <?php if($content->getHolderType()=="(Keine Angabe)" || $content->getId()==null){echo "selected";}?>>(Keine Angabe)</option>
-                                                <option value="Einfache Vorderradhalter" <?php if($content->getHolderType()=="Einfache Vorderradhalter"){echo "selected";}?>>Einfacher Vorderradhalter</option>
-                                                <option value="Fahrradgerechte Vorderradhalter" <?php if($content->getHolderType()=="Fahrradgerechte Vorderradhalter"){echo "selected";}?>>Fahrradgerechte Vorderradhalter</option>
-                                                <option value="Anlehnbügel" <?php if($content->getHolderType()=="Anlehnbügel"){echo "selected";}?>>Anlehnbügel</option>
-                                                <option value="Schräghochparker" <?php if($content->getHolderType()=="Schräghochparker"){echo "selected";}?>>Schräghochparker</option>
-                                            </select>
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Art:
+                                </div>
+                                <div class="col border">
+                                    Art der Fahrradhalterung siehe
+                                    <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
+                                        Wikipedia
+                                    </a>
+                                    <div class="form-group">
+                                        <select class="form-control" name="holdingType" id="holderType" required>
+                                            <option value="(Keine Angabe)" <?php if($content->getHolderType()=="(Keine Angabe)" || $content->getId()==null){echo "selected";}?>>(Keine Angabe)</option>
+                                            <option value="Einfache Vorderradhalter" <?php if($content->getHolderType()=="Einfache Vorderradhalter"){echo "selected";}?>>Einfacher Vorderradhalter</option>
+                                            <option value="Fahrradgerechte Vorderradhalter" <?php if($content->getHolderType()=="Fahrradgerechte Vorderradhalter"){echo "selected";}?>>Fahrradgerechte Vorderradhalter</option>
+                                            <option value="Anlehnbügel" <?php if($content->getHolderType()=="Anlehnbügel"){echo "selected";}?>>Anlehnbügel</option>
+                                            <option value="Schräghochparker" <?php if($content->getHolderType()=="Schräghochparker"){echo "selected";}?>>Schräghochparker</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        Besonderheiten:
-                                    </div>
-                                    <div class="col border">
-                                        <textarea class="form-control" id="description" name="description" placeholder="Zum Beispiel Zugänglichkeit oder anderes"><?php echo $content->getDescription(); ?></textarea>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col border">
+                                    Besonderheiten:
+                                </div>
+                                <div class="col border">
+                                    <textarea class="form-control" id="description" name="description" placeholder="Zum Beispiel Zugänglichkeit oder anderes"><?php echo $content->getDescription(); ?></textarea>
                                 </div>
                             </div>
                         </div>
