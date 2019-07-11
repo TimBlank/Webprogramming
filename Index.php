@@ -4,14 +4,6 @@
 <html lang="de">
 
 <head>
-    <style>
-        .map {
-            height: 250px;
-            width: 250px;
-        }
-
-    </style>
-
     <?php include_once "php/htmlElements/head.php";?>
     <?php include_once "javascript/googleMapsFunctions.php"; ?>
 </head>
