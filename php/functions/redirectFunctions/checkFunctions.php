@@ -5,7 +5,7 @@ function checkImage($check) {
         $_SESSION["Message"] = $_SESSION["Message"] . "Das war kein Bild. <br>";
         return false;
     } else {
-        if($check[0] <= 3840 && $check[1]<= 2160) {
+        if($check[0] <= 4000 && $check[1]<= 3000) {
             return isInAspectRatio($check[0], $check[1]);
         }else{
             $_SESSION["Message"] = $_SESSION["Message"] . "Das Bild ist zu groß. <br>";
