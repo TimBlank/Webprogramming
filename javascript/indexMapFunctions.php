@@ -34,6 +34,6 @@
             window.location = "entryPage.php?EntryID=" + entryId;
         });
     }
-    //Sinnlich übertragen: https://developers.google.com/maps/documentation/android-sdk/marker
+    //Quelle: https://developers.google.com/maps/documentation/android-sdk/marker
 
 </script>

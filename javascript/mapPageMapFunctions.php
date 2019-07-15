@@ -40,4 +40,4 @@
 <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
 
 
-<!-- https://developers.google.com/maps/documentation/android-sdk/marker -->
+<!--Quelle: https://developers.google.com/maps/documentation/android-sdk/marker -->
