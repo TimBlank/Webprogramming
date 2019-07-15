@@ -26,30 +26,36 @@
                                 if(isset($_GET["campusSite"])){
                                     $campusSite = htmlspecialchars($_GET["campusSite"]);
                                 }
-                                if($campusSite==="Haarentor"){
-                                    echo "<p hidden class='option zoom'>17</p>";
-                                    echo "<p hidden class='option longitude'>8,181954603928261</p>";
-                                    echo "<p hidden class='option latitude'>53.147294</p>";
-                                }elseif($campusSite==="Johann-Justus-Weg"){
-                                    echo "<p hidden class='option zoom'>18</p>";
-                                    echo "<p hidden class='option longitude'>8.177476855061059</p>";
-                                    echo "<p hidden class='option latitude'>53.16124003718202</p>";
-                                }elseif($campusSite==="Botanischer Garten"){
-                                    echo "<p hidden class='option zoom'>17</p>";
-                                    echo "<p hidden class='option longitude'>8.195750454179688</p>";
-                                    echo "<p hidden class='option latitude'>53.14773069590611</p>";
-                                }elseif($campusSite==="Wechloy"){
-                                    echo "<p hidden class='option zoom'>16</p>";
-                                    echo "<p hidden class='option longitude'>8.167059916116386</p>";
-                                    echo "<p hidden class='option latitude'>53.15237711624353</p>";
-                                }elseif($campusSite==="Offis"){
-                                    echo "<p hidden class='option zoom'>18</p>";
-                                    echo "<p hidden class='option longitude'>8.200462460517883</p>";
-                                    echo "<p hidden class='option latitude'>53.148839070654056</p>";
-                                }else{
-                                    echo "<p hidden class='option zoom'>13</p>";
-                                    echo "<p hidden class='option longitude'>8.180886</p>";
-                                    echo "<p hidden class='option latitude'>53.147294</p>";
+                                switch($campusSite){
+                                    case "Haarentor":
+                                        echo "<p hidden class='option zoom'>17</p>";
+                                        echo "<p hidden class='option longitude'>8,181954603928261</p>";
+                                        echo "<p hidden class='option latitude'>53.147294</p>";
+                                        break;
+                                    case "Johann-Justus-Weg":
+                                        echo "<p hidden class='option zoom'>18</p>";
+                                        echo "<p hidden class='option longitude'>8.177476855061059</p>";
+                                        echo "<p hidden class='option latitude'>53.16124003718202</p>";
+                                        break;
+                                    case "Botanischer Garten":
+                                        echo "<p hidden class='option zoom'>17</p>";
+                                        echo "<p hidden class='option longitude'>8.195750454179688</p>";
+                                        echo "<p hidden class='option latitude'>53.14773069590611</p>";
+                                        break;
+                                    case "Wechloy":
+                                        echo "<p hidden class='option zoom'>16</p>";
+                                        echo "<p hidden class='option longitude'>8.167059916116386</p>";
+                                        echo "<p hidden class='option latitude'>53.15237711624353</p>";
+                                        break;
+                                    case "Offis":
+                                        echo "<p hidden class='option zoom'>18</p>";
+                                        echo "<p hidden class='option longitude'>8.200462460517883</p>";
+                                        echo "<p hidden class='option latitude'>53.148839070654056</p>";
+                                        break;
+                                    default;
+                                        echo "<p hidden class='option zoom'>13</p>";
+                                        echo "<p hidden class='option longitude'>8.180886</p>";
+                                        echo "<p hidden class='option latitude'>53.147294</p>";
                                 }
                         ?>
                     <ul hidden>
