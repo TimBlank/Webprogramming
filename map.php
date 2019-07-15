@@ -4,10 +4,6 @@
 <html lang="de">
 
 <head>
-    <title>MainMap</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <!--Php include -->
     <?php include_once "php/htmlElements/head.php";?>
 </head>
 
