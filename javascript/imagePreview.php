@@ -28,14 +28,21 @@
                 image.onload = function() {
                     var width = image.width;
                     var height = image.height;
-                    if (isInAspectRatio(width, height)) {
                         $('#imageError').empty();
+                    var correctAspectRatio = isInAspectRatio(width, height);
+                    var correctSize = (width <= 4000 && height <= 3000);
+                    if (correctAspectRatio && correctSize) {
                         $('#imageError').append(" ");
                     } else {
-                        $('#imageError').empty();
-                        $('#imageError').append("Ungültiges Seitenverhältnis");
+                        if(!correctAspectRatio){
+                        $('#imageError').append("Ungültiges Seitenverhältnis <br>");
+                        }
+                        if(!correctSize){
+                           $('#imageError').append("Zu große Bildatei");
+                        }
                     }
                 }
+                if (width <= 4000 && height <= 3000) {}
 
             }
 
