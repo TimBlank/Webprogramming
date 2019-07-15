@@ -6,7 +6,7 @@
 <head>
     <?php include_once "php/htmlElements/head.php";?>
     <link rel="stylesheet" href="css/noSearchWeather.css">
-    <?php include_once "javascript/createEntryMap.php";?>
+    <?php include_once "javascript/createEntryMapFunctions.php";?>
     <?php include_once "javascript/imagePreview.php";?>
 </head>
 
