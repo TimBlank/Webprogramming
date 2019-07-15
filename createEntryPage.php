@@ -70,8 +70,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row border">
-                            <div class="container">
+                        <div class="row">
+                            <div class="container border">
                                 <div class="row">
                                     <div class="col border">
                                         Öffentlich:

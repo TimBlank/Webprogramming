@@ -24,94 +24,90 @@
         <?php include_once "php/functions/loadEntries.php"; ?>
         <div id="mainFrame">
 
-            <section>
-                <div class="row">
-                    <div class="col col-auto" id="sideSearch">
-                        <div>
-                            <?php include "php/htmlElements/bigWeatherWidget.php"; ?>
-                            <?php include "php/htmlElements/search.php"; ?>
-                        </div>
+            <div class="row">
+                <div class="col col-auto" id="sideSearch">
+                    <div>
+                        <?php include "php/htmlElements/bigWeatherWidget.php"; ?>
+                        <?php include "php/htmlElements/search.php"; ?>
                     </div>
+                </div>
 
-                    <div class="col">
+                <div class="col">
+                    <div class="card-group">
                         <div class="card">
-                            <div class="container border">
-                                <div class="row border">
-                                    <div class="col">
-                                        <h1><a class="card-title entryName" title="<?php echo $content->getName(); ?>">
-                                                <?php echo $content->getName(); ?>
-                                            </a></h1>
-                                    </div>
+                            <h1 class="card-title entryName" title="<?php echo $content->getName(); ?>">
+                                <?php echo $content->getName(); ?>
+                            </h1>
+                            <div class="card-group">
+                                <div class="card">
+                                    <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="card-img-top" id="myImg" onclick="openImgModal(this.src);">
                                 </div>
-                                <div class="row">
-                                    <div class="col border">
-                                        <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid" id="myImg" onclick="openImgModal(this.src);">
-                                    </div>
-                                    <div class="col border">
-                                        <div id="map"></div>
-                                    </div>
+                                <div class="card">
                                     <p hidden class="longitude"><?php echo $content->getLongitude();?></p>
                                     <p hidden class="latitude"><?php echo $content->getLatitude();?></p>
-
+                                    <div id="map"></div>
                                 </div>
-                                <div class="row border">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col border">
-                                                Öffentlich/Privat:
-                                            </div>
-                                            <div class="col border">
-                                                <?php echo $content->stringIsPublic() ?>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col border">
-                                                Stellplatzgröße:
-                                            </div>
-                                            <div class="col border">
-                                                <?php echo $content->getSize() ?>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col border">
-                                                Überdacht:
-                                            </div>
-                                            <div class="col border">
-                                                <?php echo $content->stringHasRoof() ?>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col border">
-                                                Art:
-                                            </div>
-                                            <div class="col border">
-                                                <?php echo $content->getHolderType() ?>
-                                                <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col border">
-                                                Besonderheiten:
-                                            </div>
-                                            <div class="col border">
-                                                <?php echo $content->getDescription() ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php if($content->getId()!==null && isset($_SESSION["User"])): ?>
-                                    <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary" title="VorlageBeitrag">Bearbeiten</a>
-                                    <form action="redirect.php" method="post">
-                                        <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
-                                        <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
-                                    </form>
-                                    <?php endif; ?>
+
+                            </div>
+
+
+                            <div class="card-group">
+                                <div class="card">
+                                    Öffentlich/Privat:
+                                </div>
+                                <div class="card">
+                                    <?php echo $content->stringIsPublic() ?>
                                 </div>
                             </div>
+                            <div class="card-group">
+                                <div class="card">
+                                    Stellplatzgröße:
+                                </div>
+                                <div class="card">
+                                    <?php echo $content->getSize() ?>
+                                </div>
+                            </div>
+                            <div class="card-group">
+                                <div class="card">
+                                    Überdacht:
+                                </div>
+                                <div class="card">
+                                    <?php echo $content->stringHasRoof() ?>
+                                </div>
+                            </div>
+                            <div class="card-group">
+                                <div class="card">
+                                    Art:
+                                </div>
+                                <div class="card">
+                                    <?php echo $content->getHolderType() ?>
+                                    <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
+                                </div>
+                            </div>
+                            <div class="card-group">
+                                <div class="card">
+                                    Besonderheiten:
+                                </div>
+                                <div class="card">
+                                    <?php echo $content->getDescription() ?>
+                                </div>
+                            </div>
+
+                            <?php if($content->getId()!==null && isset($_SESSION["User"])): ?>
+                            <div class="card-group" id="entryBtns">
+                                <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary entryBtns" title="VorlageBeitrag">Bearbeiten</a>
+                                <form action="redirect.php" method="post" id="delForm" class="entryBtns">
+                                    <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
+                                    <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
+                                </form>
+                            </div>
+                            <?php endif; ?>
+
                         </div>
                     </div>
-
                 </div>
-            </section>
+
+            </div>
 
             <div id="marginTop">
                 <?php if($content->getId() !== null): ?>
