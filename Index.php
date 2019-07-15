@@ -41,16 +41,18 @@
                                     $resultCount=0;
                                     foreach(loadEntries($contentmanager) as $entryID):
                                 ?>
-                                <li>
-                                    <?php
+                                <?php
                                     $resultCount=$resultCount+1;
                                     $content = $contentmanager->loadEntry($entryID);
                                     ?>
-                                    <h1><a class="card-title" title="<?php echo $content->getName(); ?>">
+                                <li id="<?php echo $content->getId();?>" class="entry">
+                                    <h1><a class="card-title entryName" title="<?php echo $content->getName(); ?>">
                                             <?php echo $content->getName(); ?>
                                         </a></h1>
                                     <div class="card-group">
                                         <div class="card">
+                                            <p hidden class="longitude"><?php echo $content->getLongitude();?></p>
+                                            <p hidden class="latitude"><?php echo $content->getLatitude();?></p>
                                             <img class="card-img-top" class="img-fluid" src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
                                             <div class="card-body">
                                             </div>
@@ -66,7 +68,8 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img class="card-img-top" class="img-fluid" src="pictures/DummyMaps.png" alt="Position des Stellplatzes">
+                                            <div id="minimap<?php echo $content->getId(); ?>" class="map">
+                                            </div>
                                         </div>
                                     </div>
                                     <a href="entryPage.php?EntryID=<?php echo $content->getId() ?>" class="btn btn-primary">Mehr informationen</a>
@@ -76,6 +79,23 @@
                                     echo "<li>Keine Ergebnisse</li>";
                                 }
                                 ?>
+                                <script>
+                                    window.onload = function() {
+                                        $('.entry').each(function() {
+                                            var entryId = this.id;
+                                            var entryName = $(".entryName", this).text();
+                                            var longitude = parseFloat($(".longitude", this).text().replace(",", "."));
+                                            var latitude = parseFloat($(".latitude", this).text().replace(",", "."));
+                                            var mapElement = $(".minimap", this);
+                                            var location = createLocation(longitude, latitude);
+                                            var map = initMap(location, entryId);
+                                            addMarker(location, map, entryId, entryName);
+                                        });
+                                    }
+
+                                </script>
+                                <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">
+                                </script>
                             </ul>
                         </div>
                     </div>
@@ -87,7 +107,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
+    <?php include_once "javascript/indexMapFunctions.php"; ?>
 </body>
 
 </html>

@@ -21,6 +21,7 @@
     .navSearch {
         display: none;
     }
+
     #smallWeatherlWidget {
         display: none;
     }
@@ -44,30 +45,10 @@
     padding: 2px;
 }
 
-/*Start; Quelle: http://www.mademyday.de/css-height-equals-width-with-pure-css.html#outer_wrap */
-.mapBox .box {
-    position: relative;
-    width: 100%;
-    /* desired width */
+#map {
+    height: 500px;
+    width: height+50px;
 }
-
-.mapBox .box:before {
-    content: "";
-    display: block;
-    padding-top: 50%;
-    /* initial ratio of 1:1*/
-}
-
-.mapBox .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-
-}
-
-/*Ende;*/
 
 .createEntryPage {
     padding-bottom: 20px
@@ -107,21 +88,34 @@
     text-align: center
 }
 
-@media (max-width: 575px) {
+@media (min-width: 575px) {
+    .map {
+        height: 250px;
+        width: height+10px;
+    }
+}
+
+@media (max-width: 574.98px) {
     .regis .form-row {
         padding-bottom: 20px;
     }
+
     #smallWeatherlWidget {
         display: none;
     }
 
+    .map {
+        height: 250px;
+        width: 400px;
+    }
 }
 
 .dropdown-item {
     padding: .25rem .5rem;
 }
 
-.dropdown-item.active, .dropdown-item:active {
+.dropdown-item.active,
+.dropdown-item:active {
     background-color: transparent;
     color: black;
 }
@@ -203,17 +197,7 @@
     max-height: 400px;
 }
 
-
-/*Input für Bilder */
-#userImage{
-    height: 30%;
-    max-width: 100%;
-    background: #e0e0e0;
-    /*color: #ffffff;
-    border: 2px solid red;*/
-}
-
-#imagePreview{
+#imagePreview {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
@@ -226,6 +210,6 @@
     margin: 8px
 }
 
-.legalText{
+.legalText {
     padding: 10px;
 }

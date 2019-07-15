@@ -23,22 +23,22 @@
                     </div>
 
                 </li>
-                <li class="nav-item active"><a class="nav-link" href="map.php" title="Haarentor">
+                <li class="nav-item active"><a class="nav-link" href="map.php?campusSite=Haarentor" title="Haarentor">
                         Haarentor
                     </a></li>
-                <li class="nav-item active"><a class="nav-link" href="map.php" title="Wechloy">
+                <li class="nav-item active"><a class="nav-link" href="map.php?campusSite=Wechloy" title="Wechloy">
                         Wechloy
                     </a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Weitere Standorte">Weitere</a>
                     <div class="dropdown-menu bg-light">
-                        <a class="dropdown-item" href="map.php" title="Johann-Justus-Weg">
+                        <a class="dropdown-item" href="map.php?campusSite=Johann-Justus-Weg" title="Johann-Justus-Weg">
                             Johann-Justus-Weg
                         </a>
-                        <a class="dropdown-item" href="map.php" title="Botanischer Garten">
+                        <a class="dropdown-item" href="map.php?campusSite=Botanischer Garten" title="Botanischer Garten">
                             Botanischer Garten
                         </a>
-                        <a class="dropdown-item" href="map.php" title="Offis">
+                        <a class="dropdown-item" href="map.php?campusSite=Offis" title="Offis">
                             Offis
                         </a>
                     </div>

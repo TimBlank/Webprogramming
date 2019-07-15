@@ -20,7 +20,7 @@
         if($content==false){
             $content = new entry(null);
         }
-    ?>
+        ?>
         <?php include_once "php/functions/loadEntries.php"; ?>
         <div id="mainFrame">
 
@@ -38,7 +38,9 @@
                             <div class="container border">
                                 <div class="row border">
                                     <div class="col">
-                                        <h1><?php echo $content->getName(); ?></h1>
+                                        <h1><a class="card-title entryName" title="<?php echo $content->getName(); ?>">
+                                                <?php echo $content->getName(); ?>
+                                            </a></h1>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -46,9 +48,11 @@
                                         <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="img-fluid" id="myImg" onclick="openImgModal(this.src);">
                                     </div>
                                     <div class="col border">
-                                        <img src="pictures/DummyMaps.png" alt="Position des Stellplatzes" class="img-fluid">
-                                        <!-- Hier muss noch irgendwie die Position richtig eingebunden werden -->
+                                        <div id="map"></div>
                                     </div>
+                                    <p hidden class="longitude"><?php echo $content->getLongitude();?></p>
+                                    <p hidden class="latitude"><?php echo $content->getLatitude();?></p>
+
                                 </div>
                                 <div class="row border">
                                     <div class="container">
@@ -180,6 +184,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <?php include_once "javascript/entryPageMapFunctions.php";?>
 </body>
 
 </html>
