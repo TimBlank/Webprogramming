@@ -29,6 +29,7 @@
         window.onload = function() {
             initMap();
         }
+
     </script>
     <div id="background">
         <div id="mainFrame">
@@ -44,7 +45,6 @@
                             <div class="row">
                                 <div class="col border">
                                     <img src="<?php echo $content->getImage(); ?>" id="imagePreview" alt="Bild des Stellplatzes" class="img-fluid"><br>
-                                    <label id="Test"> </label>
                                     <label for="userImage">
                                         Bild hinzufügen
                                     </label><br>
@@ -52,11 +52,9 @@
                                     <label for="userImage" id="imageError" style="color:red;"> </label><br>
                                 </div>
                                 <div class="col border">
-
                                     <div id="map"></div>
                                     <input type="number" class="form-control" id="longitude" name="longitude" step="any" placeholder="Längengrad" value="<?php echo $content->getLongitude(); ?>" required>
                                     <input type="number" class="form-control" id="latitude" name="latitude" step="any" placeholder="Breitengrad" value="<?php echo $content->getLatitude(); ?>" required>
-
                                     <button type="button" onclick="getPosition()" class="btn btn-default posBtn" id="posBtn">Meine Position</button>
                                     <?php if($content->getId()!==null){
                                         echo "<button type='button' onclick='setMarkerAndPan(".$content->getLongitude().", ".$content->getLatitude().")' class='btn btn-default posBtn' id='oldPosBtn'>Alte Position</button>";
@@ -67,7 +65,6 @@
                                             .posBtn {
                                                 display: none;
                                             }
-
                                         </style>
                                     </noscript>
                                     <!--Ende-->

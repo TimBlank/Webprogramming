@@ -20,10 +20,8 @@
         if($content==false){
             $content = new entry(null);
         }
-    ?>
-
+        ?>
         <?php include_once "php/functions/loadEntries.php"; ?>
-
         <div id="mainFrame">
 
             <section>
@@ -35,16 +33,14 @@
                         </div>
                     </div>
 
-
-
                     <div class="col">
                         <div class="card">
                             <div class="container border">
                                 <div class="row border">
                                     <div class="col">
                                         <h1><a class="card-title entryName" title="<?php echo $content->getName(); ?>">
-                                            <?php echo $content->getName(); ?>
-                                        </a></h1>
+                                                <?php echo $content->getName(); ?>
+                                            </a></h1>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -102,7 +98,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <?php if($content->getId()!==null && isset($_SESSION["User"])): ?>
                                     <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary" title="VorlageBeitrag">Bearbeiten</a>
                                     <form action="redirect.php" method="post">
@@ -110,7 +105,6 @@
                                         <input type="submit" name="DeleteEntry" value="Löschen" class="btn btn-primary" />
                                     </form>
                                     <?php endif; ?>
-
                                 </div>
                             </div>
                         </div>
@@ -127,7 +121,6 @@
                             <h1>Kommentare</h1>
                         </div>
                         <ul class="list-group list-group-flush">
-
                             <?php foreach($contentmanager->loadEntryComments($entryID) as $comment): ?>
                             <li class="list-group-item">
                                 <div class="card">
@@ -145,7 +138,6 @@
                                             <input type="submit" name="DeleteComment" value="Kommentar Löschen" class="btn btn-default" />
                                         </form>
                                         <?php endif; ?>
-
                                     </div>
                                 </div>
                             </li>
@@ -158,7 +150,6 @@
                                 <form action="redirect.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                     <div class="form-group">
-
                                         <img src="pictures/IconTransparent.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
                                         <label for="userImage">
                                             Bild hinzufügen
@@ -180,7 +171,6 @@
 
                             </li>
 
-
                         </ul>
                     </section>
                 </div>
@@ -190,12 +180,10 @@
         </div>
     </div>
 
-
     <?php include_once "php/htmlElements/footer.php"; ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

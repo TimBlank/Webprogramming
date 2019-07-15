@@ -15,7 +15,6 @@
     <?php include_once "php/functions/datamanagment/contentmanagmentImpl.php"; ?>
     <?php include_once "php/functions/loadEntries.php"; ?>
 
-
     <div id="background">
         <div id="mainFrame">
             <article class="card border-0">

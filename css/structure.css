@@ -88,17 +88,12 @@
     text-align: center
 }
 
-
-
-
-
 @media (min-width: 575px) {
     .map {
         height: 250px;
         width: height+10px;
     }
 }
-
 
 @media (max-width: 574.98px) {
     .regis .form-row {
