@@ -5,7 +5,7 @@
 
 <head>
     <?php include_once "php/htmlElements/head.php";?>
-    <?php include_once "javascript/googleMapsFunctions.php"; ?>
+    <?php include_once "javascript/indexMapFunctions.php"; ?>
 </head>
 
 <body>
