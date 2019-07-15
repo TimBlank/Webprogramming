@@ -12,7 +12,6 @@
 
         });
         var label = "uni";
-        // Add a markers for every entry.
         $('.entry').each(function() {
             var entryId = this.id;
             var entryName = $(".entryName", this).text();
@@ -24,12 +23,10 @@
 
     }
 
-    // Adds a marker to the map.
     function addMarker(location, map, entryId, entryName) {
         var marker = new google.maps.Marker({
             position: location,
             label: entryName,
-            //label: content.getName(),
             map: map
         });
 
@@ -41,3 +38,6 @@
 
 </script>
 <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap "></script>
+
+
+<!-- https://developers.google.com/maps/documentation/android-sdk/marker -->
