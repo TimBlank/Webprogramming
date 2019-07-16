@@ -1,27 +1,5 @@
-/* Start: Änderungen für entryPage. Versucht Index gleich aussehend zu lassen */
-#delForm input {
-    width: 100%;
-}
-
-.card-group {
-    margin-bottom: 15px;
-}
-.card-group>.card {
-    margin-bottom: 0px;
-}
-
-.entryBtns {
-    margin: 1px;
-}
-/* Ende */
-
 #mainFrame {
     margin: 20pt;
-}
-
-#marginTop {
-    margin-top: 20pt;
-
 }
 
 #headerRow {
@@ -29,7 +7,7 @@
 }
 
 .card {
-/*
+    /*
     margin-left: auto;
     margin-right: auto;
 */
@@ -205,16 +183,6 @@
 }
 
 /* Ende */
-
-.commentImage img {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    height: auto;
-    width: auto;
-    max-width: 400px;
-    max-height: 400px;
-}
 
 #imagePreview {
     padding-left: 10px;

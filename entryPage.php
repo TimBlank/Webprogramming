@@ -6,6 +6,7 @@
 <head>
     <?php include_once "php/htmlElements/head.php";?>
     <?php include_once "javascript/imagePreview.php";?>
+    <link rel="stylesheet" href="css/entryPage.css">
 </head>
 
 <body>
@@ -40,7 +41,7 @@
                             </h1>
                             <div class="card-group">
                                 <div class="card">
-                                    <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="card-img-top" id="myImg" onclick="openImgModal(this.src);">
+                                    <img src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" class="card-img-top" onclick="openImgModal(this.src);">
                                 </div>
                                 <div class="card">
                                     <p hidden class="longitude"><?php echo $content->getLongitude();?></p>
@@ -50,51 +51,52 @@
 
                             </div>
 
-
-                            <div class="card-group">
-                                <div class="card">
-                                    Öffentlich/Privat:
+                            <div id="entryTable">
+                                <div class="card-group gray">
+                                    <div class="card">
+                                        Öffentlich/Privat:
+                                    </div>
+                                    <div class="card">
+                                        <?php echo $content->stringIsPublic() ?>
+                                    </div>
                                 </div>
-                                <div class="card">
-                                    <?php echo $content->stringIsPublic() ?>
+                                <div class="card-group">
+                                    <div class="card">
+                                        Stellplatzgröße:
+                                    </div>
+                                    <div class="card">
+                                        <?php echo $content->getSize() ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-group">
-                                <div class="card">
-                                    Stellplatzgröße:
+                                <div class="card-group gray">
+                                    <div class="card">
+                                        Überdacht:
+                                    </div>
+                                    <div class="card">
+                                        <?php echo $content->stringHasRoof() ?>
+                                    </div>
                                 </div>
-                                <div class="card">
-                                    <?php echo $content->getSize() ?>
+                                <div class="card-group">
+                                    <div class="card">
+                                        Art:
+                                    </div>
+                                    <div class="card">
+                                        <?php echo $content->getHolderType() ?>
+                                        <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-group">
-                                <div class="card">
-                                    Überdacht:
-                                </div>
-                                <div class="card">
-                                    <?php echo $content->stringHasRoof() ?>
-                                </div>
-                            </div>
-                            <div class="card-group">
-                                <div class="card">
-                                    Art:
-                                </div>
-                                <div class="card">
-                                    <?php echo $content->getHolderType() ?>
-                                    <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
-                                </div>
-                            </div>
-                            <div class="card-group">
-                                <div class="card">
-                                    Besonderheiten:
-                                </div>
-                                <div class="card">
-                                    <?php echo $content->getDescription() ?>
+                                <div class="card-group gray">
+                                    <div class="card">
+                                        Besonderheiten:
+                                    </div>
+                                    <div class="card">
+                                        <?php echo $content->getDescription() ?>
+                                    </div>
                                 </div>
                             </div>
 
                             <?php if($content->getId()!==null && isset($_SESSION["User"])): ?>
-                            <div class="card-group" id="entryBtns">
+                            <div class="card-group">
                                 <a href="createEntryPage.php?EntryID=<?php echo $entryID; ?>" class="btn btn-primary entryBtns" title="VorlageBeitrag">Bearbeiten</a>
                                 <form action="redirect.php" method="post" id="delForm" class="entryBtns">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
