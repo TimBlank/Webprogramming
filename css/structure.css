@@ -6,14 +6,6 @@
     margin-right: 0;
 }
 
-.card {
-    /*
-    margin-left: auto;
-    margin-right: auto;
-*/
-}
-
-
 @media (min-width: 1252px) {
     .navSearch {
         display: none;
@@ -45,44 +37,6 @@
 #map {
     height: 500px;
     width: height+50px;
-}
-
-.createEntryPage {
-    padding-bottom: 20px
-}
-
-.createEntryPage .container {
-    background-color: white;
-}
-
-.createEntryPage .col {
-    width: 50%;
-}
-
-.createEntryPage input[type="text"] {
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
-.createBtn {
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center
-}
-
-.registerButton {
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center
 }
 
 @media (min-width: 576px) {
@@ -119,15 +73,6 @@
 
 #loginBtn {
     padding-top: 3px;
-}
-
-.regis {
-    max-width: 800px;
-    margin: auto;
-}
-
-.regis input {
-    margin-top: 5px;
 }
 
 

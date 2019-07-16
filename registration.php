@@ -6,6 +6,7 @@
 <head>
     <?php include_once "php/htmlElements/head.php";?>
     <link rel="stylesheet" href="css/noSearchWeather.css">
+    <link rel="stylesheet" href="css/registration.css">
 </head>
 
 <body>
