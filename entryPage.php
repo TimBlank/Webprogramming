@@ -120,7 +120,7 @@
                         <div class="card">
                             <h1>Kommentare</h1>
                         </div>
-                        <ul class="list-group list-group-flush">
+                        <ul id="commentList" class="list-group list-group-flush">
                             <?php foreach($contentmanager->loadEntryComments($entryID) as $comment): ?>
                             <li class="list-group-item">
                                 <div class="card">
@@ -147,10 +147,10 @@
                             <li class="list-group-item" id="addCommentSection">
 
 
-                                <form action="redirect.php" method="post" enctype="multipart/form-data">
+                                <form id="commentForm" action="redirect.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                     <div class="form-group">
-                                        <img src="pictures/IconTransparent.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
+                                        <img src="pictures/IconWithBackround.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
                                         <label for="userImage">
                                             Bild hinzufügen
                                         </label><br>
@@ -165,10 +165,12 @@
                                             <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
                                             <textarea class="form-control" id="commentText" name="commentText" placeholder="Kommentar" cols="30" rows="2" required></textarea>
                                         </div>
+                                        <noscript>
+                                            <input type="hidden" name="Noscript" value="true">
+                                        </noscript>
                                         <input type="submit" name="SubmitComment" value="Kommentieren" class="btn btn-default" />
                                     </div>
                                 </form>
-
                             </li>
 
                         </ul>
@@ -185,6 +187,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <?php include_once "javascript/entryPageMapFunctions.php";?>
+    <script>
+        $("#commentForm").submit(function(event) {
+            // Stop the browser from submitting the form.
+            event.preventDefault();
+
+            // Serialize the form data.
+            var formData = $("#commentForm").serialize();
+            // TODO
+
+            // Submit the form using AJAX.
+            $.ajax({
+                type: 'POST',
+                url: $("#commentForm").attr('action'),
+                data: formData
+            }).done(function(response) {
+                // Make sure that the formMessages div has the 'success' class.
+                // Set the message text.
+                $("#commentList").append(data.responseText);
+
+                // Clear the form.
+                $('#commentText').val('');
+                //TODO Bildeingabe löschen?
+            }).fail(function(data) {
+
+                if (data.responseText !== '') {
+                    $("#commentList").append(data.responseText);
+
+                } else {
+                    $("#commentList").append("<li>Unbekannter Fehler</li>");
+                }
+            });
+        });
+
+    </script>
+    <!-- Quelle: https://blog.teamtreehouse.com/create-ajax-contact-form -->
 </body>
 
 </html>

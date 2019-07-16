@@ -2,6 +2,9 @@
 include_once "php/functions/redirectFunctions/checkFunctions.php";
 
 if(isset($_POST["SubmitComment"])){
+
+    $noscript = isset($_POST["Noscript"]);
+
     if(isset($_SESSION["User"])){
         if(isset($_POST["EntryID"])){
             $entry = $contentmanager->loadEntry($_POST["EntryID"]);
@@ -24,11 +27,11 @@ if(isset($_POST["SubmitComment"])){
 
                     $imageExists = checkImage($check);
                     if(!$imageExists) {
+                        $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
                         $inputsCorrect = false;
                     }
                 }
                 if($inputsCorrect){
-                    $imgType = strtolower(pathinfo($image["name"],PATHINFO_EXTENSION));
                     $username = htmlspecialchars($_SESSION["User"]);
                     $text = htmlspecialchars($_POST["commentText"]);
                     $commentId = $contentmanager->addComment($entryId, $username, $text, $imgType);
@@ -40,23 +43,63 @@ if(isset($_POST["SubmitComment"])){
                             $_SESSION["Message"] = $_SESSION["Message"] . "Fehler beim speichern des Bildes. <br>";
                         }
                     }elseif($commentId == false){
+                        //Kommentar konnte in der Datenbank nicht hinzugefügt werden
                         $_SESSION["Message"] = $_SESSION["Message"] . "Fehler beim speichern des Kommentares in der Datenbank. <br>";
+                        if($noscript){
                         header('Location: '.$domain.$prevPage."#addCommentSection");
+                        }else{
+                            // Set a 500 (internal server error) response code.
+                            http_response_code(500);
+                            echo "<li> ".$_SESSION["Message"]." </li>";
+                            exit;
+                        }
                     }
-                    header('Location: '.$domain.$prevPage."#addCommentSection");
+                    //Kommentar erfolgreich erstellt.
+                    if($noscript){
+                        header('Location: '.$domain.$prevPage."#addCommentSection");
+                    }else{
+                        // Set a 200 (okay) response code.
+                        http_response_code(200);
+                        echo "<li>Test Erfolgreich <br> -----------</li>";//TODO: Kommentarinhalt
+                        exit;
+                    }
                 }else{
-                    header('Location: '.$domain.$prevPage."#addCommentSection");
+                    //Fehlerhafte Eingabe
+                    if($noscript){
+                        header('Location: '.$domain.$prevPage."#addCommentSection");
+                    }else{
+                        // Set a 400 (bad request) response code and exit.
+                        http_response_code(400);
+                        echo "<li> ".$_SESSION["Message"]." </li>";
+                        exit;
+                    }
                 }
             }else{
+                //Der Beitrag existiert nicht
                 $_SESSION["Message"] = $_SESSION["Message"] . "Dieser Stellplatz existiert nicht in der Datenbank. <br>";
-                header('Location: '.$domain."/Index.php");
+                if($noscript){
+                    header('Location: '.$domain."/Index.php");
+                }else{
+                     // Set a 400 (bad request) response code and exit.
+                    http_response_code(400);
+                    echo "<li> ".$_SESSION["Message"]." </li>";
+                    exit;
+                }
             }
         }else{
             $_SESSION["Message"] = $_SESSION["Message"] . "Fehler beim Erkennen des Stellplatzes.  <br>";
         }
     }else{
+        //Nicht eingeloggt
         $_SESSION["Message"] = $_SESSION["Message"] . "Bitte mit einem Registrierten Account einloggen um Kommentare zu schreiben.  <br>";
-        header('Location: '.$domain."/registration.php");
+        if($noscript){
+            header('Location: '.$domain."/registration.php");
+        }else{
+            // Set a 400 (bad request) response code and exit.
+            http_response_code(400);
+            echo "<li> ".$_SESSION["Message"]." </li>";
+            exit;
+        }
     }
 }
 
