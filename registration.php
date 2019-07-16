@@ -40,7 +40,9 @@
 
                         <!--Datenschutz Bestätigen-->
                         <div id="dataProtCheck">
-                            <label for="dataProtection">Ich habe die <a href="impressumPrivacy.php?Datenschutzerklärung">Datenschutzerklärung</a> gelesen und bin mit dieser Einverstanden.</label>
+                            <label for="dataProtection">Ich habe die
+                                <a target="_blank" rel="noopener noreferrer" href="impressumPrivacy.php?Datenschutzerklärung">Datenschutzerklärung</a>
+                                gelesen und bin mit dieser Einverstanden.</label>
                             <input type="checkbox" class="form-control" name="dataProtection" id="dataProtection" required>
                         </div>
 
