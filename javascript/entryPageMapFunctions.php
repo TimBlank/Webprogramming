@@ -4,12 +4,6 @@
         var location = {
             lat: parseFloat($(".latitude").text().replace(",", ".")),
             lng: parseFloat($(".longitude").text().replace(",", "."))
-
-            //TODO die werte aus Datenbank
-
-            /*lat: ?php echo $content->getLatitude(); ?> ,
-            lng= ?php echo $content->getLongitude(); ?>*/
-
         };
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 16,
