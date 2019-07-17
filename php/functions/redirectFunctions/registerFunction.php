@@ -1,12 +1,11 @@
 <?php
 
-if(isset($_POST["registerBtn"])){
+if(isset($_POST["registerBtn"])) {
     $name = null;
     $email = null;
     $password = null;
     $passwordRepeat = null;
     $accountName = null;
-
     $formCor = true;
 
     //Check E-Mail
@@ -23,7 +22,7 @@ if(isset($_POST["registerBtn"])){
     }
 
     //Check Password
-    if(isset($_POST["password"]) && is_string($_POST["password"]) ) {
+    if(isset($_POST["password"]) && is_string($_POST["password"])) {
         if(strlen($_POST["password"]) !== 0) {
             $password = htmlspecialchars($_POST["password"]);
         } else {
@@ -36,7 +35,7 @@ if(isset($_POST["registerBtn"])){
     }
 
     //Check repeated Password
-    if(isset($_POST["passwordRepeat"])&& is_string($_POST["passwordRepeat"]) ) {
+    if(isset($_POST["passwordRepeat"]) && is_string($_POST["passwordRepeat"])) {
         if(strlen($_POST["passwordRepeat"]) !== 0) {
             $passwordRepeat = htmlspecialchars($_POST["passwordRepeat"]);
         } else {
@@ -49,7 +48,7 @@ if(isset($_POST["registerBtn"])){
     }
 
     //Check Accountname
-    if(isset($_POST["accountName"])&&is_string($_POST["accountName"])) {
+    if(isset($_POST["accountName"]) && is_string($_POST["accountName"])) {
         if(strlen($_POST["accountName"]) !== 0) {
             $accountName = htmlspecialchars($_POST["accountName"]);
         } else {
@@ -64,10 +63,10 @@ if(isset($_POST["registerBtn"])){
 
     if($formCor == true) {
         if($password == $passwordRepeat) {
-            if($usermanager->registerUser($email, $password, $accountName)){
+            if($usermanager->registerUser($email, $password, $accountName)) {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Registrierung erfolgreich. <br>";
                 header('Location: '.$domain."/Index.php");
-            }else{
+            } else {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Registrierung fehlgeschlagen. <br>";
                 header('Location: '.$domain."/registration.php");
             }
@@ -79,7 +78,6 @@ if(isset($_POST["registerBtn"])){
          $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei der Registrierung. <br>";
         header('Location: '.$domain."/registration.php");
     }
-
 }
 
 ?>

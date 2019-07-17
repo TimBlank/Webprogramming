@@ -199,9 +199,9 @@ function deleteComment($commentId){
         $stmt->bindParam(":commentId", $commentId);
         $stmt->execute();
         $commentData = $stmt->fetchObject();
-        if(empty($commentData)){
+        if(empty($commentData)) {
             return false;
-        }else {
+        } else {
             $sql = "DELETE FROM comment WHERE commentId = (:commentId)";
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":commentId", $commentId);
@@ -210,8 +210,7 @@ function deleteComment($commentId){
             $db = null;
             return true;
         }
-
-        }catch (Exception $ex) {
+    } catch (Exception $ex) {
         echo "Fehler: " . $ex->getMessage();
     }
 }
@@ -254,18 +253,18 @@ function loadEntry($entryId){
 function loadEntryComments($entryId){
 
    try {
-        $db = databaseConnect();
-        $db->beginTransaction();
-        $sql = "SELECT * FROM comment WHERE entryId = (:id)";
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":id", $entryId);
-        $stmt->execute();
-        $db->commit();
-        $db = null;
+       $db = databaseConnect();
+       $db->beginTransaction();
+       $sql = "SELECT * FROM comment WHERE entryId = (:id)";
+       $stmt = $db->prepare($sql);
+       $stmt->bindParam(":id", $entryId);
+       $stmt->execute();
+       $db->commit();
+       $db = null;
        while ($commentData = $stmt->fetchObject()) {
            yield new comment($commentData->commentId, $commentData->username, $commentData->text, $commentData->image);
        }
-   }catch (Exception $ex) {
+   } catch (Exception $ex) {
        echo "Fehler: " . $ex->getMessage();
    }
 
