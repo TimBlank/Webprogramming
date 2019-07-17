@@ -10,7 +10,6 @@ interface iContentmanagment {
 
     public function addComment($entryId, $username, $text, $imageType);
 
-
     public function deleteComment($commentID);
 
     public function loadEntry($entryId);
