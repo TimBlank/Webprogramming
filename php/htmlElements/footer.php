@@ -8,6 +8,9 @@
         <a class="navbar-item text-light" href="impressumPrivacy.php?Datenschutzerklärung" title="Datenschutz" style="margin-left: auto;margin-right: auto;">
             Datenschutz
         </a>
+        <a class="navbar-item text-light" href="faq.php" title="FAQ" style="margin-left: auto;margin-right: auto;">
+            FAQ
+        </a>
 
     </nav>
 </footer>

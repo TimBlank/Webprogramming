@@ -22,7 +22,7 @@
                     <div>
                         <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>
                     </div>
-
+                  
                     <!--Email-->
                     <div>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com" required>
