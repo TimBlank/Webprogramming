@@ -13,7 +13,7 @@
 
 <div id="imgModal" class="modal">
     <span class="close" onclick="closeImgModal()">&times;</span>
-    <img class="modal-content" id="modalImg">
+    <img class="modal-content" id="modalImg" alt="Modal Bild">
 </div>
 <div class="modal fade" id="messageModal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">

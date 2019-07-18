@@ -70,9 +70,9 @@
                     </ul>
                     <div class="col">
                         <div class="card">
-                            <h1><a :class="card-title" title="Standort:">
-                                    Standort:
-                                </a></h1>
+                            <h1 class="card-title" title="Standort:">
+                                Standort:
+                            </h1>
 
                             <div id="map">
                             </div>

@@ -17,9 +17,9 @@
                         <span class="sr-only">Suche</span>
                     </a>
                     <div class="dropdown-menu bg-light">
-                        <a class="dropdown-item">
+                        <div class="dropdown-item">
                             <?php include "php/htmlElements/search.php"; ?>
-                        </a>
+                        </div>
                     </div>
 
                 </li>
