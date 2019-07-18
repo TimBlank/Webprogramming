@@ -17,7 +17,6 @@
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
-                <section>
                     <form action="redirect.php" method="post">
                         <!--Acountname-->
                         <div>
@@ -52,7 +51,6 @@
                             <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
                         </div>
                     </form>
-                </section>
             </div>
         </div>
     </div>
