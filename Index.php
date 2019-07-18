@@ -18,9 +18,9 @@
         <div id="mainFrame">
             <article class="card border-0">
 
-                <h1> <a class="card-title" title="Über diese Seite">
-                        Über diese Seite
-                    </a></h1>
+                <h1 class="card-title" title="Über diese Seite">
+                    Über diese Seite
+                </h1>
                 <div class="card-body">
                     Auf dieser Seite kannst du die Fahrradstellplätze in der Nähe der Carl von Ossietzky Universität in Oldenburg finden und regestrierte Benutzer können fehlende Plätze hinzufügen und Kommentare schreiben.
                 </div>

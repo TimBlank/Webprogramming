@@ -36,47 +36,43 @@
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
-                <section>
-                    <form action="redirect.php" method="post">
-                        <!--Acountname-->
-                        <div>
-                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" onblur="checkName(this.value)" required>
-                            <label id="usernameExists"> </label>
-                        </div>
+               <form action="redirect.php" method="post">
+                    <!--Acountname-->
+                    <div>
+                        <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" onblur="checkName(this.value)" required>
+                        <label id="usernameExists"> </label>
+                    </div>
+                 
+                    <!--Email-->
+                    <div>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com" required>
+                    </div>
+                 
+                    <!--Passwort-->
+                    <div>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required>
+                    </div>
 
-                        <!--Email-->
-                        <div>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com" required>
-                        </div>
+                    <!--Passwort wiederholen-->
+                    <div>
+                        <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort Wiederholen" required>
+                    </div>
 
-                        <!--Passwort-->
-                        <div>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required>
-                        </div>
-
-                        <!--Passwort wiederholen-->
-                        <div>
-                            <input type="password" class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Passwort Wiederholen" required>
-                        </div>
-
-                        <!--Datenschutz Bestätigen-->
-                        <div id="dataProtCheck">
-                            <label for="dataProtection">Ich habe die
-                                <a target="_blank" rel="noopener noreferrer" href="impressumPrivacy.php?Datenschutzerklärung">Datenschutzerklärung</a>
-                                gelesen und bin mit dieser Einverstanden.</label>
-                            <input type="checkbox" class="form-control" name="dataProtection" id="dataProtection" required>
-                        </div>
-
-
-                        <div class="registerButton">
-                            <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
-                        </div>
-                    </form>
-                </section>
+                    <!--Datenschutz Bestätigen-->
+                    <div id="dataProtCheck">
+                        <label for="dataProtection">Ich habe die
+                            <a target="_blank" rel="noopener noreferrer" href="impressumPrivacy.php?Datenschutzerklärung">Datenschutzerklärung</a>
+                            gelesen und bin mit dieser Einverstanden.</label>
+                        <input type="checkbox" class="form-control" name="dataProtection" id="dataProtection" required>
+                    </div>
+                 
+                    <div class="registerButton">
+                        <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
 
     <?php include_once "php/htmlElements/footer.php"; ?>
 
