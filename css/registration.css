@@ -15,3 +15,10 @@
 .regis input {
     margin-top: 5px;
 }
+
+#dataProtCheck {
+    background-color:white;
+    border-radius:10px;
+    margin-top:5px;
+    text-indent:6px;
+}
