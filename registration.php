@@ -21,7 +21,7 @@
                     <form action="redirect.php" method="post">
                         <!--Acountname-->
                         <div>
-                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>
+                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Benutzername" required>
                         </div>
 
                         <!--Email-->
