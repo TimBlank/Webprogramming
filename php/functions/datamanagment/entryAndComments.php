@@ -24,91 +24,89 @@
         $this->latitude = $setLatitude;
     }
 
-    public function getId(){
-            return $this->id;
+    public function getId() {
+        return $this->id;
     }
 
-     public function getName(){
-            return $this->name;
+     public function getName() {
+         return $this->name;
     }
 
-    public function getImage(){
+    public function getImage() {
         return $this->image;
     }
 
-    public function getIsPublic(){
+    public function getIsPublic() {
         return $this->isPublic;
     }
 
-    public function stringIsPublic(){
-        if($this->isPublic){
+    public function stringIsPublic() {
+        if($this->isPublic) {
             return "Öffentlich";
-        }else{
+        } else {
             return "Privat";
         }
     }
 
-    public function getSize(){
+    public function getSize() {
         return $this->size;
     }
 
-    public function getHasRoof(){
+    public function getHasRoof() {
         return $this->hasRoof;
     }
 
-    public function stringHasRoof(){
-        if($this->hasRoof){
+    public function stringHasRoof() {
+        if($this->hasRoof) {
             return "Überdacht";
-        }else{
+        } else {
             return "Unüberdacht";
         }
     }
 
-    public function getHolderType(){
+    public function getHolderType() {
         return $this->holderType;
     }
 
-     public function getDescription(){
+     public function getDescription() {
         return $this->description;
     }
 
-    public function getLongitude(){
+    public function getLongitude() {
         return $this->longitude;
     }
 
-    public function getLatitude(){
+    public function getLatitude() {
         return $this->latitude;
     }
-
-
 }
 
-class comment{
+class comment {
     private $commentID;
     private $author;
     private $text;
     private $image;
 
-    public function __construct($setCommentID, $setAuthor="Benutzername",$setText="Hier Steht ein Kommentar, den ein Nutzer geschrieben hat.",$setImage="pictures/dummyEntry/DummyBild.png"){
+    public function __construct($setCommentID, $setAuthor="Benutzername",$setText="Hier Steht ein Kommentar, den ein Nutzer geschrieben hat.",$setImage="pictures/dummyEntry/DummyBild.png") {
         $this->commentID = $setCommentID;
         $this->author = $setAuthor;
         $this->text = $setText;
         $this->image = $setImage;
     }
 
-    public function getCommentID(){
+    public function getCommentID() {
         return $this->commentID;
     }
 
-    public function getAuthor(){
+    public function getAuthor() {
         return $this->author;
     }
 
-    public function getText(){
+    public function getText() {
         return $this->text;
     }
 
-    public function getImage(){
+    public function getImage() {
         return $this->image;
     }
 }
