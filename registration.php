@@ -7,13 +7,32 @@
     <?php include_once "php/htmlElements/head.php";?>
     <link rel="stylesheet" href="css/noSearchWeather.css">
     <link rel="stylesheet" href="css/registration.css">
+    <script>
+        function checkName(name) {
+            if (name.length !== 0) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                        $("#usernameExists").empty();
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText==true) {
+                            //$("accountName").setCustomValidity("Es gibt schon einen Benutzer mit diesem Namen");
+                            $("#usernameExists").append("Es gibt schon einen Benutzer mit diesem Namen");
+                        }
+                    }
+                };
+                xmlhttp.open("GET", "php/usernameCheck.php?name=" + name, true);
+                xmlhttp.send();
+            }
+        }
+
+    </script>
 </head>
 
 <body>
     <?php include_once "php/htmlElements/header.php"; ?>
     <?php include_once "php/htmlElements/navigation.php"; ?>
     <?php include_once "php/functions/loadEntries.php"; ?>
-    <?php include_once "php/functions/datamanagment/usermanagmentDao.php"; ?>
+    <?php include_once "php/functions/datamanagment/usermanagmentImpl.php"; ?>
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
@@ -21,7 +40,8 @@
                     <form action="redirect.php" method="post">
                         <!--Acountname-->
                         <div>
-                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>
+                            <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" onblur="checkName(this.value)" required>
+                            <label id="usernameExists"> </label>
                         </div>
 
                         <!--Email-->

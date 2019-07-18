@@ -22,3 +22,10 @@
     margin-top:5px;
     text-indent:6px;
 }
+
+#usernameExists {
+    display:inline;
+    background-color:orangered;
+    border-radius:200px;
+    text-indent:6px;
+}
