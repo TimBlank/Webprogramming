@@ -26,6 +26,6 @@
 #usernameExists {
     display:inline;
     background-color:orangered;
-    border-radius:200px;
+    border-radius:40px;
     text-indent:6px;
 }
