@@ -1,12 +1,12 @@
 <?php
 include_once "php/functions/redirectFunctions/checkFunctions.php";
 
-if(isset($_POST["alterEntry"])){
-    $entryId=null;
-    if(isset($_POST["EntryID"]) && $_POST["EntryID"] !== null){
+if(isset($_POST["alterEntry"])) {
+    $entryId = null;
+    if(isset($_POST["EntryID"]) && $_POST["EntryID"] !== null) {
         $entryId = htmlspecialchars($_POST["EntryID"]);
-        if(isset($_SESSION["User"])){
-            $oldEntryData= $contentmanager->loadEntry($entryId);
+        if(isset($_SESSION["User"])) {
+            $oldEntryData = $contentmanager->loadEntry($entryId);
 
             $entryName = null;
             $userImage = null;
@@ -39,7 +39,7 @@ if(isset($_POST["alterEntry"])){
             if(isset($_FILES["userImage"])) {
                 //Ein Teil hier von ist von https://www.w3schools.com/php/php_file_upload.asp
                 $image = $_FILES["userImage"];
-                if(!empty($image) && (array_sum($image)) > 4){
+                if(!empty($image) && (array_sum($image)) > 4) {
                     $check = getimagesize($_FILES["userImage"]["tmp_name"]);
                     if(checkImage($check)) {
                         $userImage = $image;
@@ -59,7 +59,7 @@ if(isset($_POST["alterEntry"])){
             }
 
             //Check Size Radiobuttons
-            if(isset($_POST["size"])&&is_string($_POST["size"])&& in_array($_POST["size"],["Klein","Mittel","Groß"],true)) {
+            if(isset($_POST["size"]) && is_string($_POST["size"]) && in_array($_POST["size"],["Klein","Mittel","Groß"],true)) {
                 $size = htmlspecialchars($_POST["size"]);
             } else {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei der Größen-Auswahl. <br>";
@@ -67,7 +67,7 @@ if(isset($_POST["alterEntry"])){
             }
 
             //Check Size Radiobuttons
-            if(isset($_POST["hasRoof"])&&($_POST["hasRoof"]=="false"||$_POST["hasRoof"]=="true")) {
+            if(isset($_POST["hasRoof"]) && ($_POST["hasRoof"]=="false" || $_POST["hasRoof"]=="true")) {
                 $hasRoof = ($_POST["hasRoof"]=="true");
             } else {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei der Überdachungs-Auswahl. <br>";
@@ -75,7 +75,7 @@ if(isset($_POST["alterEntry"])){
             }
 
             //Check Holdingtype Dropdown
-            if(isset($_POST["holdingType"])&&is_string($_POST["holdingType"]) && in_array($_POST["holdingType"],["(Keine Angabe)","Einfache Vorderradhalter","Fahrradgerechte Vorderradhalter","Anlehnbügel","Schräghochparker"],true)) {
+            if(isset($_POST["holdingType"]) && is_string($_POST["holdingType"]) && in_array($_POST["holdingType"],["(Keine Angabe)","Einfache Vorderradhalter","Fahrradgerechte Vorderradhalter","Anlehnbügel","Schräghochparker"],true)) {
                 $holdingType = htmlspecialchars($_POST["holdingType"]);
             } else {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei der Fahrradshalterungs-Auswahl. <br>";
@@ -83,7 +83,7 @@ if(isset($_POST["alterEntry"])){
             }
 
             //Check Discription Text
-            if(isset($_POST["description"])&&is_string($_POST["description"])) {
+            if(isset($_POST["description"]) && is_string($_POST["description"])) {
                  $description = htmlspecialchars($_POST["description"]);
             } else {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei den Besonderheiten. <br>";
@@ -91,7 +91,7 @@ if(isset($_POST["alterEntry"])){
             }
 
             //Check longitude Value
-            if(isset($_POST["longitude"])&&is_string($_POST["longitude"]) ){
+            if(isset($_POST["longitude"]) && is_string($_POST["longitude"])){
                 $longitude = (float) $_POST["longitude"];
             } else {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei der Längengrad-Einstellung. <br>";
@@ -99,7 +99,7 @@ if(isset($_POST["alterEntry"])){
             }
 
             //Check latitude Value
-            if(isset($_POST["latitude"])&&is_string($_POST["latitude"]) ){
+            if(isset($_POST["latitude"]) && is_string($_POST["latitude"])){
                 $latitude = (float) $_POST["latitude"];
             } else {
                 $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei der Breitengrad-Einstellung. <br>";
@@ -107,19 +107,19 @@ if(isset($_POST["alterEntry"])){
             }
 
             if($inputsCorrect) {
-                $wasAltered = $contentmanager->alterEntry($entryId, $entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
+                $wasAltered = $contentmanager->alterEntry($entryId, $entryName, $isPublic, $size, $hasRoof, $holdingType, $description, $longitude,
                 $latitude, $imgType);
                 if($wasAltered) {
-                        if($imgType!==null){
-                            try{
-                                $image=$oldEntryData->getImage();
-                                if(unlink($image)){
+                        if($imgType !== null) {
+                            try {
+                                $image = $oldEntryData->getImage();
+                                if(unlink($image)) {
                                     move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$entryId."/EntryPic".$entryId.".".$imgType);
                                     header('Location: '.$domain."/entryPage.php?EntryID=".$entryId);
-                                }else{
+                                } else {
                                     header('Location: '.$domain."/entryPage.php?EntryID=".$entryId);
                                 }
-                            }catch (Exception $ex) {
+                            } catch (Exception $ex) {
                                 $_SESSION["Message"] = $_SESSION["Message"] . "Ein Fehler wurde Geworfen. <br>";
                                 header('Location: '.$domain."/Index.php");
                             }
@@ -133,7 +133,7 @@ if(isset($_POST["alterEntry"])){
                 $_SESSION["Message"] = $_SESSION["Message"] . "Änderung des Stellplatzes nicht erfolgreich. <br>";
                 header('Location: '.$domain.$prevPage);
             }
-        }else{
+        } else {
             $_SESSION["Message"] = $_SESSION["Message"] . "Zum bearbeiten von Einträgen bitte mit einem Registrierten Account einloggen. <br>";
             header('Location: '.$domain."/registration.php");
         }
@@ -142,4 +142,5 @@ if(isset($_POST["alterEntry"])){
         header('Location: '.$domain."/Index.php");
     }
 }
+
 ?>
