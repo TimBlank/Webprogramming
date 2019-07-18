@@ -2,20 +2,9 @@
     margin: 20pt;
 }
 
-#marginTop {
-    margin-top: 20pt;
-
-}
-
 #headerRow {
     margin-right: 0;
 }
-
-.card {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 
 @media (min-width: 1252px) {
     .navSearch {
@@ -50,52 +39,14 @@
     width: height+50px;
 }
 
-.createEntryPage {
-    padding-bottom: 20px
-}
-
-.createEntryPage .container {
-    background-color: white;
-}
-
-.createEntryPage .col {
-    width: 50%;
-}
-
-.createEntryPage input[type="text"] {
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
-
-.createBtn {
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center
-}
-
-.registerButton {
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center
-}
-
-@media (min-width: 575px) {
+@media (min-width: 576px) {
     .map {
         height: 250px;
         width: height+10px;
     }
 }
 
-@media (max-width: 574.98px) {
+@media (max-width: 575.98px) {
     .regis .form-row {
         padding-bottom: 20px;
     }
@@ -122,15 +73,6 @@
 
 #loginBtn {
     padding-top: 3px;
-}
-
-.regis {
-    max-width: 800px;
-    margin: auto;
-}
-
-.regis input {
-    margin-top: 5px;
 }
 
 
@@ -187,16 +129,6 @@
 
 /* Ende */
 
-.commentImage img {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    height: auto;
-    width: auto;
-    max-width: 400px;
-    max-height: 400px;
-}
-
 #imagePreview {
     padding-left: 10px;
     padding-right: 10px;
@@ -212,4 +144,11 @@
 
 .legalText {
     padding: 10px;
+}
+
+#dataProtCheck {
+    background-color:white;
+    border-radius:10px;
+    margin-top:5px;
+    text-indent:6px;
 }

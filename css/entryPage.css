@@ -1,0 +1,48 @@
+#delForm input {
+    width: 100%;
+}
+
+.card-group {
+    margin-bottom: 15px;
+}
+
+.card-group > .card {
+    margin-bottom: 0px;
+}
+
+.entryBtns {
+    margin: 1px;
+}
+
+#entryTable {
+    text-align: center;
+}
+
+.gray .card {
+    background-color: lightgray;
+}
+
+@media (min-width: 576px) {
+    #entryTable {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #entryTable .card-group {
+        display: block;
+    }
+}
+
+#marginTop {
+    margin-top: 20pt;
+}
+
+.commentImage img {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    height: auto;
+    width: auto;
+    max-width: 400px;
+    max-height: 400px;
+}

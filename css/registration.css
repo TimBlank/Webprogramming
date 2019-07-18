@@ -1,0 +1,17 @@
+.registerButton {
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center
+}
+
+.regis {
+    max-width: 800px;
+    margin: auto;
+}
+
+.regis input {
+    margin-top: 5px;
+}

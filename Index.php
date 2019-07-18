@@ -46,13 +46,11 @@
                                     $content = $contentmanager->loadEntry($entryID);
                                     ?>
                                 <li id="<?php echo $content->getId();?>" class="entry">
-                                    <h1><a class="card-title entryName" title="<?php echo $content->getName(); ?>">
-                                            <?php echo $content->getName(); ?>
-                                        </a></h1>
+                                    <h1 class="card-title entryName" title="<?php echo $content->getName(); ?>">
+                                        <?php echo $content->getName(); ?>
+                                    </h1>
                                     <div class="card-group">
                                         <div class="card">
-                                            <p hidden class="longitude"><?php echo $content->getLongitude();?></p>
-                                            <p hidden class="latitude"><?php echo $content->getLatitude();?></p>
                                             <img class="card-img-top" class="img-fluid" src="<?php echo $content->getImage(); ?>" alt="Bild des Stellplatzes" onclick="openImgModal(this.src);">
                                             <div class="card-body">
                                             </div>
@@ -68,6 +66,8 @@
                                             </div>
                                         </div>
                                         <div class="card">
+                                            <p hidden class="longitude"><?php echo $content->getLongitude();?></p>
+                                            <p hidden class="latitude"><?php echo $content->getLatitude();?></p>
                                             <div id="minimap<?php echo $content->getId(); ?>" class="map">
                                             </div>
                                         </div>

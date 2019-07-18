@@ -60,6 +60,14 @@ if(isset($_POST["registerBtn"])) {
         $_SESSION["Message"] = $_SESSION["Message"] . "Fehler beim Account Namen. <br>";
     }
 
+    //Check agreed to Data Protection
+    if(isset($_POST["dataProtection"]) && $_POST["dataProtection"] == true) {
+
+    } else {
+        $formCor = false;
+        $_SESSION["Message"] = $_SESSION["Message"] . "Um ein Account zu erstellen muss dem Datenschutz zugestimmt werden. <br>";
+    }
+
 
     if($formCor == true) {
         if($password == $passwordRepeat) {

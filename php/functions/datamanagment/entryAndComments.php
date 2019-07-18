@@ -11,7 +11,7 @@
     private $longitude;
     private $latitude;
 
-    public function __construct($setId,$setName="Beschreibender Name",$setImage="pictures/dummyEntry/DummyBild.png",$setIsPublic=true,$setSize="Klein(0-30)/Mittel(30-100)/Groß(100+)",$setHasRoof=true,$setHolderType="Einfacher Vorderradhalter",$setDescription="Zum Beispiel Zugänglichkeit oder anderes",$setLongitude=null,$setLatitude=null) {
+    public function __construct($setId,$setName="Fehler 404",$setImage="pictures/404.png",$setIsPublic=null,$setSize=null,$setHasRoof=null,$setHolderType=" ",$setDescription="Dieser Beitrag existiert nicht oder wurde gelöscht.",$setLongitude=null,$setLatitude=null) {
         $this->id = $setId;
         $this->name = $setName;
         $this->image = $setImage;

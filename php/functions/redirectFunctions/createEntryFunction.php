@@ -102,12 +102,10 @@ if(isset($_POST["submitEntry"])) {
             $inputsCorrect = false;
         }
 
-        //TODO: Überprüfen, ob alles richtig ausgefüllt ist.
         if($inputsCorrect) {
             $id = $contentmanager->addEntry($entryName, $isPublic, $size, $hasRoof, $holdingType, $description,$longitude,
             $latitude, $imgType);
             if($id !== false) {
-                //echo "Test erfolgreich";
                 if(!is_dir("pictures/Entry".$id."/")) {
                     mkdir("pictures/Entry".$id."/");
                 }
@@ -115,19 +113,20 @@ if(isset($_POST["submitEntry"])) {
                     mkdir("pictures/Entry".$id."/comments/");
                 }
                 move_uploaded_file($_FILES["userImage"]["tmp_name"],"pictures/Entry".$id."/EntryPic".$id.".".$imgType);
-                    //TODO: Auf neue Eintragsseite gehen.
+                $_SESSION["Message"] = $_SESSION["Message"] . "Beitrag erfolgreich erstellt. <br>";
                 header('Location: '.$domain."/entryPage.php?EntryID=".$id);
             } else {
-                //echo "Test fehlgeschlagen";
-                //TODO: Fehler anzeigen.
-                 header('Location: '.$domain.$prevPage);
+                $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei der Erstellung des Beitrages. <br>";
+                header('Location: '.$domain.$prevPage);
             }
-        }else {
-             header('Location: '.$domain.$prevPage);
+        } else {
+            $_SESSION["Message"] = $_SESSION["Message"] . "Fehler bei den Eingabewerten des Beitrages. <br>";
+            header('Location: '.$domain.$prevPage);
         }
-    }else{
+    } else {
+        $_SESSION["Message"] = $_SESSION["Message"] . "Bitte erst mit einem Registrieten Account einloggen um Beiträge zu erstellen. <br>";
         header('Location: '.$domain."/registration.php");
     }
-
 }
+
 ?>
