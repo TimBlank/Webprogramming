@@ -57,6 +57,29 @@ class Usermanagment implements iUsermanagment {
             $db = null;
         }
     }
+
+    public function userExists($username){
+        try {
+            $db = databaseConnect();
+            $db->beginTransaction();
+
+            //Überprüfen ob Benutzer schon existiert
+            $sql = "SELECT username FROM user WHERE username = (:username)";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(":username", $username);
+            $stmt->execute();
+            $userData = $stmt->fetchObject();
+
+                $db->commit();
+                $db = null;
+                return !empty($userData);
+
+        } catch (PDOException $ex) {
+            echo "Fehler: " . $ex->getMessage(). "<br />";
+            $db->rollBack();
+            $db = null;
+        }
+    }
 }
 
 ?>
