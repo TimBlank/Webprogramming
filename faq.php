@@ -52,7 +52,7 @@
                             Wo erstelle ich einen neuen Beitrag?
                         </h5>
                         <div class="card-text">
-                            Zur <a href="createEntryPage.php">Erstellungsseite</a> kommt man über die einzelen Karten von <a href="map.php?campusSite=Haarentor">Haarentor</a>, <a href="map.php?campusSite=Wechloy">Wechloy</a> oder <a href="map.php?campusSite=Johann-Justus-Weg">Johan-Justus-Weg</a>, <a href="map.php?campusSite=Botanischer Garten">Botanischer Garten</a> und <a href="map.php?campusSite=Offis">Offis</a> unter Weitere in der Navigationsleiste.
+                            Zur <a href="createEntryPage.php">Erstellungsseite</a> kommt man über die einzelen Karten von <a href="map.php?campusSite=Haarentor">Haarentor</a>, <a href="map.php?campusSite=Wechloy">Wechloy</a> oder <a href="map.php?campusSite=Johann-Justus-Weg">Johan-Justus-Weg</a>, <a href="map.php?campusSite=Botanischer%20Garten">Botanischer Garten</a> und <a href="map.php?campusSite=Offis">Offis</a> unter Weitere in der Navigationsleiste.
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                             Was bedueten die ganzen Halterungsarten?
                         </h5>
                         <div class="card-text">
-                            Wir benutzen die Halterungsarten von Wikipedia. Diese kann man <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">hier</a> nachlesen.
+                            Wir benutzen die Halterungsarten von Wikipedia. Diese kann man <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_blank" rel="noopener noreferrer" title="Bauformen von Fahrradhaltern">hier</a> nachlesen.
                         </div>
                     </div>
                 </div>

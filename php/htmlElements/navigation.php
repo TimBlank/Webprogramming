@@ -35,7 +35,7 @@
                         <a class="dropdown-item" href="map.php?campusSite=Johann-Justus-Weg" title="Johann-Justus-Weg">
                             Johann-Justus-Weg
                         </a>
-                        <a class="dropdown-item" href="map.php?campusSite=Botanischer Garten" title="Botanischer Garten">
+                        <a class="dropdown-item" href="map.php?campusSite=Botanischer%20Garten" title="Botanischer Garten">
                             Botanischer Garten
                         </a>
                         <a class="dropdown-item" href="map.php?campusSite=Offis" title="Offis">
