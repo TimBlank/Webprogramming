@@ -11,7 +11,7 @@
         <?php }else{ ?>
         <a class="nav-link dropdown-toggle active" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Einloggen oder Regestrieren">Login</a>
         <div class="dropdown-menu bg-light dropdown-menu-right">
-            <a class="dropdown-item">
+            <div class="dropdown-item">
                 <div class="form-inline dropdown-item">
                     <form action="redirect.php" method="post" class="form-inline dropdown-item">
                         <div>
@@ -27,7 +27,7 @@
                             <input type="password" class="form-control" id="password" name="pw" placeholder="Passwort" autocomplete="off" required>
                         </div>
                         <div id="loginBtn">
-                            <button type="submit" class="btn btn-default" name="loginSubmit" value="loginSubmit">
+                            <button type="submit" class="btn btn-primary" name="loginSubmit" value="loginSubmit">
                                 Einloggen
                             </button>
                         </div>
@@ -36,7 +36,7 @@
                         Registrieren
                     </a>
                 </div>
-            </a>
+            </div>
         </div>
         <?php } ?>
     </li>

@@ -34,7 +34,6 @@
     <div id="background">
         <div id="mainFrame">
             <div class="createEntryPage">
-                <section>
                     <form action="redirect.php" method="post" enctype="multipart/form-data">
                         <div class="container border">
                             <div class="row border">
@@ -144,7 +143,7 @@
                                     </div>
                                     <div class="col border">
                                         Art der Fahrradhalterung siehe
-                                        <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_side" title="Bauformen von Fahrradhaltern">
+                                        <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_blank" rel="noopener noreferrer" title="Bauformen von Fahrradhaltern">
                                             Wikipedia
                                         </a>
                                         <div class="form-group">
@@ -174,7 +173,6 @@
                         </div>
 
                     </form>
-                </section>
             </div>
         </div>
     </div>
