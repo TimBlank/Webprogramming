@@ -82,7 +82,6 @@
                                     </div>
                                     <div class="card">
                                         <?php echo $content->getHolderType() ?>
-                                        <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
                                     </div>
                                 </div>
                                 <div class="card-group gray">
@@ -160,7 +159,6 @@
                                             <label for="commentText">
                                                 Schreibe etwas:
                                             </label>
-                                            <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
                                             <textarea class="form-control" id="commentText" name="commentText" placeholder="Kommentar" cols="30" rows="2" required></textarea>
                                         </div>
                                         <input type="submit" name="SubmitComment" value="Kommentieren" class="btn btn-default" />

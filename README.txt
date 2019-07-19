@@ -9,9 +9,10 @@ Die Gruppe besteht aus:
 -3. Tim Behrens     tim.behrens@uni-oldenburg.de Matr.Nr.: 3288187
 
 Funktionalitäten:
--Suche nach Stellplätzen anhand von Kriterien
+-Suche nach Stellplätzen anhand von Kriterien ist auf mehreren Seiten möglich
 -Suchergebnisse werden auf der Startseite angezeigt
--Auf der Startseite werden Beiträge in der Reihenfolge angezeigt, in der sie erstellt wurden
+-Auf der Startseite werden Beiträge in der Reihenfolge angezeigt, in der sie erstellt wurden, sofern keine Suchergenisse angezeigt werden
+-Anzeige des aktuellen Wetters in Oldenburg auf mehreren Seiten
 -Erstellen eines Account
 -Erstellen und Bearbeiten von Beiträgen als eingeloggter Benutzer
 -Schreiben von Kommentaren als eingeloggter Benutzer

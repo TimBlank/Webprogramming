@@ -1,6 +1,5 @@
 <?php
 
-//Holt Werte über get und gibt die Ergebnisse der Funktion searchResult weiter
 function loadEntries($contentmanager) {
     if(isset($_GET["SubmitSearch"])) {
         $entryName = "";
