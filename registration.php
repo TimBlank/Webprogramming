@@ -7,22 +7,42 @@
     <?php include_once "php/htmlElements/head.php";?>
     <link rel="stylesheet" href="css/noSearchWeather.css">
     <link rel="stylesheet" href="css/registration.css">
+    <script>
+        function checkName(name) {
+            if (name.length !== 0) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    $("#usernameExists").empty();
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText == true) {
+                            //$("accountName").setCustomValidity("Es gibt schon einen Benutzer mit diesem Namen");
+                            $("#usernameExists").append("&nbsp;Es gibt schon einen Benutzer mit diesem Namen&nbsp;");
+                        }
+                    }
+                };
+                xmlhttp.open("GET", "php/usernameCheck.php?name=" + name, true);
+                xmlhttp.send();
+            }
+        }
+
+    </script>
 </head>
 
 <body>
     <?php include_once "php/htmlElements/header.php"; ?>
     <?php include_once "php/htmlElements/navigation.php"; ?>
     <?php include_once "php/functions/loadEntries.php"; ?>
-    <?php include_once "php/functions/datamanagment/usermanagmentDao.php"; ?>
+    <?php include_once "php/functions/datamanagment/usermanagmentImpl.php"; ?>
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
                 <form action="redirect.php" method="post">
                     <!--Acountname-->
                     <div>
-                        <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" required>
+                        <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" onblur="checkName(this.value)" required>
+                        <label id="usernameExists"> </label>
                     </div>
-                  
+
                     <!--Email-->
                     <div>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com" required>
@@ -46,7 +66,6 @@
                         <input type="checkbox" class="form-control" name="dataProtection" id="dataProtection" required>
                     </div>
 
-
                     <div class="registerButton">
                         <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
                     </div>
@@ -54,7 +73,6 @@
             </div>
         </div>
     </div>
-
 
     <?php include_once "php/htmlElements/footer.php"; ?>
 
