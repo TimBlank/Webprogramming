@@ -8,8 +8,10 @@ Die Gruppe besteht aus:
 
 -3. Tim Behrens     tim.behrens@uni-oldenburg.de Matr.Nr.: 3288187
 
-Funktionalitäten oder Sitemap:
+Funktionalitäten:
 -Suche nach Stellplätzen anhand von Kriterien
+-Suchergebnisse werden auf der Startseite angezeigt
+-Auf der Startseite werden Beiträge in der Reihenfolge angezeigt, in der sie erstellt wurden
 -Erstellen eines Account
 -Erstellen und Bearbeiten von Beiträgen als eingeloggter Benutzer
 -Schreiben von Kommentaren als eingeloggter Benutzer
