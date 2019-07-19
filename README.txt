@@ -15,11 +15,13 @@ Funktionalitäten:
 -Anzeige des aktuellen Wetters in Oldenburg auf mehreren Seiten
 -Benachrichtigung bei Fehlern und andere Benachrichtgungen(z.B. Login)
 -Erstellen eines Account ist möglich
--Erstellen und Bearbeiten von Beiträgen als eingeloggter Benutzer
+-Ein und ausloggen mit Benutzername und Passwort ist möglich
+-Erstellen, Bearbeiten und Löschen von Beiträgen als eingeloggter Benutzer
 -Schreiben von Kommentaren als eingeloggter Benutzer
+-Löschen der eigenen Kommentare
 -Anzeige aller Stellplätze zu einem Uni-Standort(Über die Marke kommt man zum Beitrag)
 -Footer führt zu Impressum, Datenschutz und FAQ
--Viele grundlegende Funktion sind auch ohne Javascript möglich
+-Viele grundlegende Funktionen sind auch ohne Javascript möglich
 
 
 
