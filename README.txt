@@ -2,7 +2,7 @@
 
 Die Gruppe besteht aus:
 
--1. Yannis Odion    yannis.odion@uni-oldenburg.de Matr.Nr.:
+-1. Yannis Odion    yannis.odion@uni-oldenburg.de Matr.Nr.: 4056767
 
 -2. Hauke Tammen    hauke.tammen@uni-oldenburg.de Matr.Nr.: 4050747
 
@@ -13,6 +13,7 @@ Funktionalitäten:
 -Suchergebnisse werden auf der Startseite angezeigt
 -Auf der Startseite werden Beiträge in der Reihenfolge angezeigt, in der sie erstellt wurden, sofern keine Suchergenisse angezeigt werden
 -Anzeige des aktuellen Wetters in Oldenburg auf mehreren Seiten
+-Benachrichtigung bei Fehlern und anderen
 -Erstellen eines Account
 -Erstellen und Bearbeiten von Beiträgen als eingeloggter Benutzer
 -Schreiben von Kommentaren als eingeloggter Benutzer
