@@ -12,9 +12,9 @@
             if (name.length !== 0) {
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
-                        $("#usernameExists").empty();
+                    $("#usernameExists").empty();
                     if (this.readyState == 4 && this.status == 200) {
-                        if (this.responseText==true) {
+                        if (this.responseText == true) {
                             //$("accountName").setCustomValidity("Es gibt schon einen Benutzer mit diesem Namen");
                             $("#usernameExists").append("&nbsp;Es gibt schon einen Benutzer mit diesem Namen&nbsp;");
                         }
@@ -36,18 +36,18 @@
     <div id="background">
         <div id="mainFrame">
             <div class="regis">
-               <form action="redirect.php" method="post">
+                <form action="redirect.php" method="post">
                     <!--Acountname-->
                     <div>
                         <input type="text" class="form-control" name="accountName" id="accountName" placeholder="Accountname" onblur="checkName(this.value)" required>
                         <label id="usernameExists"> </label>
                     </div>
-                 
+
                     <!--Email-->
                     <div>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email@mail.com" required>
                     </div>
-                 
+
                     <!--Passwort-->
                     <div>
                         <input type="password" class="form-control" name="password" id="password" placeholder="Passwort" required>
@@ -65,7 +65,7 @@
                             gelesen und bin mit dieser Einverstanden.</label>
                         <input type="checkbox" class="form-control" name="dataProtection" id="dataProtection" required>
                     </div>
-                 
+
                     <div class="registerButton">
                         <input type="submit" name="registerBtn" value="Registrieren" class="btn btn-default">
                     </div>
