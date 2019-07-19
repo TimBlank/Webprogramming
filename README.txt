@@ -35,3 +35,6 @@ Nicht umgesetzte Teilaufgaben:
 
 Bekannte Fehler/Mängel:
 -Bisher keine gefunden
+
+Hinweis:
+Der Ordner Entwurf gehört nicht zur eigentlichen Website und enthält ein paar Dokumente/Bilder die mit der Entwicklung der Seite zusammenhängen
