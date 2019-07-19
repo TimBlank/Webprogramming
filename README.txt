@@ -17,7 +17,8 @@ Funktionalitäten:
 -Erstellen eines Account
 -Erstellen und Bearbeiten von Beiträgen als eingeloggter Benutzer
 -Schreiben von Kommentaren als eingeloggter Benutzer
--Anzeige aller Stellplätze zu einem Uni-Standort
+-Anzeige aller Stellplätze zu einem Uni-Standort(Über die Marke kommt man zum Beitrag)
+-Footer führt zu Impressum, Datenschutz und FAQ
 
 
 
