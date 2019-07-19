@@ -22,12 +22,10 @@ Funktionalitäten:
 
 
 Nicht umgesetzte Teilaufgaben:
--...
--...
+-Sollten alle vorhanden sein
 
 Bekannte Fehler/Mängel:
--...
--...
+-Bisher keine gefunden
 
 
 Besonderheiten:
