@@ -147,7 +147,7 @@
                                 <form action="redirect.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                     <div class="form-group">
-                                        <img src="pictures/IconTransparent.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
+                                        <img src="pictures/IconWithBackround.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
                                         <label for="userImage">
                                             Bild hinzufügen
                                         </label><br>

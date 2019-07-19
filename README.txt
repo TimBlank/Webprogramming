@@ -22,6 +22,7 @@ Funktionalitäten:
 -Anzeige aller Stellplätze zu einem Uni-Standort(Über die Marke kommt man zum Beitrag)
 -Footer führt zu Impressum, Datenschutz und FAQ
 -Viele grundlegende Funktionen sind auch ohne Javascript möglich
+-Bilder werden Größer dargestellt, wenn sie angeklickt werden
 
 
 
