@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Vorlage für einen Beitrag -->
 
 <html lang="de">
 

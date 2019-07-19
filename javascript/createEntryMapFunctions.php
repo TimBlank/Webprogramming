@@ -64,8 +64,7 @@
 
         // Adds a marker to the map.
         function addMarker(location, map) {
-            // Add the marker at the clicked location, and add the next-available label
-            // from the array of alphabetical characters.
+            // Add the marker at the clicked location.
             changeInputCoordinates(location.lng(), location.lat());
             if (marker == null) {
                 marker = new google.maps.Marker({
@@ -80,6 +79,8 @@
                 marker.setPosition(location);
             };
         }
+
+        //Quelle: https://developers.google.com/maps/documentation/android-sdk/marker
 
     </script>
     <script async defer src=" https://maps.googleapis.com/maps/api/js?key=AIzaSyDG6fPCUYbyDko0vrNu4vZvR_Yz5jVNvik&callback=initMap ">

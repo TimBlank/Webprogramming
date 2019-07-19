@@ -82,7 +82,6 @@
                                     </div>
                                     <div class="card">
                                         <?php echo $content->getHolderType() ?>
-                                        <!-- https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern -->
                                     </div>
                                 </div>
                                 <div class="card-group gray">
@@ -148,7 +147,7 @@
                                 <form action="redirect.php" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="EntryID" value="<?php echo $entryID;?>">
                                     <div class="form-group">
-                                        <img src="pictures/IconTransparent.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
+                                        <img src="pictures/IconWithBackround.png" id="imagePreview" alt="Bild des Kommentares" class="img-fluid"><br>
                                         <label for="userImage">
                                             Bild hinzufügen
                                         </label><br>
@@ -160,7 +159,6 @@
                                             <label for="commentText">
                                                 Schreibe etwas:
                                             </label>
-                                            <!--<input type="text" class="form-control" id="commentText" name="ct" value="" placeholder="Kommentar" autocomplete="off" />-->
                                             <textarea class="form-control" id="commentText" name="commentText" placeholder="Kommentar" cols="30" rows="2" required></textarea>
                                         </div>
                                         <input type="submit" name="SubmitComment" value="Kommentieren" class="btn btn-default" />

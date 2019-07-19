@@ -63,7 +63,6 @@ class Usermanagment implements iUsermanagment {
             $db = databaseConnect();
             $db->beginTransaction();
 
-            //Überprüfen ob Benutzer schon existiert
             $sql = "SELECT username FROM user WHERE username = (:username)";
             $stmt = $db->prepare($sql);
             $stmt->bindParam(":username", $username);

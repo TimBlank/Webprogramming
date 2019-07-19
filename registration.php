@@ -15,7 +15,6 @@
                     $("#usernameExists").empty();
                     if (this.readyState == 4 && this.status == 200) {
                         if (this.responseText == true) {
-                            //$("accountName").setCustomValidity("Es gibt schon einen Benutzer mit diesem Namen");
                             $("#usernameExists").append("&nbsp;Es gibt schon einen Benutzer mit diesem Namen&nbsp;");
                         }
                     }

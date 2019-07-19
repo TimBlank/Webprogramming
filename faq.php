@@ -100,7 +100,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">
-                            Was bedueten die ganzen Halterungsarten?
+                            Was bedeuten die ganzen Halterungsarten?
                         </h5>
                         <div class="card-text">
                             Wir benutzen die Halterungsarten von Wikipedia. Diese kann man <a href="https://de.wikipedia.org/wiki/Fahrradabstellanlage#Bauformen_von_Fahrradhaltern" target="_blank" rel="noopener noreferrer" title="Bauformen von Fahrradhaltern">hier</a> nachlesen.
